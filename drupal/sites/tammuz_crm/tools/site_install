@@ -1,0 +1,12 @@
+#!/bin/bash
+USER=$1
+PASS=$2
+DB=$3
+
+URL=mysql://$USER:$PASS@localhost/$DB
+echo installing drupal site on $URL
+
+
+
+
+drush si --db-url=$URL --site-name="Tammuz CRM Dev" --account-pass="12345" --site-mail="admin@tammuz-crm.com" install_configure_form.update_status_module='array(FALSE,FALSE)'
