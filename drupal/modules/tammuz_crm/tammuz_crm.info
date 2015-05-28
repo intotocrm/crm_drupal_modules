@@ -1,0 +1,5 @@
+name = Tammuz CRM
+description = Implementation of CRM for Tammuz
+core = 7.x
+
+dependencies[] = crm_core_contact

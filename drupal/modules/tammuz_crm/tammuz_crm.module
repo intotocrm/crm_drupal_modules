@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * Implements hook_help().
+ *
+ * Displays help and module information.
+ *
+ * @param path 
+ *   Which path of the site we're using to display help
+ * @param arg 
+ *   Array that holds the current path as returned from arg() function
+ */
+function tammuz_crm_help($path, $arg) {
+  switch ($path) {
+    case "admin/help#tammuz_crm":
+      return '<p>' . t("Implementation of CRM for Tammuz") . '</p>';
+      break;
+  }
+} 
+
+
+
+/**
+ * Implements hook_block_info().
+ */
+function tammuz_crm_block_info() {
+  $blocks['recent_contacts'] = array(
+    // The name that will appear in the block list.
+    'info' => t('Recent Contacts'),
+    // Default setting.
+    'cache' => DRUPAL_CACHE_PER_ROLE,
+  );
+  return $blocks;
+}
+
+
+/**
+ * Implements hook_block_view().
+ * 
+ * Prepares the contents of the block.
+ */
+function tammuz_crm_block_view($delta = '') {
+  switch ($delta) {
+    case 'recent_contacts':
+      $block['subject'] = t('Recent Contacts');
+      if (user_access('access content')) {
+          $block['content'] = t('place holder for currently viewed contacts');  
+      }
+      else {
+          $block['content'] = t('You are not allowed to view this');  
+      }
+    return $block;
+  }
+}
