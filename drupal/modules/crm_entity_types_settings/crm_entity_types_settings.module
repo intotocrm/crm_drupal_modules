@@ -1,0 +1,68 @@
+<?php
+
+/**
+ * Implements hook_help().
+ *
+ * Displays help and module information.
+ *
+ * @param path 
+ *   Which path of the site we're using to display help
+ * @param arg 
+ *   Array that holds the current path as returned from arg() function
+ */
+function crm_entity_types_settings_help($path, $arg) {
+  switch ($path) {
+    case "admin/help#crm_entity_types_settings":
+      return '<p>' . t("Implementation of CRM entity types besides what comes from features' crm_entity_types") . '</p>';
+      break;
+  }
+} 
+
+
+
+/**
+ * Implements hook_block_info().
+ */
+function crm_entity_types_settings_block_info() {
+  $blocks['new_block'] = array(
+    // The name that will appear in the block list.
+    'info' => t('My New Block'),
+    // Default setting.
+    'cache' => DRUPAL_CACHE_PER_ROLE,
+  );
+  return $blocks;
+}
+
+
+/**
+ * Implements hook_block_view().
+ * 
+ * Prepares the contents of the block.
+ */
+function crm_entity_types_settings_block_view($delta = '') {
+  switch ($delta) {
+    case 'new_block':
+      $block['subject'] = t('a New Block');
+      if (user_access('access content')) {
+          $block['content'] = t('place holder for block');  
+      }
+      else {
+          $block['content'] = t('You are not allowed to view this');  
+      }
+    return $block;
+  }
+}
+
+
+
+
+function crm_core_contact_customer_label($entity)
+{
+	$field_caption = field_view_field('crm_core_contact', $entity, 'field_caption', array('settings' => array('output' => 'raw')));
+	if(isset($field_caption[0]['#markup']))
+	{
+		return $field_caption[0]['#markup'];
+	}
+	$field_name = field_view_field('crm_core_contact', $entity, 'contact_name', array('settings' => array('output' => 'raw')));
+	return isset($field_name[0]['#markup']) ? isset($field_name[0]['#markup']) : "no label";
+}

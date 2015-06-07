@@ -1,0 +1,5 @@
+name = CRM entity types settings
+description = Implementation of CRM entity types besides what comes from features' crm_entity_types
+core = 7.x
+
+dependencies[] = crm_core_contact
