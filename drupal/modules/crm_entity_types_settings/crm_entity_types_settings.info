@@ -3,3 +3,5 @@ description = Implementation of CRM entity types besides what comes from feature
 core = 7.x
 
 dependencies[] = crm_core_contact
+dependencies[] = crm_core_relationship
+dependencies[] = crm_core_relationship_ui

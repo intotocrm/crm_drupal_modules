@@ -66,3 +66,131 @@ function crm_core_contact_customer_label($entity)
 	$field_name = field_view_field('crm_core_contact', $entity, 'contact_name', array('settings' => array('output' => 'raw')));
 	return isset($field_name[0]['#markup']) ? isset($field_name[0]['#markup']) : "no label";
 }
+
+function generate_relationship()
+{
+    //do nothing
+}
+
+function page_manager_page_cb()
+{
+    module_load_include("inc", "page_manager", "plugins/tasks/page");
+    $subtask_id = "child_main_page";
+    $output = page_manager_page_execute($subtask_id);    
+    //return "XXXX";
+    return $output;
+}
+
+function views_view_cb()
+{
+
+    $my_view_name = 'crm_core_contacts';
+    $my_display_name = 'Page';
+
+    $my_view = views_get_view($my_view_name);
+    if ( is_object($my_view) ) { 
+	$my_view->set_display($my_display_name);
+	$my_view->pre_execute();
+	return $my_view->render($my_display_name);
+    }
+}
+
+function crm_entity_types_settings_menu()
+{
+    $items = array();
+    $items["crm-core/contact/%/relationships/generate"] = array(
+      'title' => 'Generate a relationship',
+      'description' => 'Generate a relationship to this contact',
+      'page callback' => 'generate_relationship',
+      'page arguments' => array( 2 ),
+      'access callback' => TRUE,
+      'type' => MENU_LOCAL_ACTION,
+//      'file' => 'crm_core_relationship_ui.pages.inc',
+      'weight' => 5,
+    );
+
+    $items["crm-core/contact/generate"] = array(
+      'title' => 'Generate a relationship general',
+      'description' => 'Generate a relationship to this contact',
+      'page callback' => 'generate_relationship',
+//      'page arguments' => array( 2 ),
+      'access callback' => TRUE,
+      'type' => MENU_LOCAL_ACTION,
+//      'file' => 'crm_core_relationship_ui.pages.inc',
+      'weight' => 5,
+    );
+
+    $items["crm-core/contact/eliminate"] = array(
+      'title' => 'Eliminate a relationship general',
+      'description' => 'Generate a relationship to this contact',
+      'page callback' => 'generate_relationship',
+//      'page arguments' => array( 2 ),
+      'access callback' => TRUE,
+      'type' => MENU_LOCAL_ACTION,
+//      'file' => 'crm_core_relationship_ui.pages.inc',
+      'weight' => 5,
+    );
+    
+//    $items["crm-core/contact/%"] = array(
+//      'title' => 'parent',
+//      'description' => 'additional tab',
+//      'type' => MENU_NORMAL_ITEM,
+//      'weight' => 5,
+//      'access callback' => TRUE,
+//    );
+    
+    
+    
+    $items["crm-core/contact/%/page"] = array(
+      'title' => 'Page',
+      'description' => 'additional tab with page manager page',
+      'type' => MENU_LOCAL_TASK,
+      'weight' => 5,
+      'access callback' => TRUE,
+      'page callback' => 'page_manager_page_cb',
+    );
+
+    $items["crm-core/contact/%/views_view"] = array(
+      'title' => 'Views view',
+      'description' => 'additional tab with views view',
+      'type' => MENU_LOCAL_TASK,
+      'weight' => 5,
+      'access callback' => TRUE,
+      'page callback' => 'views_view_cb',
+    );
+    
+    return $items;
+}
+
+function crm_entity_types_settings_menu_alter(&$items) 
+{
+    // Unset crm-core tab for relationship which is too generic for this module
+//    print "<pre>menu items:". print_r($items, true). "</pre>";
+    //unset($items['crm-core/contact/%/relationships']);
+}
+
+//implements hook_views_data_alter
+function crm_entity_types_settings_views_data_alter(&$data)
+{
+//    print "<pre>views items keys:". print_r(array_keys($data), true). "</pre>";
+//    print "<pre>views items:". print_r($data, true). "</pre>";
+//    unset ($data['crm_relationships_by_contact']);
+//    unset ($data['crm_core_contact']);
+}
+
+// implements hook_menu_local_tasks_alter
+function crm_entity_types_settings_menu_local_tasks_alter(&$data, $router_item, $root_path)
+{
+//    print "<pre>menu local tasks (alter):". print_r($data, true). "</pre>";
+//    print "<pre>router_item(alter):". print_r($router_item, true). "</pre>";
+//    print "<pre>root_path(alter):". print_r($root_path, true). "</pre>";
+    
+    if (
+	    $router_item['page_callback'] == 'crm_core_contact_view' &&
+	    $router_item['page_arguments'][0]->type == 'child'
+	)
+	{
+	    unset($data['tabs'][0]['output'][1]);
+	    
+        }
+}
