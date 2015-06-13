@@ -13,8 +13,7 @@ projects[ctools][version] = "1.7"
 
 projects[cck_phone][version] = "1.x-dev"
 
-projects[crm_core][version] = "development-dev"
-
+projects[] = "crm_core"
 projects[date][version] = "2.8"
 
 projects[devel][version] = "1.5"
