@@ -213,8 +213,9 @@ function crm_entity_types_settings_views_data_alter(&$data)
 // implements hook_menu_local_tasks_alter
 function crm_entity_types_settings_menu_local_tasks_alter(&$data, $router_item, $root_path)
 {
-    //kpr($router_item);
+//    kpr($router_item);
     $entity_obj = menu_get_object('crm_core_contact', 2); //instead of using page arguments array from $router_item
+//    kpr($entity_obj);
     if (!$entity_obj) //this is in the case that the url does not have a loader, such as .../contact/%my_loader_func/bla
     {
 	switch($router_item['page_callback'])
