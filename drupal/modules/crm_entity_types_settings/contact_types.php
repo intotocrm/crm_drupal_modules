@@ -135,6 +135,14 @@ function crm_entity_types_settings_get_pages($crm_core_object)
 	       ),
 	       'local_actions' => array()
 	   ),
+	'egg_donor' =>
+	    array('tabs' => array(
+		   'crm-core/contact/%/view'=>array(),
+		   'crm-core/contact/%/activity' => array(),
+		   'crm-core/contact/%/related/genetic_parent_of/0'=>array(),
+	       ),
+	       'local_actions' => array()
+	   ),
     );
     
     if (array_key_exists($crm_core_object->type, $pages))
