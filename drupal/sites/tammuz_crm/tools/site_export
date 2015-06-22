@@ -1,0 +1,2 @@
+drush generate-makefile /home/roi/git/crm/drupal/sites/tammuz_crm/tammuz_crm.make
+drush --fields=Extension,status --format=table pm-info |grep enabled|awk '{print $1;}' > ~/git/crm/drupal/sites/tammuz_crm/tammuz_crm_enabled_modules
