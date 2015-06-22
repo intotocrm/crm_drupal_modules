@@ -1,0 +1,4 @@
+#!/bin/bash
+while read p; do
+  echo drush en $p
+done <../tammuz_crm_enabled_modules
