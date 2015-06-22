@@ -13,12 +13,20 @@ projects[ctools][version] = "1.7"
 
 projects[cck_phone][version] = "1.x-dev"
 
-projects[] = "crm_core"
+projects[countries][version] = "2.3"
+
+projects[crm_core][version] = "0.980"
+
+; Please fill the following out. Type may be one of get, git, bzr or svn,
+; and url is the url of the download.
+projects[crm_entity_types_improved][download][type] = ""
+projects[crm_entity_types_improved][download][url] = ""
+projects[crm_entity_types_improved][type] = "module"
+projects[crm_entity_types_improved][version] = "1.0"
+
 projects[date][version] = "2.8"
 
 projects[devel][version] = "1.5"
-
-projects[devel_themer][version] = "1.x-dev"
 
 projects[email][version] = "1.3"
 
@@ -28,11 +36,15 @@ projects[entityreference][version] = "1.1"
 
 projects[features][version] = "2.5"
 
+projects[field_collection][version] = "1.0-beta8"
+
 projects[field_group][version] = "1.4"
 
-projects[homebox][version] = "2.0-rc1"
+projects[file_entity][version] = "2.0-beta1"
 
-projects[link][version] = "1.3"
+projects[panels][version] = "3.5"
+
+projects[languagefield][version] = "1.3"
 
 projects[name][version] = "1.9"
 
@@ -48,15 +60,9 @@ projects[bootstrap][version] = "3.0"
 ; Modules
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
 ; and url is the url of the download.
-projects[tammuz_crm][download][type] = ""
-projects[tammuz_crm][download][url] = ""
-projects[tammuz_crm][type] = "module"
-
-; Please fill the following out. Type may be one of get, git, bzr or svn,
-; and url is the url of the download.
-projects[tammuz_crm_feature][download][type] = ""
-projects[tammuz_crm_feature][download][url] = ""
-projects[tammuz_crm_feature][type] = "module"
+projects[crm_entity_types_settings][download][type] = ""
+projects[crm_entity_types_settings][download][url] = ""
+projects[crm_entity_types_settings][type] = "module"
 
 ; Themes
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
