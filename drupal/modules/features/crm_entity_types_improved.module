@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the CRM Entity Types feature.
+ */
+
+include_once 'crm_entity_types_improved.features.inc';
