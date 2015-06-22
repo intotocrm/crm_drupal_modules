@@ -9,25 +9,10 @@
  */
 function crm_entity_types_improved_field_default_field_instances() {
   $field_instances = array();
-  $field_instances += crm_entity_types_improved_field_default_field_instances_for_individual_bundles('individual', 'Individual');
-  $field_instances += crm_entity_types_improved_field_default_field_instances_for_individual_bundles('surrogate', 'Surrogate');
-  $field_instances += crm_entity_types_improved_field_default_field_instances_for_individual_bundles('egg_donor', 'Egg Donor');
-  $field_instances += crm_entity_types_improved_field_default_field_instances_for_individual_bundles('ip', 'Intended Parent');
-  $field_instances += crm_entity_types_improved_field_default_field_instances_for_individual_bundles('child', 'Child');
-  $field_instances += crm_entity_types_improved_field_default_field_instances_for_individual_bundles('doctor', 'Doctor');
-  $field_instances += crm_entity_types_improved_field_default_field_instances_for_individual_bundles('tammuz_staff', 'Tammuz Staff');
-  $field_instances += crm_entity_types_improved_field_default_field_instances_for_field_collection_bundles();
 
-  return $field_instances;
-}
-
-function crm_entity_types_improved_field_default_field_instances_for_individual_bundles($bundle, $label)
-{
-  $field_instances = array();
-
-  // Exported field_instance: 'crm_core_contact-' . $bundle . '-contact_name'
-  $field_instances['crm_core_contact-' . $bundle . '-contact_name'] = array(
-    'bundle' => $bundle,
+  // Exported field_instance: 'crm_core_contact-child-contact_name'
+  $field_instances['crm_core_contact-child-contact_name'] = array(
+    'bundle' => 'child',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -52,7 +37,7 @@ function crm_entity_types_improved_field_default_field_instances_for_individual_
     ),
     'entity_type' => 'crm_core_contact',
     'field_name' => 'contact_name',
-    'label' => $label,
+    'label' => 'Child',
     'required' => 0,
     'settings' => array(
       'component_css' => '',
@@ -129,9 +114,9 @@ function crm_entity_types_improved_field_default_field_instances_for_individual_
     ),
   );
 
-  // Exported field_instance: 'crm_core_contact-' . $bundle . '-field_address'
-  $field_instances['crm_core_contact-' . $bundle . '-field_address'] = array(
-    'bundle' => $bundle,
+  // Exported field_instance: 'crm_core_contact-child-field_address'
+  $field_instances['crm_core_contact-child-field_address'] = array(
+    'bundle' => 'child',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -166,10 +151,9 @@ function crm_entity_types_improved_field_default_field_instances_for_individual_
     ),
   );
 
-  // Exported field_instance:
-  // 'crm_core_contact-' . $bundle . '-field_attached_documents'
-  $field_instances['crm_core_contact-' . $bundle . '-field_attached_documents'] = array(
-    'bundle' => $bundle,
+  // Exported field_instance: 'crm_core_contact-child-field_attached_documents'
+  $field_instances['crm_core_contact-child-field_attached_documents'] = array(
+    'bundle' => 'child',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -204,9 +188,9 @@ function crm_entity_types_improved_field_default_field_instances_for_individual_
     ),
   );
 
-  // Exported field_instance: 'crm_core_contact-' . $bundle . '-field_date_of_birth'
-  $field_instances['crm_core_contact-' . $bundle . '-field_date_of_birth'] = array(
-    'bundle' => $bundle,
+  // Exported field_instance: 'crm_core_contact-child-field_date_of_birth'
+  $field_instances['crm_core_contact-child-field_date_of_birth'] = array(
+    'bundle' => 'child',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -251,9 +235,9 @@ function crm_entity_types_improved_field_default_field_instances_for_individual_
     ),
   );
 
-  // Exported field_instance: 'crm_core_contact-' . $bundle . '-field_date_of_death'
-  $field_instances['crm_core_contact-' . $bundle . '-field_date_of_death'] = array(
-    'bundle' => $bundle,
+  // Exported field_instance: 'crm_core_contact-child-field_date_of_death'
+  $field_instances['crm_core_contact-child-field_date_of_death'] = array(
+    'bundle' => 'child',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -298,9 +282,9 @@ function crm_entity_types_improved_field_default_field_instances_for_individual_
     ),
   );
 
-  // Exported field_instance: 'crm_core_contact-' . $bundle . '-field_email'
-  $field_instances['crm_core_contact-' . $bundle . '-field_email'] = array(
-    'bundle' => $bundle,
+  // Exported field_instance: 'crm_core_contact-child-field_email'
+  $field_instances['crm_core_contact-child-field_email'] = array(
+    'bundle' => 'child',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -331,10 +315,9 @@ function crm_entity_types_improved_field_default_field_instances_for_individual_
     ),
   );
 
-  // Exported field_instance:
-  // 'crm_core_contact-' . $bundle . '-field_facebook_user_name'
-  $field_instances['crm_core_contact-' . $bundle . '-field_facebook_user_name'] = array(
-    'bundle' => $bundle,
+  // Exported field_instance: 'crm_core_contact-child-field_facebook_user_name'
+  $field_instances['crm_core_contact-child-field_facebook_user_name'] = array(
+    'bundle' => 'child',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -366,9 +349,9 @@ function crm_entity_types_improved_field_default_field_instances_for_individual_
     ),
   );
 
-  // Exported field_instance: 'crm_core_contact-' . $bundle . '-field_gender'
-  $field_instances['crm_core_contact-' . $bundle . '-field_gender'] = array(
-    'bundle' => $bundle,
+  // Exported field_instance: 'crm_core_contact-child-field_gender'
+  $field_instances['crm_core_contact-child-field_gender'] = array(
+    'bundle' => 'child',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -397,9 +380,9 @@ function crm_entity_types_improved_field_default_field_instances_for_individual_
     ),
   );
 
-  // Exported field_instance: 'crm_core_contact-' . $bundle . '-field_image'
-  $field_instances['crm_core_contact-' . $bundle . '-field_image'] = array(
-    'bundle' => $bundle,
+  // Exported field_instance: 'crm_core_contact-child-field_image'
+  $field_instances['crm_core_contact-child-field_image'] = array(
+    'bundle' => 'child',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -442,9 +425,9 @@ function crm_entity_types_improved_field_default_field_instances_for_individual_
   );
 
   // Exported field_instance:
-  // 'crm_core_contact-' . $bundle . '-field_instant_messaging_collecti'
-  $field_instances['crm_core_contact-' . $bundle . '-field_instant_messaging_collecti'] = array(
-    'bundle' => $bundle,
+  // 'crm_core_contact-child-field_instant_messaging_collecti'
+  $field_instances['crm_core_contact-child-field_instant_messaging_collecti'] = array(
+    'bundle' => 'child',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -479,9 +462,9 @@ function crm_entity_types_improved_field_default_field_instances_for_individual_
     ),
   );
 
-  // Exported field_instance: 'crm_core_contact-' . $bundle . '-field_marital_status'
-  $field_instances['crm_core_contact-' . $bundle . '-field_marital_status'] = array(
-    'bundle' => $bundle,
+  // Exported field_instance: 'crm_core_contact-child-field_marital_status'
+  $field_instances['crm_core_contact-child-field_marital_status'] = array(
+    'bundle' => 'child',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -510,9 +493,1121 @@ function crm_entity_types_improved_field_default_field_instances_for_individual_
     ),
   );
 
-  // Exported field_instance: 'crm_core_contact-' . $bundle . '-field_phone'
-  $field_instances['crm_core_contact-' . $bundle . '-field_phone'] = array(
-    'bundle' => $bundle,
+  // Exported field_instance: 'crm_core_contact-child-field_phone'
+  $field_instances['crm_core_contact-child-field_phone'] = array(
+    'bundle' => 'child',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 11,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_phone',
+    'label' => 'Phone',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-child-field_spoken_languages'
+  $field_instances['crm_core_contact-child-field_spoken_languages'] = array(
+    'bundle' => 'child',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'languagefield',
+        'settings' => array(
+          'format' => array(
+            'name' => 'name',
+          ),
+        ),
+        'type' => 'language_default',
+        'weight' => 16,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_spoken_languages',
+    'label' => 'Spoken Languages',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-doctor-contact_name'
+  $field_instances['crm_core_contact-doctor-contact_name'] = array(
+    'bundle' => 'doctor',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'name',
+        'settings' => array(
+          'format' => 'default',
+          'markup' => 0,
+          'multiple' => 'default',
+          'multiple_and' => 'text',
+          'multiple_delimiter' => ', ',
+          'multiple_delimiter_precedes_last' => 'never',
+          'multiple_el_al_first' => 1,
+          'multiple_el_al_min' => 3,
+          'output' => 'default',
+        ),
+        'type' => 'name_formatter',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'contact_name',
+    'label' => 'Doctor',
+    'required' => 0,
+    'settings' => array(
+      'component_css' => '',
+      'component_layout' => 'default',
+      'components' => array(
+        'credentials' => 0,
+        'family' => 0,
+        'generational' => 0,
+        'given' => 0,
+        'middle' => 0,
+        'title' => 0,
+      ),
+      'credentials_inline' => 0,
+      'field_type' => array(
+        'credentials' => 'text',
+        'family' => 'text',
+        'generational' => 'select',
+        'given' => 'text',
+        'middle' => 'text',
+        'title' => 'select',
+      ),
+      'generational_field' => 'select',
+      'inline_css' => array(
+        'credentials' => '',
+        'family' => '',
+        'generational' => '',
+        'given' => '',
+        'middle' => '',
+        'title' => '',
+      ),
+      'labels' => array(
+        'credentials' => '',
+        'family' => '',
+        'generational' => '',
+        'given' => '',
+        'middle' => '',
+        'title' => '',
+      ),
+      'minimum_components' => array(
+        'credentials' => 0,
+        'family' => 0,
+        'generational' => 0,
+        'given' => 0,
+        'middle' => 0,
+        'title' => 0,
+      ),
+      'override_format' => 'default',
+      'show_component_required_marker' => 0,
+      'size' => array(
+        'credentials' => 35,
+        'family' => 20,
+        'generational' => 5,
+        'given' => 20,
+        'middle' => 20,
+        'title' => 6,
+      ),
+      'title_display' => array(
+        'credentials' => 'description',
+        'family' => 'description',
+        'generational' => 'description',
+        'given' => 'description',
+        'middle' => 'description',
+        'title' => 'description',
+      ),
+      'title_field' => 'select',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'name',
+      'settings' => array(),
+      'type' => 'name_widget',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-doctor-field_address'
+  $field_instances['crm_core_contact-doctor-field_address'] = array(
+    'bundle' => 'doctor',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 13,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_address',
+    'label' => 'Address',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-doctor-field_attached_documents'
+  $field_instances['crm_core_contact-doctor-field_attached_documents'] = array(
+    'bundle' => 'doctor',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 17,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_attached_documents',
+    'label' => 'Attached Documents',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 11,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-doctor-field_date_of_birth'
+  $field_instances['crm_core_contact-doctor-field_date_of_birth'] = array(
+    'bundle' => 'doctor',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 14,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_date_of_birth',
+    'label' => 'Date of Birth',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'd/m/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'within',
+        'text_parts' => array(),
+        'year_range' => '1950:+1',
+      ),
+      'type' => 'date_select',
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-doctor-field_date_of_death'
+  $field_instances['crm_core_contact-doctor-field_date_of_death'] = array(
+    'bundle' => 'doctor',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 18,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_date_of_death',
+    'label' => 'Date of Death',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'd/m/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '1950:+3',
+      ),
+      'type' => 'date_popup',
+      'weight' => 12,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-doctor-field_email'
+  $field_instances['crm_core_contact-doctor-field_email'] = array(
+    'bundle' => 'doctor',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'email',
+        'settings' => array(),
+        'type' => 'email_default',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_email',
+    'label' => 'Email',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'email',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'email_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-doctor-field_facebook_user_name'
+  $field_instances['crm_core_contact-doctor-field_facebook_user_name'] = array(
+    'bundle' => 'doctor',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_facebook_user_name',
+    'label' => 'Facebook User Name',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-doctor-field_gender'
+  $field_instances['crm_core_contact-doctor-field_gender'] = array(
+    'bundle' => 'doctor',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 15,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_gender',
+    'label' => 'Gender',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-doctor-field_image'
+  $field_instances['crm_core_contact-doctor-field_image'] = array(
+    'bundle' => 'doctor',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 7,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_image',
+    'label' => 'Profile Image',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => 'profile_images',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'crm_core_contact-doctor-field_instant_messaging_collecti'
+  $field_instances['crm_core_contact-doctor-field_instant_messaging_collecti'] = array(
+    'bundle' => 'doctor',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 9,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_instant_messaging_collecti',
+    'label' => 'Instant Messaging',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-doctor-field_marital_status'
+  $field_instances['crm_core_contact-doctor-field_marital_status'] = array(
+    'bundle' => 'doctor',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 8,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_marital_status',
+    'label' => 'Marital Status',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-doctor-field_phone'
+  $field_instances['crm_core_contact-doctor-field_phone'] = array(
+    'bundle' => 'doctor',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 11,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_phone',
+    'label' => 'Phone',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-doctor-field_spoken_languages'
+  $field_instances['crm_core_contact-doctor-field_spoken_languages'] = array(
+    'bundle' => 'doctor',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'languagefield',
+        'settings' => array(
+          'format' => array(
+            'name' => 'name',
+          ),
+        ),
+        'type' => 'language_default',
+        'weight' => 16,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_spoken_languages',
+    'label' => 'Spoken Languages',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-egg_donor-contact_name'
+  $field_instances['crm_core_contact-egg_donor-contact_name'] = array(
+    'bundle' => 'egg_donor',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'name',
+        'settings' => array(
+          'format' => 'default',
+          'markup' => 0,
+          'multiple' => 'default',
+          'multiple_and' => 'text',
+          'multiple_delimiter' => ', ',
+          'multiple_delimiter_precedes_last' => 'never',
+          'multiple_el_al_first' => 1,
+          'multiple_el_al_min' => 3,
+          'output' => 'default',
+        ),
+        'type' => 'name_formatter',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'contact_name',
+    'label' => 'Egg Donor',
+    'required' => 0,
+    'settings' => array(
+      'component_css' => '',
+      'component_layout' => 'default',
+      'components' => array(
+        'credentials' => 0,
+        'family' => 0,
+        'generational' => 0,
+        'given' => 0,
+        'middle' => 0,
+        'title' => 0,
+      ),
+      'credentials_inline' => 0,
+      'field_type' => array(
+        'credentials' => 'text',
+        'family' => 'text',
+        'generational' => 'select',
+        'given' => 'text',
+        'middle' => 'text',
+        'title' => 'select',
+      ),
+      'generational_field' => 'select',
+      'inline_css' => array(
+        'credentials' => '',
+        'family' => '',
+        'generational' => '',
+        'given' => '',
+        'middle' => '',
+        'title' => '',
+      ),
+      'labels' => array(
+        'credentials' => '',
+        'family' => '',
+        'generational' => '',
+        'given' => '',
+        'middle' => '',
+        'title' => '',
+      ),
+      'minimum_components' => array(
+        'credentials' => 0,
+        'family' => 0,
+        'generational' => 0,
+        'given' => 0,
+        'middle' => 0,
+        'title' => 0,
+      ),
+      'override_format' => 'default',
+      'show_component_required_marker' => 0,
+      'size' => array(
+        'credentials' => 35,
+        'family' => 20,
+        'generational' => 5,
+        'given' => 20,
+        'middle' => 20,
+        'title' => 6,
+      ),
+      'title_display' => array(
+        'credentials' => 'description',
+        'family' => 'description',
+        'generational' => 'description',
+        'given' => 'description',
+        'middle' => 'description',
+        'title' => 'description',
+      ),
+      'title_field' => 'select',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'name',
+      'settings' => array(),
+      'type' => 'name_widget',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-egg_donor-field_address'
+  $field_instances['crm_core_contact-egg_donor-field_address'] = array(
+    'bundle' => 'egg_donor',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 13,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_address',
+    'label' => 'Address',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'crm_core_contact-egg_donor-field_attached_documents'
+  $field_instances['crm_core_contact-egg_donor-field_attached_documents'] = array(
+    'bundle' => 'egg_donor',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 17,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_attached_documents',
+    'label' => 'Attached Documents',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 11,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-egg_donor-field_date_of_birth'
+  $field_instances['crm_core_contact-egg_donor-field_date_of_birth'] = array(
+    'bundle' => 'egg_donor',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 14,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_date_of_birth',
+    'label' => 'Date of Birth',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'd/m/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'within',
+        'text_parts' => array(),
+        'year_range' => '1950:+1',
+      ),
+      'type' => 'date_select',
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-egg_donor-field_date_of_death'
+  $field_instances['crm_core_contact-egg_donor-field_date_of_death'] = array(
+    'bundle' => 'egg_donor',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 18,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_date_of_death',
+    'label' => 'Date of Death',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'd/m/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '1950:+3',
+      ),
+      'type' => 'date_popup',
+      'weight' => 12,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-egg_donor-field_email'
+  $field_instances['crm_core_contact-egg_donor-field_email'] = array(
+    'bundle' => 'egg_donor',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'email',
+        'settings' => array(),
+        'type' => 'email_default',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_email',
+    'label' => 'Email',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'email',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'email_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'crm_core_contact-egg_donor-field_facebook_user_name'
+  $field_instances['crm_core_contact-egg_donor-field_facebook_user_name'] = array(
+    'bundle' => 'egg_donor',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_facebook_user_name',
+    'label' => 'Facebook User Name',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-egg_donor-field_gender'
+  $field_instances['crm_core_contact-egg_donor-field_gender'] = array(
+    'bundle' => 'egg_donor',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 15,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_gender',
+    'label' => 'Gender',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-egg_donor-field_image'
+  $field_instances['crm_core_contact-egg_donor-field_image'] = array(
+    'bundle' => 'egg_donor',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 7,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_image',
+    'label' => 'Profile Image',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => 'profile_images',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'crm_core_contact-egg_donor-field_instant_messaging_collecti'
+  $field_instances['crm_core_contact-egg_donor-field_instant_messaging_collecti'] = array(
+    'bundle' => 'egg_donor',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 9,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_instant_messaging_collecti',
+    'label' => 'Instant Messaging',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-egg_donor-field_marital_status'
+  $field_instances['crm_core_contact-egg_donor-field_marital_status'] = array(
+    'bundle' => 'egg_donor',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 8,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_marital_status',
+    'label' => 'Marital Status',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-egg_donor-field_phone'
+  $field_instances['crm_core_contact-egg_donor-field_phone'] = array(
+    'bundle' => 'egg_donor',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -548,9 +1643,1122 @@ function crm_entity_types_improved_field_default_field_instances_for_individual_
   );
 
   // Exported field_instance:
-  // 'crm_core_contact-' . $bundle . '-field_spoken_languages'
-  $field_instances['crm_core_contact-' . $bundle . '-field_spoken_languages'] = array(
-    'bundle' => $bundle,
+  // 'crm_core_contact-egg_donor-field_spoken_languages'
+  $field_instances['crm_core_contact-egg_donor-field_spoken_languages'] = array(
+    'bundle' => 'egg_donor',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'languagefield',
+        'settings' => array(
+          'format' => array(
+            'name' => 'name',
+          ),
+        ),
+        'type' => 'language_default',
+        'weight' => 16,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_spoken_languages',
+    'label' => 'Spoken Languages',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-individual-contact_name'
+  $field_instances['crm_core_contact-individual-contact_name'] = array(
+    'bundle' => 'individual',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'name',
+        'settings' => array(
+          'format' => 'default',
+          'markup' => 0,
+          'multiple' => 'default',
+          'multiple_and' => 'text',
+          'multiple_delimiter' => ', ',
+          'multiple_delimiter_precedes_last' => 'never',
+          'multiple_el_al_first' => 1,
+          'multiple_el_al_min' => 3,
+          'output' => 'default',
+        ),
+        'type' => 'name_formatter',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'contact_name',
+    'label' => 'Individual',
+    'required' => 0,
+    'settings' => array(
+      'component_css' => '',
+      'component_layout' => 'default',
+      'components' => array(
+        'credentials' => 0,
+        'family' => 0,
+        'generational' => 0,
+        'given' => 0,
+        'middle' => 0,
+        'title' => 0,
+      ),
+      'credentials_inline' => 0,
+      'field_type' => array(
+        'credentials' => 'text',
+        'family' => 'text',
+        'generational' => 'select',
+        'given' => 'text',
+        'middle' => 'text',
+        'title' => 'select',
+      ),
+      'generational_field' => 'select',
+      'inline_css' => array(
+        'credentials' => '',
+        'family' => '',
+        'generational' => '',
+        'given' => '',
+        'middle' => '',
+        'title' => '',
+      ),
+      'labels' => array(
+        'credentials' => '',
+        'family' => '',
+        'generational' => '',
+        'given' => '',
+        'middle' => '',
+        'title' => '',
+      ),
+      'minimum_components' => array(
+        'credentials' => 0,
+        'family' => 0,
+        'generational' => 0,
+        'given' => 0,
+        'middle' => 0,
+        'title' => 0,
+      ),
+      'override_format' => 'default',
+      'show_component_required_marker' => 0,
+      'size' => array(
+        'credentials' => 35,
+        'family' => 20,
+        'generational' => 5,
+        'given' => 20,
+        'middle' => 20,
+        'title' => 6,
+      ),
+      'title_display' => array(
+        'credentials' => 'description',
+        'family' => 'description',
+        'generational' => 'description',
+        'given' => 'description',
+        'middle' => 'description',
+        'title' => 'description',
+      ),
+      'title_field' => 'select',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'name',
+      'settings' => array(),
+      'type' => 'name_widget',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-individual-field_address'
+  $field_instances['crm_core_contact-individual-field_address'] = array(
+    'bundle' => 'individual',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 13,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_address',
+    'label' => 'Address',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'crm_core_contact-individual-field_attached_documents'
+  $field_instances['crm_core_contact-individual-field_attached_documents'] = array(
+    'bundle' => 'individual',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 17,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_attached_documents',
+    'label' => 'Attached Documents',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 11,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-individual-field_date_of_birth'
+  $field_instances['crm_core_contact-individual-field_date_of_birth'] = array(
+    'bundle' => 'individual',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 14,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_date_of_birth',
+    'label' => 'Date of Birth',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'd/m/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'within',
+        'text_parts' => array(),
+        'year_range' => '1950:+1',
+      ),
+      'type' => 'date_select',
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-individual-field_date_of_death'
+  $field_instances['crm_core_contact-individual-field_date_of_death'] = array(
+    'bundle' => 'individual',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 18,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_date_of_death',
+    'label' => 'Date of Death',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'd/m/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '1950:+3',
+      ),
+      'type' => 'date_popup',
+      'weight' => 12,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-individual-field_email'
+  $field_instances['crm_core_contact-individual-field_email'] = array(
+    'bundle' => 'individual',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'email',
+        'settings' => array(),
+        'type' => 'email_default',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_email',
+    'label' => 'Email',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'email',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'email_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'crm_core_contact-individual-field_facebook_user_name'
+  $field_instances['crm_core_contact-individual-field_facebook_user_name'] = array(
+    'bundle' => 'individual',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_facebook_user_name',
+    'label' => 'Facebook User Name',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-individual-field_gender'
+  $field_instances['crm_core_contact-individual-field_gender'] = array(
+    'bundle' => 'individual',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 15,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_gender',
+    'label' => 'Gender',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-individual-field_image'
+  $field_instances['crm_core_contact-individual-field_image'] = array(
+    'bundle' => 'individual',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 7,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_image',
+    'label' => 'Profile Image',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => 'profile_images',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'crm_core_contact-individual-field_instant_messaging_collecti'
+  $field_instances['crm_core_contact-individual-field_instant_messaging_collecti'] = array(
+    'bundle' => 'individual',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 9,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_instant_messaging_collecti',
+    'label' => 'Instant Messaging',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-individual-field_marital_status'
+  $field_instances['crm_core_contact-individual-field_marital_status'] = array(
+    'bundle' => 'individual',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 8,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_marital_status',
+    'label' => 'Marital Status',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-individual-field_phone'
+  $field_instances['crm_core_contact-individual-field_phone'] = array(
+    'bundle' => 'individual',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 11,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_phone',
+    'label' => 'Phone',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'crm_core_contact-individual-field_spoken_languages'
+  $field_instances['crm_core_contact-individual-field_spoken_languages'] = array(
+    'bundle' => 'individual',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'languagefield',
+        'settings' => array(
+          'format' => array(
+            'name' => 'name',
+          ),
+        ),
+        'type' => 'language_default',
+        'weight' => 16,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_spoken_languages',
+    'label' => 'Spoken Languages',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-ip-contact_name'
+  $field_instances['crm_core_contact-ip-contact_name'] = array(
+    'bundle' => 'ip',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'name',
+        'settings' => array(
+          'format' => 'default',
+          'markup' => 0,
+          'multiple' => 'default',
+          'multiple_and' => 'text',
+          'multiple_delimiter' => ', ',
+          'multiple_delimiter_precedes_last' => 'never',
+          'multiple_el_al_first' => 1,
+          'multiple_el_al_min' => 3,
+          'output' => 'default',
+        ),
+        'type' => 'name_formatter',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'contact_name',
+    'label' => 'Intended Parent',
+    'required' => 0,
+    'settings' => array(
+      'component_css' => '',
+      'component_layout' => 'default',
+      'components' => array(
+        'credentials' => 0,
+        'family' => 0,
+        'generational' => 0,
+        'given' => 0,
+        'middle' => 0,
+        'title' => 0,
+      ),
+      'credentials_inline' => 0,
+      'field_type' => array(
+        'credentials' => 'text',
+        'family' => 'text',
+        'generational' => 'select',
+        'given' => 'text',
+        'middle' => 'text',
+        'title' => 'select',
+      ),
+      'generational_field' => 'select',
+      'inline_css' => array(
+        'credentials' => '',
+        'family' => '',
+        'generational' => '',
+        'given' => '',
+        'middle' => '',
+        'title' => '',
+      ),
+      'labels' => array(
+        'credentials' => '',
+        'family' => '',
+        'generational' => '',
+        'given' => '',
+        'middle' => '',
+        'title' => '',
+      ),
+      'minimum_components' => array(
+        'credentials' => 0,
+        'family' => 0,
+        'generational' => 0,
+        'given' => 0,
+        'middle' => 0,
+        'title' => 0,
+      ),
+      'override_format' => 'default',
+      'show_component_required_marker' => 0,
+      'size' => array(
+        'credentials' => 35,
+        'family' => 20,
+        'generational' => 5,
+        'given' => 20,
+        'middle' => 20,
+        'title' => 6,
+      ),
+      'title_display' => array(
+        'credentials' => 'description',
+        'family' => 'description',
+        'generational' => 'description',
+        'given' => 'description',
+        'middle' => 'description',
+        'title' => 'description',
+      ),
+      'title_field' => 'select',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'name',
+      'settings' => array(),
+      'type' => 'name_widget',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-ip-field_address'
+  $field_instances['crm_core_contact-ip-field_address'] = array(
+    'bundle' => 'ip',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 13,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_address',
+    'label' => 'Address',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-ip-field_attached_documents'
+  $field_instances['crm_core_contact-ip-field_attached_documents'] = array(
+    'bundle' => 'ip',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 17,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_attached_documents',
+    'label' => 'Attached Documents',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 11,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-ip-field_date_of_birth'
+  $field_instances['crm_core_contact-ip-field_date_of_birth'] = array(
+    'bundle' => 'ip',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 14,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_date_of_birth',
+    'label' => 'Date of Birth',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'd/m/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'within',
+        'text_parts' => array(),
+        'year_range' => '1950:+1',
+      ),
+      'type' => 'date_select',
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-ip-field_date_of_death'
+  $field_instances['crm_core_contact-ip-field_date_of_death'] = array(
+    'bundle' => 'ip',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 18,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_date_of_death',
+    'label' => 'Date of Death',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'd/m/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '1950:+3',
+      ),
+      'type' => 'date_popup',
+      'weight' => 12,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-ip-field_email'
+  $field_instances['crm_core_contact-ip-field_email'] = array(
+    'bundle' => 'ip',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'email',
+        'settings' => array(),
+        'type' => 'email_default',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_email',
+    'label' => 'Email',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'email',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'email_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-ip-field_facebook_user_name'
+  $field_instances['crm_core_contact-ip-field_facebook_user_name'] = array(
+    'bundle' => 'ip',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_facebook_user_name',
+    'label' => 'Facebook User Name',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-ip-field_gender'
+  $field_instances['crm_core_contact-ip-field_gender'] = array(
+    'bundle' => 'ip',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 15,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_gender',
+    'label' => 'Gender',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-ip-field_image'
+  $field_instances['crm_core_contact-ip-field_image'] = array(
+    'bundle' => 'ip',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 7,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_image',
+    'label' => 'Profile Image',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => 'profile_images',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'crm_core_contact-ip-field_instant_messaging_collecti'
+  $field_instances['crm_core_contact-ip-field_instant_messaging_collecti'] = array(
+    'bundle' => 'ip',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 9,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_instant_messaging_collecti',
+    'label' => 'Instant Messaging',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-ip-field_marital_status'
+  $field_instances['crm_core_contact-ip-field_marital_status'] = array(
+    'bundle' => 'ip',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 8,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_marital_status',
+    'label' => 'Marital Status',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-ip-field_phone'
+  $field_instances['crm_core_contact-ip-field_phone'] = array(
+    'bundle' => 'ip',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 11,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_phone',
+    'label' => 'Phone',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-ip-field_spoken_languages'
+  $field_instances['crm_core_contact-ip-field_spoken_languages'] = array(
+    'bundle' => 'ip',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -687,6 +2895,460 @@ function crm_entity_types_improved_field_default_field_instances_for_individual_
     ),
   );
 
+  // Exported field_instance: 'crm_core_contact-surrogate-field_address'
+  $field_instances['crm_core_contact-surrogate-field_address'] = array(
+    'bundle' => 'surrogate',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 13,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_address',
+    'label' => 'Address',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'crm_core_contact-surrogate-field_attached_documents'
+  $field_instances['crm_core_contact-surrogate-field_attached_documents'] = array(
+    'bundle' => 'surrogate',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 17,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_attached_documents',
+    'label' => 'Attached Documents',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 11,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-surrogate-field_date_of_birth'
+  $field_instances['crm_core_contact-surrogate-field_date_of_birth'] = array(
+    'bundle' => 'surrogate',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 14,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_date_of_birth',
+    'label' => 'Date of Birth',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'd/m/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'within',
+        'text_parts' => array(),
+        'year_range' => '1950:+1',
+      ),
+      'type' => 'date_select',
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-surrogate-field_date_of_death'
+  $field_instances['crm_core_contact-surrogate-field_date_of_death'] = array(
+    'bundle' => 'surrogate',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 18,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_date_of_death',
+    'label' => 'Date of Death',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'd/m/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '1950:+3',
+      ),
+      'type' => 'date_popup',
+      'weight' => 12,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-surrogate-field_email'
+  $field_instances['crm_core_contact-surrogate-field_email'] = array(
+    'bundle' => 'surrogate',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'email',
+        'settings' => array(),
+        'type' => 'email_default',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_email',
+    'label' => 'Email',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'email',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'email_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'crm_core_contact-surrogate-field_facebook_user_name'
+  $field_instances['crm_core_contact-surrogate-field_facebook_user_name'] = array(
+    'bundle' => 'surrogate',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_facebook_user_name',
+    'label' => 'Facebook User Name',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-surrogate-field_gender'
+  $field_instances['crm_core_contact-surrogate-field_gender'] = array(
+    'bundle' => 'surrogate',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 15,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_gender',
+    'label' => 'Gender',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-surrogate-field_image'
+  $field_instances['crm_core_contact-surrogate-field_image'] = array(
+    'bundle' => 'surrogate',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 7,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_image',
+    'label' => 'Profile Image',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => 'profile_images',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'crm_core_contact-surrogate-field_instant_messaging_collecti'
+  $field_instances['crm_core_contact-surrogate-field_instant_messaging_collecti'] = array(
+    'bundle' => 'surrogate',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 9,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_instant_messaging_collecti',
+    'label' => 'Instant Messaging',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-surrogate-field_marital_status'
+  $field_instances['crm_core_contact-surrogate-field_marital_status'] = array(
+    'bundle' => 'surrogate',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 8,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_marital_status',
+    'label' => 'Marital Status',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-surrogate-field_phone'
+  $field_instances['crm_core_contact-surrogate-field_phone'] = array(
+    'bundle' => 'surrogate',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 11,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_phone',
+    'label' => 'Phone',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'crm_core_contact-surrogate-field_spoken_languages'
+  $field_instances['crm_core_contact-surrogate-field_spoken_languages'] = array(
+    'bundle' => 'surrogate',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'languagefield',
+        'settings' => array(
+          'format' => array(
+            'name' => 'name',
+          ),
+        ),
+        'type' => 'language_default',
+        'weight' => 16,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_spoken_languages',
+    'label' => 'Spoken Languages',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 10,
+    ),
+  );
+
   // Exported field_instance: 'crm_core_contact-surrogate-field_try1'
   $field_instances['crm_core_contact-surrogate-field_try1'] = array(
     'bundle' => 'surrogate',
@@ -717,12 +3379,567 @@ function crm_entity_types_improved_field_default_field_instances_for_individual_
       'weight' => 1,
     ),
   );
-  return $field_instances;
-}
 
-function crm_entity_types_improved_field_default_field_instances_for_field_collection_bundles()
-{
-  $field_instances = array();
+  // Exported field_instance: 'crm_core_contact-tammuz_staff-contact_name'
+  $field_instances['crm_core_contact-tammuz_staff-contact_name'] = array(
+    'bundle' => 'tammuz_staff',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'name',
+        'settings' => array(
+          'format' => 'default',
+          'markup' => 0,
+          'multiple' => 'default',
+          'multiple_and' => 'text',
+          'multiple_delimiter' => ', ',
+          'multiple_delimiter_precedes_last' => 'never',
+          'multiple_el_al_first' => 1,
+          'multiple_el_al_min' => 3,
+          'output' => 'default',
+        ),
+        'type' => 'name_formatter',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'contact_name',
+    'label' => 'Tammuz Staff',
+    'required' => 0,
+    'settings' => array(
+      'component_css' => '',
+      'component_layout' => 'default',
+      'components' => array(
+        'credentials' => 0,
+        'family' => 0,
+        'generational' => 0,
+        'given' => 0,
+        'middle' => 0,
+        'title' => 0,
+      ),
+      'credentials_inline' => 0,
+      'field_type' => array(
+        'credentials' => 'text',
+        'family' => 'text',
+        'generational' => 'select',
+        'given' => 'text',
+        'middle' => 'text',
+        'title' => 'select',
+      ),
+      'generational_field' => 'select',
+      'inline_css' => array(
+        'credentials' => '',
+        'family' => '',
+        'generational' => '',
+        'given' => '',
+        'middle' => '',
+        'title' => '',
+      ),
+      'labels' => array(
+        'credentials' => '',
+        'family' => '',
+        'generational' => '',
+        'given' => '',
+        'middle' => '',
+        'title' => '',
+      ),
+      'minimum_components' => array(
+        'credentials' => 0,
+        'family' => 0,
+        'generational' => 0,
+        'given' => 0,
+        'middle' => 0,
+        'title' => 0,
+      ),
+      'override_format' => 'default',
+      'show_component_required_marker' => 0,
+      'size' => array(
+        'credentials' => 35,
+        'family' => 20,
+        'generational' => 5,
+        'given' => 20,
+        'middle' => 20,
+        'title' => 6,
+      ),
+      'title_display' => array(
+        'credentials' => 'description',
+        'family' => 'description',
+        'generational' => 'description',
+        'given' => 'description',
+        'middle' => 'description',
+        'title' => 'description',
+      ),
+      'title_field' => 'select',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'name',
+      'settings' => array(),
+      'type' => 'name_widget',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-tammuz_staff-field_address'
+  $field_instances['crm_core_contact-tammuz_staff-field_address'] = array(
+    'bundle' => 'tammuz_staff',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 13,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_address',
+    'label' => 'Address',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'crm_core_contact-tammuz_staff-field_attached_documents'
+  $field_instances['crm_core_contact-tammuz_staff-field_attached_documents'] = array(
+    'bundle' => 'tammuz_staff',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 17,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_attached_documents',
+    'label' => 'Attached Documents',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 11,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'crm_core_contact-tammuz_staff-field_date_of_birth'
+  $field_instances['crm_core_contact-tammuz_staff-field_date_of_birth'] = array(
+    'bundle' => 'tammuz_staff',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 14,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_date_of_birth',
+    'label' => 'Date of Birth',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'd/m/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'within',
+        'text_parts' => array(),
+        'year_range' => '1950:+1',
+      ),
+      'type' => 'date_select',
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'crm_core_contact-tammuz_staff-field_date_of_death'
+  $field_instances['crm_core_contact-tammuz_staff-field_date_of_death'] = array(
+    'bundle' => 'tammuz_staff',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 18,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_date_of_death',
+    'label' => 'Date of Death',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'd/m/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '1950:+3',
+      ),
+      'type' => 'date_popup',
+      'weight' => 12,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-tammuz_staff-field_email'
+  $field_instances['crm_core_contact-tammuz_staff-field_email'] = array(
+    'bundle' => 'tammuz_staff',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'email',
+        'settings' => array(),
+        'type' => 'email_default',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_email',
+    'label' => 'Email',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'email',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'email_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'crm_core_contact-tammuz_staff-field_facebook_user_name'
+  $field_instances['crm_core_contact-tammuz_staff-field_facebook_user_name'] = array(
+    'bundle' => 'tammuz_staff',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_facebook_user_name',
+    'label' => 'Facebook User Name',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-tammuz_staff-field_gender'
+  $field_instances['crm_core_contact-tammuz_staff-field_gender'] = array(
+    'bundle' => 'tammuz_staff',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 15,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_gender',
+    'label' => 'Gender',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-tammuz_staff-field_image'
+  $field_instances['crm_core_contact-tammuz_staff-field_image'] = array(
+    'bundle' => 'tammuz_staff',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 7,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_image',
+    'label' => 'Profile Image',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => 'profile_images',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'crm_core_contact-tammuz_staff-field_instant_messaging_collecti'
+  $field_instances['crm_core_contact-tammuz_staff-field_instant_messaging_collecti'] = array(
+    'bundle' => 'tammuz_staff',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 9,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_instant_messaging_collecti',
+    'label' => 'Instant Messaging',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'crm_core_contact-tammuz_staff-field_marital_status'
+  $field_instances['crm_core_contact-tammuz_staff-field_marital_status'] = array(
+    'bundle' => 'tammuz_staff',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 8,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_marital_status',
+    'label' => 'Marital Status',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-tammuz_staff-field_phone'
+  $field_instances['crm_core_contact-tammuz_staff-field_phone'] = array(
+    'bundle' => 'tammuz_staff',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 11,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_phone',
+    'label' => 'Phone',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'crm_core_contact-tammuz_staff-field_spoken_languages'
+  $field_instances['crm_core_contact-tammuz_staff-field_spoken_languages'] = array(
+    'bundle' => 'tammuz_staff',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'languagefield',
+        'settings' => array(
+          'format' => array(
+            'name' => 'name',
+          ),
+        ),
+        'type' => 'language_default',
+        'weight' => 16,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_spoken_languages',
+    'label' => 'Spoken Languages',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 10,
+    ),
+  );
 
   // Exported field_instance:
   // 'field_collection_item-field_address-field_address_details'
@@ -1186,26 +4403,25 @@ function crm_entity_types_improved_field_default_field_instances_for_field_colle
   // Included for use with string extractors like potx.
   t('Address');
   t('Attached Documents');
+  t('Child');
   t('Date of Birth');
   t('Date of Death');
+  t('Doctor');
+  t('Egg Donor');
   t('Email');
   t('Facebook User Name');
   t('Gender');
   t('ID');
   t('Individual');
-  t('Surrogate');
-  t('Egg Donor');
-  t('Intended Parent');
-  t('Child');
-  t('Doctor');
-  t('Tammuz Staff');
   t('Instant Messaging');
+  t('Intended Parent');
   t('Marital Status');
   t('Number');
   t('Phone');
   t('Profile Image');
   t('Spoken Languages');
-  t('Surrogate');
+  t('Surrogate Label!');
+  t('Tammuz Staff');
   t('Type');
   t('try1');
 

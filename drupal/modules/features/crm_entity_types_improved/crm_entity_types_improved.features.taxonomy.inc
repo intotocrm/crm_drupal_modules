@@ -34,7 +34,3 @@ function crm_entity_types_improved_taxonomy_default_vocabularies() {
     ),
   );
 }
-
-
-
-
