@@ -13,101 +13,43 @@
 
 
 
-function migrate_tammuz_migrate_api() {
-  $api = array(
-    'api' => 2,
-    'groups' => array(
-      'tammuz_objects' => array(
-        'title' => t('Tammuz Objects'),
-      ),
-    ),
-    'migrations' => array(
-      'tammuz_ips' => array(
-        'class_name' => 'MigrateIPs',
-        'group_name' => 'tammuz_objects',
-	'ini_file' => '/home/roi/Dropbox/porting/porting.ini'
-      ),
-	
-	//
-	//  ...
-	//
-	
-    ),
-  );
-  return $api;
-}
-
-
-class MigrateDestinationCRMCoreContact_Tammuz extends MigrateDestinationCRMCoreContact
-{
-    public function __construct($bundle, array $options = array())
-    {
-	parent::__construct($bundle, $options);
-    }
-    public function import(stdClass $contact, stdClass $row)
-    {
-	parent::import($contact, $row);
-    }
-
-}
 /**
  * A migration that is reused for each source CSV file.
  */
-class MigrateIPs extends Migration {
+class MigrateIndividuals extends Migration {
   public function __construct($arguments) {
     parent::__construct($arguments);
-    $this->description = t('Import IPs from CSV file.');
+    $bundle = $this->machineName;
+  //  print "creating MigrateIndividual for type $bundle<br>\n";
+    $this->description = t('Import ' . $bundle . ' from CSV file.');
 
-    // Create a map object for tracking the relationships between source rows
-//    $this->map = new MigrateSQLMap($this->machineName,
-//        array(
-//          'start_date' => array('type' => 'varchar',
-//                           'length' => 8,
-//                           'not null' => TRUE,
-//                           'description' => 'Start date',
-//                          ),
-//          'home_team' => array('type' => 'varchar',
-//                           'length' => 255,
-//                           'not null' => TRUE,
-//                           'description' => 'Home team',
-//                          ),
-//          'home_game_number' => array('type' => 'int',
-//                           'not null' => TRUE,
-//                           'description' => 'Home team game number',
-//                          ),
-//        ),
-//        MigrateDestinationNode::getKeySchema()
-//      );
 
-    $ini = parse_ini_file($arguments['ini_file'], true);
-    $settings = $ini[$this->machineName];
+    $inifile = dirname(__FILE__) . "/porting/" . $arguments['ini_file'];
+    $ini = parse_ini_file($inifile , true);
+    $settings = $ini[$bundle];
 
     $csv_path = $settings['csv'];
+    if (empty($csv_path))
+    {
+	throw new MigrateException(t("empty csv file path"));
+    }
+    
+    if($csv_path[0] != "/"){ //relative
+	$csv_path = dirname ($inifile) . "/" . $csv_path;
+    }
+    
+//    print_r($csv_path);print "***\n\n";
     
     
-    $source_keys = array(
-	'customer_number' => array('type' => 'int',
-                           'not null' => TRUE,
-                           'description' => 'Tammuz existing customer ID',
-                          ),
-        'ip_name' => array('type' => 'varchar',
-                           'length' => 255,
-                           'not null' => TRUE,
-                           'description' => "person's name",
-                          ),
-	
-    );
-//    // Create a MigrateSource object, which manages retrieving the input data.
-//    $this->source = new MigrateSourceCSV($arguments['source_file'], $this->csvcolumns(), array(), $this->fields());
+    $source_keys = $arguments['keys'];
+    
     if (!isset($csv_path) || !is_readable($csv_path))
     {
 	throw new MigrateException(t("can't read from csv file '" . (isset($csv_path) ? $csv_path : "") . "'"));
     }
-    $this->source = new MigrateSourceCSV($csv_path, NULL, array('header_rows' => 1)); //$this->csvcolumns()
+    $this->source = new MigrateSourceCSV($csv_path, array(), array('header_rows' => 1)); //$this->csvcolumns()
 //
-//    $this->destination = new MigrateDestinationNode('migrate_tammuz');
-//    $this->destination = new MigrateDestinationCRMCoreContact_Tammuz ('ip');
-    $this->destination = new MigrateDestinationCRMCoreContact('ip');
+    $this->destination = new MigrateDestinationCRMCoreContact($bundle);
 
     $this->map = new MigrateSQLMap($this->machineName, $source_keys, MigrateDestinationCRMCoreContact::getKeySchema());
     
@@ -117,16 +59,14 @@ class MigrateIPs extends Migration {
 //    $this->addFieldMapping('changed', 'last_change');
 
     $this->addFieldMapping('field_email', 'email')
-	  ->defaultValue("wrong_mail");
+	  ->defaultValue(NULL)
+	  ->callbacks('trim', array($this, 'valid_email_address'));
     $this->addFieldMapping('field_facebook_user_name', 'facebook_user_name');
-
-
-
-//    $this->highwaterField = array(
-//      'name' => 'changed',
-//      'alias' => 'w',  
-//      'type' => 'int', 
-//    );
+    $this->addFieldMapping('contact_name')
+	->defaultValue("");
+    $this->addFieldMapping('contact_name:given', 'name_first');
+    $this->addFieldMapping('contact_name:family', 'name_last');
+    
 
 
 //
@@ -161,62 +101,104 @@ class MigrateIPs extends Migration {
 
   protected function csvcolumns() {
     // Note: Remember that columns are zero based
-    $columns[0] = array('needs_update', '1 for update this row');
-    $columns[1] = array('customer_number', 'Customer Number');
-    $columns[2] = array('ip_name', 'Name of IP');
-    $columns[3] = array('email', 'Email');
-    $columns[4] = array('facebook_user_name', 'Facebook name');
-    
-    
-//    $columns[0] = array('start_date', 'Date of game');
-//    $columns[3] = array('visiting_team', 'Visiting team');
-//    $columns[6] = array('home_team', 'Home team');
-//    $columns[8] = array('home_game_number', 'Home team game number');
-//    $columns[9] = array('home_score', 'Home score');
-//    $columns[10] = array('visiting_score', 'Visiting score');
-//    $columns[11] = array('outs', 'Length of game in outs');
-//    $columns[16] = array('park_id', 'Ballpark ID');
-//    $columns[17] = array('attendance', 'Attendance');
-//    $columns[18] = array('duration', 'Duration in minutes');
-//    for ($i=1; $i <= 9; $i++ ) {
-//      $columns[103+3*$i] = array("visiting_batter_$i", "Visiting batter $i");
-//      $columns[130+3*$i] = array("home_batter_$i", "Home batter $i");
-//    }
-//    $columns[102] = array('visiting_pitcher', 'Visiting starting pitcher');
-//    $columns[104] = array('home_pitcher', 'Home starting pitcher');
+      $columns = array();
     return $columns;
   }
 
   public function prepareRow($row) {
-      $row->last_change = time();   // now is the update time of change!	    
-      print_r($row);
+      $row->last_change = time();   // now is the update time of change
+      
+      //print_r($row);
 
-    // Collect all the batters into one multi-value field.
+      //splitting first name / last name
+      $name_less_spaces = trim(preg_replace('!\s+!', ' ', $row->name));
+      if (empty($name_less_spaces))
+      {
+	    $this->queueMessage("missing name for contact");
+      }else
+      {
+	$name_split = explode(" ", $name_less_spaces);
+	$row->name_first = ucfirst(strtolower(array_shift($name_split)));
+	$row->name_last = ucfirst(strtolower(array_shift($name_split)));
 
-//    for ($i=1; $i <= 9; $i++ ) {
-//      $key = "visiting_batter_$i";
-//      $visiting_batters[] = $row->$key;
-//      $key = "home_batter_$i";
-//      $home_batters[] = $row->$key;
-//    }
-//    $row->visiting_batters = implode(',', $visiting_batters);
-//    $row->home_batters = implode(',', $home_batters);
-//    $row->title = "$row->home_team vs. $row->visiting_team. " . gmdate('M d, Y', strtotime($row->start_date));
+      }
+      if (count($name_split) > 0)
+      {
+	    $this->queueMessage("Needs to review first/last name");
+      }
   }
+  
+    function print_me($what)
+    {
+	print_r($what) ;
+	print "\n";
+	return $what;
+    }
+    
+    function  valid_email_address($email)
+    {
+	if (!isset($email) || strlen($email) == 0) {
+		return NULL;
+	}
+	    if(! filter_var($email, FILTER_VALIDATE_EMAIL))
+	{
+	    $msg = "bad email $email";
+	    $this->saveMessage($msg);
+	    print "$msg\n";
+	    return NULL;
+	}
+	return $email;
+    }
+}
 
-  /**
-   * Construct the machine name from the source file name.
-   */
-//  protected function generateMachineName($class_name = NULL) {
-//    return drupal_strtolower(pathinfo($this->arguments['source_file'],
-//                                      PATHINFO_FILENAME));
-//  }
 
-//  public function fields() {
-//    return array(
-//      'title' => 'A composite field made during prepareRow().',
-//      'home_batters' => 'An array of batters, populated during prepareRow().',
-//      'visiting_batters' => 'An array of batters, populated during prepareRow().',
-//    );
-//  }
+
+function migrate_tammuz_migrate_api() {
+  $api = array(
+    'api' => 2,
+    'groups' => array(
+      'tammuz_objects' => array(
+        'title' => t('Tammuz Objects'),
+      ),
+    ),
+    'migrations' => array(
+      'ip' => array(
+        'class_name' => 'MigrateIndividuals',
+        'group_name' => 'tammuz',
+	'ini_file' => 'porting.ini',
+	'keys' => array(
+			    'customer_number' => array('type' => 'int',
+					       'not null' => TRUE,
+					       'description' => 'Tammuz existing customer ID',
+					      ),
+			    'name' => array('type' => 'varchar',
+					       'length' => 255,
+					       'not null' => TRUE,
+					       'description' => "person's name",
+					      ),
+
+			)
+	  
+      ),
+	
+      'egg_donor' => array(
+        'class_name' => 'MigrateIndividuals',
+        'group_name' => 'tammuz',
+	'ini_file' => 'porting.ini',
+	'keys' => array(
+			    'id' => array('type' => 'varchar',
+					       'length' => 255,
+					       'not null' => TRUE,
+					       'description' => "donor's unique id",
+					      ),
+			)
+      ),
+	
+	//
+	//  ...
+	//
+	
+    ),
+  );
+  return $api;
 }
