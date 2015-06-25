@@ -1,6 +1,6 @@
-id,name,address:street,address:city,address:state,address:country,phone,email,instant_messaging_collecti,facebook_user_name,marital_status,date_of_birth,gender,spoken_languages,attached_documents,date_of_death,image,name_first,name_last
-aabb,sarah pal,,,,,,sarah@my_mail.com,,sarahpal,,,,,,,sara,pal,
-ccdd,jenny cohen,,,,,,jen@mymail,,jennycoh,,,,,,,,Jenny,Cohen
-qjsk,lucy smith,,,,,,lucysmith@hotmail.com,,lucys,,,,,,,,,
-ddek,maggie ahronson,,,,,,maggie@hotmail.com,,lucys,,,,,,,,,
-dekk,ruth evans cohen,,,,,,ruth@hotmail.com,,lucys,,,,,,,,,
+id,name,address_street,address_city,address_state,address_country,phone,email,instant_messaging_collecti,facebook_user_name,marital_status,date_of_birth,gender,spoken_languages,attached_documents,date_of_death,image,name_first,name_last,field_instant_messaging_type,field_instant_messaging_id
+aabb,sarah pal,17 bat miryam street,Tel Aviv,,Israel,,sarah@my_mail.com,,sarahpal,,,,,,,,,,skype,sara_skype_rev3
+ccdd,jenny cohen,3 jaffa street,Jerusalem,,Israel,,jen@mymail,,jennycoh,,,,,,,,,,facebook,jen_face_chat
+qjsk,lucy smith,13 ticho street,Jerusalem,,IL,,lucysmith@hotmail.com,,lucys,,,,,,,,,,,
+ddek,maggie ahronson,,,,,,maggie@hotmail.com,,lucys,,,,,,,,,,,
+dekk,ruth evans cohen,,,,,,ruth@hotmail.com,,lucys,,,,,,,,,,gtalk,ruth_im

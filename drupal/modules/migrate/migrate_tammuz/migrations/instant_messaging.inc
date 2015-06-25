@@ -8,12 +8,19 @@
 
 
 
-class AddressesMigration extends TammuzMigration {  // learn from https://www.drupal.org/node/1900640 about field collections migration
+class InstantMessagingMigration extends TammuzMigration{   // learn from https://www.drupal.org/node/1900640 about field collections migration
   public function __construct($arguments) {
     parent::__construct($arguments);
 
-    $this->description = t('Addresses as field-collection for individuals.');
+    $this->description = t('instant messaging type and id for individuals as field-collections.');
     $this->dependencies = array('egg_donor');
+
+//    $columns = array(
+//      array('id', 'Source ID'),
+////      array('individual', 'Individual ID'), //no need this because id is same for individual and their address
+//      array('field_instant_messaging_type', 'Type'),
+//      array('field_instant_messaging_id', 'Id'),
+//    );
 
     $this->source = new MigrateSourceCSV(
       $this->csv_path,
@@ -22,31 +29,24 @@ class AddressesMigration extends TammuzMigration {  // learn from https://www.dr
     );
 
     $this->destination = new MigrateDestinationFieldCollection(
-      'field_address',
+      'field_instant_messaging_collecti',
       array('host_entity_type' => 'crm_core_contact')
     );
-    
     $source_keys = $arguments['keys'];
 
     $this->map = new MigrateSQLMap($this->machineName, $source_keys, MigrateDestinationFieldCollection::getKeySchema() );
 
     $this->addFieldMapping('host_entity_id', 'id')->sourceMigration('egg_donor');
-
-    
-    $this->addFieldMapping('field_address_details', 'address_country');
-    $this->addFieldMapping('field_address_details:thoroughfare', 'address_street');
-    $this->addFieldMapping('field_address_details:locality', 'address_city');
-    $this->addFieldMapping('field_address_details:administrative_area', 'address_state');
+    $this->addSimpleMappings(array(
+      'field_instant_messaging_type',
+      'field_instant_messaging_id',
+    ));
   }
   
-    public function prepareRow($row) {
-	if (empty($row->address_country) || strtolower(trim($row->address_country))== 'israel')
-	{
-	    $row->address_country = "IL";
-	}
-    }
-  
-    public function prepare($entity, stdClass $row) {  //	https://www.drupal.org/node/2487618
+  public function prepareRow($row) {
+      //print_r($row);
+  }  
+  public function prepare($entity, stdClass $row) {  //	https://www.drupal.org/node/2487618
 //    parent::prepare($entity, $row);
     // The field collection migration code will have loaded an old revision of
     // the host entity; when it saves the host entity, old field values will
@@ -57,5 +57,4 @@ class AddressesMigration extends TammuzMigration {  // learn from https://www.dr
       $entity->updateHostEntity($host);
     }
   }
-
 }

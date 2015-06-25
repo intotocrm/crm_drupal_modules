@@ -1,6 +1,3 @@
 <?php
 
-function migrate_tammuz_entity_update($entity, $type)
-{
-}
 include_once('migrate_tammuz.features.inc');
