@@ -14,9 +14,9 @@
 require_once 'contact_types.php';
 function crm_entity_types_settings_help($path, $arg) {
   switch ($path) {
-    case "admin/help#crm_entity_types_settings":
-      return '<p>' . t("Implementation of CRM entity types besides what comes from features' crm_entity_types") . '</p>';
-      break;
+	case "admin/help#crm_entity_types_settings":
+	  return '<p>' . t("Implementation of CRM entity types besides what comes from features' crm_entity_types") . '</p>';
+	  break;
   }
 } 
 
@@ -27,10 +27,10 @@ function crm_entity_types_settings_help($path, $arg) {
  */
 function crm_entity_types_settings_block_info() {
   $blocks['new_block'] = array(
-    // The name that will appear in the block list.
-    'info' => t('My New Block'),
-    // Default setting.
-    'cache' => DRUPAL_CACHE_PER_ROLE,
+	// The name that will appear in the block list.
+	'info' => t('My New Block'),
+	// Default setting.
+	'cache' => DRUPAL_CACHE_PER_ROLE,
   );
   return $blocks;
 }
@@ -43,15 +43,15 @@ function crm_entity_types_settings_block_info() {
  */
 function crm_entity_types_settings_block_view($delta = '') {
   switch ($delta) {
-    case 'new_block':
-      $block['subject'] = t('a New Block');
-      if (user_access('access content')) {
-          $block['content'] = t('place holder for block');  
-      }
-      else {
-          $block['content'] = t('You are not allowed to view this');  
-      }
-    return $block;
+	case 'new_block':
+	  $block['subject'] = t('a New Block');
+	  if (user_access('access content')) {
+		  $block['content'] = t('place holder for block');  
+	  }
+	  else {
+		  $block['content'] = t('You are not allowed to view this');  
+	  }
+	return $block;
   }
 }
 
@@ -71,38 +71,37 @@ function crm_core_contact_customer_label($entity)
 
 function generate_relationship()
 {
-    //do nothing
+	//do nothing
 }
 
 function page_manager_page_cb()
 {
-    module_load_include("inc", "page_manager", "plugins/tasks/page");
-    $subtask_id = "child_main_page";
-    $output = page_manager_page_execute($subtask_id);    
-//    kpr($output);
-    //return "XXXX";
-    return $output;
+	module_load_include("inc", "page_manager", "plugins/tasks/page");
+	$subtask_id = "child_main_page";
+	$output = page_manager_page_execute($subtask_id);	
+//	kpr($output);
+	//return "XXXX";
+	return $output;
 }
 
 function crm_entity_types_settings_view_activities_cb($entity)
 {
 // how about views_embed_view() ?
-    //http://www.drupalcontrib.org/api/drupal/contributions%21views%21views.module/function/views_embed_view/7
-    
-//    $my_view_name = 'activities_by_contact_new';
-    $my_view_name = 'crm_activities_by_contact';
-    $my_display_name = 'page';
+	//http://www.drupalcontrib.org/api/drupal/contributions%21views%21views.module/function/views_embed_view/7
+	
+//	$my_view_name = 'activities_by_contact_new';
+	$my_view_name = 'crm_activities_by_contact_no_path';
+	$my_display_name = 'page';
 
 
-    
-    $my_view = views_get_view($my_view_name);
-    if ( is_object($my_view) ) { 
-	kpr($my_view);
+	
+	$my_view = views_get_view($my_view_name);
+	if ( is_object($my_view) ) { 
 	//update the filters
 
 
 
-//    $contact_id = $entity->contact_id;
+//	$contact_id = $entity->contact_id;
 	
 //	$filter_source_contact_id = $my_view->get_item($my_display_name, 'filter', 'contact_id');
 //	$filter_source_contact_id['value']['value'] = $contact_id;
@@ -112,144 +111,155 @@ function crm_entity_types_settings_view_activities_cb($entity)
 	$my_view->pre_execute();
 	$rendered = $my_view->render($my_display_name);
 	return $my_view->render($rendered);
-    }
-    else{
+	}
+	else{
 	return "no view object";
-    }
+	}
 }
 
 function crm_entity_types_settings_view_related_cb($entity, $relation_type, $r_index)
 {
 // how about views_embed_view() ?
-    //http://www.drupalcontrib.org/api/drupal/contributions%21views%21views.module/function/views_embed_view/7
-    
-    $contact_id = $entity->contact_id;
-    
-    $my_view_name = 'related_entities_new';
-    $my_display_name = 'page';
-    
-    $basic_relationship_name = "crm_member"; //this was the first relationship that I added, so the name sticks
-    $my_view = views_get_view($my_view_name);
-    if ( is_object($my_view) ) { 
-	$my_view->set_display($my_display_name);
-
-	// update relations from the object (basic relation with which the view was built was the "member" relation)
-
-	$relation_relationship = $my_view->get_item($my_display_name, 'relationship', 'relation_base_left_crm_member');
-	$relation_relationship['r_index'] = $r_index;
-	$relation_relationship['field'] = 'relation_base_left_' . $relation_type;
-	$my_view->set_item($my_display_name , 'relationship', 'relation_base_left_crm_member', $relation_relationship);
+	//http://www.drupalcontrib.org/api/drupal/contributions%21views%21views.module/function/views_embed_view/7
 	
-	$relation_relationship = $my_view->get_item($my_display_name, 'relationship', 'relation_base_crm_member_crm_core_contact');
-	$relation_relationship['r_index'] = 1 - $r_index;
-	$relation_relationship['field'] = 'relation_base_' . $relation_type . '_crm_core_contact';
-	$my_view->set_item($my_display_name , 'relationship', 'relation_base_crm_member_crm_core_contact', $relation_relationship);
+	$contact_id = $entity->contact_id;
 	
-	//update the filters
+	$my_view_name = 'related_entities_new';
+	$my_display_name = 'page';
 	
-	$filter_source_contact_id = $my_view->get_item($my_display_name, 'filter', 'contact_id');
-	$filter_source_contact_id['value']['value'] = $contact_id;
-	$my_view->set_item($my_display_name , 'filter', 'contact_id', $filter_source_contact_id);	
+	$basic_relationship_name = "crm_member"; //this was the first relationship that I added, so the name sticks
+	$my_view = views_get_view($my_view_name);
+	if ( is_object($my_view) ) { 
+		$my_view->set_display($my_display_name);
 
-	$my_view->pre_execute();
-	$rendered = $my_view->render($my_display_name);
-	return $my_view->render($rendered);
-    }
+		// update relations from the object (basic relation with which the view was built was the "member" relation)
+
+		$relation_relationship = $my_view->get_item($my_display_name, 'relationship', 'relation_base_left_crm_member');
+		$relation_relationship['r_index'] = $r_index;
+		$relation_relationship['field'] = 'relation_base_left_' . $relation_type;
+		$my_view->set_item($my_display_name , 'relationship', 'relation_base_left_crm_member', $relation_relationship);
+
+		$relation_relationship = $my_view->get_item($my_display_name, 'relationship', 'relation_base_crm_member_crm_core_contact');
+		$relation_relationship['r_index'] = 1 - $r_index;
+		$relation_relationship['field'] = 'relation_base_' . $relation_type . '_crm_core_contact';
+		$my_view->set_item($my_display_name , 'relationship', 'relation_base_crm_member_crm_core_contact', $relation_relationship);
+
+		//update the filters
+
+		$filter_source_contact_id = $my_view->get_item($my_display_name, 'filter', 'contact_id');
+		$filter_source_contact_id['value']['value'] = $contact_id;
+		$my_view->set_item($my_display_name , 'filter', 'contact_id', $filter_source_contact_id);	
+
+		$my_view->pre_execute();
+		$rendered = $my_view->render($my_display_name);
+		return $my_view->render($rendered);
+	}
 }
 
+function crm_entity_types_settings_household_cb($entity)
+{
+	module_load_include("inc", "page_manager", "plugins/tasks/page");
+
+	$subtask_id = "household_of_individual";
+	$output = page_manager_page_execute($subtask_id);
+  
+	return $output;
+}
 
 //implement hook_menu()
 function crm_entity_types_settings_menu()
 {
-    $menu_items = array();
-    $tabs_info = crm_entity_types_settings_all_menu_items();
-    foreach($tabs_info as $tab_info)
-    {
-	$extender_cb = $tab_info['menu_hook_create_cb'];
+	$menu_items = array();
+	$tabs_info = crm_entity_types_settings_all_menu_items();
+	foreach($tabs_info as $tab_info)
+	{
+		$extender_cb = $tab_info['menu_hook_create_cb'];
 
-	$extended_tab_info = call_user_func($extender_cb, $tab_info);
-	$key = $extended_tab_info['menu_hook_url'];
-	$menu_items[$key] = $extended_tab_info;
-    }
-    
-//    $menu_items['crm-core/contact/%crm_core_contact/activity/add'] = array(
-//      'title' => 'Add an activity',
-//      'page callback' => 'crm_core_activity_ui_add_activity',
-//      'page arguments' => array(($key == 'contact' ? 2 : NULL)),
-//      'access callback' => 'entity_access',
-//      'access arguments' => array('create_view', 'crm_core_activity'),
-//      'type' => MENU_LOCAL_ACTION,
-//      'file' => 'crm_core_activity_ui.pages.inc',
-//      'weight' => 5,
-//    );
+		$extended_tab_info = call_user_func($extender_cb, $tab_info);
+		$key = $extended_tab_info['menu_hook_url'];
+		$menu_items[$key] = $extended_tab_info;
+	}
+	//	
+	//	$menu_items['crm-core/contact/%crm_core_contact/activity/add2'] = array(
+	//	  'title' => 'Add an activity!',
+	//	  'page callback' => 'crm_core_activity_ui_add_activity',
+	//	  'page arguments' => array( 2 ),
+	//	  'access callback' => 'entity_access',
+	//	  'access arguments' => array('create_view', 'crm_core_activity'),
+	//	  'type' => MENU_LOCAL_ACTION,
+	//	  'file' => 'crm_core_activity_ui.pages.inc',
+	//	  'weight' => 5,
+	//	);
 
-    
-    return $menu_items;
+	
+	return $menu_items;
 }
 
 function crm_entity_types_settings_menu_alter(&$items) 
 {
-    // Unset crm-core tab for relationship which is too generic for this module
-//    print "<pre>menu items:". print_r($items, true). "</pre>";
-    //unset($items['crm-core/contact/%/relationships']);
+	// Unset crm-core tab for relationship which is too generic for this module
+//	print "<pre>menu items:". print_r($items, true). "</pre>";
+	//unset($items['crm-core/contact/%/relationships']);
 }
 
 //implements hook_views_data_alter
 function crm_entity_types_settings_views_data_alter(&$data)
 {
-//    print "<pre>views items keys:". print_r(array_keys($data), true). "</pre>";
-//    print "<pre>views items:". print_r($data, true). "</pre>";
-//    unset ($data['crm_relationships_by_contact']);
-//    unset ($data['crm_core_contact']);
+//	print "<pre>views items keys:". print_r(array_keys($data), true). "</pre>";
+//	print "<pre>views items:". print_r($data, true). "</pre>";
+//	unset ($data['crm_relationships_by_contact']);
+//	unset ($data['crm_core_contact']);
 }
 
 //function crm_entity_types_settings_views_pre_view(&$view, &$display_id, &$args)
 //{
-//    kpr($view);
-//    kpr($display_id);
-//    kpr($args);
+//	kpr($view);
+//	kpr($display_id);
+//	kpr($args);
 //}
 
 // implements hook_menu_local_tasks_alter
 function crm_entity_types_settings_menu_local_tasks_alter(&$data, $router_item, $root_path)
 {
-//    kpr($router_item);
-    $entity_obj = menu_get_object('crm_core_contact', 2); //instead of using page arguments array from $router_item
-//    kpr($entity_obj);
-    if (!$entity_obj) //this is in the case that the url does not have a loader, such as .../contact/%my_loader_func/bla
-    {
+//	dpm($data);
+//	kpr($router_item);
+	$entity_obj = menu_get_object('crm_core_contact', 2); //instead of using page arguments array from $router_item
+//	kpr($entity_obj);
+	if (!$entity_obj) //this is in the case that the url does not have a loader, such as .../contact/%my_loader_func/bla
+	{
 	switch($router_item['page_callback'])
 	{
-	    
+		
 	}
 //	$entity_obj = crm_core_contact_load();
-    }     
-    
-    if ($entity_obj) 
-    {
+	}	 
+	
+	if ($entity_obj) 
+	{
 	$tabs = crm_entity_types_settings_get_pages($entity_obj);
 	if ($tabs){ //if $tab==NULL it means that this entity type has no tabs config yet
-	    $menu_level = 0;
-	    if (array_key_exists($menu_level, $data['tabs'])){
-		foreach($data['tabs'][$menu_level]['output'] as $tab_key => $tab_data)
-		{
-		    //we want to unregister this tab if it doesn't fit our entity type
-		    $registered_tab_path = $tab_data['#link']['path']; 
-		    if (!array_key_exists($registered_tab_path, $tabs['tabs']) &&
-			    $registered_tab_path != "crm-core/contact/%/devel"
-			)
-		    {
-			unset($data['tabs'][$menu_level]['output'][$tab_key]);
-		    }else{
-		    }
-		    //@TODO: add new tabs/actions from crm_entity_types_settings_get_pages() that were not yet been registered by hook_menu().
+		$menu_level = 0;
+		if (array_key_exists($menu_level, $data['tabs'])){
+			foreach($data['tabs'][$menu_level]['output'] as $tab_key => $tab_data)
+			{
+				//we want to unregister this tab if it doesn't fit our entity type
+				$registered_tab_path = $tab_data['#link']['path']; 
+				if (!array_key_exists($registered_tab_path, $tabs['tabs']) &&
+					$registered_tab_path != "crm-core/contact/%/devel"
+				)
+				{
+					unset($data['tabs'][$menu_level]['output'][$tab_key]);
+//					dpm("unsetting: $tab_key");
+				}else{
+				}
+				//@TODO: add new tabs/actions from crm_entity_types_settings_get_pages() that were not yet been registered by hook_menu().
+			}
 		}
-	    }
 	}else{
-	    kpr("no tabs");
+		kpr("no tabs");
 	}
 
-    }
+	}
 }
 
 
