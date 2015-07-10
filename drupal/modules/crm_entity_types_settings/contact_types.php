@@ -85,48 +85,48 @@ function crm_entity_types_settings_all_menu_items()
 //		'relation_r_index' => 0,
 //	  ),
 //	
-	'contact/crm_member/0' => array(
-		'menu_hook_create_cb' => 'crm_entity_types_settings_create_panels_tab',
-		'title' => 'Household',
-		'description' => 'Manage household of individuals',
-		'access callback' => TRUE,  //TODO!!!
-		'relation_type' => 'crm_member',
-		'relation_r_index' => 0,
-	  ),
-		
-	'contact/crm_member/1' => array(
-		'menu_hook_create_cb' => 'crm_entity_types_settings_create_related_views_tab',
-		'title' => 'Household',
-		'description' => 'List and manage household members',
-		'access callback' => TRUE,  //TODO!!!
-		'relation_type' => 'crm_member',
-		'relation_r_index' => 1,
-	  ),
+//	'contact/crm_member/0' => array(
+//		'menu_hook_create_cb' => 'crm_entity_types_settings_create_panels_tab',
+//		'title' => 'Household',
+//		'description' => 'Manage household of individuals',
+//		'access callback' => TRUE,  //TODO!!!
+//		'relation_type' => 'crm_member',
+//		'relation_r_index' => 0,
+//	  ),
+//		
+//	'contact/crm_member/1' => array(
+//		'menu_hook_create_cb' => 'crm_entity_types_settings_create_related_views_tab',
+//		'title' => 'Household',
+//		'description' => 'List and manage household members',
+//		'access callback' => TRUE,  //TODO!!!
+//		'relation_type' => 'crm_member',
+//		'relation_r_index' => 1,
+//	  ),
 
-	'contact/genetic_parent_of/0' => array(
-		'menu_hook_create_cb' => 'crm_entity_types_settings_create_related_views_tab',
-		'title' => 'Genetic Relations',
-		'description' => 'Tracks genetic father and mother, or sperm/egg donors',
-		'relation_type' => 'genetic_parent_of',
-		'relation_r_index' => 0,
-		'access callback' => TRUE,  //TODO!!!
-		),
-
-	'contact/genetic_parent_of/1' => array(
-		'menu_hook_create_cb' => 'crm_entity_types_settings_create_related_views_tab',
-		'title' => 'Genetic Relations',
-		'description' => 'Tracks genetic father and mother, or sperm/egg donors',
-		'relation_type' => 'genetic_parent_of',
-		'relation_r_index' => 1,
-		'access callback' => TRUE,  //TODO!!!
-		),
-
-	'contact/activity' => array(
-		'menu_hook_create_cb' => 'crm_entity_types_settings_create_activities_views_tab',
-		'title' => 'History',
-		'description' => 'All events relevant to this contact',
-		'access callback' => TRUE,  //TODO!!!
-		),
+//	'contact/genetic_parent_of/0' => array(
+//		'menu_hook_create_cb' => 'crm_entity_types_settings_create_related_views_tab',
+//		'title' => 'Genetic Relations',
+//		'description' => 'Tracks genetic father and mother, or sperm/egg donors',
+//		'relation_type' => 'genetic_parent_of',
+//		'relation_r_index' => 0,
+//		'access callback' => TRUE,  //TODO!!!
+//		),
+//
+//	'contact/genetic_parent_of/1' => array(
+//		'menu_hook_create_cb' => 'crm_entity_types_settings_create_related_views_tab',
+//		'title' => 'Genetic Relations',
+//		'description' => 'Tracks genetic father and mother, or sperm/egg donors',
+//		'relation_type' => 'genetic_parent_of',
+//		'relation_r_index' => 1,
+//		'access callback' => TRUE,  //TODO!!!
+//		),
+//
+//	'contact/activity' => array(
+//		'menu_hook_create_cb' => 'crm_entity_types_settings_create_activities_views_tab',
+//		'title' => 'History',
+//		'description' => 'All events relevant to this contact',
+//		'access callback' => TRUE,  //TODO!!!
+//		),
 	);
 	
 }

@@ -1,3 +1,3 @@
-customer_number,name,email,facebook_user_name
-1234,Joe Hammilton,joe1@mymail_2.com,joeham
-4567,Tim Cooke,tim1@mymail_2.com,tim_cooke_the_boss
+id,name,address_street,address_city,address_state,address_country,phone,email,instant_messaging_collecti,facebook_user_name,marital_status,date_of_birth,gender,spoken_languages,attached_documents,date_of_death,image,name_first,name_last,field_instant_messaging_type,field_instant_messaging_id
+1234,Joe Hammilton,18 hapalmach street,Jerusalem,,IL,052-7442323,joe1@mymail_2.com,,joeham,,1972/3/22,male,,,,,,,facebook,joeham
+4567,Tim Cooke,9 dubnov street,tel aviv,,IL,054-2239549,tim1@mymail_2.com,,tim_cooke_the_boss,,1983/6/7,male,,,,,,,gtalk,timtimtim

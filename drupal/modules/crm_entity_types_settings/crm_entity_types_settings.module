@@ -56,8 +56,6 @@ function crm_entity_types_settings_block_view($delta = '') {
 }
 
 
-
-
 function crm_core_contact_customer_label($entity)
 {
 	$field_caption = field_view_field('crm_core_contact', $entity, 'field_caption', array('settings' => array('output' => 'raw')));
@@ -237,7 +235,7 @@ function crm_entity_types_settings_menu_local_tasks_alter(&$data, $router_item, 
 	if ($entity_obj) 
 	{
 	$tabs = crm_entity_types_settings_get_pages($entity_obj);
-	if ($tabs){ //if $tab==NULL it means that this entity type has no tabs config yet
+	if (false && $tabs){ //if $tab==NULL it means that this entity type has no tabs config yet	
 		$menu_level = 0;
 		if (array_key_exists($menu_level, $data['tabs'])){
 			foreach($data['tabs'][$menu_level]['output'] as $tab_key => $tab_data)
@@ -256,7 +254,7 @@ function crm_entity_types_settings_menu_local_tasks_alter(&$data, $router_item, 
 			}
 		}
 	}else{
-		kpr("no tabs");
+//		kpr("no tabs");
 	}
 
 	}

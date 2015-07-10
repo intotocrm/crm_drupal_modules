@@ -1,5 +1,12 @@
 <?php
 
+$module_name = 'tammuz_crm';
+module_load_include('inc', $module_name , 'tokens');
+module_load_include('inc', $module_name , 'blocks');
+module_load_include('inc', $module_name , 'forms');
+
+module_load_include('inc', 'crm_core_relationship_ui', 'crm_core_relationship_ui.pages');
+
 /**
  * Implements hook_help().
  *
@@ -18,37 +25,73 @@ function tammuz_crm_help($path, $arg) {
   }
 } 
 
+function local_crm_core_relation_entity_ui_get_form_wrapper($contact, $type, $reverse) {
+  return crm_core_relation_entity_ui_get_form_wrapper($contact, $type, $reverse);
+}
 
+function tammuz_crm_menu()
+{
+	$items = array();    
+	$items['crm-core/contact/%crm_core_contact/household/add'] = array(
+		'title' => 'Add Household',
+		'description' => 'Add a household to this contact',
+//		'page callback' => 'crm_core_relation_entity_ui_get_form_wrapper',
+		'page callback' => 'local_crm_core_relation_entity_ui_get_form_wrapper',
 
-/**
- * Implements hook_block_info().
- */
-function tammuz_crm_block_info() {
-  $blocks['recent_contacts'] = array(
-    // The name that will appear in the block list.
-    'info' => t('Recent Contacts'),
-    // Default setting.
-    'cache' => DRUPAL_CACHE_PER_ROLE,
-  );
-  return $blocks;
+		'page arguments' => array( 2, "crm_member", "0"),
+		'access callback' => 'crm_core_relationship_access_permissions',
+		'access arguments' => array(NULL, 'create_view'),
+//		'type' => MENU_LOCAL_ACTION,
+		'type' => MENU_CALLBACK,
+//		'file' => 'crm_core_relationship_ui.pages.inc',
+	);
+	return $items;
+}
+
+function tammuz_crm_admin_paths_alter(&$paths) {
+    $paths['crm-core/contact/*/household/add'] = TRUE;
 }
 
 
-/**
- * Implements hook_block_view().
- * 
- * Prepares the contents of the block.
- */
-function tammuz_crm_block_view($delta = '') {
-  switch ($delta) {
-    case 'recent_contacts':
-      $block['subject'] = t('Recent Contacts');
-      if (user_access('access content')) {
-          $block['content'] = t('place holder for currently viewed contacts');  
-      }
-      else {
-          $block['content'] = t('You are not allowed to view this');  
-      }
-    return $block;
-  }
+
+function tammuz_crm_entity_update($entity, $type)
+{
+//	watchdog("tammuz", "entity: " . print_r($entity,true), array(), WATCHDOG_DEBUG );
+//	watchdog("tammuz", "type: " . print_r($type,true), array(), WATCHDOG_DEBUG );
+	
+//	$message = "XYZ";
+//	drupal_set_message($message, /*$type*/ 'status', /*$repeat*/FALSE);
+}
+
+
+function tammuz_crm_entity_presave($entity, $type){
+//function tammuz_crm_entity_insert($entity, $type){
+//	drupal_set_message("added entity of type $type:". $entity->type);
+	//drupal_set_message("<pre>" . print_r($entity, true) . "</pre>");
+	if (isset($type) && $type == "crm_core_contact"){
+		try {		
+			$contact_wrapper = entity_metadata_wrapper('crm_core_contact', $entity);
+			if (isset($contact_wrapper->{"field_caption"}))
+			{
+				$caption = $contact_wrapper->{"field_caption"}->value();
+	//			drupal_set_message("<pre>" . print_r($entity->contact_name, true) . "</pre>");
+				$contact_wrapper->{"contact_name"}->{"given"}->set($caption);
+	//			drupal_set_message("<pre>" . print_r($entity->contact_name, true) . "</pre>");
+	//					->set(
+	//						array(
+	//								"title" => "",
+	//								"given" => $caption,
+	//								"middle" => "",
+	//								"family" => "",
+	//								"generational" => "",
+	//								"credentials" =>  "",
+	//							)
+	//					);
+	//			$contact_wrapper->contact_name_family ->set("");
+			}
+		}catch (EntityMetadataWrapperException $exc) {
+			drupal_set_message("exception:" . $exc->getTraceAsString() );
+			
+		}
+	}
 }

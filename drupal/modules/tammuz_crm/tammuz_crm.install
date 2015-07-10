@@ -6,31 +6,31 @@
  * inspired by and relies on crm_core_contact_install()
  */
 
-require_once "contact_types/ContactType.php";
-$available_contact_types = array(  // @TBD: take this automatically from globbing contact_types dir
-    "tammuz_staff",
-);
-
-foreach ($available_contact_types as $contact_type_id)
-{
-    require_once "contact_types/ContactType_" . $contact_type_id . ".php";
-}
+//require_once "contact_types/ContactType.php";
+//$available_contact_types = array(  // @TBD: take this automatically from globbing contact_types dir
+//    "tammuz_staff",
+//);
+//
+//foreach ($available_contact_types as $contact_type_id)
+//{
+//    require_once "contact_types/ContactType_" . $contact_type_id . ".php";
+//}
 
 function tammuz_crm_install() 
 {
-$available_contact_types = array(  // @TBD: take this automatically from globbing contact_types dir
-    "tammuz_staff",
-);
-
-foreach ($available_contact_types as $contact_type_id)
-    {
-	$class_name = "ContactType_" . $contact_type_id;
-	$contact_type_info = $class_name::getInfo();
-	$class_name::register($contact_type_info);
-    }
-
-    watchdog("", "been in hook_enable");
-
+	//$available_contact_types = array(  // @TBD: take this automatically from globbing contact_types dir
+	//    "tammuz_staff",
+	//);
+	//
+	//foreach ($available_contact_types as $contact_type_id)
+	//    {
+	//	$class_name = "ContactType_" . $contact_type_id;
+	//	$contact_type_info = $class_name::getInfo();
+	//	$class_name::register($contact_type_info);
+	//    }
+	//
+	//    watchdog("", "been in hook_enable");
+	//
   
   
 }

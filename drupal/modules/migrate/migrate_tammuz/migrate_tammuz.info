@@ -6,9 +6,11 @@ dependencies[] = "crm_core"
 description = "Import Tammuz CRM data."
 
 files[] = "migrate_tammuz.migrate.inc"
+files[] = "migrations/base.inc"
 files[] = "migrations/individuals.inc"
 files[] = "migrations/addresses.inc"
 files[] = "migrations/instant_messaging.inc"
+files[] = "migrations/phone.inc"
 
 name = "migrate_tammuz"
 package = "Migration"
