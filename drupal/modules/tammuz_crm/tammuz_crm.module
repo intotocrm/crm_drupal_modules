@@ -50,8 +50,18 @@ function tammuz_crm_menu()
 
 function tammuz_crm_admin_paths_alter(&$paths) {
     $paths['crm-core/contact/*/household/add'] = TRUE;
+    $paths['crm-core/contact/*/activity/add'] = TRUE;
+    $paths['crm-core/contact/*/activity/add/comment'] = TRUE;
 }
 
+function tammuz_crm_menu_alter(&$items)
+{
+	//unset($items['crm-core/contact/%crm_core_contact']);
+	unset($items['crm-core/contact/%crm_core_contact/view']);
+//	$items['crm-core/contact/%crm_core_contact/view'] = $items['crm-core/contact/%crm_core_contact/details'];
+//	$items['crm-core/contact/%crm_core_contact/view']['type'] = MENU_CALLBACK;
+//	$items['crm-core/contact/%crm_core_contact/details']['type'] = MENU_DEFAULT_LOCAL_TASK;
+}
 
 
 function tammuz_crm_entity_update($entity, $type)

@@ -91,7 +91,7 @@ dependencies[] = file_entity
 
 ; Migration
 dependencies[] = migrate
-dependencies[] = migrate_tammuz
+#dependencies[] = migrate_tammuz
 dependencies[] = migrate_ui
 
 ; Other
