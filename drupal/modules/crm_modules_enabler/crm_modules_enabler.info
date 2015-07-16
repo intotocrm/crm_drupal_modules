@@ -1,0 +1,126 @@
+; Packaging information for crm_modules_enabler
+name = "crm_modules_enabler"
+description = "module that is dependent on all the necessary modules in crm sites"
+core = "7.x"
+
+
+; ----------
+; Dependencies
+; ----------
+
+; Administration
+dependencies[] = admin_menu
+dependencies[] = module_filter
+
+; CRM Core
+dependencies[] = crm_core
+dependencies[] = crm_core_activity
+dependencies[] = crm_core_activity_ui
+dependencies[] = crm_core_contact
+dependencies[] = crm_core_contact_ui
+dependencies[] = crm_core_relationship
+dependencies[] = crm_core_relationship_ui
+dependencies[] = crm_core_ui
+
+; Chaos tool suite
+dependencies[] = ctools
+dependencies[] = ctools_access_ruleset
+dependencies[] = ctools_custom_content
+dependencies[] = page_manager
+dependencies[] = views_content
+
+; Core
+dependencies[] = block
+dependencies[] = color
+dependencies[] = comment
+dependencies[] = contextual
+dependencies[] = dashboard
+dependencies[] = dblog
+dependencies[] = field
+dependencies[] = field_sql_storage
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = filter
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = node
+dependencies[] = number
+dependencies[] = options
+dependencies[] = overlay
+dependencies[] = path
+dependencies[] = rdf
+dependencies[] = search
+dependencies[] = shortcut
+dependencies[] = system
+dependencies[] = taxonomy
+dependencies[] = text
+dependencies[] = user
+
+; Date/Time
+dependencies[] = date
+dependencies[] = date_api
+dependencies[] = date_popup
+dependencies[] = date_views
+
+; Development
+dependencies[] = devel
+dependencies[] = enabled_modules
+dependencies[] = migrate_extras
+
+; Features
+dependencies[] = features
+
+; Fields
+dependencies[] = addressfield
+dependencies[] = cck_phone
+dependencies[] = countries
+dependencies[] = email
+dependencies[] = entityreference
+dependencies[] = field_collection
+dependencies[] = field_group
+dependencies[] = languagefield
+dependencies[] = name
+
+; Filter
+dependencies[] = simplehtmldom
+
+; Media
+dependencies[] = file_entity
+
+; Migration
+dependencies[] = migrate
+dependencies[] = migrate_tammuz
+dependencies[] = migrate_ui
+
+; Other
+dependencies[] = crm_entity_types_settings
+dependencies[] = entity
+dependencies[] = entity_token
+dependencies[] = standard
+dependencies[] = tammuz_crm
+dependencies[] = token
+
+; Panels
+dependencies[] = panels
+dependencies[] = panels_mini
+dependencies[] = panels_node
+
+; Relation
+dependencies[] = relation
+dependencies[] = relation_endpoint
+dependencies[] = relation_ui
+
+; Tammuz
+dependencies[] = crm_entity_types_improved
+
+; User interface
+dependencies[] = jquery_update
+
+; Views
+dependencies[] = views
+dependencies[] = views_bulk_operations
+dependencies[] = views_system
+dependencies[] = views_ui
+
