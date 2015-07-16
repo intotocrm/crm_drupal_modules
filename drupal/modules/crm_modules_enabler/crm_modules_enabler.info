@@ -9,8 +9,8 @@ core = "7.x"
 ; ----------
 
 ; Administration
-dependencies[] = admin_menu
-dependencies[] = module_filter
+#dependencies[] = admin_menu
+#dependencies[] = module_filter
 
 ; CRM Core
 dependencies[] = crm_core
@@ -26,8 +26,8 @@ dependencies[] = crm_core_ui
 dependencies[] = ctools
 dependencies[] = ctools_access_ruleset
 dependencies[] = ctools_custom_content
-dependencies[] = page_manager
-dependencies[] = views_content
+#dependencies[] = page_manager
+#dependencies[] = views_content
 
 ; Core
 dependencies[] = block
@@ -65,9 +65,9 @@ dependencies[] = date_popup
 dependencies[] = date_views
 
 ; Development
-dependencies[] = devel
-dependencies[] = enabled_modules
-dependencies[] = migrate_extras
+#dependencies[] = devel
+#dependencies[] = enabled_modules
+#dependencies[] = migrate_extras
 
 ; Features
 dependencies[] = features
@@ -84,7 +84,7 @@ dependencies[] = languagefield
 dependencies[] = name
 
 ; Filter
-dependencies[] = simplehtmldom
+#dependencies[] = simplehtmldom
 
 ; Media
 dependencies[] = file_entity
@@ -99,7 +99,7 @@ dependencies[] = crm_entity_types_settings
 dependencies[] = entity
 dependencies[] = entity_token
 dependencies[] = standard
-dependencies[] = tammuz_crm
+#dependencies[] = tammuz_crm
 dependencies[] = token
 
 ; Panels
@@ -113,10 +113,10 @@ dependencies[] = relation_endpoint
 dependencies[] = relation_ui
 
 ; Tammuz
-dependencies[] = crm_entity_types_improved
+#dependencies[] = crm_entity_types_improved
 
 ; User interface
-dependencies[] = jquery_update
+#dependencies[] = jquery_update
 
 ; Views
 dependencies[] = views
