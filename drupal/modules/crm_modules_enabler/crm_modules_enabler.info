@@ -1,16 +1,12 @@
 ; Packaging information for crm_modules_enabler
 name = "crm_modules_enabler"
-description = "module that is dependent on all the necessary modules in crm sites"
+description = "module that's dependedent on all enabled modules"
 core = "7.x"
 
 
 ; ----------
 ; Dependencies
 ; ----------
-
-; Administration
-#dependencies[] = admin_menu
-#dependencies[] = module_filter
 
 ; CRM Core
 dependencies[] = crm_core
@@ -24,10 +20,6 @@ dependencies[] = crm_core_ui
 
 ; Chaos tool suite
 dependencies[] = ctools
-dependencies[] = ctools_access_ruleset
-dependencies[] = ctools_custom_content
-#dependencies[] = page_manager
-#dependencies[] = views_content
 
 ; Core
 dependencies[] = block
@@ -56,6 +48,7 @@ dependencies[] = shortcut
 dependencies[] = system
 dependencies[] = taxonomy
 dependencies[] = text
+dependencies[] = toolbar
 dependencies[] = user
 
 ; Date/Time
@@ -64,63 +57,38 @@ dependencies[] = date_api
 dependencies[] = date_popup
 dependencies[] = date_views
 
-; Development
-#dependencies[] = devel
-#dependencies[] = enabled_modules
-#dependencies[] = migrate_extras
-
 ; Features
 dependencies[] = features
 
 ; Fields
 dependencies[] = addressfield
 dependencies[] = cck_phone
-dependencies[] = countries
 dependencies[] = email
 dependencies[] = entityreference
 dependencies[] = field_collection
 dependencies[] = field_group
 dependencies[] = languagefield
 dependencies[] = name
-
-; Filter
-#dependencies[] = simplehtmldom
-
-; Media
-dependencies[] = file_entity
-
-; Migration
-dependencies[] = migrate
-#dependencies[] = migrate_tammuz
-dependencies[] = migrate_ui
+dependencies[] = select_or_other
 
 ; Other
-dependencies[] = crm_entity_types_settings
 dependencies[] = entity
-dependencies[] = entity_token
 dependencies[] = standard
-#dependencies[] = tammuz_crm
-dependencies[] = token
-
-; Panels
-dependencies[] = panels
-dependencies[] = panels_mini
-dependencies[] = panels_node
 
 ; Relation
 dependencies[] = relation
 dependencies[] = relation_endpoint
 dependencies[] = relation_ui
 
-; Tammuz
-#dependencies[] = crm_entity_types_improved
-
 ; User interface
-#dependencies[] = jquery_update
+dependencies[] = jquery_update
 
 ; Views
 dependencies[] = views
 dependencies[] = views_bulk_operations
-dependencies[] = views_system
-dependencies[] = views_ui
+
+; intoto
+dependencies[] = crm_core_ip_contact_type
+dependencies[] = individual_field_collection
+dependencies[] = intoto_crm_individual
 

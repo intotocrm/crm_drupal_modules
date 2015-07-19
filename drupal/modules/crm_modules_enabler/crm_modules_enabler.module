@@ -2,3 +2,86 @@
  
 // This file is required for the module to work
 
+function crm_modules_enabler_modules_enabled($enabled_modules) {
+		$modules["crm_core"] = "7.x-0.980";
+		$modules["crm_core_activity"] = "7.x-0.980";
+		$modules["crm_core_activity_ui"] = "7.x-0.980";
+		$modules["crm_core_contact"] = "7.x-0.980";
+		$modules["crm_core_contact_ui"] = "7.x-0.980";
+		$modules["crm_core_relationship"] = "7.x-0.980";
+		$modules["crm_core_relationship_ui"] = "7.x-0.980";
+		$modules["crm_core_ui"] = "7.x-0.980";
+		$modules["ctools"] = "7.x-1.7";
+		$modules["block"] = "7.38";
+		$modules["color"] = "7.38";
+		$modules["comment"] = "7.38";
+		$modules["contextual"] = "7.38";
+		$modules["dashboard"] = "7.38";
+		$modules["dblog"] = "7.38";
+		$modules["field"] = "7.38";
+		$modules["field_sql_storage"] = "7.38";
+		$modules["field_ui"] = "7.38";
+		$modules["file"] = "7.38";
+		$modules["filter"] = "7.38";
+		$modules["help"] = "7.38";
+		$modules["image"] = "7.38";
+		$modules["list"] = "7.38";
+		$modules["menu"] = "7.38";
+		$modules["node"] = "7.38";
+		$modules["number"] = "7.38";
+		$modules["options"] = "7.38";
+		$modules["overlay"] = "7.38";
+		$modules["path"] = "7.38";
+		$modules["rdf"] = "7.38";
+		$modules["search"] = "7.38";
+		$modules["shortcut"] = "7.38";
+		$modules["system"] = "7.38";
+		$modules["taxonomy"] = "7.38";
+		$modules["text"] = "7.38";
+		$modules["toolbar"] = "7.38";
+		$modules["user"] = "7.38";
+		$modules["date"] = "7.x-2.8";
+		$modules["date_api"] = "7.x-2.8";
+		$modules["date_popup"] = "7.x-2.8";
+		$modules["date_views"] = "7.x-2.8";
+		$modules["features"] = "7.x-2.6";
+		$modules["addressfield"] = "7.x-1.1";
+		$modules["cck_phone"] = "7.x-1.x-dev";
+		$modules["email"] = "7.x-1.3";
+		$modules["entityreference"] = "7.x-1.1";
+		$modules["field_collection"] = "7.x-1.0-beta8";
+		$modules["field_group"] = "7.x-1.4";
+		$modules["languagefield"] = "7.x-1.3";
+		$modules["name"] = "7.x-1.9";
+		$modules["select_or_other"] = "7.x-2.22";
+		$modules["entity"] = "7.x-1.6";
+		$modules["standard"] = "7.38";
+		$modules["relation"] = "7.x-1.0-rc7";
+		$modules["relation_endpoint"] = "7.x-1.0-rc7";
+		$modules["relation_ui"] = "7.x-1.0-rc7";
+		$modules["jquery_update"] = "7.x-3.0-alpha2";
+		$modules["views"] = "7.x-3.11";
+		$modules["views_bulk_operations"] = "7.x-3.3";
+		$modules["crm_core_ip_contact_type"] = "7.x-1.0";
+		$modules["individual_field_collection"] = "7.x-0.1";
+		$modules["intoto_crm_individual"] = "7.x-0.1";
+$result = db_select("system", "s")
+    ->fields("s", array("name", "info"))
+    ->condition("s.name", "module_export", "<>")
+    ->condition("s.type", "module", "=")
+    ->execute();
+
+  $flag = 0;
+  foreach ($result as $row) {
+    $info = unserialize($row->info);
+    if (array_key_exists($row->name, $modules) && $info["version"] != $modules[$row->name]) {
+      $flag = 1;
+      drupal_set_message(check_plain(t($row->name . " version is not compatible.")), "error");
+    }
+  }
+
+  if ($flag) {
+    module_disable($enabled_modules);
+  }
+
+}
