@@ -90,5 +90,5 @@ dependencies[] = views_bulk_operations
 ; intoto
 dependencies[] = crm_core_ip_contact_type
 dependencies[] = individual_field_collection
-dependencies[] = intoto_crm_individual
+#dependencies[] = intoto_crm_individual
 
