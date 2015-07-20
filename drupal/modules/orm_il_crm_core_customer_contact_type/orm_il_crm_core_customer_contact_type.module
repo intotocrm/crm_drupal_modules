@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the orm-il crm core customer contact type feature.
+ */
+
+include_once 'orm_il_crm_core_customer_contact_type.features.inc';
