@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Implements hook_enable().
+ * 
+ * inspired by and relies on crm_core_contact_install()
+ */
+
+function intoto_crm_install() 
+{
+}
