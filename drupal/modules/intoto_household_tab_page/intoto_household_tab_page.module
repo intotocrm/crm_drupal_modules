@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the intoto household tab page feature.
+ */
+
+include_once 'intoto_household_tab_page.features.inc';

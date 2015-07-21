@@ -1,0 +1,13 @@
+name = intoto household tab page
+description = page that serves for the household tab
+core = 7.x
+package = intoto
+version = 7.x-1.0
+project = intoto_household_tab_page
+dependencies[] = intoto_household_views
+dependencies[] = ctools
+dependencies[] = page_manager
+features[ctools][] = page_manager:pages_default:1
+features[features_api][] = api:2
+features[page_manager_pages][] = try_contexts
+project path = sites/all/modules/intoto
