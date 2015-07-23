@@ -1,0 +1,141 @@
+<?php
+
+function intoto_contact_header_preprocess(&$variables, $hook) {
+  if (isset($variables['elements']['#entity_type'])) { // or maybe check for $hook name
+	$function = __FUNCTION__ . '_' . $variables['elements']['#entity_type'];
+	if (function_exists($function)) {
+	  $function($variables, $hook);
+	}
+  }
+}
+
+function intoto_contact_header_preprocess_crm_core_contact(&$variables, $hook) {
+//	print " in hooke_preprocess crm_core_contact ";
+//	drupal_add_region_content('contactheader', '^^^^^^^^');	
+}
+
+//function intoto_contact_header_entity_prepare_view($entities, $type, $langcode){
+//	print " in hook_entity_prepare_view ";
+//}
+
+function intoto_contact_header_entity_view($entity, $type, $view_mode, $langcode){
+	//print " hook_entity_view ";
+	
+}
+/**
+* Implements hook_theme().
+*/
+function intoto_contact_header_theme($existing, $type, $theme, $path) {
+	$theme = array();
+
+//example:
+//	$theme['forums'] = array(
+//		'template' => 'forums',
+//		'variables' => array('forums' => NULL, 'topics' => NULL, 'parents' => NULL, 'tid' => NULL, 'sortby' => NULL, 'forum_per_page' => NULL),
+//	);
+
+	$theme['contact_header'] = array(
+		'template' => 'contact_header',
+		'variables' => array(
+							 'contact' => NULL, 
+							),
+	);
+	return $theme;
+}
+function template_preprocess_contact_header(&$variables)
+{
+	$contact = $variables['contact'];
+
+	//contact's name
+	
+	$name = field_get_items('crm_core_contact', $contact, 'contact_name');
+
+	$name_view = "";
+	if(!empty($name)) {
+		$name_view = field_view_value('crm_core_contact', $contact, 'contact_name', $name[0], array(
+					'type' => 'Name',
+					'settings' => array(),
+				)
+			);
+    }
+	$entity_info = entity_get_info("crm_core_contact");
+	$variables['contact'] = $contact;
+	$variables['contact_type'] = isset($contact->type) ? $contact->type: NULL;
+//	$variables['contact_type_label'] = (isset($contact->entityInfo['bundles'][$contact->type]['label'])) ? ($contact->entityInfo['bundles'][$contact->type]['label']) : "NULL";
+	$variables['contact_type_label'] = isset($entity_info['bundles'][$contact->type]['label']) ? $entity_info['bundles'][$contact->type]['label'] : "NULL";
+	$variables['title'] = $name_view["#markup"];
+	$variables['serial'] = NULL; // should be taken from another field in $contact
+	$variables['contact_id'] = isset($contact->contact_id) ? $contact->contact_id : NULL;
+	
+    // get only one image per contact (index 0)
+	$images = field_get_items('crm_core_contact', $contact, 'field_image');
+	$image = "";
+	if(!empty($images)) {
+		$image = field_view_value('crm_core_contact', $contact, 'field_image', $images[0], array(
+					'type' => 'image',
+					'settings' => array('image_style' => 'thumbnail_square') // could be 'thumbnail'
+				)
+			);
+    }
+    $variables['image'] = $image;
+	$variables['photos'] = array($image);
+
+
+	//use this methods to bring alerts (use the alerts view, not the contacts view):
+	$my_view = views_get_view('crm_core_contacts');
+	if ( is_object($my_view) ) { 
+	//update the filters
+
+
+
+	//	$contact_id = $entity->contact_id;
+
+	//	$filter_source_contact_id = $my_view->get_item($my_display_name, 'filter', 'contact_id');
+	//	$filter_source_contact_id['value']['value'] = $contact_id;
+	//	$my_view->set_item($my_display_name , 'filter', 'contact_id', $filter_source_contact_id);	
+
+		$my_view->set_display('page');
+		$my_view->pre_execute();
+		$renderable_view = $my_view->render('page');
+		$variables['contacts'] = render($renderable_view);
+	}
+	
+	
+	
+}
+
+function intoto_contact_header_preprocess_page(&$page)
+{
+	//load the current shown entity to retrieve its relevant components to the header:
+	$contact_id = arg(2);
+	$contacts = array();
+	$page['contact_renderable'] = NULL;
+	if (is_numeric($contact_id))
+		$contacts = entity_load('crm_core_contact', array($contact_id));
+	if (!$contacts)
+		return;
+	$contact_ids = array_keys($contacts);
+	
+	$page['contact_renderable'] = array(
+			"#theme" => 'contact_header',
+			"#contact" => isset($contact_ids[0]) ? $contacts[$contact_ids[0]] : NULL,
+		);
+	
+	
+	//cause the header region show up - some hacking if the region doesn't contain any blocks which prevents it from showing up.
+	foreach($page['page'] as $region => $blocks) {
+		if(is_array($blocks) && in_array($region, array('contactheader',/*'region_1', 'region_2', 'region_3'*/))) {
+			if(count($blocks)<=1) {
+//				print "add markup to contactheader########";
+				$page['page'][$region] = 
+						array(
+								'#sorted' => 1,
+								'#region' => 'contactheader',
+								'#theme_wrappers' => array   ('region'),
+								'block_1' => array('#markup' => ' ')
+							);
+//				print("set page phantom block on region:$region");
+			}
+		}
+	}
+}

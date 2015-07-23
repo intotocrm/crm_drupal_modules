@@ -1,0 +1,11 @@
+name = Intoto CRM
+description = Implementation and Hooks for Intoto CRM
+core = 7.x
+
+dependencies[] = crm_core_contact
+dependencies[] = crm_core_relationship_ui
+dependencies[] = entity_token
+
+files[] = 'tokens.inc'
+files[] = 'blocks.inc'
+files[] = 'forms.inc'
