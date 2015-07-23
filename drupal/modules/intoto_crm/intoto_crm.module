@@ -7,6 +7,11 @@ module_load_include('inc', $module_name , 'forms');
 
 module_load_include('inc', 'crm_core_relationship_ui', 'crm_core_relationship_ui.pages');
 
+
+function intoto_crm_enable()
+{
+	variable_set('site_frontpage', 'home');
+}
 /**
  * Implements hook_help().
  *
