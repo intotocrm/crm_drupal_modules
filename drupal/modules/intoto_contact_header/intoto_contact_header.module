@@ -1,27 +1,27 @@
 <?php
-
-function intoto_contact_header_preprocess(&$variables, $hook) {
-  if (isset($variables['elements']['#entity_type'])) { // or maybe check for $hook name
-	$function = __FUNCTION__ . '_' . $variables['elements']['#entity_type'];
-	if (function_exists($function)) {
-	  $function($variables, $hook);
-	}
-  }
-}
-
-function intoto_contact_header_preprocess_crm_core_contact(&$variables, $hook) {
-//	print " in hooke_preprocess crm_core_contact ";
-//	drupal_add_region_content('contactheader', '^^^^^^^^');	
-}
-
-//function intoto_contact_header_entity_prepare_view($entities, $type, $langcode){
-//	print " in hook_entity_prepare_view ";
+//
+//function intoto_contact_header_preprocess(&$variables, $hook) {
+//  if (isset($variables['elements']['#entity_type'])) { // or maybe check for $hook name
+//	$function = __FUNCTION__ . '_' . $variables['elements']['#entity_type'];
+//	if (function_exists($function)) {
+//	  $function($variables, $hook);
+//	}
+//  }
 //}
-
-function intoto_contact_header_entity_view($entity, $type, $view_mode, $langcode){
-	//print " hook_entity_view ";
-	
-}
+//
+//function intoto_contact_header_preprocess_crm_core_contact(&$variables, $hook) {
+////	print " in hooke_preprocess crm_core_contact ";
+////	drupal_add_region_content('contactheader', '^^^^^^^^');	
+//}
+//
+////function intoto_contact_header_entity_prepare_view($entities, $type, $langcode){
+////	print " in hook_entity_prepare_view ";
+////}
+//
+//function intoto_contact_header_entity_view($entity, $type, $view_mode, $langcode){
+//	//print " hook_entity_view ";
+//	
+//}
 /**
 * Implements hook_theme().
 */
