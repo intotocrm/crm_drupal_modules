@@ -1,0 +1,10 @@
+name = intoto staff role
+description = copy authenticated staff user's role and permission
+core = 7.x
+package = intoto
+version = 7.x-1.0
+project = intoto_staff_role
+dependencies[] = features
+features[features_api][] = api:2
+features[user_role][] = staff
+project path = sites/all/modules/intoto
