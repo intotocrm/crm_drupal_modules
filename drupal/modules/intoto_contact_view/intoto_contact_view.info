@@ -1,0 +1,7 @@
+name = Contact View
+description = Improve Contact's View Tab
+core = 7.x
+
+dependencies[] = crm_core_contact
+dependencies[] = crm_core_relationship_ui
+dependencies[] = entity_token

@@ -1,0 +1,83 @@
+<?php
+
+function intoto_contact_view_preprocess(&$variables, $hook)
+{
+  if (isset($variables['elements']['#entity_type'])) { // or maybe check for $hook name
+	$function = __FUNCTION__ . '_' . $variables['elements']['#entity_type'];
+	if (function_exists($function)) {
+	  $function($variables, $hook);
+	}
+  }
+}
+
+function intoto_contact_view_preprocess_crm_core_contact(&$variables, $hook)
+{
+//	print " in hooke_preprocess crm_core_contact ";
+//	drupal_add_region_content('contactheader', '^^^^^^^^');	
+}
+
+//function intoto_contact_view_entity_prepare_view($entities, $type, $langcode){
+//	print " in hook_entity_prepare_view ";
+//}
+
+//function intoto_contact_view_entity_prepare_view($entities, $type, $langcode)
+//{
+//	foreach($entities as $key => $entity)
+//	{
+//		if ($type=="crm_core_contact"){
+//			$wrapper = entity_metadata_wrapper('crm_core_contact', $entity);
+//
+//			$dob = $wrapper->field_date_of_birth->value();
+//			$wrapper->field_date_of_birth->set($dob + 100000);
+//			$wrapper->save();
+//			dpm($entity);
+//		}
+//	}
+//}
+//
+function intoto_contact_view_entity_view($entity, $type, $view_mode, $langcode)
+{
+	$function = __FUNCTION__ . '_' . $type;
+	if (function_exists($function)) {
+		$function($entity, $type, $view_mode, $langcode);
+	}	
+}
+
+function intoto_contact_view_entity_view_crm_core_contact($entity, $type, $view_mode, $langcode)
+{
+	
+	//hide unnecessary fields:
+	
+	hide($entity->content['contact_name']);
+	hide($entity->content['field_image']);
+	
+
+	//this is how permanently we're changing field values:
+	//$wrapper = entity_metadata_wrapper('crm_core_contact', $entity);
+
+	//$dob = $wrapper->field_date_of_birth->value();
+	//$wrapper->field_date_of_birth->set($dob+$SOME_CHANGE);
+	//$wrapper->save();
+	//$wrapper->field_date_of_birth->set('2012/12/2');
+//	$dob = field_get_items('crm_core_contact', $entity, 'field_date_of_birth');
+//	dpm($dob);
+}
+
+function intoto_contact_view_preprocess_field(&$variables, $hook)
+{
+	if (isset($variables['element']['#field_name'])) { // or maybe check for $hook name
+		$function = __FUNCTION__ . '_' . $variables['element']['#field_name'];
+		if (function_exists($function)) {
+			$function($variables, $hook);
+		}
+	}
+}
+
+function intoto_contact_view_preprocess_field_field_date_of_birth(&$variables, $hook)
+{
+	$date_value = new DateTime($variables['element']['#items'][0]['value']);
+	$now = new DateTime('now');
+	$interval = date_diff($now, $date_value);
+
+	$variables['items']['0']['#markup'] .= "<span> (" . $interval->format('%yyo') . ")</span>";
+}
