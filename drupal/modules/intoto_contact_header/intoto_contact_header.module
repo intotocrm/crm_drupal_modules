@@ -107,10 +107,11 @@ function template_preprocess_contact_header(&$variables)
 function intoto_contact_header_preprocess_page(&$page)
 {
 	//load the current shown entity to retrieve its relevant components to the header:
+	$object_type = arg(1);
 	$contact_id = arg(2);
 	$contacts = array();
 	$page['contact_renderable'] = NULL;
-	if (is_numeric($contact_id))
+	if ($object_type == 'contact' && is_numeric($contact_id))
 		$contacts = entity_load('crm_core_contact', array($contact_id));
 	if (!$contacts)
 		return;

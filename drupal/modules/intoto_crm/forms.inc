@@ -83,3 +83,17 @@ function  intoto_crm_settings_form()
 
 	return system_settings_form($form);
 }
+
+
+
+function intoto_crm_add_comment_form($form, &$form_state, $contact) {
+	if (is_object($contact)){
+		$contact_object = $contact->data;
+		$contact_id = $contact_object->contact_id;
+		
+		$form['static_placeholder'] =  array(
+			'#markup' =>	l (t('Add a Comment'), "/crm-core/contact/$contact_id/activity/add/comment", array('attributes' => array('class' => array('btn btn-xs btn-success')))),
+		);
+	}
+	return $form;
+}
