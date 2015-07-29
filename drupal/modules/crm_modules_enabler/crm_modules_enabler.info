@@ -1,12 +1,17 @@
 ; Packaging information for crm_modules_enabler
 name = "crm_modules_enabler"
-description = "module that's dependedent on all enabled modules"
+description = ""
 core = "7.x"
 
 
 ; ----------
 ; Dependencies
 ; ----------
+
+; Administration
+#dependencies[] = admin_devel
+#dependencies[] = admin_menu
+#dependencies[] = module_filter
 
 ; CRM Core
 dependencies[] = crm_core
@@ -20,6 +25,8 @@ dependencies[] = crm_core_ui
 
 ; Chaos tool suite
 dependencies[] = ctools
+dependencies[] = page_manager
+dependencies[] = views_content
 
 ; Core
 dependencies[] = block
@@ -57,8 +64,12 @@ dependencies[] = date_api
 dependencies[] = date_popup
 dependencies[] = date_views
 
+; Development
+#dependencies[] = devel
+
 ; Features
 dependencies[] = features
+#dependencies[] = intoto_household_views
 
 ; Fields
 dependencies[] = addressfield
@@ -71,9 +82,20 @@ dependencies[] = languagefield
 dependencies[] = name
 dependencies[] = select_or_other
 
+; Homebox
+dependencies[] = homebox
+
 ; Other
 dependencies[] = entity
+dependencies[] = entity_token
+#dependencies[] = intoto_contact_header
+#dependencies[] = intoto_contact_view
+dependencies[] = intoto_crm
+dependencies[] = logintoboggan
 dependencies[] = standard
+
+; Panels
+dependencies[] = panels
 
 ; Relation
 dependencies[] = relation
@@ -84,11 +106,21 @@ dependencies[] = relation_ui
 dependencies[] = jquery_update
 
 ; Views
+dependencies[] = better_exposed_filters
+dependencies[] = mefibs
 dependencies[] = views
 dependencies[] = views_bulk_operations
+dependencies[] = views_dynamic_fields
+dependencies[] = views_ui
 
 ; intoto
-dependencies[] = crm_core_ip_contact_type
-dependencies[] = individual_field_collection
+#dependencies[] = crm_core_ip_contact_type
+#dependencies[] = individual_field_collection
 #dependencies[] = intoto_crm_individual
+#dependencies[] = intoto_household_tab_page
+#dependencies[] = intoto_individual_details_page
+#dependencies[] = intoto_staff_role
+
+; tb_megamenu
+dependencies[] = tb_megamenu
 
