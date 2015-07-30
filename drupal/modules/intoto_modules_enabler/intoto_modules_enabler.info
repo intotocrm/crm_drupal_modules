@@ -16,4 +16,4 @@ dependencies[] = intoto_household_views
 dependencies[] = intoto_individual_details_page
 dependencies[] = intoto_staff_role
 dependencies[] = orm_il_crm_core_customer_contact_type
-
+dependencies[] = intoto_unauth_page
