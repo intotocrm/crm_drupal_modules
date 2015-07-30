@@ -30,6 +30,14 @@ function intoto_household_tab_page_default_page_manager_pages() {
         'context' => 'argument_entity_id:crm_core_contact_1',
         'not' => FALSE,
       ),
+      1 => array(
+        'name' => 'perm',
+        'settings' => array(
+          'perm' => 'view any crm_core_contact entity',
+        ),
+        'context' => 'logged-in-user',
+        'not' => FALSE,
+      ),
     ),
     'logic' => 'and',
   );

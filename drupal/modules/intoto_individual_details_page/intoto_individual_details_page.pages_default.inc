@@ -18,6 +18,16 @@ function intoto_individual_details_page_default_page_manager_pages() {
   $page->path = 'crm-core/contact/%contact/details';
   $page->access = array(
     'logic' => 'and',
+    'plugins' => array(
+      0 => array(
+        'name' => 'perm',
+        'settings' => array(
+          'perm' => 'view any crm_core_contact entity',
+        ),
+        'context' => 'logged-in-user',
+        'not' => FALSE,
+      ),
+    ),
   );
   $page->menu = array(
     'type' => 'default tab',
