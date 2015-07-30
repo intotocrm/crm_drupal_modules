@@ -20,3 +20,4 @@ dependencies[] = intoto_unauth_page
 dependencies[] = intoto_report_pages
 dependencies[] = intoto_staff_permissions
 dependencies[] = intoto_menus
+dependencies[] = intoto_blocks
