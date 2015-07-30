@@ -69,6 +69,7 @@ dependencies[] = date_views
 
 ; Features
 dependencies[] = features
+dependencies[] = features_extra
 #dependencies[] = intoto_household_views
 
 ; Fields
