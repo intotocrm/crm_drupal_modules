@@ -1,0 +1,19 @@
+name = "intoto modules enabler"
+description = enabler (dependent) for features or intoto-specific modules
+core = 7.x
+package = intoto
+version = 7.x-1.0
+project = intoto_modules_enabler
+
+dependencies[] = intoto_crm
+
+dependencies[] = crm_core_ip_contact_type
+dependencies[] = individual_field_collection
+dependencies[] = intoto_contact_header
+dependencies[] = intoto_contact_view
+dependencies[] = intoto_household_tab_page
+dependencies[] = intoto_household_views
+dependencies[] = intoto_individual_details_page
+dependencies[] = intoto_staff_role
+dependencies[] = orm_il_crm_core_customer_contact_type
+
