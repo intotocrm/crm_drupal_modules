@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function tb_megamenu_schema() {
+  $schema = array();
+  $schema['tb_megamenus'] = array(
+    'description' => t('Table storing menu definitions.'),
+    // This is all the CTools Exportables block.
+    'export' => array(
+      // Unique key to identify an object.
+      'key' => 'menu_name',
+      'key name' => 'Menu Name',
+      'default hook' => 'tb_megamenu_export',
+      'api' => array(
+        'owner' => 'tb_megamenu',
+        'api' => 'tb_megamenu',
+        'minimum_version' => 1,
+        'current_version' => 1,
+      ),
+    ),
+    'fields' => array(
+      'menu_name' => array(
+        'type' => 'varchar',
+        'length' => '255',
+        'not null' => TRUE,
+      ),
+      'block_config' => array(
+        'type' => 'text',
+      ),
+      'menu_config' => array(
+        'type' => 'text',
+      ),
+    ),
+    'primary key' => array('menu_name'),
+  );
+
+  return $schema;
+}
