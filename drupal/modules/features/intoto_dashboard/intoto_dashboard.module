@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the intoto_dashboard feature.
+ */
+
+include_once 'intoto_dashboard.features.inc';

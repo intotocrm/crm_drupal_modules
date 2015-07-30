@@ -1,0 +1,9 @@
+name = intoto_dashboard
+description = features module for exporting the main user's dashboard (by homebox)
+core = 7.x
+package = intoto
+version = 7.x-1.0
+dependencies[] = homebox
+features[features_api][] = api:2
+features[homebox][] = crm_dashboard
+project path = sites/all/modules/intoto/features
