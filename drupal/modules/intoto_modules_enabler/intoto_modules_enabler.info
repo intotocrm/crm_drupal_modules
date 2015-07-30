@@ -19,3 +19,4 @@ dependencies[] = orm_il_crm_core_customer_contact_type
 dependencies[] = intoto_unauth_page
 dependencies[] = intoto_report_pages
 dependencies[] = intoto_staff_permissions
+dependencies[] = intoto_menus
