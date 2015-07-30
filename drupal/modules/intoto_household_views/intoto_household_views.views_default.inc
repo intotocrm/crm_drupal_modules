@@ -127,18 +127,50 @@ function intoto_household_views_views_default_views() {
   $handler->display->display_options['relationships']['relation_crm_member_crm_core_contact']['relationship'] = 'relation_crm_member_crm_core_contact_1';
   $handler->display->display_options['relationships']['relation_crm_member_crm_core_contact']['ui_name'] = 'relation-inv_relation(siblings)';
   $handler->display->display_options['relationships']['relation_crm_member_crm_core_contact']['label'] = 'relation-inv_relation(siblings)';
-  $handler->display->display_options['relationships']['relation_crm_member_crm_core_contact']['r_index'] = '-1';
+  $handler->display->display_options['relationships']['relation_crm_member_crm_core_contact']['r_index'] = '1';
   $handler->display->display_options['relationships']['relation_crm_member_crm_core_contact']['entity_deduplication_left'] = 0;
-  $handler->display->display_options['relationships']['relation_crm_member_crm_core_contact']['entity_deduplication_right'] = 0;
+  $handler->display->display_options['relationships']['relation_crm_member_crm_core_contact']['entity_deduplication_right'] = 1;
+  /* Field: Field: Profile Image */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => 'thumbnail_square',
+    'image_link' => 'content',
+  );
+  $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
   /* Field: CRM Core Contact: Contact ID */
   $handler->display->display_options['fields']['contact_id']['id'] = 'contact_id';
   $handler->display->display_options['fields']['contact_id']['table'] = 'crm_core_contact';
   $handler->display->display_options['fields']['contact_id']['field'] = 'contact_id';
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['field_clinic_address_first_name']['id'] = 'field_clinic_address_first_name';
-  $handler->display->display_options['fields']['field_clinic_address_first_name']['table'] = 'field_data_field_clinic_address';
-  $handler->display->display_options['fields']['field_clinic_address_first_name']['field'] = 'field_clinic_address_first_name';
-  $handler->display->display_options['fields']['field_clinic_address_first_name']['label'] = 'Address - First name';
+  $handler->display->display_options['fields']['contact_id']['label'] = '';
+  $handler->display->display_options['fields']['contact_id']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['contact_id']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['contact_id']['link_to_contact'] = 0;
+  /* Field: Field: Customer */
+  $handler->display->display_options['fields']['contact_name']['id'] = 'contact_name';
+  $handler->display->display_options['fields']['contact_name']['table'] = 'field_data_contact_name';
+  $handler->display->display_options['fields']['contact_name']['field'] = 'contact_name';
+  $handler->display->display_options['fields']['contact_name']['label'] = '';
+  $handler->display->display_options['fields']['contact_name']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['contact_name']['alter']['path'] = 'crm-core/contact/[contact_id]';
+  $handler->display->display_options['fields']['contact_name']['alter']['alt'] = 'Go to [contact_name]\'s page';
+  $handler->display->display_options['fields']['contact_name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['contact_name']['click_sort_column'] = 'title';
+  $handler->display->display_options['fields']['contact_name']['settings'] = array(
+    'format' => 'short_full',
+    'markup' => 0,
+    'output' => 'default',
+    'multiple' => 'default',
+    'multiple_delimiter' => ', ',
+    'multiple_and' => 'text',
+    'multiple_delimiter_precedes_last' => 'never',
+    'multiple_el_al_min' => '3',
+    'multiple_el_al_first' => '1',
+  );
   /* Contextual filter: CRM Core Contact: Contact ID */
   $handler->display->display_options['arguments']['contact_id']['id'] = 'contact_id';
   $handler->display->display_options['arguments']['contact_id']['table'] = 'crm_core_contact';

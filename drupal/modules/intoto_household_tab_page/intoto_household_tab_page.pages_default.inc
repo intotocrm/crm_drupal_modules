@@ -148,7 +148,7 @@ function intoto_household_tab_page_default_page_manager_pages() {
     $display->content['new-18c48cb0-07da-4072-8c37-b5bbc18da966'] = $pane;
     $display->panels['left'][0] = 'new-18c48cb0-07da-4072-8c37-b5bbc18da966';
     $pane = new stdClass();
-    $pane->pid = 'new-8a8ac943-a583-4537-861e-32aceb36f054';
+    $pane->pid = 'new-cc0fbae0-900d-4e0c-8cd1-76c2dcb1ab4f';
     $pane->panel = 'right';
     $pane->type = 'views_panes';
     $pane->subtype = 'siblings-panel_pane_1';
@@ -166,8 +166,9 @@ function intoto_household_tab_page_default_page_manager_pages() {
         'contact_id' => '%contact:contact-id',
       ),
       'fields_override' => array(
-        'contact_id' => 1,
-        'field_clinic_address_first_name' => 1,
+        'field_image' => 1,
+        'contact_id' => 0,
+        'contact_name' => 1,
       ),
       'override_title' => 0,
       'override_title_text' => '',
@@ -181,9 +182,9 @@ function intoto_household_tab_page_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '8a8ac943-a583-4537-861e-32aceb36f054';
-    $display->content['new-8a8ac943-a583-4537-861e-32aceb36f054'] = $pane;
-    $display->panels['right'][0] = 'new-8a8ac943-a583-4537-861e-32aceb36f054';
+    $pane->uuid = 'cc0fbae0-900d-4e0c-8cd1-76c2dcb1ab4f';
+    $display->content['new-cc0fbae0-900d-4e0c-8cd1-76c2dcb1ab4f'] = $pane;
+    $display->panels['right'][0] = 'new-cc0fbae0-900d-4e0c-8cd1-76c2dcb1ab4f';
     $pane = new stdClass();
     $pane->pid = 'new-a506af2e-f846-4d63-8f49-2a33f01b42aa';
     $pane->panel = 'top';
@@ -301,7 +302,7 @@ function intoto_household_tab_page_default_page_manager_pages() {
     $display->content['new-18c48cb0-07da-4072-8c37-b5bbc18da966'] = $pane;
     $display->panels['left'][0] = 'new-18c48cb0-07da-4072-8c37-b5bbc18da966';
     $pane = new stdClass();
-    $pane->pid = 'new-171048f3-650c-4f8b-8a11-99f4bf46f99f';
+    $pane->pid = 'new-2803903b-5ab0-4886-b3d3-319bde968902';
     $pane->panel = 'right';
     $pane->type = 'views_panes';
     $pane->subtype = 'siblings-panel_pane_2';
@@ -315,16 +316,17 @@ function intoto_household_tab_page_default_page_manager_pages() {
       'items_per_page' => '9',
       'offset' => '0',
       'path' => '',
-      'fields_override' => array(
-        'contact_id' => 1,
-        'field_clinic_address_first_name' => 1,
-      ),
-      'override_title' => 0,
-      'override_title_text' => 'members!',
-      'override_title_heading' => 'h2',
       'arguments' => array(
         'contact_id' => '%contact:contact-id',
       ),
+      'fields_override' => array(
+        'field_image' => 1,
+        'contact_id' => 0,
+        'contact_name' => 1,
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -334,9 +336,9 @@ function intoto_household_tab_page_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '171048f3-650c-4f8b-8a11-99f4bf46f99f';
-    $display->content['new-171048f3-650c-4f8b-8a11-99f4bf46f99f'] = $pane;
-    $display->panels['right'][0] = 'new-171048f3-650c-4f8b-8a11-99f4bf46f99f';
+    $pane->uuid = '2803903b-5ab0-4886-b3d3-319bde968902';
+    $display->content['new-2803903b-5ab0-4886-b3d3-319bde968902'] = $pane;
+    $display->panels['right'][0] = 'new-2803903b-5ab0-4886-b3d3-319bde968902';
     $pane = new stdClass();
     $pane->pid = 'new-ea5c9c76-eb5d-4428-a4ef-903c81293da2';
     $pane->panel = 'top';

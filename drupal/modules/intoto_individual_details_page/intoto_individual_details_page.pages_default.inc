@@ -106,7 +106,30 @@ function intoto_individual_details_page_default_page_manager_pages() {
     $display->content['new-208915e1-86e6-4d38-aa43-02db30d98ac1'] = $pane;
     $display->panels['left'][0] = 'new-208915e1-86e6-4d38-aa43-02db30d98ac1';
     $pane = new stdClass();
-    $pane->pid = 'new-e0a1255b-f85d-4019-b8e1-467f2ed81b33';
+    $pane->pid = 'new-1cbee470-744b-4b45-8b10-57a00b6b8f30';
+    $pane->panel = 'right';
+    $pane->type = 'block';
+    $pane->subtype = 'intoto_crm-add_comment';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '1cbee470-744b-4b45-8b10-57a00b6b8f30';
+    $display->content['new-1cbee470-744b-4b45-8b10-57a00b6b8f30'] = $pane;
+    $display->panels['right'][0] = 'new-1cbee470-744b-4b45-8b10-57a00b6b8f30';
+    $pane = new stdClass();
+    $pane->pid = 'new-e9c41568-4fef-4966-84b0-ff2cc08705f6';
     $pane->panel = 'right';
     $pane->type = 'views_panes';
     $pane->subtype = 'crm_comments_by_contact-panel_pane_1';
@@ -121,7 +144,7 @@ function intoto_individual_details_page_default_page_manager_pages() {
       'offset' => '0',
       'path' => '',
       'arguments' => array(
-        'field_activity_participants_target_id' => '%contact_id:contact-id',
+        'field_activity_participants_target_id' => '%contact:contact-id',
       ),
       'fields_override' => array(
         'activity_id' => 0,
@@ -137,7 +160,7 @@ function intoto_individual_details_page_default_page_manager_pages() {
         'nothing' => 1,
       ),
       'exposed' => array(
-        'type' => 'All',
+        'type' => 'comment',
       ),
       'override_title' => 1,
       'override_title_text' => 'Comments',
@@ -149,11 +172,11 @@ function intoto_individual_details_page_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = 'e0a1255b-f85d-4019-b8e1-467f2ed81b33';
-    $display->content['new-e0a1255b-f85d-4019-b8e1-467f2ed81b33'] = $pane;
-    $display->panels['right'][0] = 'new-e0a1255b-f85d-4019-b8e1-467f2ed81b33';
+    $pane->uuid = 'e9c41568-4fef-4966-84b0-ff2cc08705f6';
+    $display->content['new-e9c41568-4fef-4966-84b0-ff2cc08705f6'] = $pane;
+    $display->panels['right'][1] = 'new-e9c41568-4fef-4966-84b0-ff2cc08705f6';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-208915e1-86e6-4d38-aa43-02db30d98ac1';
   $handler->conf['display'] = $display;

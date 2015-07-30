@@ -5,6 +5,7 @@ package = intoto
 version = 7.x-1.0
 project = intoto_individual_details_page
 dependencies[] = crm_core_activity
+dependencies[] = entity
 dependencies[] = features
 dependencies[] = page_manager
 dependencies[] = panels

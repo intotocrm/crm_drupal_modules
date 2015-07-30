@@ -998,7 +998,11 @@ function intoto_crm_individual_field_default_field_instances() {
   // Exported field_instance: 'field_collection_item-field_phone-field_type'
   $field_instances['field_collection_item-field_phone-field_type'] = array(
     'bundle' => 'field_phone',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'mobile',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(

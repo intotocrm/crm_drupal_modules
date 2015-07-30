@@ -50,12 +50,12 @@ function intoto_crm_individual_field_default_field_bases() {
         ),
       ),
       'components' => array(
-        'credentials' => 'credentials',
+        'credentials' => 0,
         'family' => 'family',
-        'generational' => 'generational',
+        'generational' => 0,
         'given' => 'given',
-        'middle' => 'middle',
-        'title' => 'title',
+        'middle' => 0,
+        'title' => 0,
       ),
       'generational_options' => '-- --
 Jr.
@@ -88,7 +88,7 @@ X',
       ),
       'minimum_components' => array(
         'credentials' => 0,
-        'family' => 'family',
+        'family' => 0,
         'generational' => 0,
         'given' => 'given',
         'middle' => 0,
