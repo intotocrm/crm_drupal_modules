@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the intoto_unauth_page feature.
+ */
+
+include_once 'intoto_unauth_page.features.inc';
