@@ -1,0 +1,5 @@
+name = Intoto CRM Fields Formatters
+description = "Add formatters to fields"
+package = Intoto
+core = 7.x
+files[] = intoto_crm_field_formatters.module
