@@ -48,8 +48,8 @@ function intoto_contact_view_entity_view_crm_core_contact($entity, $type, $view_
 	
 	//hide unnecessary fields:
 	
-	hide($entity->content['contact_name']);
-	hide($entity->content['field_image']);
+//	hide($entity->content['contact_name']);
+//	hide($entity->content['field_image']);
 	
 
 	//this is how permanently we're changing field values:

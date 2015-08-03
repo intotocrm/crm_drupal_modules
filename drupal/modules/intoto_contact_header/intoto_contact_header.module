@@ -42,6 +42,36 @@ function intoto_contact_header_theme($existing, $type, $theme, $path) {
 	);
 	return $theme;
 }
+
+function get_default_image($bundle)
+{
+	$image_filename = "default_image_$bundle.jpg";
+	///sites/default/files/styles/thumbnail_square/public/profile_images/default_images/' . $image_filename . '
+	$file_uri = file_create_url(file_build_uri("pictures/$image_filename"));
+	return array(
+		"#markup" => '<img src="' . $file_uri . '" width="100" height="100"/>'
+	);
+//	
+//	return 
+//	array
+//	(
+//		'#theme' => 'image_formatter',
+//		'#item' => array
+//			(
+//				'filename' => "default_images/$image_filename",
+//				'uri' => "public://profile_images/default_images/$image_filename",
+//				'filemime' => 'image/jpeg',
+//				'alt' => "",
+//				'title' => "",
+//	//            'width' => 458,
+//	//            'height' => 300,
+//			),
+//
+//		'#image_style' => 'thumbnail_square',
+//		'#path' => '',
+//		'#access' => 1,
+//	);
+}
 function template_preprocess_contact_header(&$variables)
 {
 	$contact = $variables['contact'];
@@ -76,7 +106,9 @@ function template_preprocess_contact_header(&$variables)
 					'settings' => array('image_style' => 'thumbnail_square') // could be 'thumbnail'
 				)
 			);
-    }
+    }else{
+		$image = get_default_image($contact->type);
+	}
     $variables['image'] = $image;
 	$variables['photos'] = array($image);
 

@@ -10,19 +10,18 @@
 	<div class="col-lg-4 col-md-6">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-							<!--<i class="fa fa-comments fa-5x"></i>-->
-							<h2><?php print $title; ?> </h2>
-							<small><?php print $contact_type_label ; ?></small>
-							<?php foreach ($photos as $photo){  ?>
-								<div class="frame">							
-									<div class="crop">
-										<?php print render($photo); ?>								
-									</div>								
-								</div>								
-							<?php } ?>
-							
-							
-							
+				<a href="<?php print "/crm-core/contact/$contact_id";?>">
+					<!--<i class="fa fa-comments fa-5x"></i>-->
+					<h2><?php print $title; ?> </h2>
+					<?php foreach ($photos as $photo){  ?>
+						<div class="frame">							
+							<div class="crop">
+								<?php print render($photo); ?>
+							</div>								
+						</div>								
+					<?php } ?>
+					<small><?php print $contact_type_label ; ?></small>
+				</a>
 			</div>				
 
 			<div class="panel-footer">

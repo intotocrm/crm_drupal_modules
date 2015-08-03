@@ -57,7 +57,7 @@ function intoto_crm_menu()
 function intoto_crm_admin_paths_alter(&$paths) {
     $paths['crm-core/contact/*/household/add'] = TRUE;
     $paths['crm-core/contact/*/activity/add'] = TRUE;
-    $paths['crm-core/contact/*/activity/add/comment'] = TRUE;
+    $paths['crm-core/contact/*/activity/add/*'] = TRUE;
 }
 
 function intoto_crm_menu_alter(&$items)
@@ -109,3 +109,10 @@ function intoto_crm_entity_presave($entity, $type){
 		}
 	}
 }
+
+
+//function intoto_crm_views_pre_render(&$view)
+//{
+//	drupal_set_message("<pre>" . print_r($view, true) . "</pre>");
+//}
+
