@@ -24,4 +24,4 @@ dependencies[] = intoto_blocks
 dependencies[] = intoto_dashboard
 dependencies[] = intoto_image_styles
 dependencies[] = intoto_display_formats
-dependencies[] = intoto_field_formatters_
+dependencies[] = intoto_field_formatters
