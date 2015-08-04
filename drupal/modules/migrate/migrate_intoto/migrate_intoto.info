@@ -1,0 +1,19 @@
+core = "7.x"
+dependencies[] = "features"
+dependencies[] = "migrate"
+dependencies[] = "number"
+dependencies[] = "crm_core"
+description = "Import Intoto CRM data."
+
+files[] = "migrate_intoto.migrate.inc"
+files[] = "migrations/base.inc"
+files[] = "migrations/individuals.inc"
+files[] = "migrations/addresses.inc"
+files[] = "migrations/instant_messaging.inc"
+files[] = "migrations/phone.inc"
+
+name = "migrate_intoto"
+package = "Migration"
+php = "5.3.4"
+
+

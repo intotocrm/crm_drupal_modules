@@ -1,0 +1,1 @@
+mysql -hlocalhost -uroot -e "$1" tammuz_crm
