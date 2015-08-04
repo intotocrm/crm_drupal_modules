@@ -98,3 +98,31 @@ function intoto_display_formats_ds_layout_settings_info() {
 
   return $export;
 }
+
+/**
+ * Implements hook_ds_view_modes_info().
+ */
+function intoto_display_formats_ds_view_modes_info() {
+  $export = array();
+
+  $ds_view_mode = new stdClass();
+  $ds_view_mode->api_version = 1;
+  $ds_view_mode->view_mode = 'contact_details';
+  $ds_view_mode->label = 'Contact Details';
+  $ds_view_mode->entities = array(
+    'crm_core_contact' => 'crm_core_contact',
+  );
+  $export['contact_details'] = $ds_view_mode;
+
+  $ds_view_mode = new stdClass();
+  $ds_view_mode->api_version = 1;
+  $ds_view_mode->view_mode = 'small_block';
+  $ds_view_mode->label = 'Small Block';
+  $ds_view_mode->entities = array(
+    'crm_core_activity' => 'crm_core_activity',
+    'crm_core_contact' => 'crm_core_contact',
+  );
+  $export['small_block'] = $ds_view_mode;
+
+  return $export;
+}

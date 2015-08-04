@@ -8,5 +8,7 @@ dependencies[] = ds
 features[ctools][] = ds:ds:1
 features[ds_layout_settings][] = crm_core_contact|customer|small_block
 features[ds_layout_settings][] = crm_core_contact|ip|small_block
+features[ds_view_modes][] = contact_details
+features[ds_view_modes][] = small_block
 features[features_api][] = api:2
 project path = sites/all/modules/intoto/features
