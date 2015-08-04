@@ -8,7 +8,7 @@
 
 
 
-class TammuzMigration extends Migration
+class IntotoMigration extends Migration
 {
 	public function __construct($arguments) {
 		parent::__construct($arguments);

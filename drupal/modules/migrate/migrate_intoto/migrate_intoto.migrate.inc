@@ -28,11 +28,11 @@ function migrate_intoto_migrate_api()
 //	);
   
 	$individual_key = array(
-	'id' => array('type' => 'varchar',
-		'length' => 255,
-		'not null' => TRUE,
-		'description' => "donor's unique id",
-	),
+		'id' => array('type' => 'varchar',
+			'length' => 255,
+			'not null' => TRUE,
+			'description' => "unique id",
+		),
 	);
 
 
@@ -69,9 +69,9 @@ function migrate_intoto_migrate_api()
 			'ip' => array(
 				'title' => t('Intended Parents-related Migrations'),
 			),
-			'egg_donor' => array(
-				'title' => t('Egg Donors-related Migrations'),
-			),
+//			'egg_donor' => array(
+//				'title' => t('Egg Donors-related Migrations'),
+//			),
 	),
 		
 		'migrations' => array(
@@ -82,19 +82,19 @@ function migrate_intoto_migrate_api()
 								'group_name' => 'ip',
 							)
 							+ $migrate_individual,
-			'ip_im' => array (
-//								'keys' => $ip_keys,
-								'group_name' => 'ip',
-							)
-							+ $migrate_im,  
+//			'ip_im' => array (
+////								'keys' => $ip_keys,
+//								'group_name' => 'ip',
+//							)
+//							+ $migrate_im,  
 
 
-			'ip_address' => array (
-//									'keys' => $ip_keys,
-									'group_name' => 'ip',
-									)
-									+ $migrate_address_field_collection,	  
-
+//			'ip_address' => array (
+////									'keys' => $ip_keys,
+//									'group_name' => 'ip',
+//									)
+//									+ $migrate_address_field_collection,	  
+//
 			'ip_phone' => array (
 //									'keys' => $ip_keys,
 									'group_name' => 'ip',
@@ -102,16 +102,16 @@ function migrate_intoto_migrate_api()
 									+ $migrate_phone_field_collection,
 
 			//egg_donor-related migrations (egg donor's fields and all the field-collections related to egg donor)
-			'egg_donor' =>	array (
-								'group_name' => 'egg_donor',
-							)
-							+ $migrate_individual,
-
-			'egg_donor_address' => array (
-										'group_name' => 'egg_donor',
-									)
-									+ $migrate_address_field_collection,	  
-
+//			'egg_donor' =>	array (
+//								'group_name' => 'egg_donor',
+//							)
+//							+ $migrate_individual,
+//
+//			'egg_donor_address' => array (
+//										'group_name' => 'egg_donor',
+//									)
+//									+ $migrate_address_field_collection,	  
+//
 
 		),
 	);

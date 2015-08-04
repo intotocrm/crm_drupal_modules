@@ -9,7 +9,7 @@
 /**
  * A migration that is reused for each source CSV file.
  */
-class IndividualsMigration extends TammuzMigration {
+class IndividualsMigration extends IntotoMigration {
 	public function __construct($arguments) {
 		parent::__construct($arguments);
 		//  print "creating MigrateIndividual for type $bundle<br>\n";

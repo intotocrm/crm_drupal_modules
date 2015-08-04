@@ -8,7 +8,7 @@
 
 
 
-class AddressesMigration extends TammuzMigration {  // learn from https://www.drupal.org/node/1900640 about field collections migration
+class AddressesMigration extends IntotoMigration {  // learn from https://www.drupal.org/node/1900640 about field collections migration
 	public function __construct($arguments) {
 		parent::__construct($arguments);
 

@@ -37,6 +37,19 @@ class PhoneMigration extends IntotoMigration {  // learn from https://www.drupal
 		return MigrateDestinationFieldCollection::getKeySchema();
 	}
 	
+	public function csvcolumns() {
+		// Note: Remember that columns are zero based
+		//customer_id	id	name_first	name_last	email	phone	dob
+		$columns = array();
+		$columns[] = array('customer_id', 'Customer ID to relate to');
+		$columns[] = array('id', 'IP ID');
+		$columns[] = array('name_first', 'First Name');
+		$columns[] = array('name_last', 'Last Name');
+		$columns[] = array('email', 'email');
+		$columns[] = array('phone', 'Phone');
+		$columns[] = array('dob', 'DoB');
+		return $columns;
+	}	
     public function prepareRow($row) {
 
     }

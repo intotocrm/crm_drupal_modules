@@ -16,6 +16,8 @@ class IntotoMigration extends Migration
 		$porting_dir = dirname(__FILE__) . "/../porting/";
 		$this->bundle = $this->machineName;
 		$inifile = $porting_dir . $arguments['ini_file'];
+//		drush_print("*** bundle: " . $this->bundle );
+//		drush_print("*** ini file: " . $inifile);
 		$ini = parse_ini_file($inifile , true);
 
 		//dependency is the main contact type. for example, ip_address (field collection) is dependent on ip.
@@ -40,7 +42,7 @@ class IntotoMigration extends Migration
 		{
 			throw new MigrateException(t("can't read from csv file '" . $this->csv_path  . "'"));
 		}
-		$this->source = new MigrateSourceCSV($this->csv_path, array(), array('header_rows' => 1));
+		$this->source = new MigrateSourceCSV($this->csv_path, $this->csvcolumns(), array('header_rows' => 1, 'delimiter'=>"\t"));
 		
 	    $this->source_keys = $arguments['keys'];
 		
@@ -54,6 +56,11 @@ class IntotoMigration extends Migration
 	public function AddFieldMappings()
 	{
 		throw new MigrateException(t("use of abstract class method AddFieldMapping()"));
+	}
+
+	public function csvcolumns()
+	{
+		throw new MigrateException(t("use of abstract class method csvcolumns()"));
 	}
 	
 	public function DestinationKey()
