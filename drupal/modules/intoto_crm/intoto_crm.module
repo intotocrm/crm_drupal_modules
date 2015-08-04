@@ -82,30 +82,112 @@ function intoto_crm_entity_presave($entity, $type){
 //function intoto_crm_entity_insert($entity, $type){
 //	drupal_set_message("added entity of type $type:". $entity->type);
 	//drupal_set_message("<pre>" . print_r($entity, true) . "</pre>");
-	if (isset($type) && $type == "crm_core_contact"){
-		try {		
-			$contact_wrapper = entity_metadata_wrapper('crm_core_contact', $entity);
-			if (isset($contact_wrapper->{"field_caption"}))
-			{
-				$caption = $contact_wrapper->{"field_caption"}->value();
-	//			drupal_set_message("<pre>" . print_r($entity->contact_name, true) . "</pre>");
-				$contact_wrapper->{"contact_name"}->{"given"}->set($caption);
-	//			drupal_set_message("<pre>" . print_r($entity->contact_name, true) . "</pre>");
-	//					->set(
-	//						array(
-	//								"title" => "",
-	//								"given" => $caption,
-	//								"middle" => "",
-	//								"family" => "",
-	//								"generational" => "",
-	//								"credentials" =>  "",
-	//							)
-	//					);
-	//			$contact_wrapper->contact_name_family ->set("");
+	if (isset($type)){
+		if( $type == "crm_core_contact"){
+			try {
+				$contact_wrapper = entity_metadata_wrapper('crm_core_contact', $entity);
+
+				if (isset($contact_wrapper->{"type"}) && $contact_wrapper->{"type"}->value() == 'customer')
+				{
+					if (strlen(trim($contact_wrapper->{"field_caption"}->value())) == 0 ||
+						trim($contact_wrapper->{"field_caption"}->value()) == 'temp')
+					{
+						//glue family names together to form the household caption
+
+//						$contact_id = $contact_wrapper->{"contact_id"}->value();
+//						$num_relations = relation_query('crm_core_contact', $contact_id, 0)
+//						->propertyCondition('relation_type', 'crm_member')
+//						->count()
+//						->execute();
+//						$contact_wrapper->{"field_caption"}->set("**temp name**");
+						drupal_set_message("saving " . $contact_wrapper->{"field_caption"}->value());
+					}
+				}
+
+
+
+				// for non-individual contacts - change the name to look like a caption (crm-core needs the name field unfortunately)
+				if (isset($contact_wrapper->{"field_caption"}))
+				{
+					$caption = $contact_wrapper->{"field_caption"}->value();
+		//			drupal_set_message("<pre>" . print_r($entity->contact_name, true) . "</pre>");
+					$contact_wrapper->{"contact_name"}->{"given"}->set($caption);
+		//			drupal_set_message("<pre>" . print_r($entity->contact_name, true) . "</pre>");
+		//					->set(
+		//						array(
+		//								"title" => "",
+		//								"given" => $caption,
+		//								"middle" => "",
+		//								"family" => "",
+		//								"generational" => "",
+		//								"credentials" =>  "",
+		//							)
+		//					);
+		//			$contact_wrapper->contact_name_family ->set("");
+				}
+
+			}catch (EntityMetadataWrapperException $exc) {
+				drupal_set_message("exception:" . $exc->getTraceAsString() );
 			}
-		}catch (EntityMetadataWrapperException $exc) {
-			drupal_set_message("exception:" . $exc->getTraceAsString() );
-			
+		}elseif($type == 'relation')
+		{
+			if (is_object($entity) &&
+				isset($entity->endpoints['und']) &&
+				isset($entity->relation_type) &&
+				$entity->relation_type == 'crm_member'
+				)
+			{
+				//			drupal_set_message("saving " . $type);
+				//drupal_set_message("<pre>" . print_r($entity, true). "</pre>");
+				$customer_entity_wrapper = NULL; //keep the relevant customer entity for updating its caption
+				$customer_caption = NULL;
+				$ips_last_names = array();
+				foreach($entity->endpoints['und'] as $key=>$endpoint)
+				{
+					if (	isset($endpoint['entity_type']) &&
+							$endpoint['entity_type'] == 'crm_core_contact' &&
+							isset($endpoint['entity_bundle']) && 
+							isset($endpoint['entity_id'])
+						)
+					{
+						$entities = entity_load($endpoint['entity_type'], array($endpoint['entity_id']));
+						$count = count($entities);
+						if ($count == 1)
+						{
+							$contact_wrapper = entity_metadata_wrapper('crm_core_contact', $entities[array_keys($entities)[0]]);
+							
+
+							if (isset($contact_wrapper->{"type"})) {
+								if ($contact_wrapper->{"type"}->value() == 'customer')
+								{
+									$customer_entity_wrapper = $contact_wrapper;
+								}elseif($contact_wrapper->{"type"}->value() == 'ip')
+								{
+									$ips_last_names[] = $contact_wrapper->{"contact_name"}->{"family"}->value();
+								}
+							}
+							//drupal_set_message("saving relation with " . $endpoint['entity_bundle'] . " id " . $endpoint['entity_id']);
+						}
+					}
+				}
+				$save = false;
+				if (is_object($customer_entity_wrapper)){
+					$customer_caption = $customer_entity_wrapper->{"field_caption"}->value();
+					foreach($ips_last_names as $last_name)
+					{
+						if (!strchr(strtolower(trim($customer_caption)), trim(strtolower($last_name))))
+						{
+							$customer_caption .= "-" . $last_name;
+							$save = true;
+						}
+					}
+				}
+				if ($save)
+				{
+					$customer_entity_wrapper->{'field_caption'}->set($customer_caption);
+					$customer_entity_wrapper->save();
+				}
+			}
 		}
 	}
 }
