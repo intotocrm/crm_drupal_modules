@@ -118,7 +118,7 @@ function intoto_household_tab_page_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-18c48cb0-07da-4072-8c37-b5bbc18da966';
+    $pane->pid = 'new-e5fc960d-04ea-4389-aa91-d588fb6ffaaf';
     $pane->panel = 'left';
     $pane->type = 'views';
     $pane->subtype = 'household_s_of_individual';
@@ -137,12 +137,12 @@ function intoto_household_tab_page_default_page_manager_pages() {
       'args' => '',
       'url' => '',
       'display' => 'block',
-      'override_title' => 1,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
       'context' => array(
         0 => 'argument_entity_id:crm_core_contact_1.contact-id',
       ),
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -152,9 +152,9 @@ function intoto_household_tab_page_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '18c48cb0-07da-4072-8c37-b5bbc18da966';
-    $display->content['new-18c48cb0-07da-4072-8c37-b5bbc18da966'] = $pane;
-    $display->panels['left'][0] = 'new-18c48cb0-07da-4072-8c37-b5bbc18da966';
+    $pane->uuid = 'e5fc960d-04ea-4389-aa91-d588fb6ffaaf';
+    $display->content['new-e5fc960d-04ea-4389-aa91-d588fb6ffaaf'] = $pane;
+    $display->panels['left'][0] = 'new-e5fc960d-04ea-4389-aa91-d588fb6ffaaf';
     $pane = new stdClass();
     $pane->pid = 'new-cc0fbae0-900d-4e0c-8cd1-76c2dcb1ab4f';
     $pane->panel = 'right';
@@ -178,7 +178,7 @@ function intoto_household_tab_page_default_page_manager_pages() {
         'contact_id' => 0,
         'contact_name' => 1,
       ),
-      'override_title' => 0,
+      'override_title' => 1,
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
@@ -186,7 +186,10 @@ function intoto_household_tab_page_default_page_manager_pages() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => '',
+    );
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
@@ -272,46 +275,8 @@ function intoto_household_tab_page_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-18c48cb0-07da-4072-8c37-b5bbc18da966';
-    $pane->panel = 'left';
-    $pane->type = 'views';
-    $pane->subtype = 'household_s_of_individual';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_pager_settings' => 0,
-      'use_pager' => 0,
-      'nodes_per_page' => '5',
-      'pager_id' => '0',
-      'offset' => '0',
-      'more_link' => 0,
-      'feed_icons' => 0,
-      'panel_args' => 0,
-      'link_to_view' => 0,
-      'args' => '',
-      'url' => '',
-      'display' => 'block',
-      'override_title' => 1,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-      'context' => array(
-        0 => 'argument_entity_id:crm_core_contact_1.contact-id',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '18c48cb0-07da-4072-8c37-b5bbc18da966';
-    $display->content['new-18c48cb0-07da-4072-8c37-b5bbc18da966'] = $pane;
-    $display->panels['left'][0] = 'new-18c48cb0-07da-4072-8c37-b5bbc18da966';
-    $pane = new stdClass();
     $pane->pid = 'new-2803903b-5ab0-4886-b3d3-319bde968902';
-    $pane->panel = 'right';
+    $pane->panel = 'left';
     $pane->type = 'views_panes';
     $pane->subtype = 'siblings-panel_pane_2';
     $pane->shown = TRUE;
@@ -332,7 +297,7 @@ function intoto_household_tab_page_default_page_manager_pages() {
         'contact_id' => 0,
         'contact_name' => 1,
       ),
-      'override_title' => 0,
+      'override_title' => 1,
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
@@ -346,7 +311,7 @@ function intoto_household_tab_page_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '2803903b-5ab0-4886-b3d3-319bde968902';
     $display->content['new-2803903b-5ab0-4886-b3d3-319bde968902'] = $pane;
-    $display->panels['right'][0] = 'new-2803903b-5ab0-4886-b3d3-319bde968902';
+    $display->panels['left'][0] = 'new-2803903b-5ab0-4886-b3d3-319bde968902';
     $pane = new stdClass();
     $pane->pid = 'new-ea5c9c76-eb5d-4428-a4ef-903c81293da2';
     $pane->panel = 'top';
