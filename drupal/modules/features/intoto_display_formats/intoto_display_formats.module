@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Intoto Display Formats feature.
+ */
+
+include_once 'intoto_display_formats.features.inc';

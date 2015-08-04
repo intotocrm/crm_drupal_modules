@@ -1,0 +1,12 @@
+name = Intoto Display Formats
+description = Some Display Formats for entities
+core = 7.x
+package = intoto
+version = 7.x-1.0
+dependencies[] = ctools
+dependencies[] = ds
+features[ctools][] = ds:ds:1
+features[ds_layout_settings][] = crm_core_contact|customer|small_block
+features[ds_layout_settings][] = crm_core_contact|ip|small_block
+features[features_api][] = api:2
+project path = sites/all/modules/intoto/features
