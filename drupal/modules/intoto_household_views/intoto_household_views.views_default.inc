@@ -36,6 +36,7 @@ function intoto_household_views_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'entity';
+  $handler->display->display_options['row_options']['view_mode'] = 'small_block';
   /* Relationship: CRM Core Contact: Relation: is a member of (crm_core_contact → crm_core_contact) */
   $handler->display->display_options['relationships']['relation_crm_member_crm_core_contact']['id'] = 'relation_crm_member_crm_core_contact';
   $handler->display->display_options['relationships']['relation_crm_member_crm_core_contact']['table'] = 'crm_core_contact';
@@ -97,20 +98,10 @@ function intoto_household_views_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '9';
-  $handler->display->display_options['style_plugin'] = 'table';
-  $handler->display->display_options['style_options']['columns'] = array(
-    'contact_id' => 'contact_id',
-  );
-  $handler->display->display_options['style_options']['default'] = '-1';
-  $handler->display->display_options['style_options']['info'] = array(
-    'contact_id' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-  );
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'entity';
+  $handler->display->display_options['row_options']['view_mode'] = 'small_block';
   /* Relationship: inv_relation-relation */
   $handler->display->display_options['relationships']['relation_crm_member_crm_core_contact_1']['id'] = 'relation_crm_member_crm_core_contact_1';
   $handler->display->display_options['relationships']['relation_crm_member_crm_core_contact_1']['table'] = 'crm_core_contact';
@@ -150,7 +141,7 @@ function intoto_household_views_views_default_views() {
   $handler->display->display_options['fields']['contact_id']['exclude'] = TRUE;
   $handler->display->display_options['fields']['contact_id']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['contact_id']['link_to_contact'] = 0;
-  /* Field: Field: Customer */
+  /* Field: Field: Name */
   $handler->display->display_options['fields']['contact_name']['id'] = 'contact_name';
   $handler->display->display_options['fields']['contact_name']['table'] = 'field_data_contact_name';
   $handler->display->display_options['fields']['contact_name']['field'] = 'contact_name';
