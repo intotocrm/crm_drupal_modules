@@ -141,6 +141,7 @@ function intoto_crm_entity_presave($entity, $type){
 				//drupal_set_message("<pre>" . print_r($entity, true). "</pre>");
 				$customer_entity_wrapper = NULL; //keep the relevant customer entity for updating its caption
 				$customer_caption = NULL;
+				$customer_id = NULL;
 				$ips_last_names = array();
 				foreach($entity->endpoints['und'] as $key=>$endpoint)
 				{
@@ -150,7 +151,8 @@ function intoto_crm_entity_presave($entity, $type){
 							isset($endpoint['entity_id'])
 						)
 					{
-						$entities = entity_load($endpoint['entity_type'], array($endpoint['entity_id']));
+						$entity_id = $endpoint['entity_id'];
+						$entities = entity_load($endpoint['entity_type'], array($entity_id));
 						$count = count($entities);
 						if ($count == 1)
 						{
@@ -161,6 +163,7 @@ function intoto_crm_entity_presave($entity, $type){
 								if ($contact_wrapper->{"type"}->value() == 'customer')
 								{
 									$customer_entity_wrapper = $contact_wrapper;
+									$customer_id = $entity_id;
 								}elseif($contact_wrapper->{"type"}->value() == 'ip')
 								{
 									$ips_last_names[] = $contact_wrapper->{"contact_name"}->{"family"}->value();
@@ -173,6 +176,7 @@ function intoto_crm_entity_presave($entity, $type){
 				$save = false;
 				if (is_object($customer_entity_wrapper)){
 					$customer_caption = $customer_entity_wrapper->{"field_caption"}->value();
+					$original_caption = $customer_caption;
 					foreach($ips_last_names as $last_name)
 					{
 						if (!strchr(strtolower(trim($customer_caption)), trim(strtolower($last_name))))
@@ -186,6 +190,7 @@ function intoto_crm_entity_presave($entity, $type){
 				{
 					$customer_entity_wrapper->{'field_caption'}->set($customer_caption);
 					$customer_entity_wrapper->save();
+					drupal_set_message("Household " . $original_caption . " was renamed to <strong>" . $customer_caption . "</strong>.<br>Press " . l("here", "/crm-core/contact/$customer_id") . " to view/edit");
 				}
 			}
 		}
