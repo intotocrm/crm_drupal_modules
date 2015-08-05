@@ -98,7 +98,7 @@ function intoto_individual_details_page_default_page_manager_pages() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'view_mode' => 'full',
+      'view_mode' => 'contact_details',
       'context' => 'argument_entity_id:crm_core_contact_1',
       'override_title' => 1,
       'override_title_text' => '',

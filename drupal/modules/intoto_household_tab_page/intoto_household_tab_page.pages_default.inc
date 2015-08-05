@@ -313,10 +313,10 @@ function intoto_household_tab_page_default_page_manager_pages() {
     $display->content['new-2803903b-5ab0-4886-b3d3-319bde968902'] = $pane;
     $display->panels['left'][0] = 'new-2803903b-5ab0-4886-b3d3-319bde968902';
     $pane = new stdClass();
-    $pane->pid = 'new-ea5c9c76-eb5d-4428-a4ef-903c81293da2';
+    $pane->pid = 'new-c45038bd-091c-4468-8549-4212cd7b8355';
     $pane->panel = 'top';
     $pane->type = 'block';
-    $pane->subtype = 'tammuz_crm-control_household';
+    $pane->subtype = 'intoto_crm-add_household_member';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -332,9 +332,9 @@ function intoto_household_tab_page_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'ea5c9c76-eb5d-4428-a4ef-903c81293da2';
-    $display->content['new-ea5c9c76-eb5d-4428-a4ef-903c81293da2'] = $pane;
-    $display->panels['top'][0] = 'new-ea5c9c76-eb5d-4428-a4ef-903c81293da2';
+    $pane->uuid = 'c45038bd-091c-4468-8549-4212cd7b8355';
+    $display->content['new-c45038bd-091c-4468-8549-4212cd7b8355'] = $pane;
+    $display->panels['top'][0] = 'new-c45038bd-091c-4468-8549-4212cd7b8355';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

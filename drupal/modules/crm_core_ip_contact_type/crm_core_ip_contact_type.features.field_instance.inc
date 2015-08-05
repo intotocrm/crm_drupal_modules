@@ -17,6 +17,12 @@ function crm_core_ip_contact_type_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'contact_details' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'name',
@@ -34,22 +40,48 @@ function crm_core_ip_contact_type_field_default_field_instances() {
         'type' => 'name_formatter',
         'weight' => 0,
       ),
+      'full' => array(
+        'label' => 'above',
+        'module' => 'name',
+        'settings' => array(
+          'format' => 'default',
+          'markup' => 0,
+          'multiple' => 'default',
+          'multiple_and' => 'text',
+          'multiple_delimiter' => ', ',
+          'multiple_delimiter_precedes_last' => 'never',
+          'multiple_el_al_first' => 1,
+          'multiple_el_al_min' => 3,
+          'output' => 'default',
+        ),
+        'type' => 'name_formatter',
+        'weight' => 1,
+      ),
+      'small_block' => array(
+        'label' => 'hidden',
+        'module' => 'name',
+        'settings' => array(
+          'format' => 'short_full',
+          'markup' => 0,
+          'multiple' => 'default',
+          'multiple_and' => 'text',
+          'multiple_delimiter' => ', ',
+          'multiple_delimiter_precedes_last' => 'never',
+          'multiple_el_al_first' => 1,
+          'multiple_el_al_min' => 3,
+          'output' => 'default',
+        ),
+        'type' => 'name_formatter',
+        'weight' => 1,
+      ),
     ),
     'entity_type' => 'crm_core_contact',
     'field_name' => 'contact_name',
-    'label' => 'Intended Parent',
-    'required' => 0,
+    'label' => 'Name',
+    'required' => 1,
     'settings' => array(
       'component_css' => '',
       'component_layout' => 'default',
-      'components' => array(
-        'credentials' => 0,
-        'family' => 0,
-        'generational' => 0,
-        'given' => 0,
-        'middle' => 0,
-        'title' => 0,
-      ),
       'credentials_inline' => 0,
       'field_type' => array(
         'credentials' => 'text',
@@ -67,22 +99,6 @@ function crm_core_ip_contact_type_field_default_field_instances() {
         'given' => '',
         'middle' => '',
         'title' => '',
-      ),
-      'labels' => array(
-        'credentials' => '',
-        'family' => '',
-        'generational' => '',
-        'given' => '',
-        'middle' => '',
-        'title' => '',
-      ),
-      'minimum_components' => array(
-        'credentials' => 0,
-        'family' => 0,
-        'generational' => 0,
-        'given' => 0,
-        'middle' => 0,
-        'title' => 0,
       ),
       'override_format' => 'default',
       'show_component_required_marker' => 0,
@@ -121,6 +137,19 @@ function crm_core_ip_contact_type_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'contact_details' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 13,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'field_collection',
@@ -133,6 +162,25 @@ function crm_core_ip_contact_type_field_default_field_instances() {
         ),
         'type' => 'field_collection_view',
         'weight' => 13,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 6,
+      ),
+      'small_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
       ),
     ),
     'entity_type' => 'crm_core_contact',
@@ -147,7 +195,7 @@ function crm_core_ip_contact_type_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 2,
+      'weight' => 19,
     ),
   );
 
@@ -158,6 +206,15 @@ function crm_core_ip_contact_type_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'contact_details' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 17,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'entityreference',
@@ -166,6 +223,21 @@ function crm_core_ip_contact_type_field_default_field_instances() {
         ),
         'type' => 'entityreference_label',
         'weight' => 17,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 9,
+      ),
+      'small_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
       ),
     ),
     'entity_type' => 'crm_core_contact',
@@ -184,7 +256,7 @@ function crm_core_ip_contact_type_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 11,
+      'weight' => 10,
     ),
   );
 
@@ -194,6 +266,19 @@ function crm_core_ip_contact_type_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'contact_details' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 14,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'date',
@@ -206,6 +291,25 @@ function crm_core_ip_contact_type_field_default_field_instances() {
         ),
         'type' => 'date_default',
         'weight' => 14,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 7,
+      ),
+      'small_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
       ),
     ),
     'entity_type' => 'crm_core_contact',
@@ -231,47 +335,7 @@ function crm_core_ip_contact_type_field_default_field_instances() {
         'year_range' => '1950:+1',
       ),
       'type' => 'date_popup',
-      'weight' => 8,
-    ),
-  );
-
-  // Exported field_instance: 'crm_core_contact-ip-field_date_of_death'
-  $field_instances['crm_core_contact-ip-field_date_of_death'] = array(
-    'bundle' => 'ip',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 18,
-      ),
-    ),
-    'entity_type' => 'crm_core_contact',
-    'field_name' => 'field_date_of_death',
-    'label' => 'Date of Death',
-    'required' => 0,
-    'settings' => array(
-      'default_value' => 'blank',
-      'default_value2' => 'same',
-      'default_value_code' => '',
-      'default_value_code2' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'date',
-      'settings' => array(
-        'increment' => 15,
-        'input_format' => 'd/m/Y - H:i:s',
-        'input_format_custom' => '',
-        'label_position' => 'above',
-        'text_parts' => array(),
-        'year_range' => '1950:+3',
-      ),
-      'type' => 'date_popup',
-      'weight' => 12,
+      'weight' => 10,
     ),
   );
 
@@ -282,6 +346,13 @@ function crm_core_ip_contact_type_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'contact_details' => array(
+        'label' => 'above',
+        'module' => 'email',
+        'settings' => array(),
+        'type' => 'email_default',
+        'weight' => 3,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'email',
@@ -289,11 +360,24 @@ function crm_core_ip_contact_type_field_default_field_instances() {
         'type' => 'email_default',
         'weight' => 3,
       ),
+      'full' => array(
+        'label' => 'above',
+        'module' => 'email',
+        'settings' => array(),
+        'type' => 'email_default',
+        'weight' => 2,
+      ),
+      'small_block' => array(
+        'label' => 'inline',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
     ),
     'entity_type' => 'crm_core_contact',
     'field_name' => 'field_email',
     'label' => 'Email',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -304,7 +388,7 @@ function crm_core_ip_contact_type_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'email_textfield',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -315,12 +399,32 @@ function crm_core_ip_contact_type_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'contact_details' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 6,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+      'small_block' => array(
+        'label' => 'inline',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'crm_core_contact',
@@ -338,7 +442,7 @@ function crm_core_ip_contact_type_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 6,
+      'weight' => 8,
     ),
   );
 
@@ -349,12 +453,32 @@ function crm_core_ip_contact_type_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'contact_details' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 15,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
         'weight' => 15,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 8,
+      ),
+      'small_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
       ),
     ),
     'entity_type' => 'crm_core_contact',
@@ -380,12 +504,32 @@ function crm_core_ip_contact_type_field_default_field_instances() {
     'deleted' => 0,
     'description' => 'Check this if you know the person is HIV positive',
     'display' => array(
+      'contact_details' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 19,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
         'weight' => 19,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 10,
+      ),
+      'small_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 10,
       ),
     ),
     'entity_type' => 'crm_core_contact',
@@ -410,6 +554,12 @@ function crm_core_ip_contact_type_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'contact_details' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'image',
@@ -419,6 +569,26 @@ function crm_core_ip_contact_type_field_default_field_instances() {
         ),
         'type' => 'image',
         'weight' => 7,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'thumbnail_square',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
+      'small_block' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'thumbnail_square',
+        ),
+        'type' => 'image',
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'crm_core_contact',
@@ -444,7 +614,7 @@ function crm_core_ip_contact_type_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 1,
+      'weight' => 2,
     ),
   );
 
@@ -456,18 +626,49 @@ function crm_core_ip_contact_type_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'contact_details' => array(
+        'label' => 'inline',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => 1,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 9,
+      ),
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => 1,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 9,
+      ),
+      'full' => array(
+        'label' => 'inline',
         'module' => 'field_collection',
         'settings' => array(
           'add' => 'Add',
           'delete' => 'Delete',
           'description' => TRUE,
           'edit' => 'Edit',
-          'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
-        'weight' => 9,
+        'type' => 'field_collection_list',
+        'weight' => 4,
+      ),
+      'small_block' => array(
+        'label' => 'inline',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'crm_core_contact',
@@ -482,7 +683,7 @@ function crm_core_ip_contact_type_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 5,
+      'weight' => 7,
     ),
   );
 
@@ -493,12 +694,32 @@ function crm_core_ip_contact_type_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'contact_details' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 21,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 21,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 12,
+      ),
+      'small_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 12,
       ),
     ),
     'entity_type' => 'crm_core_contact',
@@ -516,7 +737,7 @@ function crm_core_ip_contact_type_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 15,
+      'weight' => 1,
     ),
   );
 
@@ -527,12 +748,32 @@ function crm_core_ip_contact_type_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'contact_details' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 20,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 20,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 11,
+      ),
+      'small_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
       ),
     ),
     'entity_type' => 'crm_core_contact',
@@ -550,7 +791,7 @@ function crm_core_ip_contact_type_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 14,
+      'weight' => 12,
     ),
   );
 
@@ -561,6 +802,19 @@ function crm_core_ip_contact_type_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'contact_details' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 11,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'field_collection',
@@ -573,6 +827,25 @@ function crm_core_ip_contact_type_field_default_field_instances() {
         ),
         'type' => 'field_collection_view',
         'weight' => 11,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 5,
+      ),
+      'small_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
       ),
     ),
     'entity_type' => 'crm_core_contact',
@@ -587,7 +860,7 @@ function crm_core_ip_contact_type_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 3,
+      'weight' => 6,
     ),
   );
 
@@ -602,12 +875,32 @@ function crm_core_ip_contact_type_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'contact_details' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 22,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
         'weight' => 22,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 13,
+      ),
+      'small_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 13,
       ),
     ),
     'entity_type' => 'crm_core_contact',
@@ -624,7 +917,7 @@ function crm_core_ip_contact_type_field_default_field_instances() {
         'display_label' => 0,
       ),
       'type' => 'options_onoff',
-      'weight' => 17,
+      'weight' => 3,
     ),
   );
 
@@ -634,13 +927,12 @@ function crm_core_ip_contact_type_field_default_field_instances() {
   t('Attached Documents');
   t('Check this if you know the person is HIV positive');
   t('Date of Birth');
-  t('Date of Death');
   t('Email');
   t('Facebook User Name');
   t('Gender');
   t('HIV');
   t('Instant Messaging');
-  t('Intended Parent');
+  t('Name');
   t('Notes');
   t('Occupation');
   t('Phone');
