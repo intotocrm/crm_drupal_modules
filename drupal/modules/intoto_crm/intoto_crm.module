@@ -51,6 +51,21 @@ function intoto_crm_menu()
 		'type' => MENU_CALLBACK,
 //		'file' => 'crm_core_relationship_ui.pages.inc',
 	);
+
+	$items['crm-core/contact/%crm_core_contact/household_member/add'] = array(
+		'title' => 'Add Household Member',
+		'description' => 'Add a household member to this contact',
+//		'page callback' => 'crm_core_relation_entity_ui_get_form_wrapper',
+		'page callback' => 'local_crm_core_relation_entity_ui_get_form_wrapper',
+
+		'page arguments' => array( 2, "crm_member", "1"),
+		'access callback' => 'crm_core_relationship_access_permissions',
+		'access arguments' => array(NULL, 'create_view'),
+//		'type' => MENU_LOCAL_ACTION,
+		'type' => MENU_CALLBACK,
+//		'file' => 'crm_core_relationship_ui.pages.inc',
+	);
+
 	return $items;
 }
 
@@ -211,4 +226,53 @@ function intoto_crm_entity_presave($entity, $type){
 //{
 //	drupal_set_message("<pre>" . print_r($view, true) . "</pre>");
 //}
+
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function intoto_crm_preprocess_entity(&$variables, $hook)
+{
+//	watchdog("bootstrap_dashboard", "preprocess_entity". '_' . $variables['entity_type']);	
+
+	$function = __FUNCTION__ . '_' . $variables['entity_type'];
+	if (function_exists ($function)) {
+		$function($variables, $hook);
+	}
+}
+
+function intoto_crm_preprocess_entity_crm_core_contact(&$variables, $hook)
+{
+	//add some data on how to remove existing relations from this entity
+	if (isset($variables['crm_core_contact']->contact_id))
+	{
+		$links = array();
+		$contact_id = $variables['crm_core_contact']->contact_id;
+		$result = relation_query('crm_core_contact', $contact_id)
+			->propertyCondition('relation_type', 'crm_member')
+			->execute();
+		$relations = relation_load_multiple(array_keys($result));
+
+		foreach($relations as $rel_id => $relation)
+		{
+			$endpoints = relation_get_endpoints($relation, 'crm_core_contact');
+			foreach($endpoints as $endpoint_type => $endpoint_array){
+				foreach($endpoint_array as $endpoint_id => $endpoint){
+					//$endpoint_contact_id = $endpoint->contact_id;  next line does it more simply:
+					$endpoint_contact_id = $endpoint_id;
+					if ($endpoint_contact_id != $contact_id) //don't need to supply a link to disconnect from self
+					{
+						$links[] = array
+						(
+							'text' => 'disconnect',
+							'path' => "http://orm-il.devinto.to/relation/$rel_id/delete?destination=crm-core/contact/$endpoint_contact_id/household",
+							'alt' => "Disconnect from household",							
+						);
+					}
+				}
+			}
+		}
+		$variables['disconnect_links'] = $links;
+	}
+}
 

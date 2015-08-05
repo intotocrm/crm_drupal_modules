@@ -43,6 +43,18 @@ function intoto_crm_add_household_form($form, &$form_state, $contact) {
 	return $form;
 }
 
+function intoto_crm_add_household_member_form($form, &$form_state, $contact) {
+  	if (is_object($contact)){
+		$contact_object = $contact->data;
+		$contact_id = $contact_object->contact_id;
+		$form['static_placeholder'] =  array(
+			'#markup' =>	l (t('Press here'), "/crm-core/contact/$contact_id/household_member/add", array('attributes' => array('class' => array('btn btn-xs btn-success')))).
+							" to add a member to this household.",
+		);
+	}
+	return $form;
+}
+
 function intoto_crm_add_household_form_submit($form, &$form_state) {
     drupal_set_message(t('The form has been submitted.') );
 	dpm($form_state);
