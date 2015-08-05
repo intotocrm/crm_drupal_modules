@@ -11,6 +11,8 @@ files[] = "migrations/individuals.inc"
 files[] = "migrations/addresses.inc"
 files[] = "migrations/instant_messaging.inc"
 files[] = "migrations/phone.inc"
+files[] = "migrations/customer.inc"
+files[] = "migrations/relationship.inc"
 
 name = "migrate_intoto"
 package = "Migration"

@@ -28,6 +28,14 @@ class IntotoMigration extends Migration
 			$this->dependencies = array($this->base_migrate);
 		}
 
+		if (isset($arguments['depend']))
+		{
+			foreach($arguments['depend'] as $dependency)
+			{
+				$this->dependencies[] = $dependency;
+			}
+		}
+
 		$csv_path = $this->settings['csv'];
 		if (empty($csv_path))
 		{
@@ -68,7 +76,7 @@ class IntotoMigration extends Migration
 		throw new MigrateException(t("use of abstract class method DestinationKey()"));
 	}
 
-	function print_me($what)
+	public function print_me($what)
 	{
 		print_r($what) ;
 		print "\n";

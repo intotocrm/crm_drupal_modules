@@ -9,30 +9,32 @@
 /**
  * A migration that is reused for each source CSV file.
  */
-class IndividualsMigration extends IntotoMigration {
+class CustomersMigration extends IntotoMigration {
 	public function __construct($arguments) {
 		parent::__construct($arguments);
-		//  print "creating MigrateIndividual for type $bundle<br>\n";
+		//  print "creating CustomersMigration for type $bundle<br>\n";
 		$this->description = t('Import ' . $this->bundle . ' from CSV file.');
 
 		$this->destination = new MigrateDestinationCRMCoreContact($this->bundle);
 	}
 	public function AddFieldMappings()
 	{
-//		$this->addFieldMapping('contact_id ', 'id');
-		$this->addFieldMapping('field_email', 'email')
-		  ->defaultValue(NULL)
-		  //->callbacks('trim', array($this, 'valid_email_address'))
-				;
+		$this->addFieldMapping('field_status', 'customer_type');
+		$this->addFieldMapping('field_notes', 'notes');
+	   //		$this->addFieldMapping('contact_id ', 'id');
+//		$this->addFieldMapping('field_email', 'email')
+//		  ->defaultValue(NULL)
+//		  ->callbacks('trim', array($this, 'valid_email_address'))
+//				;
 //		$this->addFieldMapping('field_facebook_user_name', 'facebook_user_name');
 //		$this->addFieldMapping('field_facebook_user_name:language');  //empty. facebook id doens't have a language.
 
-		$this->addFieldMapping('contact_name','name_first');  //based on migrate_extras (see name.inc)
-		$this->addFieldMapping('contact_name:given'); //empty mapping
-		$this->addFieldMapping('contact_name:middle'); //empty mapping
-		$this->addFieldMapping('contact_name:family', 'name_last');
-		$this->addFieldMapping('contact_name:generational'); //empty mapping
-		$this->addFieldMapping('contact_name:credentials'); //empty mapping
+//		$this->addFieldMapping('contact_name','name_first');  //based on migrate_extras (see name.inc)
+//		$this->addFieldMapping('contact_name:given'); //empty mapping
+//		$this->addFieldMapping('contact_name:middle'); //empty mapping
+//		$this->addFieldMapping('contact_name:family', 'name_last');
+//		$this->addFieldMapping('contact_name:generational'); //empty mapping
+//		$this->addFieldMapping('contact_name:credentials'); //empty mapping
 
 //		$this->addFieldMapping('field_address'); //empty mapping - being taken care of in addresses.inc
 //		$this->addFieldMapping('field_address:revision_id'); //empty mapping - being taken care of in addresses.inc
@@ -40,8 +42,8 @@ class IndividualsMigration extends IntotoMigration {
 //		$this->addFieldMapping('field_instant_messaging_collecti'); //empty mapping - being taken care of in instant_messaging.inc
 //		$this->addFieldMapping('field_instant_messaging_collecti:revision_id'); //empty mapping - being taken care of in instant_messaging.inc
 
-		$this->addFieldMapping('field_phone'); //empty mapping - being taken care of in phone.inc
-		$this->addFieldMapping('field_phone:revision_id'); //empty mapping - being taken care of in phone.inc
+//		$this->addFieldMapping('field_phone'); //empty mapping - being taken care of in phone.inc
+//		$this->addFieldMapping('field_phone:revision_id'); //empty mapping - being taken care of in phone.inc
 		
 //		$this->AddFieldMapping('field_marital_status', 'marital_status');
 		
@@ -70,13 +72,6 @@ class IndividualsMigration extends IntotoMigration {
 		// Note: Remember that columns are zero based
 		//customer_id	id	name_first	name_last	email	phone	dob
 		$columns = array();
-//		$columns[] = array('customer_id', 'Customer ID to relate to');
-//		$columns[] = array('id', 'IP ID');
-//		$columns[] = array('name_first', 'First Name');
-//		$columns[] = array('name_last', 'Last Name');
-//		$columns[] = array('email', 'email');
-//		$columns[] = array('phone', 'Phone');
-//		$columns[] = array('dob', 'DoB');
 		return $columns;
 	}
 	

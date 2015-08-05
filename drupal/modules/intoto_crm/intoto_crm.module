@@ -82,6 +82,7 @@ function intoto_crm_entity_presave($entity, $type){
 //function intoto_crm_entity_insert($entity, $type){
 //	drupal_set_message("added entity of type $type:". $entity->type);
 	//drupal_set_message("<pre>" . print_r($entity, true) . "</pre>");
+//	print "in intoto_crm_entity_presave for type $type\n";
 	if (isset($type)){
 		if( $type == "crm_core_contact"){
 			try {
@@ -143,6 +144,7 @@ function intoto_crm_entity_presave($entity, $type){
 				$customer_caption = NULL;
 				$customer_id = NULL;
 				$ips_last_names = array();
+//				print "endpoints:" . print_r($entity->endpoints, true) . "\n";
 				foreach($entity->endpoints['und'] as $key=>$endpoint)
 				{
 					if (	isset($endpoint['entity_type']) &&
@@ -151,9 +153,11 @@ function intoto_crm_entity_presave($entity, $type){
 							isset($endpoint['entity_id'])
 						)
 					{
+						
 						$entity_id = $endpoint['entity_id'];
 						$entities = entity_load($endpoint['entity_type'], array($entity_id));
 						$count = count($entities);
+//						print "entity_id:$entity_id, count:$count\n";
 						if ($count == 1)
 						{
 							$contact_wrapper = entity_metadata_wrapper('crm_core_contact', $entities[array_keys($entities)[0]]);
@@ -179,9 +183,14 @@ function intoto_crm_entity_presave($entity, $type){
 					$original_caption = $customer_caption;
 					foreach($ips_last_names as $last_name)
 					{
-						if (!strchr(strtolower(trim($customer_caption)), trim(strtolower($last_name))))
+						
+						if (	strlen(trim($last_name)) > 0 &&
+								!strchr(strtolower(trim($customer_caption)), trim(strtolower($last_name))))
 						{
-							$customer_caption .= "-" . $last_name;
+							if (trim($customer_caption) != ""){
+								$customer_caption .=  "-";
+							}
+							$customer_caption .= $last_name;
 							$save = true;
 						}
 					}

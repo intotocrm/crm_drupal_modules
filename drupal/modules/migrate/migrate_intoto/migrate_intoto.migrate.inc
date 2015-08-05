@@ -34,6 +34,14 @@ function migrate_intoto_migrate_api()
 			'description' => "unique id",
 		),
 	);
+	
+	$customer_key = array(
+		'customer_id' => array('type' => 'varchar',
+			'length' => 255,
+			'not null' => TRUE,
+			'description' => "unique customer id",
+		),
+	);
 
 
 	$migrate_individual = array(
@@ -42,8 +50,22 @@ function migrate_intoto_migrate_api()
 		'keys' => $individual_key,
 	);
 
-	$migrate_address_field_collection = 
-	array(
+	$migrate_customer = array(
+		'class_name' => 'CustomersMigration',
+		'ini_file' => 'porting.ini',
+		'keys' => $customer_key,
+	);
+
+	$migrate_relation = array(
+		'class_name' => 'RelationsMigration',
+		'ini_file' => 'porting.ini',
+		'depend' => array("ip", "customer"),
+		'src_bundle' => "ip",
+		'dst_bundle' => "customer",
+		'keys' => $individual_key, //this fits because the customer has 1-to-many relation to IPs
+	);
+	
+	$migrate_address_field_collection = array(
 		'class_name' => 'AddressesMigration',
 		'ini_file' => 'porting.ini',
 		'keys' => $individual_key,
@@ -68,6 +90,9 @@ function migrate_intoto_migrate_api()
 		'groups' => array(
 			'ip' => array(
 				'title' => t('Intended Parents-related Migrations'),
+			),
+			'customer' => array(
+				'title' => t('Customer-related Migrations'),
 			),
 //			'egg_donor' => array(
 //				'title' => t('Egg Donors-related Migrations'),
@@ -101,6 +126,17 @@ function migrate_intoto_migrate_api()
 									)
 									+ $migrate_phone_field_collection,
 
+			//customer-related migrations (customer's fields and all the field-collections related to egg donor)
+			'customer' =>	array (
+								'group_name' => 'customer',
+							)
+							+ $migrate_customer,
+
+			'crm_member' =>	array (
+								'group_name' => 'ip',
+							)
+							+ $migrate_relation,
+
 			//egg_donor-related migrations (egg donor's fields and all the field-collections related to egg donor)
 //			'egg_donor' =>	array (
 //								'group_name' => 'egg_donor',
@@ -112,7 +148,7 @@ function migrate_intoto_migrate_api()
 //									)
 //									+ $migrate_address_field_collection,	  
 //
-
+			
 		),
 	);
 	return $api;
