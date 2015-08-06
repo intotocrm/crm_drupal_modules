@@ -22,6 +22,7 @@ dependencies[] = name
 dependencies[] = options
 dependencies[] = text
 features[crm_core_contact_type][] = ip
+features[ctools][] = field_group:field_group:1
 features[features_api][] = api:2
 features[field_base][] = field_hiv_pos
 features[field_base][] = field_notes

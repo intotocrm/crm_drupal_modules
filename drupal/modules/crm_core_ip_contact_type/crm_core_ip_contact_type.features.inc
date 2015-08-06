@@ -23,3 +23,12 @@ function crm_core_ip_contact_type_default_crm_core_contact_type() {
   }');
   return $items;
 }
+
+/**
+ * Implements hook_ctools_plugin_api().
+ */
+function crm_core_ip_contact_type_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "field_group" && $api == "field_group") {
+    return array("version" => "1");
+  }
+}
