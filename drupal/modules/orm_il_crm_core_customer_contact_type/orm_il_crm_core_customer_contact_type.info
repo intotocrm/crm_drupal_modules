@@ -20,6 +20,7 @@ dependencies[] = relation
 dependencies[] = select_or_other
 dependencies[] = text
 features[crm_core_contact_type][] = customer
+features[ctools][] = field_group:field_group:1
 features[ctools][] = relation:relation_type_default:1
 features[features_api][] = api:2
 features[field_base][] = field_agency

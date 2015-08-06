@@ -28,6 +28,9 @@ function orm_il_crm_core_customer_contact_type_default_crm_core_contact_type() {
  * Implements hook_ctools_plugin_api().
  */
 function orm_il_crm_core_customer_contact_type_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "field_group" && $api == "field_group") {
+    return array("version" => "1");
+  }
   if ($module == "relation" && $api == "relation_type_default") {
     return array("version" => "1");
   }
