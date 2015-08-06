@@ -1,6 +1,6 @@
-; Packaging information for crm_modules_enabler
-name = "crm_modules_enabler"
-description = ""
+; Packaging information for staging_modules
+name = "staging_modules"
+description = "modules enabled to copy to production"
 core = "7.x"
 
 
@@ -65,16 +65,26 @@ dependencies[] = date_popup
 dependencies[] = date_views
 
 ; Development
+dependencies[] = migrate_extras
+
+
+; Display Suite
+dependencies[] = ds
+
 #dependencies[] = devel
 
 ; Features
 dependencies[] = features
 dependencies[] = features_extra
-#dependencies[] = intoto_household_views
+dependencies[] = intoto_household_views
 
+
+; Features extra
+dependencies[] = fe_block
 ; Fields
 dependencies[] = addressfield
 dependencies[] = cck_phone
+dependencies[] = countries
 dependencies[] = email
 dependencies[] = entityreference
 dependencies[] = field_collection
@@ -86,11 +96,21 @@ dependencies[] = select_or_other
 ; Homebox
 dependencies[] = homebox
 
+; Intoto
+dependencies[] = intoto_crm_field_formatters
+
+; Media
+dependencies[] = file_entity
+
+; Migration
+dependencies[] = migrate
+dependencies[] = migrate_intoto
+
 ; Other
 dependencies[] = entity
 dependencies[] = entity_token
-#dependencies[] = intoto_contact_header
-#dependencies[] = intoto_contact_view
+dependencies[] = intoto_contact_header
+dependencies[] = intoto_contact_view
 dependencies[] = intoto_crm
 dependencies[] = logintoboggan
 dependencies[] = standard
@@ -101,6 +121,7 @@ dependencies[] = panels
 ; Relation
 dependencies[] = relation
 dependencies[] = relation_endpoint
+dependencies[] = relation_migrate
 dependencies[] = relation_ui
 
 ; User interface
@@ -115,12 +136,22 @@ dependencies[] = views_dynamic_fields
 dependencies[] = views_ui
 
 ; intoto
-#dependencies[] = crm_core_ip_contact_type
-#dependencies[] = individual_field_collection
-#dependencies[] = intoto_crm_individual
-#dependencies[] = intoto_household_tab_page
-#dependencies[] = intoto_individual_details_page
-#dependencies[] = intoto_staff_role
+dependencies[] = crm_core_ip_contact_type
+dependencies[] = individual_field_collection
+dependencies[] = intoto_blocks
+dependencies[] = intoto_crm_individual
+dependencies[] = intoto_dashboard
+dependencies[] = intoto_display_formats
+dependencies[] = intoto_household_tab_page
+dependencies[] = intoto_image_styles
+dependencies[] = intoto_individual_details_page
+dependencies[] = intoto_menus
+dependencies[] = intoto_modules_enabler
+dependencies[] = intoto_report_pages
+dependencies[] = intoto_staff_permissions
+dependencies[] = intoto_staff_role
+dependencies[] = intoto_unauth_page
+dependencies[] = orm_il_crm_core_customer_contact_type
 
 ; tb_megamenu
 dependencies[] = tb_megamenu
