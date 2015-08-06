@@ -345,6 +345,7 @@ function orm_il_crm_core_customer_contact_type_field_default_field_bases() {
         'potential' => 'Potential',
         'patient' => 'Patient',
         'past_patient' => 'Past Patient',
+        'competitor' => 'Competitor',
       ),
       'allowed_values_function' => '',
     ),
