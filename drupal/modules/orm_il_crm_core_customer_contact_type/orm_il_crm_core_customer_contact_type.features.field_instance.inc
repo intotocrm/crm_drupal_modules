@@ -19,19 +19,8 @@ function orm_il_crm_core_customer_contact_type_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'name',
-        'settings' => array(
-          'format' => 'default',
-          'markup' => 0,
-          'multiple' => 'default',
-          'multiple_and' => 'text',
-          'multiple_delimiter' => ', ',
-          'multiple_delimiter_precedes_last' => 'never',
-          'multiple_el_al_first' => 1,
-          'multiple_el_al_min' => 3,
-          'output' => 'default',
-        ),
-        'type' => 'name_formatter',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 1,
       ),
       'full' => array(
@@ -157,9 +146,9 @@ function orm_il_crm_core_customer_contact_type_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
+        'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'intoto_bootstrap_formatter',
         'weight' => 2,
       ),
       'full' => array(
@@ -217,9 +206,9 @@ ART|ART',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'intoto_bootstrap_formatter',
         'weight' => 4,
       ),
       'full' => array(
@@ -262,9 +251,9 @@ ART|ART',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
+        'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'intoto_bootstrap_formatter',
         'weight' => 13,
       ),
       'full' => array(
@@ -310,9 +299,8 @@ ART|ART',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'full' => array(
@@ -357,9 +345,9 @@ ART|ART',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'intoto_bootstrap_formatter',
         'weight' => 5,
       ),
       'full' => array(
@@ -404,10 +392,10 @@ ART|ART',
         'label' => 'above',
         'module' => 'field_collection',
         'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
+          'add' => '',
+          'delete' => '',
+          'description' => 0,
+          'edit' => '',
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
@@ -465,9 +453,9 @@ ART|ART',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
+        'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'intoto_bootstrap_formatter',
         'weight' => 7,
       ),
       'full' => array(
@@ -524,10 +512,10 @@ ORM_ES|ORM ES',
     'description' => 'Men Having Babies supported customer',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
-        'module' => 'list',
+        'label' => 'above',
+        'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'intoto_bootstrap_formatter',
         'weight' => 8,
       ),
       'full' => array(
@@ -572,9 +560,9 @@ ORM_ES|ORM ES',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
+        'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'intoto_bootstrap_formatter',
         'weight' => 16,
       ),
       'full' => array(
@@ -618,9 +606,9 @@ ORM_ES|ORM ES',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'intoto_bootstrap_formatter',
         'weight' => 11,
       ),
       'full' => array(
@@ -663,9 +651,9 @@ ORM_ES|ORM ES',
     'display' => array(
       'default' => array(
         'label' => 'inline',
-        'module' => 'text',
+        'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'intoto_bootstrap_formatter',
         'weight' => 3,
       ),
       'full' => array(
@@ -779,9 +767,9 @@ Promise|Promise',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'intoto_bootstrap_formatter',
         'weight' => 10,
       ),
       'full' => array(
@@ -824,9 +812,9 @@ Promise|Promise',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'intoto_bootstrap_formatter',
         'weight' => 9,
       ),
       'full' => array(
@@ -869,9 +857,9 @@ Promise|Promise',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'intoto_bootstrap_formatter',
         'weight' => 6,
       ),
       'full' => array(
@@ -918,9 +906,9 @@ Promise|Promise',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'intoto_bootstrap_formatter',
         'weight' => 15,
       ),
       'full' => array(
@@ -1046,15 +1034,9 @@ Promise|Promise',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'date',
-        'settings' => array(
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-        ),
-        'type' => 'date_default',
+        'module' => 'intoto_crm_field_formatters',
+        'settings' => array(),
+        'type' => 'intoto_bootstrap_formatter',
         'weight' => 0,
       ),
     ),
@@ -1094,9 +1076,9 @@ Promise|Promise',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
+        'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'intoto_bootstrap_formatter',
         'weight' => 2,
       ),
     ),
@@ -1131,10 +1113,10 @@ Promise|Promise',
         'label' => 'inline',
         'module' => 'field_collection',
         'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
+          'add' => '',
+          'delete' => '',
+          'description' => 0,
+          'edit' => '',
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
@@ -1166,9 +1148,9 @@ Promise|Promise',
     'display' => array(
       'default' => array(
         'label' => 'inline',
-        'module' => 'text',
+        'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'intoto_bootstrap_formatter',
         'weight' => 2,
       ),
     ),

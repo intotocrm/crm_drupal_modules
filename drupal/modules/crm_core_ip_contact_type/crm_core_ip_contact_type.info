@@ -7,6 +7,7 @@ project = crm_core_ip_contact_type
 dependencies[] = addressfield
 dependencies[] = cck_phone
 dependencies[] = crm_core_contact
+dependencies[] = ctools
 dependencies[] = date
 dependencies[] = email
 dependencies[] = entity

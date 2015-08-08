@@ -119,8 +119,14 @@ function intoto_display_formats_ds_view_modes_info() {
   $ds_view_mode->view_mode = 'small_block';
   $ds_view_mode->label = 'Small Block';
   $ds_view_mode->entities = array(
+    'comment' => 'comment',
     'crm_core_activity' => 'crm_core_activity',
     'crm_core_contact' => 'crm_core_contact',
+    'field_collection_item' => 'field_collection_item',
+    'node' => 'node',
+    'relation' => 'relation',
+    'taxonomy_term' => 'taxonomy_term',
+    'user' => 'user',
   );
   $export['small_block'] = $ds_view_mode;
 
