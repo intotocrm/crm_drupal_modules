@@ -16,6 +16,7 @@ dependencies[] = field_collection
 dependencies[] = field_group
 dependencies[] = image
 dependencies[] = individual_field_collection
+dependencies[] = intoto_crm_field_formatters
 dependencies[] = languagefield
 dependencies[] = list
 dependencies[] = name
