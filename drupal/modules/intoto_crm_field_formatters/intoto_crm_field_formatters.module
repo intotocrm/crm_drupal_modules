@@ -15,6 +15,9 @@ function intoto_crm_field_formatters_theme() {
     'label_formatter' => array(
       'variables' => array('element' => NULL),
     ),
+    'bootstrap_formatter' => array(
+      'variables' => array('element' => NULL),
+    ),
   );
 }
 	
@@ -26,6 +29,15 @@ function intoto_crm_field_formatters_field_formatter_info() {
 	return array(
 		'intoto_label_formatter' => array( //Machine name of the formatter
 			'label' => t('Small Label'),
+			'field types' => array('text', 'text_long', 'text_with_summary', 'datetime', 'date', 'number_decimal', 'email', 'list_text', 'list_boolean'), //This will only be available to text fields
+			'settings'	=> array( //Array of the settings we'll create
+//				'pic_size' => 'small', //give a default value for when the form is first loaded
+//				'tooltip' => 'Link to user Facebook page', //ditto
+			),
+		),
+
+		'intoto_bootstrap_formatter' => array( //Machine name of the formatter
+			'label' => t('Bootstrap'),
 			'field types' => array('text', 'text_long', 'text_with_summary', 'datetime', 'date', 'number_decimal', 'email', 'list_text', 'list_boolean'), //This will only be available to text fields
 			'settings'	=> array( //Array of the settings we'll create
 //				'pic_size' => 'small', //give a default value for when the form is first loaded
@@ -121,43 +133,76 @@ function intoto_crm_field_formatters_field_formatter_settings_summary($field, $i
 } 
  
  */
-
- function intoto_crm_field_formatters_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) 
+function intoto_crm_prepare_field_theme($theme, $entity_type, $entity, $field, $instance, $langcode, $items, $display) 
 {
-	if ($display['type'] != 'intoto_label_formatter')
-	{
-		return;
-	}
-	
 	$elements = array(); // Initialize the var
+	$label_set = false;
+//	drupal_set_message("items:<pre>".print_r($items, true)."</pre>");
+//	drupal_set_message("field:<pre>".print_r($field, true)."</pre>");
+//	drupal_set_message("instance:<pre>".print_r($instance, true)."</pre>");
+	foreach ($items as $delta => $item) {
+		$label = NULL;
+		//print_r($display);
+		$value = NULL;
+		$comment = "";
+		if (isset($item)){
+			switch($field['type']){
+				case 'email':
+					$value = l($item['email'], 'mailto:' . $item['email'], array('absolute' => TRUE));
+					break;
+				case 'text_long':
+					$value = $item['safe_value'];
+					break;
+				case 'datetime':
+					$date = new DateTime($item['value']);
+					$value = $date->format('Y-m-d');
+					if ($field['field_name'] == 'field_date_of_birth')
+					{
+						$now = new DateTime('now');
+						$interval = date_diff($now, $date);
+						$comment .= $interval->format('%yyo');
+						
+					}
+					break;
+				case 'list_boolean':
+				default :
+					$value = $item['value'];
+					break;
+
+			}
+
+			if (isset($field['settings']['allowed_values'][$value]))
+			{
+				$value = $field['settings']['allowed_values'][$value];
+			}
+			
+			if (isset($instance['label']) && !$label_set) {  //!isset($label) because I want the label to appear only once
+				$label = $instance['label'];
+				$label_set = true;
+			}
+		}			
+		$element = array('element' => $item, 'value' => $value, 'label' => $label, 'comment' => $comment, 'field' => $field, 'field_instance' => $instance, 'display' => $display);
+		$elements[$delta] = array(
+			'#markup' => theme($theme/*'label_formatter'*/, $element),
+		);
+	}
+
+	return $elements;
+}
+
+function intoto_crm_field_formatters_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) 
+{
 //	$settings = $display['settings']; // get the settings
 	//$size = $settings['pic_size']; // The Size setting selected in the settings form
 	//$tooltip = $settings['tooltip']; // The tool tip assigned in settings
 	// Create the image - Note that I'm storing the images in our module but they could be anywhere
-	switch ($display['type']) {
-		case 'intoto_label_formatter':
-			foreach ($items as $delta => $item) {
-				//print_r($display);
-				$value = NULL;
-				if (isset($item)){
-					if (isset($item['safe_value'])){
-						$value = $item['safe_value'];
-					}
-					else{
-						if (isset($item['value'])){
-								$value = $item['value'];
-						}
-					}
-				}			
-				$element = array('element' => $item, 'value' => $value, 'field' => $field, 'field_instance' => $instance, 'display' => $display);
-				$elements[$delta] = array(
-					'#markup' => theme('label_formatter', $element),
-				);
-			}
-				
-			
-
-	return $elements;
+	if ($display['type'] == 'intoto_label_formatter')
+	{
+		return intoto_crm_prepare_field_theme('label_formatter', $entity_type, $entity, $field, $instance, $langcode, $items, $display) ;
+	}
+	if ($display['type'] == 'intoto_bootstrap_formatter')
+	{
+		return intoto_crm_prepare_field_theme('bootstrap_formatter', $entity_type, $entity, $field, $instance, $langcode, $items, $display) ;
 	}
 }
 			
@@ -166,5 +211,9 @@ function intoto_crm_field_formatters_field_formatter_settings_summary($field, $i
 * Theme function for grasmash_formatter_grasmash_phone_mobile_call_link.
 */
 function theme_label_formatter($element) {
-	return '->>placeholder for element rendering<<-';// . $element['value'] . '<<-';//<a class="mobile-tel" href="tel:' . $element['element']['number']  . '">Call</a>';
+	return '->>placeholder for element rendering in label_formatter theme<<-';// . $element['value'] . '<<-';//<a class="mobile-tel" href="tel:' . $element['element']['number']  . '">Call</a>';
+}
+
+function theme_bootstrap_formatter($element) {
+	return '->>placeholder for element rendering in bootstrap_formatter theme<<-';// . $element['value'] . '<<-';//<a class="mobile-tel" href="tel:' . $element['element']['number']  . '">Call</a>';
 }

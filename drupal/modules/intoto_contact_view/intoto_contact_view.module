@@ -73,11 +73,3 @@ function intoto_contact_view_preprocess_field(&$variables, $hook)
 	}
 }
 
-function intoto_contact_view_preprocess_field_field_date_of_birth(&$variables, $hook)
-{
-	$date_value = new DateTime($variables['element']['#items'][0]['value']);
-	$now = new DateTime('now');
-	$interval = date_diff($now, $date_value);
-
-	$variables['items']['0']['#markup'] .= "<span> (" . $interval->format('%yyo') . ")</span>";
-}
