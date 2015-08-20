@@ -18,5 +18,5 @@ function ticker_view($entity) {
   drupal_set_title(entity_label('ticker', $entity));
 
   // Return automatically generated view page.
-  return entity_view('ticker', array(entity_id('ticker', $entity) => $entity));
+  return entity_view('ticker', array(entity_id('ticker', $entity) => $entity), 'default');
 }

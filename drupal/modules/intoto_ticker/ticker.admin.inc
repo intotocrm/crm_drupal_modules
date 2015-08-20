@@ -246,6 +246,8 @@ function ticker_type_form_submit(&$form, &$form_state) {
 
   // Redirect user.
   $form_state['redirect'] = 'admin/structure/ticker';
+  drupal_set_message("<pre>". print_r($entity_type, true) ."</pre>");
+  
 }
 
 /**

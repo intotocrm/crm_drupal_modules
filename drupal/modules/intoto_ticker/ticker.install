@@ -90,6 +90,7 @@ function ticker_install(){
 			'entity_types' => array('ticker'),
 			'translatable' => FALSE,	
 			'deleted' => FALSE,
+			'module' => 'ticker',
 		);
 
 	$f1 = field_create_field(

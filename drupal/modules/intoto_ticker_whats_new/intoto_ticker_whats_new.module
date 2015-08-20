@@ -1,7 +1,5 @@
 <?php
 
-
-
 /**
  * Return a new ticker type with initialize fields.
  *
@@ -29,3 +27,23 @@ function ticker_type_save($ticker_type) {
   return entity_save('ticker_type', $ticker_type);
 }
 
+
+function whats_new_view($entity)
+{
+  drupal_set_title(entity_label('ticker', $entity));
+
+  // Return automatically generated view page.
+  return entity_view('ticker', array(entity_id('ticker', $entity) => $entity), 'brief');
+}
+
+function intoto_ticker_whats_new_menu()
+{
+	$items['whats-new/%ticker'] = array(
+		'title callback' => 'entity_label',
+		'title arguments' => array('ticker', 1),
+		'page callback' => 'whats_new_view',
+		'page arguments' => array(1),
+		'access arguments' => array('view ticker content'),
+	);
+	return $items;
+}

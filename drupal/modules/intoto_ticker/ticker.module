@@ -14,11 +14,11 @@ function ticker_entity_info() {
 			'label' => t('Ticker Entity'),
 			'base table' => 'ticker',
 			'entity keys' => array(
-			'id' => 'id',
-			'bundle' => 'type',
+				'id' => 'id',
+				'bundle' => 'type',
 			),
 			'bundle keys' => array(
-			'bundle' => 'type',
+				'bundle' => 'type',
 			),
 			'bundles' => array(),
 			'entity class' => 'TickerEntity',
@@ -237,6 +237,14 @@ function ticker_menu() {
 		'file' => 'ticker.admin.inc',
 	);
 
+	// URI for removing current user from this ticker (don't show anymore)
+	$items[$base_uri . '/remove-user'] = array(
+		'title' => "don't show this anymore",
+		'page callback' => 'ticker_remove_current_user',
+		'page arguments' => array($base_uri_argument_position),
+		'access arguments' => array('view ticker content'),
+		'type' => MENU_CALLBACK,
+	);
 	return $items;
 }
 
@@ -308,13 +316,39 @@ function ticker_type_access($op, $entity = NULL) {
 }
 
 /**
+ * @file
+ * Provide permissions for all sub-modules.
+ */
+
+/**
+ * Implements hook_permission().
+ */
+function ticker_permission() {
+  $permissions = array(
+    'view ticker content' => array(
+      'title' => t('View Ticker content'),
+    ),
+    'administer ticker content' => array(
+      'title' => t('Administer Ticker content'),
+      'restrict access' => TRUE,
+    ),
+  );
+  return $permissions;
+}
+
+
+function ticker_remove_current_user($ticker_entity)
+{
+	drupal_set_message("removing this ticker from current user:<pre>".print_r($ticker_entity,true)."</pre>");
+}
+
+/**
  * Implements hook_field_attach_create_bundle
  */
 function ticker_field_attach_create_bundle($entity_type, $bundle)
 {
 	drupal_set_message("created:<pre>".print_r($entity_type,true)."</pre>bundle:<pre>".print_r($bundle, true)."</pre>");
 
-	// Create an instance of the field and attach it to the poa day entity.
 	if ($entity_type == "ticker"){
 		field_create_instance(
 			array(
@@ -335,9 +369,9 @@ function ticker_field_attach_create_bundle($entity_type, $bundle)
 				'bundle' => $bundle,
 				'label' => 'Created',
 				'required' => TRUE,
-				'widget' => array(
-					'type' => 'options_select',
-				),
+//				'widget' => array(
+//					'type' => 'date_popup',
+//				),
 			)
 		);
 		field_create_instance(
@@ -347,9 +381,9 @@ function ticker_field_attach_create_bundle($entity_type, $bundle)
 				'bundle' => $bundle,
 				'label' => 'Due',
 				'required' => TRUE,
-				'widget' => array(
-					'type' => 'options_select',
-				),
+//				'widget' => array(
+//					'type' => 'date_popup',
+//				),
 			)
 		);
 	}

@@ -11,11 +11,39 @@ function intoto_ticker_whats_new_install() {
 	$t = get_t();
 	// Add default contact type for an Individual person.
 	$whats_new_ticker = ticker_type_new('whats_new');
-	$whats_new_ticker->name = $t('Whats New');
+	//$whats_new_ticker->name = $t('Whats New');
+	$whats_new_ticker->label = 'Whats New';
+	
 	$whats_new_ticker->description = $t("A single What's New Ticker.");
 	$whats_new_ticker->is_new = TRUE;
 	ticker_type_save($whats_new_ticker);
 	drush_print("whats up type id:" . $whats_new_ticker->id);
+
+	field_create_field(
+		array(
+			'field_name' => 'field_ticker_external_id',
+			'type' => 'text',
+			'cardinality' => 1,
+			'entity_types' => array('ticker'),
+			'translatable' => FALSE,	
+			'deleted' => FALSE,
+			'module' => 'intoto_ticker_whats_new',
+			)
+	);
+
+	field_create_instance(
+		array(
+			'field_name' => 'field_ticker_external_id',
+			'entity_type' => 'ticker',
+			'bundle' => "whats_new",
+			'label' => 'External ID',
+			'required' => TRUE,
+//				'widget' => array(
+//					'type' => 'date_popup',
+//				),
+		)
+	);
+	
 }
 
 /**
