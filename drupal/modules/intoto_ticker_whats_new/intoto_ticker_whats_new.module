@@ -1,0 +1,31 @@
+<?php
+
+
+
+/**
+ * Return a new ticker type with initialize fields.
+ *
+ * @param string $type
+ *   The machine-readable name of the ticker type. Example: whats_new
+ *
+ * @return
+ *   A stdClass object with contact type fields
+ */
+function ticker_type_new($type = '') {
+  $values = array('type' => $type, 'locked' => 1);
+  return entity_create('ticker_type', $values);
+}
+/**
+ * Saves a ticker type.
+ *
+ * @param object $ticker_type
+ *   Ticker Type object.
+ *
+ * @return bool
+ *   FALSE if the insert fails and SAVED_NEW or SAVED_UPDATED
+ *   based on the operation performed, exception in case of error.
+ */
+function ticker_type_save($ticker_type) {
+  return entity_save('ticker_type', $ticker_type);
+}
+

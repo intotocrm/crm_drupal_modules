@@ -1,0 +1,12 @@
+name = What's New Ticker Entity
+description = Bundle for What's New Tickers
+
+package = Intoto
+core = 7.x
+dependencies[] = ticker
+
+
+version = "7.x-1.0"
+core = "7.x"
+
+

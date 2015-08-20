@@ -1,0 +1,42 @@
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
+function intoto_ticker_whats_new_install() {
+	$t = get_t();
+	// Add default contact type for an Individual person.
+	$whats_new_ticker = ticker_type_new('whats_new');
+	$whats_new_ticker->name = $t('Whats New');
+	$whats_new_ticker->description = $t("A single What's New Ticker.");
+	$whats_new_ticker->is_new = TRUE;
+	crm_core_contact_type_save($whats_new_ticker);
+	drush_print("whats up type id:" . $whats_new_ticker->id);
+}
+
+/**
+ * Implements hook_uninstall().
+ * 
+  */
+function intoto_ticker_whats_new_uninstall() {
+	// Instance field information field_info_field is not available
+	// because we have already unloaded our module.
+//	$additional_params = array('include_inactive' => TRUE);
+//	$instances = field_read_instances(array('entity_type' => 'ticker', 'bundle' => 'whats_new'), $additional_params);
+//	foreach ($instances as $instance) {
+//		field_delete_instance($instance);
+//	}
+//	entity_get_controller('ticker')->delete(array('whats_new'));
+	$query = new EntityFieldQuery;
+	$result = $query
+		->entityCondition('entity_type', 'ticker_type')
+		->propertyCondition('type', 'whats_new')
+		->execute();
+
+	drush_print ("deleting bundle whats_new from place " . print_r($result, true));
+	entity_delete('ticker_type', array_keys($result['ticker_type'])[0]) ;
+}

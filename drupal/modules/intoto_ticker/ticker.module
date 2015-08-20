@@ -1,0 +1,358 @@
+<?php
+
+/**
+ * @file
+ * Describe the entity with interface for managing bundles.
+ */
+
+/**
+ * Implements hook_entity_info().
+ */
+function ticker_entity_info() {
+	$info = array(
+		'ticker' => array(
+			'label' => t('Ticker Entity'),
+			'base table' => 'ticker',
+			'entity keys' => array(
+			'id' => 'id',
+			'bundle' => 'type',
+			),
+			'bundle keys' => array(
+			'bundle' => 'type',
+			),
+			'bundles' => array(),
+			'entity class' => 'TickerEntity',
+			'controller class' => 'TickerEntityController',
+			'metadata controller class' => '',
+			'fieldable' => TRUE,
+			'uri callback' => 'entity_class_uri',
+			'label callback' => 'entity_class_label',
+			'module' => 'ticker',
+		),
+	);
+	$info['ticker_type'] = array(
+	'label' => t('Ticker Type'),
+	'base table' => 'ticker_type',
+	'entity keys' => array(
+		'id' => 'id',
+		'name' => 'type',
+		'label' => 'label',
+	),
+	'bundle of' => 'ticker',
+	'entity class' => 'TickerEntityType',
+	'controller class' => 'TickerEntityTypeController',
+	'metadata controller class' => '',
+	'fieldable' => FALSE,
+	'exportable' => TRUE,
+	'module' => 'ticker',
+	// Automatically create page for managing entity bundles.
+	'admin ui' => array(
+		'path' => 'admin/structure/ticker',
+		'file' => 'ticker.admin.inc',
+		'controller class' => 'TickerEntityTypeUiController',
+	),
+	// Access callback is necessary for admin UI.
+	// @see http://drupal.org/node/1021576
+	'access callback' => 'ticker_type_access',
+	);
+	return $info;
+}
+
+/**
+ * Implements hook_entity_property_info().
+ */
+function ticker_entity_property_info() {
+	$info = array();
+
+	// Describe properties of entity.
+	$properties = &$info['ticker']['properties'];
+	$properties['id'] = array(
+		'type' => 'integer',
+		'schema field' => 'id',
+		'label' => t('Custom entity ID'),
+		'description' => t('The internal ID of custom entity.'),
+		'setter callback' => 'entity_property_verbatim_set',
+	);
+	$properties['type'] = array(
+		'type' => 'text',
+		'schema field' => 'type',
+		'required' => TRUE,
+		'label' => t('Intoto Custom Entity type (bundle)'),
+		'description' => t('Type of custom entity.'),
+		'setter callback' => 'entity_property_verbatim_set',
+	);
+	$properties['title'] = array(
+		'type' => 'text',
+		'schema field' => 'title',
+		'required' => TRUE,
+		'label' => t('Custom entity title'),
+		'description' => t('Title of Intoto Custom Entity.'),
+		'setter callback' => 'entity_property_verbatim_set',
+	);
+	$properties['description'] = array(
+		'type' => 'text',
+		'schema field' => 'description',
+		'label' => t('Custom entity description'),
+		'description' => t('Description of Intoto Custom Entity .'),
+		'setter callback' => 'entity_property_verbatim_set',
+	);
+
+	// Describe properties of entity type.
+	$type_properties = &$info['ticker_type']['properties'];
+	$type_properties['id'] = array(
+		'type' => 'integer',
+		'schema field' => 'id',
+		'label' => t('Type ID'),
+		'setter callback' => 'entity_property_verbatim_set',
+	);
+	$type_properties['type'] = array(
+		'type' => 'text',
+		'schema field' => 'type',
+		'required' => TRUE,
+		'label' => t('Type name'),
+		'setter callback' => 'entity_property_verbatim_set',
+	);
+	$type_properties['label'] = array(
+		'type' => 'text',
+		'schema field' => 'label',
+		'required' => TRUE,
+		'label' => t('Type label'),
+		'setter callback' => 'entity_property_verbatim_set',
+	);
+	$type_properties['description'] = array(
+		'type' => 'text',
+		'schema field' => 'description',
+		'required' => TRUE,
+		'label' => t('Type description'),
+		'setter callback' => 'entity_property_verbatim_set',
+	);
+
+	return $info;
+}
+
+/**
+ * Implements hook_entity_info_alter().
+ * 
+ * Specify admin pages for all existing entity bundles.
+ */
+function ticker_entity_info_alter(&$entity_info) {
+	foreach (ticker_type_load_multiple() as $type => $info) {
+		$entity_info['ticker']['bundles'][$type] = array(
+			'label' => $info->label,
+			'admin' => array(
+				'path' => 'admin/structure/ticker/manage/%ticker_type',
+				'real path' => 'admin/structure/ticker/manage/' . $type,
+				'bundle argument' => 4,
+			),
+		);
+	}
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function ticker_views_api() {
+	// Describe the folder where "ticker.views_default.inc" file
+	// is located.
+	return array(
+		'api' => 3,
+		'path' => drupal_get_path('module', 'ticker'),
+	);
+}
+
+/**
+ * Implements hook_menu().
+ */
+function ticker_menu() {
+	$items = array();
+
+	// Base URI for dealing with entity.
+	$base_uri = 'ticker/%ticker';
+	$base_uri_argument_position = 1;
+
+	// URI for choosing bundle of entity to add.
+	$items['ticker/add'] = array(
+		'title' => 'Add Ticker Entity',
+		'page callback' => 'ticker_choose_bundle',
+		'access arguments' => array('administer ticker content'),
+		'file' => 'ticker.admin.inc',
+		'type' => MENU_LOCAL_ACTION,
+	);
+
+	// URI for adding entity of proper bundle.
+	foreach (ticker_type_load_multiple() as $type => $info) {
+		$items['ticker/add/' . $type] = array(
+			'title' => 'Add Ticker Entity',
+			'page callback' => 'ticker_add',
+			'page arguments' => array(2),
+			'access arguments' => array('administer ticker content'),
+			'file' => 'ticker.admin.inc',
+		);
+	}
+
+	// URI for viewing entity instances.
+	$items[$base_uri] = array(
+		'title callback' => 'entity_label',
+		'title arguments' => array('ticker', $base_uri_argument_position),
+		'page callback' => 'ticker_view',
+		'page arguments' => array($base_uri_argument_position),
+		'access arguments' => array('view ticker content'),
+		'file' => 'ticker.pages.inc',
+	);
+	$items[$base_uri . '/view'] = array(
+		'title' => 'View Ticker Entity',
+		'type' => MENU_DEFAULT_LOCAL_TASK,
+		'weight' => -10,
+	);
+
+	// URI for editing entity instances.
+	$items[$base_uri . '/edit'] = array(
+		'title' => 'Edit Ticker Entity',
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('ticker_form', $base_uri_argument_position),
+		'access arguments' => array('administer ticker content'),
+		'file' => 'ticker.admin.inc',
+		'type' => MENU_LOCAL_TASK,
+		'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
+	);
+
+	// URI for deleting entity instances.
+	$items[$base_uri . '/delete'] = array(
+		'title callback' => 'ticker_label',
+		'title arguments' => array($base_uri_argument_position),
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('ticker_delete_form', $base_uri_argument_position),
+		'access arguments' => array('administer ticker content'),
+		'file' => 'ticker.admin.inc',
+	);
+
+	// URI for deleting entity bundles.
+	$items['admin/structure/ticker/%ticker_type/delete'] = array(
+		'title' => 'Delete Ticker Entity Type',
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('ticker_type_form_delete_confirm', 4),
+		'access arguments' => array('administer ticker content'),
+		'weight' => 1,
+		'type' => MENU_NORMAL_ITEM,
+		'file' => 'ticker.admin.inc',
+	);
+
+	return $items;
+}
+
+/**
+ * Load an instance of ticker.
+ * 
+ * @param int $id
+ *	 Entity identifier.
+ * @param bool $reset
+ *	 Whether to reset the internal cache for ticker.
+ * 
+ * @return mixed
+ *	 An actual entity, or false.
+ */
+function ticker_load($id, $reset = FALSE) {
+	$entities = ticker_load_multiple(array($id), array(), $reset);
+	return reset($entities);
+}
+
+/**
+ * Load multiple instances of ticker.
+ * 
+ * @param array $ids
+ *	 Entity identifiers.
+ * @param array $conditions
+ *	 (deprecated) An associative array of conditions on the base entity table.
+ * @param bool $reset
+ *	 Whether to reset the internal cache for ticker.
+ * 
+ * @return array
+ *	 Founded entities.
+ */
+function ticker_load_multiple($ids = array(), $conditions = array(), $reset = FALSE) {
+	return entity_load('ticker', $ids, $conditions, $reset);
+}
+
+/**
+ * Load an instance of ticker_type.
+ * 
+ * @param string $entity_type
+ *	 Name of the entity type to load.
+ * 
+ * @return mixed
+ *	 Founded entity type, or false.
+ */
+function ticker_type_load($entity_type) {
+	return ticker_type_load_multiple($entity_type);
+}
+
+/**
+ * Load multiple instances of ticker_type.
+ * 
+ * @param string $type_name
+ *	 Name of the entity type to load.
+ * 
+ * @return mixed
+ *	 Founded entity type, or false.
+ */
+function ticker_type_load_multiple($type_name = NULL) {
+	$types = entity_load_multiple_by_name('ticker_type', isset($type_name) ? array($type_name) : FALSE);
+	return isset($type_name) ? reset($types) : $types;
+}
+
+/**
+ * Access callback for ticker_type.
+ */
+function ticker_type_access($op, $entity = NULL) {
+	return user_access('administer ticker content');
+}
+
+/**
+ * Implements hook_field_attach_create_bundle
+ */
+function ticker_field_attach_create_bundle($entity_type, $bundle)
+{
+	drupal_set_message("created:<pre>".print_r($entity_type,true)."</pre>bundle:<pre>".print_r($bundle, true)."</pre>");
+
+	// Create an instance of the field and attach it to the poa day entity.
+	if ($entity_type == "ticker"){
+		field_create_instance(
+			array(
+				'field_name' => 'field_ticker_users_ref',
+				'entity_type' => 'ticker',
+				'bundle' => $bundle,
+				'label' => 'Users',
+				'required' => TRUE,
+				'widget' => array(
+					'type' => 'options_select',
+				),
+			)
+		);
+		field_create_instance(
+			array(
+				'field_name' => 'field_ticker_created',
+				'entity_type' => 'ticker',
+				'bundle' => $bundle,
+				'label' => 'Created',
+				'required' => TRUE,
+				'widget' => array(
+					'type' => 'options_select',
+				),
+			)
+		);
+		field_create_instance(
+			array(
+				'field_name' => 'field_ticker_due',
+				'entity_type' => 'ticker',
+				'bundle' => $bundle,
+				'label' => 'Due',
+				'required' => TRUE,
+				'widget' => array(
+					'type' => 'options_select',
+				),
+			)
+		);
+	}
+}	
+	
+

@@ -1,0 +1,13 @@
+name = Ticker Entity
+description = Entity with interface for managing bundles for tickers that users can dismiss.
+;based on https://www.drupal.org/project/typical_entity_example (number 6)
+package = Intoto
+core = 7.x
+; dependencies[] = typical_entity_example
+files[] = ticker.controller.inc
+
+; Information added by Drupal.org packaging script on 2013-12-30
+version = "7.x-1.0"
+core = "7.x"
+project = "ticker"
+
