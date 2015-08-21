@@ -1,0 +1,83 @@
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+function intoto_post_connector_menu()
+{
+	$items = array();
+	$items['react/%'] = array (
+		'page callback' => 'respond_to_post',
+		'page arguments' => array(1),
+		'access callback' => TRUE,
+	);
+	return $items;
+}
+function intoto_post_connector_get_request()
+{
+	$request = array(
+		'params' => array(),
+		'request_data' => array(),
+	);
+	foreach ($_POST as $key=>$value)
+	{
+		$request['params'][check_plain($key)] = check_plain($value);
+	}
+
+	foreach (array('HTTP_USER_AGENT', 'SERVER_ADDR', 'SERVER_PORT', 'REQUEST_URI', 'REMOTE_ADDR', 'REQUEST_SCHEME', 'REMOTE_PORT', 'REQUEST_TIME') as $key)
+	{
+		$request['request_data'][$key] = isset($_SERVER[$key]) ? check_plain($_SERVER[$key]) : "unknown";
+	}
+	return $request;
+}
+
+
+function respond_to_post($request_type)
+{
+	$request_type_filtered = check_plain($request_type);
+	$function_name = "intoto_post_connector_respond_to_" . $request_type_filtered;
+	if ($request_type_filtered == $request_type && function_exists($function_name))
+	{
+		$function_name(intoto_post_connector_get_request());
+	}
+}
+
+
+function intoto_post_connector_respond_to_contact_us_form($request)
+{
+	print "Thanks for sending<br>" . print_r($request, true)."<br><br>";
+	$params = $request['params'];
+	foreach(array('name', 'phone', 'email', 'message') as $key)
+	{
+		if (!isset($params[$key]))
+		{
+			print("missing:$key<BR>");
+			return;
+		}
+	}
+	
+	//create an IP entity
+	$values = array('type' => 'ip',	);
+	$name_parts = explode(" ", $params['name']);
+	$entity = entity_create('crm_core_contact', $values);
+	$contact_wrapper = entity_metadata_wrapper('crm_core_contact', $entity);	
+	$contact_wrapper->{"contact_name"}->{"given"}->set($name_parts[0]);
+	$contact_wrapper->{"contact_name"}->{"family"}->set(implode(" ", array_slice($name_parts, 1)));
+	$contact_wrapper->{"field_email"}->set($params['email']);//$name_parts[0]);
+	$phone_collection = entity_create('field_collection_item', array('field_name' => 'field_phone'));
+	$phone_collection->setHostEntity('crm_core_contact', $entity);
+	// Now define the collection parameters.
+    $phone_wrapper = entity_metadata_wrapper('field_collection_item', $phone_collection);
+	$phone_wrapper->field_type->set('mobile');
+	$phone_wrapper->{"field_number"}->{"number"}->set($params['phone']) ;
+	$phone_wrapper->{"field_number"}->{"country_codes"}->set('il') ;
+	$phone_wrapper ->save();  
+	$result = $contact_wrapper->save();	
+	
+	//create a customer entity
+	
+	print "Thanks for sending<br>" . print_r($request, true)."<br><br>result:$result<br>bye";
+}

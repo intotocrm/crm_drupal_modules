@@ -1,0 +1,6 @@
+name = intoto post connector
+description = modules that reacts to HTTP Posts
+core = 7.x
+package = intoto
+version = 7.x-1.0
+project = intoto_post_connector
