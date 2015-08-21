@@ -24,6 +24,7 @@ function intoto_post_connector_get_request()
 	);
 	foreach ($_POST as $key=>$value)
 	{
+//		$request['params'][check_plain($key)] = check_plain($value);
 		$request['params'][check_plain($key)] = check_plain($value);
 	}
 
@@ -48,7 +49,7 @@ function respond_to_post($request_type)
 
 function intoto_post_connector_respond_to_contact_us_form($request)
 {
-	print "Thanks for sending<br>" . print_r($request, true)."<br><br>";
+	print "Thanks for sending<br>" . print_r($request, true)."<br><br>\n========\n";
 	$params = $request['params'];
 	foreach(array('name', 'phone', 'email', 'message') as $key)
 	{
@@ -60,24 +61,49 @@ function intoto_post_connector_respond_to_contact_us_form($request)
 	}
 	
 	//create an IP entity
-	$values = array('type' => 'ip',	);
+	$ip_entity = entity_create('crm_core_contact', array('type' => 'ip',));
+	$ip_wrapper = entity_metadata_wrapper('crm_core_contact', $ip_entity);	
 	$name_parts = explode(" ", $params['name']);
-	$entity = entity_create('crm_core_contact', $values);
-	$contact_wrapper = entity_metadata_wrapper('crm_core_contact', $entity);	
-	$contact_wrapper->{"contact_name"}->{"given"}->set($name_parts[0]);
-	$contact_wrapper->{"contact_name"}->{"family"}->set(implode(" ", array_slice($name_parts, 1)));
-	$contact_wrapper->{"field_email"}->set($params['email']);//$name_parts[0]);
+	$family_name = implode(" ", array_slice($name_parts, 1));
+	$first_name = $name_parts[0];
+	$ip_wrapper->{"contact_name"}->{"given"}->set($first_name);
+	$ip_wrapper->{"contact_name"}->{"family"}->set($family_name);
+	$ip_wrapper->{"field_email"}->set($params['email']);
 	$phone_collection = entity_create('field_collection_item', array('field_name' => 'field_phone'));
-	$phone_collection->setHostEntity('crm_core_contact', $entity);
+	$phone_collection->setHostEntity('crm_core_contact', $ip_entity);
 	// Now define the collection parameters.
     $phone_wrapper = entity_metadata_wrapper('field_collection_item', $phone_collection);
 	$phone_wrapper->field_type->set('mobile');
-	$phone_wrapper->{"field_number"}->{"number"}->set($params['phone']) ;
-	$phone_wrapper->{"field_number"}->{"country_codes"}->set('il') ;
-	$phone_wrapper ->save();  
-	$result = $contact_wrapper->save();	
+	$phone_wrapper->{"field_number"}->{"number"}->set($params['phone']);
+	$phone_wrapper->{"field_number"}->{"country_codes"}->set('il');
+	$phone_wrapper->{"field_number"}->{"extension"}->set('');
+	$phone_wrapper->save();  
+	$ip_result = $ip_wrapper->save();
 	
 	//create a customer entity
+	$customer_entity = entity_create('crm_core_contact', array('type' => 'customer',));
+	$customer_wrapper = entity_metadata_wrapper('crm_core_contact', $customer_entity);
+	if(strlen(trim($family_name)) == 0){
+		$family_name = "family of $first_name";
+	}
 	
-	print "Thanks for sending<br>" . print_r($request, true)."<br><br>result:$result<br>bye";
+	$customer_wrapper->{"field_caption"}->set($family_name);
+	$customer_wrapper->{"field_notes"}->set("message from contact form:\n" . $params['message']);
+	$customer_result = $customer_wrapper->save();
+	
+	//relate the newly created IP and Customer
+	$ip_id = $ip_wrapper->getIdentifier();
+	$customer_id = $customer_wrapper->getIdentifier();
+	if ($ip_id > 0 && $customer_id > 0){
+		$member_relation = relation_create("crm_member",
+				array(
+					array('entity_type' => 'crm_core_contact', 'entity_id' => $ip_id),
+					array('entity_type' => 'crm_core_contact', 'entity_id' => $customer_id),
+					)
+				);
+		$relation_result = relation_save($member_relation);
+	}
+	
+	print "**\n". print_r($ip_id, true) . "\n\n&&&\n". print_r($customer_id,true)."\n\n";
+	print "----\nip result:".print_r($ip_result, true)."\n\n\ncustomer result:".print_r($customer_result, true)."\n\n\nrelation:\n".print_r($member_relation,true)."\n\nbye";
 }
