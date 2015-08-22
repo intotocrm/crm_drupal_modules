@@ -111,6 +111,7 @@ function orm_il_crm_core_customer_contact_type_field_group_info() {
       3 => 'field_patient_status',
       4 => 'field_campaign',
       5 => 'field_referred_by',
+      6 => 'field_originally_came_from',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

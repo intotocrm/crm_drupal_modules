@@ -547,7 +547,7 @@ ORM_ES|ORM ES',
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 15,
+      'weight' => 14,
     ),
   );
 
@@ -594,6 +594,61 @@ ORM_ES|ORM ES',
       ),
       'type' => 'text_textarea',
       'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'crm_core_contact-customer-field_originally_came_from'
+  $field_instances['crm_core_contact-customer-field_originally_came_from'] = array(
+    'bundle' => 'customer',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Mark how this customer was introduced to this system',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 17,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'small_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_originally_came_from',
+    'label' => 'Registered By',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'select_or_other',
+      'settings' => array(
+        'available_options' => 'manually|Manually
+contact_us_form|Contact us Form',
+        'available_options_php' => '',
+        'markup_available_options_php' => '&lt;none&gt;',
+        'other' => 'Other',
+        'other_size' => 60,
+        'other_title' => '',
+        'other_unknown_defaults' => 'ignore',
+        'sort_options' => 0,
+      ),
+      'type' => 'select_or_other_buttons',
+      'weight' => 15,
     ),
   );
 
@@ -750,7 +805,7 @@ Promise|Promise',
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 14,
+      'weight' => 16,
     ),
   );
 
@@ -1239,6 +1294,7 @@ Promise|Promise',
   t('List children who were born in this journey');
   t('MHB');
   t('Managing Country');
+  t('Mark how this customer was introduced to this system');
   t('Men Having Babies supported customer');
   t('Name');
   t('Notes');
@@ -1246,6 +1302,7 @@ Promise|Promise',
   t('Patient Status');
   t('Program');
   t('Referred By');
+  t('Registered By');
   t('Sales Category');
   t('Select date of journey start and (optionally) end.');
   t('Select which kind of surrogacy process this household should go through');
