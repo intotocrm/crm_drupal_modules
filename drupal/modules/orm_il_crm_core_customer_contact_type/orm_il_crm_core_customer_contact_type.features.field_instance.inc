@@ -601,15 +601,18 @@ ORM_ES|ORM ES',
   // 'crm_core_contact-customer-field_originally_came_from'
   $field_instances['crm_core_contact-customer-field_originally_came_from'] = array(
     'bundle' => 'customer',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'manually',
+      ),
+    ),
     'deleted' => 0,
     'description' => 'Mark how this customer was introduced to this system',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'hidden',
         'weight' => 17,
       ),
       'full' => array(
