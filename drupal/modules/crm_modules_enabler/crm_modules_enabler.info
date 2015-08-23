@@ -156,3 +156,7 @@ dependencies[] = orm_il_crm_core_customer_contact_type
 ; tb_megamenu
 dependencies[] = tb_megamenu
 
+; HTML Mail
+dependencies[] = mimemail
+dependencies[] = mailsystem
+
