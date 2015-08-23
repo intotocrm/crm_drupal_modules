@@ -26,4 +26,4 @@ dependencies[] = intoto_image_styles
 dependencies[] = intoto_display_formats
 dependencies[] = intoto_crm_field_formatters
 dependencies[] = intoto_post_connector
-dependencies[] = intoto_react_on_contact_us_form/_
+dependencies[] = intoto_react_on_contact_us_form
