@@ -49,7 +49,7 @@ function respond_to_post($request_type)
 
 function intoto_post_connector_respond_to_contact_us_form($request)
 {
-	print "Thanks for sending<br>" . print_r($request, true)."<br><br>\n========\n";
+	//print "Thanks for sending<br>" . print_r($request, true)."<br><br>\n========\n";
 	$params = $request['params'];
 	foreach(array('name', 'phone', 'email', 'message') as $key)
 	{
@@ -105,6 +105,7 @@ function intoto_post_connector_respond_to_contact_us_form($request)
 		$relation_result = relation_save($member_relation);
 	}
 	
-	print "**\n". print_r($ip_id, true) . "\n\n&&&\n". print_r($customer_id,true)."\n\n";
-	print "----\nip result:".print_r($ip_result, true)."\n\n\ncustomer result:".print_r($customer_result, true)."\n\n\nrelation:\n".print_r($member_relation,true)."\n\nbye";
+//	print "**\n". print_r($ip_id, true) . "\n\n&&&\n". print_r($customer_id,true)."\n\n";
+//	print "----\nip result:".print_r($ip_result, true)."\n\n\ncustomer result:".print_r($customer_result, true)."\n\n\nrelation:\n".print_r($member_relation,true)."\n\nbye";
+	print "";
 }
