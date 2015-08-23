@@ -25,4 +25,4 @@ dependencies[] = intoto_dashboard
 dependencies[] = intoto_image_styles
 dependencies[] = intoto_display_formats
 dependencies[] = intoto_crm_field_formatters
-dependencies[] = intoto_post_conntector
+dependencies[] = intoto_post_connector
