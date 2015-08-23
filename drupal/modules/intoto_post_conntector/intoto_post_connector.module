@@ -88,7 +88,7 @@ function intoto_post_connector_respond_to_contact_us_form($request)
 	}
 	
 	$customer_wrapper->{"field_caption"}->set($family_name);
-	$customer_wrapper->{"field_notes"}->set("message from contact form:\n" . $params['message']);
+	$customer_wrapper->{"field_notes"}->set("Message from Customer:\n" . $params['message']);
 	$customer_wrapper->{"field_originally_came_from"}->set("contact_us_form");
 	$customer_result = $customer_wrapper->save();
 	

@@ -1,10 +1,12 @@
 name = Intoto React on Contact Us Form
 description = add customer and ip contacts upon "contact us" form submit
 core = 7.x
-package = Features
+package = intoto
 version = 7.x-1.0
 dependencies[] = entity
 dependencies[] = intoto_post_connector
+dependencies[] = mailsystem
+dependencies[] = mimemail
 dependencies[] = rules
 features[features_api][] = api:2
 features[rules_config][] = rules_mail_on_new_lead
