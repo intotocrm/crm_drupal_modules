@@ -75,7 +75,7 @@ dependencies[] = ds
 
 ; Features
 dependencies[] = features
-dependencies[] = features_extra
+;dependencies[] = features_extra
 dependencies[] = intoto_household_views
 
 
