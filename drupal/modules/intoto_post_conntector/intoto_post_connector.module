@@ -49,14 +49,28 @@ function respond_to_post($request_type)
 
 function intoto_post_connector_respond_to_contact_us_form($request)
 {
-	//print "Thanks for sending<br>" . print_r($request, true)."<br><br>\n========\n";
 	$params = $request['params'];
-	foreach(array('name', 'phone', 'email', 'message') as $key)
+	$fields_alternative_fieldnames = array(
+		'name' => array('name', 'FirstName', 'your-name', ),
+		'phone' => array('phone', 'MobilePhone',),
+		'email' => array('email', 'Email', 'your-email',),
+		'message' => array('message', 'Remarks', 'your-message', ),
+	);
+	
+	foreach($fields_alternative_fieldnames as $key => $alternative_fieldnames)
 	{
+		foreach($alternative_fieldnames as $fieldname)
+		{	
+			if (isset($params[$fieldname]))
+			{
+				$params[$key] = $params[$fieldname];
+			}
+		}
 		if (!isset($params[$key]))
 		{
 			print("missing:$key<BR>");
-			return;
+			$params[$key] = "";
+			//return;
 		}
 	}
 	
