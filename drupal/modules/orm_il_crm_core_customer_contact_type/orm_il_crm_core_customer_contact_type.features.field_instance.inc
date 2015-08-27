@@ -951,37 +951,6 @@ Promise|Promise',
     ),
   );
 
-  // Exported field_instance: 'crm_core_contact-customer-field_test_field'
-  $field_instances['crm_core_contact-customer-field_test_field'] = array(
-    'bundle' => 'customer',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 18,
-      ),
-    ),
-    'entity_type' => 'crm_core_contact',
-    'field_name' => 'field_test_field',
-    'label' => 'test_field',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
-      'weight' => 17,
-    ),
-  );
-
   // Exported field_instance: 'crm_core_contact-customer-field_test_record'
   $field_instances['crm_core_contact-customer-field_test_record'] = array(
     'bundle' => 'customer',
@@ -1346,7 +1315,6 @@ Promise|Promise',
   t('Time Period');
   t('Type');
   t('only for dev needs. hide this');
-  t('test_field');
 
   return $field_instances;
 }
