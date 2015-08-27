@@ -72,6 +72,7 @@ function intoto_crm_form_alter(&$form, &$form_state, $form_id)
 				case "customer": 
 //				case 
 					$form['contact_name']['#access'] = FALSE;
+					$form['field_originally_came_from']['#access'] = FALSE;
 					break;
 			}
 			break;
