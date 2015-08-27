@@ -159,7 +159,7 @@ function orm_il_crm_core_customer_contact_type_field_default_field_instances() {
         'weight' => 2,
       ),
       'small_block' => array(
-        'label' => 'inline',
+        'label' => 'hidden',
         'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
         'type' => 'intoto_label_formatter',
@@ -219,7 +219,7 @@ ART|ART',
         'weight' => 4,
       ),
       'small_block' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
         'type' => 'intoto_label_formatter',
@@ -264,7 +264,7 @@ ART|ART',
         'weight' => 13,
       ),
       'small_block' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
         'type' => 'intoto_label_formatter',
@@ -358,7 +358,7 @@ ART|ART',
         'weight' => 5,
       ),
       'small_block' => array(
-        'label' => 'inline',
+        'label' => 'hidden',
         'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
         'type' => 'intoto_label_formatter',
@@ -415,7 +415,7 @@ ART|ART',
         'weight' => 12,
       ),
       'small_block' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'field_collection',
         'settings' => array(
           'add' => 'Add',
@@ -466,7 +466,7 @@ ART|ART',
         'weight' => 7,
       ),
       'small_block' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
         'type' => 'intoto_label_formatter',
@@ -526,7 +526,7 @@ ORM_ES|ORM ES',
         'weight' => 8,
       ),
       'small_block' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
         'type' => 'intoto_label_formatter',
@@ -677,7 +677,7 @@ contact_us_form|Contact us Form',
         'weight' => 11,
       ),
       'small_block' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
         'type' => 'intoto_label_formatter',
@@ -783,7 +783,7 @@ Promise|Promise',
         'weight' => 14,
       ),
       'small_block' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'entityreference',
         'settings' => array(
           'link' => FALSE,
@@ -838,7 +838,7 @@ Promise|Promise',
         'weight' => 10,
       ),
       'small_block' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
         'type' => 'intoto_label_formatter',
@@ -883,7 +883,7 @@ Promise|Promise',
         'weight' => 9,
       ),
       'small_block' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
         'type' => 'intoto_label_formatter',
@@ -928,7 +928,7 @@ Promise|Promise',
         'weight' => 6,
       ),
       'small_block' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
         'type' => 'intoto_label_formatter',
@@ -948,6 +948,37 @@ Promise|Promise',
       'settings' => array(),
       'type' => 'options_buttons',
       'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-customer-field_test_field'
+  $field_instances['crm_core_contact-customer-field_test_field'] = array(
+    'bundle' => 'customer',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 18,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_test_field',
+    'label' => 'test_field',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 17,
     ),
   );
 
@@ -977,7 +1008,7 @@ Promise|Promise',
         'weight' => 15,
       ),
       'small_block' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
@@ -1315,6 +1346,7 @@ Promise|Promise',
   t('Time Period');
   t('Type');
   t('only for dev needs. hide this');
+  t('test_field');
 
   return $field_instances;
 }

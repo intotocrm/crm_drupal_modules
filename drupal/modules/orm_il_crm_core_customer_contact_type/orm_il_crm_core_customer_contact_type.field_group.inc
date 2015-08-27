@@ -23,8 +23,8 @@ function orm_il_crm_core_customer_contact_type_field_group_info() {
     'label' => 'Journeys',
     'weight' => '19',
     'children' => array(
-      0 => 'field_surrogacy_type',
-      1 => 'field_journey',
+      0 => 'field_journey',
+      1 => 'field_surrogacy_type',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -79,8 +79,8 @@ function orm_il_crm_core_customer_contact_type_field_group_info() {
     'weight' => '7',
     'children' => array(
       0 => 'group_journeys',
-      1 => 'group_sales',
-      2 => 'group_personal',
+      1 => 'group_personal',
+      2 => 'group_sales',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -105,13 +105,13 @@ function orm_il_crm_core_customer_contact_type_field_group_info() {
     'label' => 'Sales',
     'weight' => '18',
     'children' => array(
-      0 => 'field_mhb',
-      1 => 'field_status',
-      2 => 'field_sales_category',
+      0 => 'field_campaign',
+      1 => 'field_mhb',
+      2 => 'field_originally_came_from',
       3 => 'field_patient_status',
-      4 => 'field_campaign',
-      5 => 'field_referred_by',
-      6 => 'field_originally_came_from',
+      4 => 'field_referred_by',
+      5 => 'field_sales_category',
+      6 => 'field_status',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
