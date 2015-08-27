@@ -38,11 +38,38 @@ function intoto_report_pages_views_default_views() {
         'text_input_required' => array(
           'value' => 'Select any filter and click on Apply to see results',
           'format' => 'filtered_html',
+          'secondary_label' => NULL,
+          'collapsible_label' => NULL,
+          'combine_rewrite' => NULL,
+          'reset_label' => NULL,
+          'bef_filter_description' => NULL,
+          'any_label' => NULL,
+          'filter_rewrite_values' => NULL,
         ),
+        'secondary_label' => NULL,
+        'collapsible_label' => NULL,
+        'combine_rewrite' => NULL,
+        'reset_label' => NULL,
+        'bef_filter_description' => NULL,
+        'any_label' => NULL,
+        'filter_rewrite_values' => NULL,
       ),
       'allow_secondary' => 0,
       'secondary_label' => 'Advanced options',
+      'collapsible_label' => NULL,
+      'combine_rewrite' => NULL,
+      'reset_label' => NULL,
+      'bef_filter_description' => NULL,
+      'any_label' => NULL,
+      'filter_rewrite_values' => NULL,
     ),
+    'secondary_label' => NULL,
+    'collapsible_label' => NULL,
+    'combine_rewrite' => NULL,
+    'reset_label' => NULL,
+    'bef_filter_description' => NULL,
+    'any_label' => NULL,
+    'filter_rewrite_values' => NULL,
   );
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '50';
@@ -114,7 +141,7 @@ function intoto_report_pages_views_default_views() {
   $handler->display->display_options['fields']['contact_id']['field'] = 'contact_id';
   $handler->display->display_options['fields']['contact_id']['label'] = 'ID';
   $handler->display->display_options['fields']['contact_id']['link_to_contact'] = 0;
-  /* Field: Field: Customer */
+  /* Field: Field: Name */
   $handler->display->display_options['fields']['contact_name']['id'] = 'contact_name';
   $handler->display->display_options['fields']['contact_name']['table'] = 'field_data_contact_name';
   $handler->display->display_options['fields']['contact_name']['field'] = 'contact_name';
@@ -140,7 +167,7 @@ function intoto_report_pages_views_default_views() {
   $handler->display->display_options['fields']['contact_id_1']['relationship'] = 'relation_crm_member_crm_core_contact';
   $handler->display->display_options['fields']['contact_id_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['contact_id_1']['link_to_contact'] = 0;
-  /* Field: Field: Customer */
+  /* Field: Field: Name */
   $handler->display->display_options['fields']['contact_name_1']['id'] = 'contact_name_1';
   $handler->display->display_options['fields']['contact_name_1']['table'] = 'field_data_contact_name';
   $handler->display->display_options['fields']['contact_name_1']['field'] = 'contact_name';
@@ -292,6 +319,9 @@ function intoto_report_pages_views_default_views() {
     'general' => array(
       'allow_secondary' => 0,
       'secondary_label' => 'Advanced options',
+      'collapsible_label' => NULL,
+      'combine_rewrite' => NULL,
+      'reset_label' => NULL,
     ),
     'type' => array(
       'bef_format' => 'bef',
@@ -303,9 +333,25 @@ function intoto_report_pages_views_default_views() {
         'bef_filter_description' => '',
         'rewrite' => array(
           'filter_rewrite_values' => '',
+          'secondary_label' => NULL,
+          'collapsible_label' => NULL,
+          'combine_rewrite' => NULL,
+          'reset_label' => NULL,
         ),
+        'secondary_label' => NULL,
+        'collapsible_label' => NULL,
+        'combine_rewrite' => NULL,
+        'reset_label' => NULL,
       ),
+      'secondary_label' => NULL,
+      'collapsible_label' => NULL,
+      'combine_rewrite' => NULL,
+      'reset_label' => NULL,
     ),
+    'secondary_label' => NULL,
+    'collapsible_label' => NULL,
+    'combine_rewrite' => NULL,
+    'reset_label' => NULL,
   );
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '25';
@@ -385,11 +431,10 @@ function intoto_report_pages_views_default_views() {
   $handler->display->display_options['fields']['contact_id']['field'] = 'contact_id';
   $handler->display->display_options['fields']['contact_id']['label'] = 'ID';
   $handler->display->display_options['fields']['contact_id']['link_to_contact'] = 1;
-  /* Field: Field: Customer */
+  /* Field: Field: Name */
   $handler->display->display_options['fields']['contact_name']['id'] = 'contact_name';
   $handler->display->display_options['fields']['contact_name']['table'] = 'field_data_contact_name';
   $handler->display->display_options['fields']['contact_name']['field'] = 'contact_name';
-  $handler->display->display_options['fields']['contact_name']['label'] = 'Name';
   $handler->display->display_options['fields']['contact_name']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['contact_name']['alter']['path'] = 'crm-core/contact/[contact_id]';
   $handler->display->display_options['fields']['contact_name']['click_sort_column'] = 'title';

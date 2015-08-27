@@ -38,6 +38,7 @@ function intoto_report_pages_default_page_manager_pages() {
       'settings' => array(
         'use_tail' => 0,
       ),
+      'keyword' => 'reporttype',
     ),
   );
   $page->conf = array(
