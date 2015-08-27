@@ -17,12 +17,85 @@ function intoto_scan_relationships_enable()
 //	  ->fieldOrderBy('field_my_field', 'value', 'DESC')
 		;
 	$results = $query->execute();
-	drush_print(print_r($results, true));
-//	if (isset($results['node'])) {
-//	  $nodes = node_load_multiple(array_keys($results['node']));
-//
-//	  foreach ($nodes as $nid => $node) {
-//		// Do something with the node object
-//	  }
-//	}
+//	drush_print(print_r($results, true));
+	if (isset($results['relation'])) {
+	  $relations = entity_load('relation', array_keys($results['relation']));
+
+	  foreach ($relations as $rid => $entity) {
+		drush_print(print_r($entity, true));
+		if (is_object($entity) &&
+			isset($entity->endpoints['und']) &&
+			isset($entity->relation_type) &&
+			$entity->relation_type == 'crm_member'
+			)
+		{
+			//			drupal_set_message("saving " . $type);
+			//drupal_set_message("<pre>" . print_r($entity, true). "</pre>");
+			$customer_entity_wrapper = NULL; //keep the relevant customer entity for updating its caption
+			$customer_caption = NULL;
+			$customer_id = NULL;
+			$ips_last_names = array();
+//				print "endpoints:" . print_r($entity->endpoints, true) . "\n";
+			foreach($entity->endpoints['und'] as $key=>$endpoint)
+			{
+				drush_print("looping endpoints- ". print_r($endpoint, true) );
+				if (	isset($endpoint['entity_type']) &&
+						$endpoint['entity_type'] == 'crm_core_contact' &&
+						//isset($endpoint['entity_bundle']) && 
+						isset($endpoint['entity_id'])
+					)
+				{
+					
+					$entity_id = $endpoint['entity_id'];
+					$entities = entity_load($endpoint['entity_type'], array($entity_id));
+					$count = count($entities);
+//						print "entity_id:$entity_id, count:$count\n";
+					if ($count == 1)
+					{
+						$contact_wrapper = entity_metadata_wrapper('crm_core_contact', $entities[array_keys($entities)[0]]);
+						
+
+						if (isset($contact_wrapper->{"type"})) {
+							if ($contact_wrapper->{"type"}->value() == 'customer')
+							{
+								$customer_entity_wrapper = $contact_wrapper;
+								$customer_id = $entity_id;
+								drush_print("customer id:$customer_id\n" );
+							}elseif($contact_wrapper->{"type"}->value() == 'ip')
+							{
+								$ips_last_names[] = $contact_wrapper->{"contact_name"}->{"family"}->value();
+							}
+						}
+						//drupal_set_message("saving relation with " . $endpoint['entity_bundle'] . " id " . $endpoint['entity_id']);
+					}
+				}
+			}
+			$save = false;
+			if (is_object($customer_entity_wrapper)){
+				$customer_caption = $customer_entity_wrapper->{"field_caption"}->value();
+				$original_caption = $customer_caption;
+				foreach($ips_last_names as $last_name)
+				{
+					
+					if (	strlen(trim($last_name)) > 0 &&
+							!strchr(strtolower(trim($customer_caption)), trim(strtolower($last_name))))
+					{
+						if (trim($customer_caption) != ""){
+							$customer_caption .=  "-";
+						}
+						$customer_caption .= $last_name;
+						$save = true;
+					}
+				}
+			}
+			if ($save)
+			{
+				$customer_entity_wrapper->{'field_caption'}->set($customer_caption);
+				$customer_entity_wrapper->save();
+				drupal_set_message("Household " . $original_caption . " was renamed to <strong>" . $customer_caption . "</strong>.<br>Press " . l("here", "/crm-core/contact/$customer_id", array('attributes'=>array('class'=>array('alert-link')))) . " to view/edit");
+			}
+		}
+		
+	  }
+	}
 }
