@@ -1,0 +1,5 @@
+name = intoto scan relationships
+description = modules that scan all relationships and does something
+core = 7.x
+package = intoto
+version = 7.x-1.0

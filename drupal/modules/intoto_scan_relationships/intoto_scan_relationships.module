@@ -1,0 +1,28 @@
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+function intoto_scan_relationships_enable()
+{
+	$query = new EntityFieldQuery;
+
+	$query->entityCondition('entity_type', 'relation')
+	  ->entityCondition('bundle', 'crm_member')
+//	  ->fieldCondition('field_my_field', 'value', 'a_value')
+//	  ->propertyCondition('status', 1)
+//	  ->fieldOrderBy('field_my_field', 'value', 'DESC')
+		;
+	$results = $query->execute();
+	drush_print(print_r($results, true));
+//	if (isset($results['node'])) {
+//	  $nodes = node_load_multiple(array_keys($results['node']));
+//
+//	  foreach ($nodes as $nid => $node) {
+//		// Do something with the node object
+//	  }
+//	}
+}
