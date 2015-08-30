@@ -80,7 +80,7 @@ dependencies[] = intoto_household_views
 
 
 ; Features extra
-dependencies[] = fe_block
+;dependencies[] = fe_block
 ; Fields
 dependencies[] = addressfield
 dependencies[] = cck_phone
@@ -151,7 +151,7 @@ dependencies[] = intoto_report_pages
 dependencies[] = intoto_staff_permissions
 dependencies[] = intoto_staff_role
 dependencies[] = intoto_unauth_page
-dependencies[] = orm_il_crm_core_customer_contact_type
+
 
 ; tb_megamenu
 dependencies[] = tb_megamenu
