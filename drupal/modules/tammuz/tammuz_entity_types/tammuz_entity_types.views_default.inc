@@ -759,7 +759,7 @@ function tammuz_entity_types_views_default_views() {
   $handler->display->display_options['fields']['contact_id']['relationship'] = 'relation_base_crm_member_crm_core_contact_1';
   $handler->display->display_options['fields']['contact_id']['label'] = 'Target Contact ID';
   $handler->display->display_options['fields']['contact_id']['link_to_contact'] = 1;
-  /* Field: CRM Core Contact: Tammuz Staff */
+  /* Field: CRM Core Contact: Customer */
   $handler->display->display_options['fields']['contact_name']['id'] = 'contact_name';
   $handler->display->display_options['fields']['contact_name']['table'] = 'field_data_contact_name';
   $handler->display->display_options['fields']['contact_name']['field'] = 'contact_name';
@@ -863,7 +863,7 @@ function tammuz_entity_types_views_default_views() {
   $handler->display->display_options['fields']['contact_id']['ui_name'] = 'source contact id';
   $handler->display->display_options['fields']['contact_id']['exclude'] = TRUE;
   $handler->display->display_options['fields']['contact_id']['link_to_contact'] = 0;
-  /* Field: CRM Core Contact: Tammuz Staff */
+  /* Field: CRM Core Contact: Customer */
   $handler->display->display_options['fields']['contact_name']['id'] = 'contact_name';
   $handler->display->display_options['fields']['contact_name']['table'] = 'field_data_contact_name';
   $handler->display->display_options['fields']['contact_name']['field'] = 'contact_name';
@@ -899,7 +899,7 @@ function tammuz_entity_types_views_default_views() {
   $handler->display->display_options['fields']['rid']['relationship'] = 'relation_base_left_crm_member';
   $handler->display->display_options['fields']['rid']['label'] = 'Rid (should exclude from display)';
   $handler->display->display_options['fields']['rid']['exclude'] = TRUE;
-  /* Field: Relation: Period */
+  /* Field: : field_relationship_period */
   $handler->display->display_options['fields']['field_relationship_period']['id'] = 'field_relationship_period';
   $handler->display->display_options['fields']['field_relationship_period']['table'] = 'field_data_field_relationship_period';
   $handler->display->display_options['fields']['field_relationship_period']['field'] = 'field_relationship_period';

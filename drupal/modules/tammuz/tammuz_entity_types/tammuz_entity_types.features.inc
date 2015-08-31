@@ -5,6 +5,30 @@
  */
 
 /**
+ * Implements hook_default_crm_core_activity_type().
+ */
+function tammuz_entity_types_default_crm_core_activity_type() {
+  $items = array();
+  $items['meeting'] = entity_import('crm_core_activity_type', '{
+    "type" : "meeting",
+    "label" : "Meeting",
+    "weight" : 0,
+    "activity_string" : "",
+    "description" : "A meeting between 2 or more contacts",
+    "rdf_mapping" : []
+  }');
+  $items['phone_call'] = entity_import('crm_core_activity_type', '{
+    "type" : "phone_call",
+    "label" : "Phone call",
+    "weight" : 0,
+    "activity_string" : "",
+    "description" : "A phone call between 2 or more contacts",
+    "rdf_mapping" : []
+  }');
+  return $items;
+}
+
+/**
  * Implements hook_default_crm_core_contact_type().
  */
 function tammuz_entity_types_default_crm_core_contact_type() {
@@ -91,18 +115,6 @@ function tammuz_entity_types_default_crm_core_contact_type() {
     "custom" : "0",
     "disabled" : "0",
     "locked" : "0",
-    "rdf_mapping" : []
-  }');
-  $items['individual'] = entity_import('crm_core_contact_type', '{
-    "type" : "individual",
-    "label" : null,
-    "weight" : 0,
-    "primary_fields" : null,
-    "name" : "Individual",
-    "description" : "A single individual.",
-    "custom" : "0",
-    "disabled" : "0",
-    "locked" : "1",
     "rdf_mapping" : []
   }');
   $items['ip'] = entity_import('crm_core_contact_type', '{
