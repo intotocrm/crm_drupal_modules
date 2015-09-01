@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Tammuz Activities feature.
+ */
+
+include_once 'tammuz_activities.features.inc';

@@ -1,0 +1,40 @@
+Egg Donor Match
+Email
+Meeting
+Phone
+Infectious disease test
+Eggs Retrieval
+Embryo Fertilization
+Embryo Transfer
+Embryo Freeze
+Surrogate Profile
+Surrogate Signs Contract
+Contract with Surrogate Sent to Customer
+Customer Signs Contract with Surrogate
+Pregnancy Positive
+Terminate Pregnancy
+Beta test
+gsac test
+Pregnancy Program
+Heartbeat test
+Routine USG
+NT
+Verify
+Blood Test
+DM (Dual Marker)
+QM (Quadruple Marker)
+AS (Anomaly Scan)
+GTT (Glucose tolerance test)
+Birth
+Miscarriage
+Abortion
+Flight to birth (singleton)
+Flight to birth (twins)
+Flight back home
+Hospitalization
+Check out of hospital
+Deposit
+Charge
+Inside Money Transfer
+Collect
+Shipment
