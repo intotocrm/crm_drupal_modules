@@ -123,22 +123,22 @@ features[field_instance][] = crm_core_activity-surrogate_signs_contract-field_co
 features[field_instance][] = crm_core_activity-surrogate_signs_contract-field_initiator
 
 
-features[crm_core_activity_type][] = contract_with_surrogate_sent_to_customer
-features[field_instance][] = crm_core_activity-contract_with_surrogate_sent_to_customer-field_activity_date
-features[field_instance][] = crm_core_activity-contract_with_surrogate_sent_to_customer-field_activity_notes
-features[field_instance][] = crm_core_activity-contract_with_surrogate_sent_to_customer-field_activity_participants
-features[field_instance][] = crm_core_activity-contract_with_surrogate_sent_to_customer-field_attachment
-features[field_instance][] = crm_core_activity-contract_with_surrogate_sent_to_customer-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-contract_with_surrogate_sent_to_customer-field_initiator
+features[crm_core_activity_type][] = contract_sent
+features[field_instance][] = crm_core_activity-contract_sent-field_activity_date
+features[field_instance][] = crm_core_activity-contract_sent-field_activity_notes
+features[field_instance][] = crm_core_activity-contract_sent-field_activity_participants
+features[field_instance][] = crm_core_activity-contract_sent-field_attachment
+features[field_instance][] = crm_core_activity-contract_sent-field_comment_with_serverity
+features[field_instance][] = crm_core_activity-contract_sent-field_initiator
 
 
-features[crm_core_activity_type][] = customer_signs_contract_with_surrogate
-features[field_instance][] = crm_core_activity-customer_signs_contract_with_surrogate-field_activity_date
-features[field_instance][] = crm_core_activity-customer_signs_contract_with_surrogate-field_activity_notes
-features[field_instance][] = crm_core_activity-customer_signs_contract_with_surrogate-field_activity_participants
-features[field_instance][] = crm_core_activity-customer_signs_contract_with_surrogate-field_attachment
-features[field_instance][] = crm_core_activity-customer_signs_contract_with_surrogate-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-customer_signs_contract_with_surrogate-field_initiator
+features[crm_core_activity_type][] = customer_contract_surrogate
+features[field_instance][] = crm_core_activity-customer_contract_surrogate-field_activity_date
+features[field_instance][] = crm_core_activity-customer_contract_surrogate-field_activity_notes
+features[field_instance][] = crm_core_activity-customer_contract_surrogate-field_activity_participants
+features[field_instance][] = crm_core_activity-customer_contract_surrogate-field_attachment
+features[field_instance][] = crm_core_activity-customer_contract_surrogate-field_comment_with_serverity
+features[field_instance][] = crm_core_activity-customer_contract_surrogate-field_initiator
 
 
 features[crm_core_activity_type][] = pregnancy_positive

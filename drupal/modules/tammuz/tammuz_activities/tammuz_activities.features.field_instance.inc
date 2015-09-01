@@ -177,7 +177,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this egg_donor_match is shown and where it's shown. You can later sort egg_donor_matchs according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -402,7 +402,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this email is shown and where it's shown. You can later sort emails according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -627,7 +627,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this meeting is shown and where it's shown. You can later sort meetings according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -852,7 +852,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this phone is shown and where it's shown. You can later sort phones according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1077,7 +1077,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this infectious_disease_test is shown and where it's shown. You can later sort infectious_disease_tests according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1302,7 +1302,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this eggs_retrieval is shown and where it's shown. You can later sort eggs_retrievals according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1527,7 +1527,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this embryo_fertilization is shown and where it's shown. You can later sort embryo_fertilizations according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1752,7 +1752,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this embryo_transfer is shown and where it's shown. You can later sort embryo_transfers according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1977,7 +1977,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this embryo_freeze is shown and where it's shown. You can later sort embryo_freezes according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -2202,7 +2202,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this surrogate_profile is shown and where it's shown. You can later sort surrogate_profiles according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -2427,7 +2427,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this surrogate_signs_contract is shown and where it's shown. You can later sort surrogate_signs_contracts according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -2485,9 +2485,9 @@ function tammuz_activities_field_default_field_instances() {
   );
 
 
-  // Exported field_instance: 'crm_core_activity-contract_with_surrogate_sent_to_customer-field_activity_date'
-  $field_instances['crm_core_activity-contract_with_surrogate_sent_to_customer-field_activity_date'] = array(
-    'bundle' => 'contract_with_surrogate_sent_to_customer',
+  // Exported field_instance: 'crm_core_activity-contract_sent-field_activity_date'
+  $field_instances['crm_core_activity-contract_sent-field_activity_date'] = array(
+    'bundle' => 'contract_sent',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -2534,9 +2534,9 @@ function tammuz_activities_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'crm_core_activity-contract_with_surrogate_sent_to_customer-field_activity_notes'
-  $field_instances['crm_core_activity-contract_with_surrogate_sent_to_customer-field_activity_notes'] = array(
-    'bundle' => 'contract_with_surrogate_sent_to_customer',
+  // Exported field_instance: 'crm_core_activity-contract_sent-field_activity_notes'
+  $field_instances['crm_core_activity-contract_sent-field_activity_notes'] = array(
+    'bundle' => 'contract_sent',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -2569,9 +2569,9 @@ function tammuz_activities_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'crm_core_activity-contract_with_surrogate_sent_to_customer-field_activity_participants'
-  $field_instances['crm_core_activity-contract_with_surrogate_sent_to_customer-field_activity_participants'] = array(
-    'bundle' => 'contract_with_surrogate_sent_to_customer',
+  // 'crm_core_activity-contract_sent-field_activity_participants'
+  $field_instances['crm_core_activity-contract_sent-field_activity_participants'] = array(
+    'bundle' => 'contract_sent',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -2606,9 +2606,9 @@ function tammuz_activities_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'crm_core_activity-contract_with_surrogate_sent_to_customer-field_initiator'
-  $field_instances['crm_core_activity-contract_with_surrogate_sent_to_customer-field_initiator'] = array(
-    'bundle' => 'contract_with_surrogate_sent_to_customer',
+  // Exported field_instance: 'crm_core_activity-contract_sent-field_initiator'
+  $field_instances['crm_core_activity-contract_sent-field_initiator'] = array(
+    'bundle' => 'contract_sent',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -2643,16 +2643,16 @@ function tammuz_activities_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'crm_core_activity-contract_with_surrogate_sent_to_customer-field_severity'
-  $field_instances['crm_core_activity-contract_with_surrogate_sent_to_customer-field_severity'] = array(
-    'bundle' => 'contract_with_surrogate_sent_to_customer',
+  // Exported field_instance: 'crm_core_activity-contract_sent-field_severity'
+  $field_instances['crm_core_activity-contract_sent-field_severity'] = array(
+    'bundle' => 'contract_sent',
     'default_value' => array(
       0 => array(
         'tid' => 1,
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this contract_with_surrogate_sent_to_customer is shown and where it's shown. You can later sort contract_with_surrogate_sent_to_customers according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -2678,9 +2678,9 @@ function tammuz_activities_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'crm_core_activity-contract_with_surrogate_sent_to_customer-field_status'
-  $field_instances['crm_core_activity-contract_with_surrogate_sent_to_customer-field_status'] = array(
-    'bundle' => 'contract_with_surrogate_sent_to_customer',
+  // Exported field_instance: 'crm_core_activity-contract_sent-field_status'
+  $field_instances['crm_core_activity-contract_sent-field_status'] = array(
+    'bundle' => 'contract_sent',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -2710,9 +2710,9 @@ function tammuz_activities_field_default_field_instances() {
   );
 
 
-  // Exported field_instance: 'crm_core_activity-customer_signs_contract_with_surrogate-field_activity_date'
-  $field_instances['crm_core_activity-customer_signs_contract_with_surrogate-field_activity_date'] = array(
-    'bundle' => 'customer_signs_contract_with_surrogate',
+  // Exported field_instance: 'crm_core_activity-customer_contract_surrogate-field_activity_date'
+  $field_instances['crm_core_activity-customer_contract_surrogate-field_activity_date'] = array(
+    'bundle' => 'customer_contract_surrogate',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -2759,9 +2759,9 @@ function tammuz_activities_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'crm_core_activity-customer_signs_contract_with_surrogate-field_activity_notes'
-  $field_instances['crm_core_activity-customer_signs_contract_with_surrogate-field_activity_notes'] = array(
-    'bundle' => 'customer_signs_contract_with_surrogate',
+  // Exported field_instance: 'crm_core_activity-customer_contract_surrogate-field_activity_notes'
+  $field_instances['crm_core_activity-customer_contract_surrogate-field_activity_notes'] = array(
+    'bundle' => 'customer_contract_surrogate',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -2794,9 +2794,9 @@ function tammuz_activities_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'crm_core_activity-customer_signs_contract_with_surrogate-field_activity_participants'
-  $field_instances['crm_core_activity-customer_signs_contract_with_surrogate-field_activity_participants'] = array(
-    'bundle' => 'customer_signs_contract_with_surrogate',
+  // 'crm_core_activity-customer_contract_surrogate-field_activity_participants'
+  $field_instances['crm_core_activity-customer_contract_surrogate-field_activity_participants'] = array(
+    'bundle' => 'customer_contract_surrogate',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -2831,9 +2831,9 @@ function tammuz_activities_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'crm_core_activity-customer_signs_contract_with_surrogate-field_initiator'
-  $field_instances['crm_core_activity-customer_signs_contract_with_surrogate-field_initiator'] = array(
-    'bundle' => 'customer_signs_contract_with_surrogate',
+  // Exported field_instance: 'crm_core_activity-customer_contract_surrogate-field_initiator'
+  $field_instances['crm_core_activity-customer_contract_surrogate-field_initiator'] = array(
+    'bundle' => 'customer_contract_surrogate',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -2868,16 +2868,16 @@ function tammuz_activities_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'crm_core_activity-customer_signs_contract_with_surrogate-field_severity'
-  $field_instances['crm_core_activity-customer_signs_contract_with_surrogate-field_severity'] = array(
-    'bundle' => 'customer_signs_contract_with_surrogate',
+  // Exported field_instance: 'crm_core_activity-customer_contract_surrogate-field_severity'
+  $field_instances['crm_core_activity-customer_contract_surrogate-field_severity'] = array(
+    'bundle' => 'customer_contract_surrogate',
     'default_value' => array(
       0 => array(
         'tid' => 1,
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this customer_signs_contract_with_surrogate is shown and where it's shown. You can later sort customer_signs_contract_with_surrogates according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -2903,9 +2903,9 @@ function tammuz_activities_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'crm_core_activity-customer_signs_contract_with_surrogate-field_status'
-  $field_instances['crm_core_activity-customer_signs_contract_with_surrogate-field_status'] = array(
-    'bundle' => 'customer_signs_contract_with_surrogate',
+  // Exported field_instance: 'crm_core_activity-customer_contract_surrogate-field_status'
+  $field_instances['crm_core_activity-customer_contract_surrogate-field_status'] = array(
+    'bundle' => 'customer_contract_surrogate',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -3102,7 +3102,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this pregnancy_positive is shown and where it's shown. You can later sort pregnancy_positives according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -3327,7 +3327,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this terminate_pregnancy is shown and where it's shown. You can later sort terminate_pregnancys according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -3552,7 +3552,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this beta_test is shown and where it's shown. You can later sort beta_tests according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -3777,7 +3777,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this gsac_test is shown and where it's shown. You can later sort gsac_tests according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -4002,7 +4002,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this pregnancy_program is shown and where it's shown. You can later sort pregnancy_programs according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -4227,7 +4227,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this heartbeat_test is shown and where it's shown. You can later sort heartbeat_tests according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -4452,7 +4452,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this routine_usg is shown and where it's shown. You can later sort routine_usgs according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -4677,7 +4677,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this nt is shown and where it's shown. You can later sort nts according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -4902,7 +4902,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this verify is shown and where it's shown. You can later sort verifys according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -5127,7 +5127,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this blood_test is shown and where it's shown. You can later sort blood_tests according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -5352,7 +5352,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this dm_dual_marker is shown and where it's shown. You can later sort dm_dual_markers according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -5577,7 +5577,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this qm_quadruple_marker is shown and where it's shown. You can later sort qm_quadruple_markers according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -5802,7 +5802,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this as_anomaly_scan is shown and where it's shown. You can later sort as_anomaly_scans according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -6027,7 +6027,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this gtt_glucose_tolerance_test is shown and where it's shown. You can later sort gtt_glucose_tolerance_tests according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -6252,7 +6252,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this birth is shown and where it's shown. You can later sort births according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -6477,7 +6477,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this miscarriage is shown and where it's shown. You can later sort miscarriages according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -6702,7 +6702,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this abortion is shown and where it's shown. You can later sort abortions according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -6927,7 +6927,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this flight_to_birth_singleton is shown and where it's shown. You can later sort flight_to_birth_singletons according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -7152,7 +7152,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this flight_to_birth_twins is shown and where it's shown. You can later sort flight_to_birth_twinss according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -7377,7 +7377,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this flight_back_home is shown and where it's shown. You can later sort flight_back_homes according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -7602,7 +7602,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this hospitalization is shown and where it's shown. You can later sort hospitalizations according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -7827,7 +7827,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this check_out_of_hospital is shown and where it's shown. You can later sort check_out_of_hospitals according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -8052,7 +8052,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this deposit is shown and where it's shown. You can later sort deposits according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -8277,7 +8277,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this charge is shown and where it's shown. You can later sort charges according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -8502,7 +8502,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this inside_money_transfer is shown and where it's shown. You can later sort inside_money_transfers according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -8727,7 +8727,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this collect is shown and where it's shown. You can later sort collects according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -8952,7 +8952,7 @@ function tammuz_activities_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'This setting sets the way this shipment is shown and where it's shown. You can later sort shipments according to this',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',

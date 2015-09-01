@@ -120,8 +120,8 @@ function tammuz_activities_default_crm_core_activity_type() {
   }');
 
 
-  $items['contract_with_surrogate_sent_to_customer'] = entity_import('crm_core_activity_type', '{
-    "type" : "contract_with_surrogate_sent_to_customer",
+  $items['contract_sent'] = entity_import('crm_core_activity_type', '{
+    "type" : "contract_sent",
     "label" : "Contract with Surrogate Sent to Customer",
     "weight" : 0,
     "activity_string" : "",
@@ -130,8 +130,8 @@ function tammuz_activities_default_crm_core_activity_type() {
   }');
 
 
-  $items['customer_signs_contract_with_surrogate'] = entity_import('crm_core_activity_type', '{
-    "type" : "customer_signs_contract_with_surrogate",
+  $items['customer_contract_surrogate'] = entity_import('crm_core_activity_type', '{
+    "type" : "customer_contract_surrogate",
     "label" : "Customer Signs Contract with Surrogate",
     "weight" : 0,
     "activity_string" : "",
