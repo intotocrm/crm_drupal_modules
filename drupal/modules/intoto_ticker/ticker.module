@@ -245,7 +245,15 @@ function ticker_menu() {
 		'access arguments' => array('view ticker content'),
 		'type' => MENU_CALLBACK,
 	);
+	
+
 	return $items;
+}
+
+function ticker_init(){
+	drupal_add_js(drupal_get_path('module', 'ticker') . '/ticker.js', 'file');	
+	drupal_add_css(drupal_get_path('module', 'ticker') . '/ticker.css');	
+	//drupal_set_message("added path $js");
 }
 
 /**
@@ -339,7 +347,26 @@ function ticker_permission() {
 
 function ticker_remove_current_user($ticker_entity)
 {
-	drupal_set_message("removing this ticker from current user:<pre>".print_r($ticker_entity,true)."</pre>");
+    global $user;
+    // get the ticker entity, and remove current user (logged in) from its user reference
+    $wrapper = entity_metadata_wrapper('ticker', $ticker_entity);
+    $users = $wrapper->field_ticker_users_ref->value();
+    foreach ($users as $key=>$user_i)
+    {
+        if ($user_i->uid == $user->uid)
+        {
+            unset($users[$key]);
+            $wrapper->field_ticker_users_ref->set($users);
+            $wrapper->save();
+            print "OK";
+            return;
+        }
+    }
+//    foreach ($wrapper->field_ticker_users_ref->getIterator() as $delta => $user_wrapper) {
+//        // $term_wrapper may now be accessed as a taxonomy term wrapper.
+//        $label = $term_wrapper->label->value();
+//    }    
+    print "NOT OK"; //this is reply to the ajax that called us.
 }
 
 /**
@@ -347,7 +374,7 @@ function ticker_remove_current_user($ticker_entity)
  */
 function ticker_field_attach_create_bundle($entity_type, $bundle)
 {
-	drupal_set_message("created:<pre>".print_r($entity_type,true)."</pre>bundle:<pre>".print_r($bundle, true)."</pre>");
+	#drupal_set_message("created:<pre>".print_r($entity_type,true)."</pre>bundle:<pre>".print_r($bundle, true)."</pre>");
 
 	if ($entity_type == "ticker"){
 		field_create_instance(

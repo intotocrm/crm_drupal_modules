@@ -47,3 +47,14 @@ function intoto_ticker_whats_new_menu()
 	);
 	return $items;
 }
+/**
+ * Implements hook_views_api().
+ */
+function intoto_ticker_whats_new_views_api() {
+        // Describe the folder where "ticker.views_default.inc" file
+        // is located.
+        return array(
+                'api' => 3,
+                'path' => drupal_get_path('module', 'intoto_ticker_whats_new'),
+        );
+}
