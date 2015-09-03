@@ -27,17 +27,11 @@ function intoto_blocks_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
-      'bootstrap' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bootstrap',
-        'weight' => 0,
-      ),
       'bootstrap_dashboard' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bootstrap_dashboard',
-        'weight' => -19,
+        'weight' => 0,
       ),
       'seven' => array(
         'region' => '',
@@ -65,17 +59,11 @@ function intoto_blocks_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
-      'bootstrap' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bootstrap',
-        'weight' => 0,
-      ),
       'bootstrap_dashboard' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bootstrap_dashboard',
-        'weight' => -18,
+        'weight' => 0,
       ),
       'seven' => array(
         'region' => '',
@@ -103,17 +91,11 @@ function intoto_blocks_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
-      'bootstrap' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bootstrap',
-        'weight' => 0,
-      ),
       'bootstrap_dashboard' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bootstrap_dashboard',
-        'weight' => -11,
+        'weight' => 0,
       ),
       'seven' => array(
         'region' => '',
@@ -141,17 +123,11 @@ function intoto_blocks_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
-      'bootstrap' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bootstrap',
-        'weight' => 0,
-      ),
       'bootstrap_dashboard' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bootstrap_dashboard',
-        'weight' => -7,
+        'weight' => 0,
       ),
       'seven' => array(
         'region' => '',
@@ -177,12 +153,6 @@ function intoto_blocks_default_fe_block_settings() {
         'region' => '',
         'status' => 0,
         'theme' => 'bartik',
-        'weight' => 0,
-      ),
-      'bootstrap' => array(
-        'region' => 'sidebar_first',
-        'status' => 1,
-        'theme' => 'bootstrap',
         'weight' => 0,
       ),
       'bootstrap_dashboard' => array(
@@ -217,12 +187,6 @@ function intoto_blocks_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => -1,
       ),
-      'bootstrap' => array(
-        'region' => 'sidebar_first',
-        'status' => 1,
-        'theme' => 'bootstrap',
-        'weight' => -1,
-      ),
       'bootstrap_dashboard' => array(
         'region' => 'sidebar_first',
         'status' => 1,
@@ -253,12 +217,6 @@ function intoto_blocks_default_fe_block_settings() {
         'region' => '',
         'status' => 0,
         'theme' => 'bartik',
-        'weight' => 0,
-      ),
-      'bootstrap' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bootstrap',
         'weight' => 0,
       ),
       'bootstrap_dashboard' => array(
@@ -293,55 +251,11 @@ function intoto_blocks_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
-      'bootstrap' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bootstrap',
-        'weight' => 0,
-      ),
       'bootstrap_dashboard' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bootstrap_dashboard',
-        'weight' => -1,
-      ),
-      'seven' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'seven',
         'weight' => 0,
-      ),
-    ),
-    'title' => '',
-    'visibility' => 0,
-  );
-
-  $export['tb_megamenu-devel'] = array(
-    'cache' => -1,
-    'custom' => 0,
-    'delta' => 'devel',
-    'module' => 'tb_megamenu',
-    'node_types' => array(),
-    'pages' => '',
-    'roles' => array(),
-    'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
-      'bootstrap' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bootstrap',
-        'weight' => 0,
-      ),
-      'bootstrap_dashboard' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bootstrap_dashboard',
-        'weight' => 1,
       ),
       'seven' => array(
         'region' => '',
@@ -369,17 +283,11 @@ function intoto_blocks_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
-      'bootstrap' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bootstrap',
-        'weight' => 0,
-      ),
       'bootstrap_dashboard' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bootstrap_dashboard',
-        'weight' => 2,
+        'weight' => 0,
       ),
       'seven' => array(
         'region' => '',
@@ -407,17 +315,11 @@ function intoto_blocks_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
-      'bootstrap' => array(
-        'region' => 'navigation',
-        'status' => 1,
-        'theme' => 'bootstrap',
-        'weight' => -15,
-      ),
       'bootstrap_dashboard' => array(
         'region' => 'navigation',
         'status' => 1,
         'theme' => 'bootstrap_dashboard',
-        'weight' => -15,
+        'weight' => 0,
       ),
       'seven' => array(
         'region' => '',
@@ -445,17 +347,11 @@ function intoto_blocks_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
-      'bootstrap' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bootstrap',
-        'weight' => 0,
-      ),
       'bootstrap_dashboard' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bootstrap_dashboard',
-        'weight' => 3,
+        'weight' => 0,
       ),
       'seven' => array(
         'region' => '',
@@ -483,17 +379,11 @@ function intoto_blocks_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
-      'bootstrap' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bootstrap',
-        'weight' => 0,
-      ),
       'bootstrap_dashboard' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bootstrap_dashboard',
-        'weight' => 4,
+        'weight' => 0,
       ),
       'seven' => array(
         'region' => '',
@@ -521,17 +411,11 @@ function intoto_blocks_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
-      'bootstrap' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bootstrap',
-        'weight' => 0,
-      ),
       'bootstrap_dashboard' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bootstrap_dashboard',
-        'weight' => 5,
+        'weight' => 0,
       ),
       'seven' => array(
         'region' => '',
@@ -559,12 +443,6 @@ function intoto_blocks_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
-      'bootstrap' => array(
-        'region' => 'sidebar_first',
-        'status' => 1,
-        'theme' => 'bootstrap',
-        'weight' => 0,
-      ),
       'bootstrap_dashboard' => array(
         'region' => 'sidebar_first',
         'status' => 1,
@@ -576,44 +454,6 @@ function intoto_blocks_default_fe_block_settings() {
         'status' => 1,
         'theme' => 'seven',
         'weight' => 10,
-      ),
-    ),
-    'title' => '',
-    'visibility' => 0,
-  );
-
-  $export['views--exp-contacts_report-page_1'] = array(
-    'cache' => -1,
-    'custom' => 0,
-    'delta' => '-exp-contacts_report-page_1',
-    'module' => 'views',
-    'node_types' => array(),
-    'pages' => '',
-    'roles' => array(),
-    'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
-      'bootstrap' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bootstrap',
-        'weight' => 0,
-      ),
-      'bootstrap_dashboard' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bootstrap_dashboard',
-        'weight' => -13,
-      ),
-      'seven' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'seven',
-        'weight' => 0,
       ),
     ),
     'title' => '',
@@ -633,12 +473,6 @@ function intoto_blocks_default_fe_block_settings() {
         'region' => '',
         'status' => 0,
         'theme' => 'bartik',
-        'weight' => 0,
-      ),
-      'bootstrap' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bootstrap',
         'weight' => 0,
       ),
       'bootstrap_dashboard' => array(
@@ -673,55 +507,11 @@ function intoto_blocks_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
-      'bootstrap' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bootstrap',
-        'weight' => 0,
-      ),
       'bootstrap_dashboard' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bootstrap_dashboard',
         'weight' => 0,
-      ),
-      'seven' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'seven',
-        'weight' => 0,
-      ),
-    ),
-    'title' => '',
-    'visibility' => 0,
-  );
-
-  $export['views-contacts_report-block'] = array(
-    'cache' => -1,
-    'custom' => 0,
-    'delta' => 'contacts_report-block',
-    'module' => 'views',
-    'node_types' => array(),
-    'pages' => '',
-    'roles' => array(),
-    'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
-      'bootstrap' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bootstrap',
-        'weight' => 0,
-      ),
-      'bootstrap_dashboard' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bootstrap_dashboard',
-        'weight' => -20,
       ),
       'seven' => array(
         'region' => '',
@@ -747,12 +537,6 @@ function intoto_blocks_default_fe_block_settings() {
         'region' => '',
         'status' => 0,
         'theme' => 'bartik',
-        'weight' => 0,
-      ),
-      'bootstrap' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bootstrap',
         'weight' => 0,
       ),
       'bootstrap_dashboard' => array(
@@ -787,17 +571,11 @@ function intoto_blocks_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
-      'bootstrap' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bootstrap',
-        'weight' => 0,
-      ),
       'bootstrap_dashboard' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bootstrap_dashboard',
-        'weight' => 8,
+        'weight' => 0,
       ),
       'seven' => array(
         'region' => '',
@@ -825,17 +603,11 @@ function intoto_blocks_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
-      'bootstrap' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bootstrap',
-        'weight' => 0,
-      ),
       'bootstrap_dashboard' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bootstrap_dashboard',
-        'weight' => 7,
+        'weight' => 0,
       ),
       'seven' => array(
         'region' => '',
@@ -846,6 +618,35 @@ function intoto_blocks_default_fe_block_settings() {
     ),
     'title' => '',
     'visibility' => 0,
+  );
+
+  $export['views-whats_new-block'] = array(
+    'cache' => -1,
+    'delta' => 'whats_new-block',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'bootstrap_dashboard' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'bootstrap_dashboard',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
   );
 
   return $export;
