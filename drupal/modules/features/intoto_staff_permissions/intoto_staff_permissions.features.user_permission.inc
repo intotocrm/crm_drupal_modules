@@ -379,6 +379,7 @@ function intoto_staff_permissions_user_default_permissions() {
   $permissions['view any crm_core_activity entity'] = array(
     'name' => 'view any crm_core_activity entity',
     'roles' => array(
+      'Staff Read Only' => 'Staff Read Only',
       'administrator' => 'administrator',
       'staff' => 'staff',
     ),
