@@ -375,6 +375,28 @@ function intoto_staff_permissions_user_default_permissions() {
     'module' => 'crm_core_contact',
   );
 
+  // Exported permission: 'search content'.
+  $permissions['search content'] = array(
+    'name' => 'search content',
+    'roles' => array(
+      'Staff Read Only' => 'Staff Read Only',
+      'administrator' => 'administrator',
+      'staff' => 'staff',
+    ),
+    'module' => 'search',
+  );
+
+  // Exported permission: 'use advanced search'.
+  $permissions['use advanced search'] = array(
+    'name' => 'use advanced search',
+    'roles' => array(
+      'Staff Read Only' => 'Staff Read Only',
+      'administrator' => 'administrator',
+      'staff' => 'staff',
+    ),
+    'module' => 'search',
+  );
+
   // Exported permission: 'view any crm_core_activity entity'.
   $permissions['view any crm_core_activity entity'] = array(
     'name' => 'view any crm_core_activity entity',

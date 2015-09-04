@@ -47,8 +47,19 @@ function intoto_crm_add_household_member_form($form, &$form_state, $contact) {
   	if (is_object($contact)){
 		$contact_object = $contact->data;
 		$contact_id = $contact_object->contact_id;
-		$form['static_placeholder'] =  array(
-			'#markup' =>	l (t('Press here'), "/crm-core/contact/$contact_id/household_member/add", array('attributes' => array('class' => array('btn btn-xs btn-success')))).
+                $btn_classes = "btn btn-xs btn-default disabled";
+                $href = "#";
+		if (user_access('create relation entities of any contact relationship')
+                        ||
+                        false //should look for specific permission such as "create relation entities of bundle crm_employee"
+                        )
+                {
+                    $href = "/crm-core/contact/$contact_id/household_member/add";
+                    $btn_classes = "btn btn-success";
+                }
+
+                $form['static_placeholder'] =  array(
+			'#markup' =>	l (t('Press here'), $href, array('attributes' => array('class' => array($btn_classes)))).
 							" to add a member to this household.",
 		);
 	}
@@ -103,9 +114,20 @@ function intoto_crm_add_comment_form($form, &$form_state, $contact) {
 	if (is_object($contact)){
 		$contact_object = $contact->data;
 		$contact_id = $contact_object->contact_id;
+                $btn_classes = "btn btn-xs btn-default disabled";
+                $href = "#";
+		if (user_access('edit any crm_core_contact entity')
+                        ||
+                        false //should look for specific permission such as "edit any crm_core_contact entity of bundle organization"
+                        )
+                {
+                    $href = "/crm-core/contact/$contact_id/activity/add/comment";
+                    $btn_classes = "btn btn-success";
+                }
+
 		
 		$form['static_placeholder'] =  array(
-			'#markup' =>	l (t('Add a Comment'), "/crm-core/contact/$contact_id/activity/add/comment", array('attributes' => array('class' => array('btn btn-xs btn-success')))),
+			'#markup' =>	l (t('Add a Comment'), $href, array('attributes' => array('class' => array($btn_classes)))),
 		);
 	}
 	return $form;

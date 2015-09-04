@@ -249,10 +249,21 @@ function intoto_crm_preprocess_entity(&$variables, $hook)
 
 function intoto_crm_preprocess_entity_crm_core_contact(&$variables, $hook)
 {
+
 	//add some data on how to remove existing relations from this entity
 	if (isset($variables['crm_core_contact']->contact_id))
 	{
-		$links = array();
+    $variables['disconnect_links'] = array(
+        array   (
+                'text' => '-',
+                'path' => "#",
+                'alt' => "Disconnect from household not supported at this stage",
+                )
+                );
+    /* fix disconnect links below (both the link and the destination are wrong):
+     * 
+     * 
+     * 		$links = array();
 		$contact_id = $variables['crm_core_contact']->contact_id;
 		$result = relation_query('crm_core_contact', $contact_id)
 			->propertyCondition('relation_type', 'crm_member')
@@ -271,7 +282,7 @@ function intoto_crm_preprocess_entity_crm_core_contact(&$variables, $hook)
 						$links[] = array
 						(
 							'text' => 'disconnect',
-							'path' => "http://orm-il.devinto.to/relation/$rel_id/delete?destination=crm-core/contact/$endpoint_contact_id/household",
+							'path' => "/relation/$rel_id/delete?destination=crm-core/contact/$endpoint_contact_id/household",
 							'alt' => "Disconnect from household",							
 						);
 					}
@@ -279,6 +290,8 @@ function intoto_crm_preprocess_entity_crm_core_contact(&$variables, $hook)
 			}
 		}
 		$variables['disconnect_links'] = $links;
+     * 
+     */
 	}
 }
 

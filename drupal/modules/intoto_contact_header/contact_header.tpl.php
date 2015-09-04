@@ -5,6 +5,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+$btn_class = $can_edit ? "btn btn-xs btn-primary" : "btn btn-xs btn-primary disabled";
 ?>
 <div class="row top-buffer">
 	<div class="col-lg-4 col-md-6">
@@ -29,18 +31,18 @@
 				<span class="pull-left">View Details</span>
 				<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 				-->
-				<a href="<?php print "/crm-core/contact/$contact_id/edit";?>">
-					<button type="button" class="btn btn-xs btn-primary">Edit</button>
+				<a href="<?php print link_check_access("/crm-core/contact/$contact_id/edit"); ;?>">
+					<button type="button" class="<?php print $btn_class;?> ">Edit</button>
 				</a>
-				<a href="<?php print "/crm-core/contact/$contact_id/activity/add/comment";?>">
-					<button type="button" class="btn btn-xs btn-primary">Comment</button>
+				<a href="<?php print link_check_access("/crm-core/contact/$contact_id/activity/add/comment");?>">
+					<button type="button" class="<?php print $btn_class;?>">Comment</button>
 				</a>
 
-				<a href="<?php print "/crm-core/contact/$contact_id/activity/add/email";?>">
-					<button type="button" class="btn btn-xs btn-primary">Email</button>
+				<a href="<?php print link_check_access("/crm-core/contact/$contact_id/activity/add/email");?>">
+					<button type="button" class="<?php print $btn_class;?>">Email</button>
 				</a>
-				<a href="<?php print "/crm-core/contact/$contact_id/activity/add/phone_call";?>">
-					<button type="button" class="btn btn-xs btn-primary">Phone</button>
+				<a href="<?php print link_check_access("/crm-core/contact/$contact_id/activity/add/phone_call");?>">
+					<button type="button" class="<?php print $btn_class;?>">Phone</button>
 				</a>
 				<div class="clearfix"></div>
 			</div>

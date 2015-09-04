@@ -72,6 +72,11 @@ function get_default_image($bundle)
 //		'#access' => 1,
 //	);
 }
+
+function contact_header_can_edit()
+{
+    return user_access('edit any crm_core_contact entity');
+}
 function template_preprocess_contact_header(&$variables)
 {
 	$contact = $variables['contact'];
@@ -96,6 +101,7 @@ function template_preprocess_contact_header(&$variables)
 	$variables['title'] = $name_view["#markup"];
 	$variables['serial'] = NULL; // should be taken from another field in $contact
 	$variables['contact_id'] = isset($contact->contact_id) ? $contact->contact_id : NULL;
+        $variables['can_edit'] = contact_header_can_edit();
 	
     // get only one image per contact (index 0)
 	$images = field_get_items('crm_core_contact', $contact, 'field_image');
@@ -131,9 +137,11 @@ function template_preprocess_contact_header(&$variables)
 		$renderable_view = $my_view->render('page');
 		$variables['contacts'] = render($renderable_view);
 	}
-	
-	
-	
+}
+
+function link_check_access($link)
+{
+    return contact_header_can_edit() ? $link : "#";
 }
 
 function intoto_contact_header_preprocess_page(&$page)

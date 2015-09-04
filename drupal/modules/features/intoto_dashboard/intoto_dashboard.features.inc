@@ -77,6 +77,7 @@ function intoto_dashboard_homebox() {
     'full' => 0,
     'roles' => array(
       0 => 'staff',
+      1 => 'Staff Read Only',
     ),
   );
 
