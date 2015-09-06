@@ -13,16 +13,16 @@
 	
 	
 	$('.dont_show_link').click (function(){
-            selector = $(this)
-            link = selector.attr("link")
+            selector = $(this);
+            link = selector.attr("link");
 	    $.ajax({
-	      url: link, //"/ticker/1/remove-user?XDEBUG_SESSION_START=netbeans-xdebug",
+	      url: link //"/ticker/1/remove-user?XDEBUG_SESSION_START=netbeans-xdebug",
 //	      beforeSend: function( xhr ) {
 //		//xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
 //	      }
 	    })
 	      .done(function( data ) {
-		  if(data=="OK")
+		  if(data==="OK")
                     {
                         selector.closest("tr").remove();
                     }
@@ -35,5 +35,5 @@
 
 	  
       }
-  }
+  };
 })(jQuery);

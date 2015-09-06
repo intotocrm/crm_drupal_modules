@@ -250,11 +250,6 @@ function ticker_menu() {
 	return $items;
 }
 
-function ticker_init(){
-	drupal_add_js(drupal_get_path('module', 'ticker') . '/ticker.js', 'file');	
-	drupal_add_css(drupal_get_path('module', 'ticker') . '/ticker.css');	
-	//drupal_set_message("added path $js");
-}
 
 /**
  * Load an instance of ticker.
@@ -383,7 +378,7 @@ function ticker_field_attach_create_bundle($entity_type, $bundle)
 				'entity_type' => 'ticker',
 				'bundle' => $bundle,
 				'label' => 'Users',
-				'required' => TRUE,
+				'required' => FALSE,
 				'widget' => array(
 					'type' => 'options_select',
 				),
