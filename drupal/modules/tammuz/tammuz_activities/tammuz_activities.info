@@ -19,8 +19,6 @@ project path = sites/all/modules/intoto/tammuz
 features[field_base][] = field_activity_date
 features[field_base][] = field_activity_notes
 features[field_base][] = field_activity_participants
-features[field_base][] = field_attachment
-features[field_base][] = field_comment_with_serverity
 features[field_base][] = field_initiator
 
 
