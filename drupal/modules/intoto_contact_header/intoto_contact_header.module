@@ -43,7 +43,7 @@ function intoto_contact_header_theme($existing, $type, $theme, $path) {
 	return $theme;
 }
 
-function get_default_image($bundle)
+function get_default_bundle_image($bundle)
 {
 	$image_filename = "default_image_$bundle.jpg";
 	///sites/default/files/styles/thumbnail_square/public/profile_images/default_images/' . $image_filename . '
@@ -113,7 +113,7 @@ function template_preprocess_contact_header(&$variables)
 				)
 			);
     }else{
-		$image = get_default_image($contact->type);
+		$image = get_default_bundle_image($contact->type);
 	}
     $variables['image'] = $image;
 	$variables['photos'] = array($image);

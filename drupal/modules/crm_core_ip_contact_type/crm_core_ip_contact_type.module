@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the crm core IP contact type feature.
- */
-
-include_once 'crm_core_ip_contact_type.features.inc';

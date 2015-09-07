@@ -23,6 +23,8 @@ function intoto_individual_details_page_field_default_field_bases() {
     'locked' => 0,
     'module' => 'date',
     'settings' => array(
+      'cache_count' => 4,
+      'cache_enabled' => 0,
       'granularity' => array(
         'day' => 'day',
         'hour' => 'hour',
@@ -89,6 +91,41 @@ function intoto_individual_details_page_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
+  // Exported field_base: 'field_initiator'
+  $field_bases['field_initiator'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_initiator',
+    'indexes' => array(
+      'target_id' => array(
+        0 => 'target_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'entityreference',
+    'settings' => array(
+      'handler' => 'base',
+      'handler_settings' => array(
+        'behaviors' => array(
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
+        'sort' => array(
+          'type' => 'none',
+        ),
+        'target_bundles' => array(
+          'tammuz_staff' => 'tammuz_staff',
+        ),
+      ),
+      'target_type' => 'crm_core_contact',
+    ),
+    'translatable' => 0,
+    'type' => 'entityreference',
+  );
+
   // Exported field_base: 'field_severity'
   $field_bases['field_severity'] = array(
     'active' => 1,
@@ -107,6 +144,32 @@ function intoto_individual_details_page_field_default_field_bases() {
       'allowed_values' => array(
         0 => array(
           'vocabulary' => 'serverity',
+          'parent' => 0,
+        ),
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'taxonomy_term_reference',
+  );
+
+  // Exported field_base: 'field_status'
+  $field_bases['field_status'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_status',
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'taxonomy',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'activity_status',
           'parent' => 0,
         ),
       ),

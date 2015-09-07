@@ -122,9 +122,6 @@ function ticker_install(){
 		) + $new_fields_settings
 	);
 	
-	drush_print ("f1:" . print_r($f1, true));
-	drush_print ("f2:" . print_r($f2, true));
-	drush_print ("f3:" . print_r($f3, true));
 	
 }
 

@@ -9,377 +9,40 @@ dependencies[] = entityreference
 dependencies[] = features
 dependencies[] = field_collection
 dependencies[] = intoto_individual_details_page
+dependencies[] = options
 dependencies[] = tammuz_entity_types
 dependencies[] = taxonomy
 dependencies[] = text
+features[crm_core_activity_type][] = egg_donor_match
+features[crm_core_activity_type][] = email
+features[crm_core_activity_type][] = meeting
 features[features_api][] = api:2
-project path = sites/all/modules/intoto/tammuz
-
-
 features[field_base][] = field_activity_date
 features[field_base][] = field_activity_notes
 features[field_base][] = field_activity_participants
-features[field_base][] = field_attachment
-features[field_base][] = field_comment_with_serverity
 features[field_base][] = field_initiator
-
-
-features[crm_core_activity_type][] = egg_donor_match
+features[field_base][] = field_severity
 features[field_instance][] = crm_core_activity-egg_donor_match-field_activity_date
 features[field_instance][] = crm_core_activity-egg_donor_match-field_activity_notes
 features[field_instance][] = crm_core_activity-egg_donor_match-field_activity_participants
-features[field_instance][] = crm_core_activity-egg_donor_match-field_attachment
-features[field_instance][] = crm_core_activity-egg_donor_match-field_comment_with_serverity
 features[field_instance][] = crm_core_activity-egg_donor_match-field_initiator
-
-
-features[crm_core_activity_type][] = email
+features[field_instance][] = crm_core_activity-egg_donor_match-field_severity
 features[field_instance][] = crm_core_activity-email-field_activity_date
 features[field_instance][] = crm_core_activity-email-field_activity_notes
 features[field_instance][] = crm_core_activity-email-field_activity_participants
-features[field_instance][] = crm_core_activity-email-field_attachment
-features[field_instance][] = crm_core_activity-email-field_comment_with_serverity
 features[field_instance][] = crm_core_activity-email-field_initiator
-
-
-features[crm_core_activity_type][] = meeting
+features[field_instance][] = crm_core_activity-email-field_severity
 features[field_instance][] = crm_core_activity-meeting-field_activity_date
 features[field_instance][] = crm_core_activity-meeting-field_activity_notes
 features[field_instance][] = crm_core_activity-meeting-field_activity_participants
 features[field_instance][] = crm_core_activity-meeting-field_attachment
 features[field_instance][] = crm_core_activity-meeting-field_comment_with_serverity
 features[field_instance][] = crm_core_activity-meeting-field_initiator
-
-
-features[crm_core_activity_type][] = phone
-features[field_instance][] = crm_core_activity-phone-field_activity_date
-features[field_instance][] = crm_core_activity-phone-field_activity_notes
-features[field_instance][] = crm_core_activity-phone-field_activity_participants
-features[field_instance][] = crm_core_activity-phone-field_attachment
-features[field_instance][] = crm_core_activity-phone-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-phone-field_initiator
-
-
-features[crm_core_activity_type][] = infectious_disease_test
-features[field_instance][] = crm_core_activity-infectious_disease_test-field_activity_date
-features[field_instance][] = crm_core_activity-infectious_disease_test-field_activity_notes
-features[field_instance][] = crm_core_activity-infectious_disease_test-field_activity_participants
-features[field_instance][] = crm_core_activity-infectious_disease_test-field_attachment
-features[field_instance][] = crm_core_activity-infectious_disease_test-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-infectious_disease_test-field_initiator
-
-
-features[crm_core_activity_type][] = eggs_retrieval
-features[field_instance][] = crm_core_activity-eggs_retrieval-field_activity_date
-features[field_instance][] = crm_core_activity-eggs_retrieval-field_activity_notes
-features[field_instance][] = crm_core_activity-eggs_retrieval-field_activity_participants
-features[field_instance][] = crm_core_activity-eggs_retrieval-field_attachment
-features[field_instance][] = crm_core_activity-eggs_retrieval-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-eggs_retrieval-field_initiator
-
-
-features[crm_core_activity_type][] = embryo_fertilization
-features[field_instance][] = crm_core_activity-embryo_fertilization-field_activity_date
-features[field_instance][] = crm_core_activity-embryo_fertilization-field_activity_notes
-features[field_instance][] = crm_core_activity-embryo_fertilization-field_activity_participants
-features[field_instance][] = crm_core_activity-embryo_fertilization-field_attachment
-features[field_instance][] = crm_core_activity-embryo_fertilization-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-embryo_fertilization-field_initiator
-
-
-features[crm_core_activity_type][] = embryo_transfer
-features[field_instance][] = crm_core_activity-embryo_transfer-field_activity_date
-features[field_instance][] = crm_core_activity-embryo_transfer-field_activity_notes
-features[field_instance][] = crm_core_activity-embryo_transfer-field_activity_participants
-features[field_instance][] = crm_core_activity-embryo_transfer-field_attachment
-features[field_instance][] = crm_core_activity-embryo_transfer-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-embryo_transfer-field_initiator
-
-
-features[crm_core_activity_type][] = embryo_freeze
-features[field_instance][] = crm_core_activity-embryo_freeze-field_activity_date
-features[field_instance][] = crm_core_activity-embryo_freeze-field_activity_notes
-features[field_instance][] = crm_core_activity-embryo_freeze-field_activity_participants
-features[field_instance][] = crm_core_activity-embryo_freeze-field_attachment
-features[field_instance][] = crm_core_activity-embryo_freeze-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-embryo_freeze-field_initiator
-
-
-features[crm_core_activity_type][] = surrogate_profile
-features[field_instance][] = crm_core_activity-surrogate_profile-field_activity_date
-features[field_instance][] = crm_core_activity-surrogate_profile-field_activity_notes
-features[field_instance][] = crm_core_activity-surrogate_profile-field_activity_participants
-features[field_instance][] = crm_core_activity-surrogate_profile-field_attachment
-features[field_instance][] = crm_core_activity-surrogate_profile-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-surrogate_profile-field_initiator
-
-
-features[crm_core_activity_type][] = surrogate_signs_contract
-features[field_instance][] = crm_core_activity-surrogate_signs_contract-field_activity_date
-features[field_instance][] = crm_core_activity-surrogate_signs_contract-field_activity_notes
-features[field_instance][] = crm_core_activity-surrogate_signs_contract-field_activity_participants
-features[field_instance][] = crm_core_activity-surrogate_signs_contract-field_attachment
-features[field_instance][] = crm_core_activity-surrogate_signs_contract-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-surrogate_signs_contract-field_initiator
-
-
-features[crm_core_activity_type][] = contract_sent
-features[field_instance][] = crm_core_activity-contract_sent-field_activity_date
-features[field_instance][] = crm_core_activity-contract_sent-field_activity_notes
-features[field_instance][] = crm_core_activity-contract_sent-field_activity_participants
-features[field_instance][] = crm_core_activity-contract_sent-field_attachment
-features[field_instance][] = crm_core_activity-contract_sent-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-contract_sent-field_initiator
-
-
-features[crm_core_activity_type][] = customer_contract_surrogate
-features[field_instance][] = crm_core_activity-customer_contract_surrogate-field_activity_date
-features[field_instance][] = crm_core_activity-customer_contract_surrogate-field_activity_notes
-features[field_instance][] = crm_core_activity-customer_contract_surrogate-field_activity_participants
-features[field_instance][] = crm_core_activity-customer_contract_surrogate-field_attachment
-features[field_instance][] = crm_core_activity-customer_contract_surrogate-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-customer_contract_surrogate-field_initiator
-
-
-features[crm_core_activity_type][] = pregnancy_positive
-features[field_instance][] = crm_core_activity-pregnancy_positive-field_activity_date
-features[field_instance][] = crm_core_activity-pregnancy_positive-field_activity_notes
-features[field_instance][] = crm_core_activity-pregnancy_positive-field_activity_participants
-features[field_instance][] = crm_core_activity-pregnancy_positive-field_attachment
-features[field_instance][] = crm_core_activity-pregnancy_positive-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-pregnancy_positive-field_initiator
-
-
-features[crm_core_activity_type][] = terminate_pregnancy
-features[field_instance][] = crm_core_activity-terminate_pregnancy-field_activity_date
-features[field_instance][] = crm_core_activity-terminate_pregnancy-field_activity_notes
-features[field_instance][] = crm_core_activity-terminate_pregnancy-field_activity_participants
-features[field_instance][] = crm_core_activity-terminate_pregnancy-field_attachment
-features[field_instance][] = crm_core_activity-terminate_pregnancy-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-terminate_pregnancy-field_initiator
-
-
-features[crm_core_activity_type][] = beta_test
-features[field_instance][] = crm_core_activity-beta_test-field_activity_date
-features[field_instance][] = crm_core_activity-beta_test-field_activity_notes
-features[field_instance][] = crm_core_activity-beta_test-field_activity_participants
-features[field_instance][] = crm_core_activity-beta_test-field_attachment
-features[field_instance][] = crm_core_activity-beta_test-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-beta_test-field_initiator
-
-
-features[crm_core_activity_type][] = gsac_test
-features[field_instance][] = crm_core_activity-gsac_test-field_activity_date
-features[field_instance][] = crm_core_activity-gsac_test-field_activity_notes
-features[field_instance][] = crm_core_activity-gsac_test-field_activity_participants
-features[field_instance][] = crm_core_activity-gsac_test-field_attachment
-features[field_instance][] = crm_core_activity-gsac_test-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-gsac_test-field_initiator
-
-
-features[crm_core_activity_type][] = pregnancy_program
-features[field_instance][] = crm_core_activity-pregnancy_program-field_activity_date
-features[field_instance][] = crm_core_activity-pregnancy_program-field_activity_notes
-features[field_instance][] = crm_core_activity-pregnancy_program-field_activity_participants
-features[field_instance][] = crm_core_activity-pregnancy_program-field_attachment
-features[field_instance][] = crm_core_activity-pregnancy_program-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-pregnancy_program-field_initiator
-
-
-features[crm_core_activity_type][] = heartbeat_test
-features[field_instance][] = crm_core_activity-heartbeat_test-field_activity_date
-features[field_instance][] = crm_core_activity-heartbeat_test-field_activity_notes
-features[field_instance][] = crm_core_activity-heartbeat_test-field_activity_participants
-features[field_instance][] = crm_core_activity-heartbeat_test-field_attachment
-features[field_instance][] = crm_core_activity-heartbeat_test-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-heartbeat_test-field_initiator
-
-
-features[crm_core_activity_type][] = routine_usg
-features[field_instance][] = crm_core_activity-routine_usg-field_activity_date
-features[field_instance][] = crm_core_activity-routine_usg-field_activity_notes
-features[field_instance][] = crm_core_activity-routine_usg-field_activity_participants
-features[field_instance][] = crm_core_activity-routine_usg-field_attachment
-features[field_instance][] = crm_core_activity-routine_usg-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-routine_usg-field_initiator
-
-
-features[crm_core_activity_type][] = nt
-features[field_instance][] = crm_core_activity-nt-field_activity_date
-features[field_instance][] = crm_core_activity-nt-field_activity_notes
-features[field_instance][] = crm_core_activity-nt-field_activity_participants
-features[field_instance][] = crm_core_activity-nt-field_attachment
-features[field_instance][] = crm_core_activity-nt-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-nt-field_initiator
-
-
-features[crm_core_activity_type][] = verify
-features[field_instance][] = crm_core_activity-verify-field_activity_date
-features[field_instance][] = crm_core_activity-verify-field_activity_notes
-features[field_instance][] = crm_core_activity-verify-field_activity_participants
-features[field_instance][] = crm_core_activity-verify-field_attachment
-features[field_instance][] = crm_core_activity-verify-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-verify-field_initiator
-
-
-features[crm_core_activity_type][] = blood_test
-features[field_instance][] = crm_core_activity-blood_test-field_activity_date
-features[field_instance][] = crm_core_activity-blood_test-field_activity_notes
-features[field_instance][] = crm_core_activity-blood_test-field_activity_participants
-features[field_instance][] = crm_core_activity-blood_test-field_attachment
-features[field_instance][] = crm_core_activity-blood_test-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-blood_test-field_initiator
-
-
-features[crm_core_activity_type][] = dm_dual_marker
-features[field_instance][] = crm_core_activity-dm_dual_marker-field_activity_date
-features[field_instance][] = crm_core_activity-dm_dual_marker-field_activity_notes
-features[field_instance][] = crm_core_activity-dm_dual_marker-field_activity_participants
-features[field_instance][] = crm_core_activity-dm_dual_marker-field_attachment
-features[field_instance][] = crm_core_activity-dm_dual_marker-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-dm_dual_marker-field_initiator
-
-
-features[crm_core_activity_type][] = qm_quadruple_marker
-features[field_instance][] = crm_core_activity-qm_quadruple_marker-field_activity_date
-features[field_instance][] = crm_core_activity-qm_quadruple_marker-field_activity_notes
-features[field_instance][] = crm_core_activity-qm_quadruple_marker-field_activity_participants
-features[field_instance][] = crm_core_activity-qm_quadruple_marker-field_attachment
-features[field_instance][] = crm_core_activity-qm_quadruple_marker-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-qm_quadruple_marker-field_initiator
-
-
-features[crm_core_activity_type][] = as_anomaly_scan
-features[field_instance][] = crm_core_activity-as_anomaly_scan-field_activity_date
-features[field_instance][] = crm_core_activity-as_anomaly_scan-field_activity_notes
-features[field_instance][] = crm_core_activity-as_anomaly_scan-field_activity_participants
-features[field_instance][] = crm_core_activity-as_anomaly_scan-field_attachment
-features[field_instance][] = crm_core_activity-as_anomaly_scan-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-as_anomaly_scan-field_initiator
-
-
-features[crm_core_activity_type][] = gtt_glucose_tolerance_test
-features[field_instance][] = crm_core_activity-gtt_glucose_tolerance_test-field_activity_date
-features[field_instance][] = crm_core_activity-gtt_glucose_tolerance_test-field_activity_notes
-features[field_instance][] = crm_core_activity-gtt_glucose_tolerance_test-field_activity_participants
-features[field_instance][] = crm_core_activity-gtt_glucose_tolerance_test-field_attachment
-features[field_instance][] = crm_core_activity-gtt_glucose_tolerance_test-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-gtt_glucose_tolerance_test-field_initiator
-
-
-features[crm_core_activity_type][] = birth
-features[field_instance][] = crm_core_activity-birth-field_activity_date
-features[field_instance][] = crm_core_activity-birth-field_activity_notes
-features[field_instance][] = crm_core_activity-birth-field_activity_participants
-features[field_instance][] = crm_core_activity-birth-field_attachment
-features[field_instance][] = crm_core_activity-birth-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-birth-field_initiator
-
-
-features[crm_core_activity_type][] = miscarriage
-features[field_instance][] = crm_core_activity-miscarriage-field_activity_date
-features[field_instance][] = crm_core_activity-miscarriage-field_activity_notes
-features[field_instance][] = crm_core_activity-miscarriage-field_activity_participants
-features[field_instance][] = crm_core_activity-miscarriage-field_attachment
-features[field_instance][] = crm_core_activity-miscarriage-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-miscarriage-field_initiator
-
-
-features[crm_core_activity_type][] = abortion
-features[field_instance][] = crm_core_activity-abortion-field_activity_date
-features[field_instance][] = crm_core_activity-abortion-field_activity_notes
-features[field_instance][] = crm_core_activity-abortion-field_activity_participants
-features[field_instance][] = crm_core_activity-abortion-field_attachment
-features[field_instance][] = crm_core_activity-abortion-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-abortion-field_initiator
-
-
-features[crm_core_activity_type][] = flight_to_birth_singleton
-features[field_instance][] = crm_core_activity-flight_to_birth_singleton-field_activity_date
-features[field_instance][] = crm_core_activity-flight_to_birth_singleton-field_activity_notes
-features[field_instance][] = crm_core_activity-flight_to_birth_singleton-field_activity_participants
-features[field_instance][] = crm_core_activity-flight_to_birth_singleton-field_attachment
-features[field_instance][] = crm_core_activity-flight_to_birth_singleton-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-flight_to_birth_singleton-field_initiator
-
-
-features[crm_core_activity_type][] = flight_to_birth_twins
-features[field_instance][] = crm_core_activity-flight_to_birth_twins-field_activity_date
-features[field_instance][] = crm_core_activity-flight_to_birth_twins-field_activity_notes
-features[field_instance][] = crm_core_activity-flight_to_birth_twins-field_activity_participants
-features[field_instance][] = crm_core_activity-flight_to_birth_twins-field_attachment
-features[field_instance][] = crm_core_activity-flight_to_birth_twins-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-flight_to_birth_twins-field_initiator
-
-
-features[crm_core_activity_type][] = flight_back_home
-features[field_instance][] = crm_core_activity-flight_back_home-field_activity_date
-features[field_instance][] = crm_core_activity-flight_back_home-field_activity_notes
-features[field_instance][] = crm_core_activity-flight_back_home-field_activity_participants
-features[field_instance][] = crm_core_activity-flight_back_home-field_attachment
-features[field_instance][] = crm_core_activity-flight_back_home-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-flight_back_home-field_initiator
-
-
-features[crm_core_activity_type][] = hospitalization
-features[field_instance][] = crm_core_activity-hospitalization-field_activity_date
-features[field_instance][] = crm_core_activity-hospitalization-field_activity_notes
-features[field_instance][] = crm_core_activity-hospitalization-field_activity_participants
-features[field_instance][] = crm_core_activity-hospitalization-field_attachment
-features[field_instance][] = crm_core_activity-hospitalization-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-hospitalization-field_initiator
-
-
-features[crm_core_activity_type][] = check_out_of_hospital
-features[field_instance][] = crm_core_activity-check_out_of_hospital-field_activity_date
-features[field_instance][] = crm_core_activity-check_out_of_hospital-field_activity_notes
-features[field_instance][] = crm_core_activity-check_out_of_hospital-field_activity_participants
-features[field_instance][] = crm_core_activity-check_out_of_hospital-field_attachment
-features[field_instance][] = crm_core_activity-check_out_of_hospital-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-check_out_of_hospital-field_initiator
-
-
-features[crm_core_activity_type][] = deposit
-features[field_instance][] = crm_core_activity-deposit-field_activity_date
-features[field_instance][] = crm_core_activity-deposit-field_activity_notes
-features[field_instance][] = crm_core_activity-deposit-field_activity_participants
-features[field_instance][] = crm_core_activity-deposit-field_attachment
-features[field_instance][] = crm_core_activity-deposit-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-deposit-field_initiator
-
-
-features[crm_core_activity_type][] = charge
-features[field_instance][] = crm_core_activity-charge-field_activity_date
-features[field_instance][] = crm_core_activity-charge-field_activity_notes
-features[field_instance][] = crm_core_activity-charge-field_activity_participants
-features[field_instance][] = crm_core_activity-charge-field_attachment
-features[field_instance][] = crm_core_activity-charge-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-charge-field_initiator
-
-
-features[crm_core_activity_type][] = inside_money_transfer
-features[field_instance][] = crm_core_activity-inside_money_transfer-field_activity_date
-features[field_instance][] = crm_core_activity-inside_money_transfer-field_activity_notes
-features[field_instance][] = crm_core_activity-inside_money_transfer-field_activity_participants
-features[field_instance][] = crm_core_activity-inside_money_transfer-field_attachment
-features[field_instance][] = crm_core_activity-inside_money_transfer-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-inside_money_transfer-field_initiator
-
-
-features[crm_core_activity_type][] = collect
-features[field_instance][] = crm_core_activity-collect-field_activity_date
-features[field_instance][] = crm_core_activity-collect-field_activity_notes
-features[field_instance][] = crm_core_activity-collect-field_activity_participants
-features[field_instance][] = crm_core_activity-collect-field_attachment
-features[field_instance][] = crm_core_activity-collect-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-collect-field_initiator
-
-
-features[crm_core_activity_type][] = shipment
-features[field_instance][] = crm_core_activity-shipment-field_activity_date
-features[field_instance][] = crm_core_activity-shipment-field_activity_notes
-features[field_instance][] = crm_core_activity-shipment-field_activity_participants
-features[field_instance][] = crm_core_activity-shipment-field_attachment
-features[field_instance][] = crm_core_activity-shipment-field_comment_with_serverity
-features[field_instance][] = crm_core_activity-shipment-field_initiator
-
+features[field_instance][] = crm_core_activity-meeting-field_severity
+features_exclude[field_base][field_comment] = field_comment
+features_exclude[field_base][field_attachment] = field_attachment
+features_exclude[field_base][field_comment_with_serverity] = field_comment_with_serverity
+features_exclude[field_instance][field_collection_item-field_comment_with_serverity-field_comment] = field_collection_item-field_comment_with_serverity-field_comment
+features_exclude[field_instance][field_collection_item-field_comment_with_serverity-field_severity] = field_collection_item-field_comment_with_serverity-field_severity
+features_exclude[taxonomy][serverity] = serverity
+project path = sites/all/modules/intoto/tammuz

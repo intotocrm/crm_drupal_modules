@@ -55,7 +55,7 @@ function intoto_individual_details_page_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 1,
+      'weight' => 3,
     ),
   );
 
@@ -89,7 +89,7 @@ function intoto_individual_details_page_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 2,
+      'weight' => 4,
     ),
   );
 
@@ -127,7 +127,44 @@ function intoto_individual_details_page_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete_tags',
-      'weight' => -4,
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_activity-comment-field_initiator'
+  $field_instances['crm_core_activity-comment-field_initiator'] = array(
+    'bundle' => 'comment',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 5,
+      ),
+    ),
+    'entity_type' => 'crm_core_activity',
+    'field_name' => 'field_initiator',
+    'label' => 'Initiator',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 7,
     ),
   );
 
@@ -162,16 +199,49 @@ function intoto_individual_details_page_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 3,
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_activity-comment-field_status'
+  $field_instances['crm_core_activity-comment-field_status'] = array(
+    'bundle' => 'comment',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 4,
+      ),
+    ),
+    'entity_type' => 'crm_core_activity',
+    'field_name' => 'field_status',
+    'label' => 'Status',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 1,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
   t('Date');
+  t('Initiator');
   t('Notes');
   t('Participants');
   t('Severity');
+  t('Status');
   t('This setting sets the way this comment is shown and where it\'s shown. You can later sort comments according to this');
 
   return $field_instances;

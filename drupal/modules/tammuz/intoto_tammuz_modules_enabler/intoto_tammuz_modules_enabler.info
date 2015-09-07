@@ -1,0 +1,15 @@
+; Packaging information for site tammuz
+name = "Tammuz Modules Enabler"
+description = "modules enabled for tammuz"
+core = "7.x"
+
+
+; ----------
+; Dependencies
+; ----------
+
+; Administration
+dependencies[] = tammuz_entity_types
+dependencies[] = tammuz_activities
+dependencies[] = tammuz_relationships
+

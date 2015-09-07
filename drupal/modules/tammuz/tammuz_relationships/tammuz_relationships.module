@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Tammuz Relationships feature.
+ */
+
+include_once 'tammuz_relationships.features.inc';

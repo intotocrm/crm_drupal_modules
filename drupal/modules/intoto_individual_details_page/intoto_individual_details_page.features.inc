@@ -5,22 +5,6 @@
  */
 
 /**
- * Implements hook_default_crm_core_activity_type().
- */
-function intoto_individual_details_page_default_crm_core_activity_type() {
-  $items = array();
-  $items['comment'] = entity_import('crm_core_activity_type', '{
-    "type" : "comment",
-    "label" : "Comment",
-    "weight" : 0,
-    "activity_string" : "Comment",
-    "description" : "General comment about a contact.",
-    "rdf_mapping" : []
-  }');
-  return $items;
-}
-
-/**
  * Implements hook_ctools_plugin_api().
  */
 function intoto_individual_details_page_ctools_plugin_api($module = NULL, $api = NULL) {

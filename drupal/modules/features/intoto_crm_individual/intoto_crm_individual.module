@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the intoto crm individual feature.
- */
-
-include_once 'intoto_crm_individual.features.inc';

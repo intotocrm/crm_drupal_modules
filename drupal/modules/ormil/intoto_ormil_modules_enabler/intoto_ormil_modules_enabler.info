@@ -1,0 +1,13 @@
+; Packaging information for site ormil 
+name = "ORMIL Modules Enabler"
+description = "modules enabled for ormil"
+core = "7.x"
+
+
+; ----------
+; Dependencies
+; ----------
+
+; Administration
+dependencies[] = orm_il_crm_core_customer_contact_type
+

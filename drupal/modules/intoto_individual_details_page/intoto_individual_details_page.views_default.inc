@@ -118,7 +118,7 @@ function intoto_individual_details_page_views_default_views() {
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'uid';
   $handler->display->display_options['fields']['name']['label'] = 'Author';
-  /* Field: CRM Core Activity: Severity */
+  /* Field: Field: Severity */
   $handler->display->display_options['fields']['field_severity']['id'] = 'field_severity';
   $handler->display->display_options['fields']['field_severity']['table'] = 'field_data_field_severity';
   $handler->display->display_options['fields']['field_severity']['field'] = 'field_severity';
