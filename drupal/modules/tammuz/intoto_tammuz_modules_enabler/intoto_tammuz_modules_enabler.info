@@ -1,6 +1,7 @@
 ; Packaging information for site tammuz
 name = "Tammuz Modules Enabler"
 description = "modules enabled for tammuz"
+package = Tammuz
 core = "7.x"
 
 
