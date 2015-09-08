@@ -1,0 +1,15 @@
+name = "dev modules"
+description = "modules enabled for dev sites "
+core = "7.x"
+package = intoto
+
+; ----------
+; Dependencies
+; ----------
+
+; Administration
+dependencies[] = diff
+dependencies[] = module_filter
+dependencies[] = devel 
+dependencies[] = simplehtmldom  (7.x-1.12)
+dependencies[] = devel_themer
