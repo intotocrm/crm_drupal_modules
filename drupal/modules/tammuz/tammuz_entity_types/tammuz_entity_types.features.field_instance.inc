@@ -970,7 +970,7 @@ Pay attention that this should be in a language marked as "spoken language" for 
     'bundle' => 'customer',
     'default_value' => array(
       0 => array(
-        'tid' => 8,
+        'tid' => 1,
       ),
     ),
     'deleted' => 0,
@@ -3126,19 +3126,11 @@ This is updated by activities deployed on the customer.',
     ),
     'entity_type' => 'crm_core_contact',
     'field_name' => 'contact_name',
-    'label' => 'Intended Parent',
-    'required' => 0,
+    'label' => 'Name',
+    'required' => 1,
     'settings' => array(
       'component_css' => '',
       'component_layout' => 'default',
-      'components' => array(
-        'credentials' => 0,
-        'family' => 0,
-        'generational' => 0,
-        'given' => 0,
-        'middle' => 0,
-        'title' => 0,
-      ),
       'credentials_inline' => 0,
       'field_type' => array(
         'credentials' => 'text',
@@ -3156,22 +3148,6 @@ This is updated by activities deployed on the customer.',
         'given' => '',
         'middle' => '',
         'title' => '',
-      ),
-      'labels' => array(
-        'credentials' => '',
-        'family' => '',
-        'generational' => '',
-        'given' => '',
-        'middle' => '',
-        'title' => '',
-      ),
-      'minimum_components' => array(
-        'credentials' => 0,
-        'family' => 0,
-        'generational' => 0,
-        'given' => 0,
-        'middle' => 0,
-        'title' => 0,
       ),
       'override_format' => 'default',
       'show_component_required_marker' => 0,
@@ -5339,38 +5315,6 @@ This is updated by activities deployed on the customer.',
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_comment_with_serverity-field_severity'
-  $field_instances['field_collection_item-field_comment_with_serverity-field_severity'] = array(
-    'bundle' => 'field_comment_with_serverity',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'taxonomy',
-        'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 1,
-      ),
-    ),
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_severity',
-    'label' => 'Severity',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 4,
-    ),
-  );
-
-  // Exported field_instance:
   // 'field_collection_item-field_instant_messaging_collecti-field_instant_messaging_id'
   $field_instances['field_collection_item-field_instant_messaging_collecti-field_instant_messaging_id'] = array(
     'bundle' => 'field_instant_messaging_collecti',
@@ -5968,7 +5912,6 @@ Social Worker Review Summary');
   t('ID');
   t('Individual');
   t('Instant Messaging');
-  t('Intended Parent');
   t('Issue Date');
   t('Journey');
   t('Marital Status');
@@ -5984,7 +5927,6 @@ Pay attention that this should be in a language marked as "spoken language" for 
   t('Phone');
   t('Plan');
   t('Profile Image');
-  t('Severity');
   t('Sperm Specimen');
   t('Spoken Languages');
   t('Status');

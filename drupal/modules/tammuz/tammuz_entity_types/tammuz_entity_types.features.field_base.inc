@@ -50,12 +50,12 @@ function tammuz_entity_types_field_default_field_bases() {
         ),
       ),
       'components' => array(
-        'credentials' => 'credentials',
+        'credentials' => 0,
         'family' => 'family',
-        'generational' => 'generational',
+        'generational' => 0,
         'given' => 'given',
-        'middle' => 'middle',
-        'title' => 'title',
+        'middle' => 0,
+        'title' => 0,
       ),
       'generational_options' => '-- --
 Jr.
