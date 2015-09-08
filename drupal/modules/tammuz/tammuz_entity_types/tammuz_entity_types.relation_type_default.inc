@@ -41,7 +41,7 @@ function tammuz_entity_types_relation_default_relation_types() {
   $relation_type->min_arity = 2;
   $relation_type->max_arity = 2;
   $relation_type->source_bundles = array(
-    0 => 'crm_core_contact:individual',
+    0 => 'crm_core_contact:doctor',
   );
   $relation_type->target_bundles = array(
     0 => 'crm_core_contact:organization',
@@ -60,10 +60,11 @@ function tammuz_entity_types_relation_default_relation_types() {
   $relation_type->min_arity = 2;
   $relation_type->max_arity = 2;
   $relation_type->source_bundles = array(
-    0 => 'crm_core_contact:individual',
+    0 => 'crm_core_contact:ip',
+    1 => 'crm_core_contact:child',
   );
   $relation_type->target_bundles = array(
-    0 => 'crm_core_contact:household',
+    0 => 'crm_core_contact:customer',
   );
   $export['crm_member'] = $relation_type;
 
