@@ -13,4 +13,5 @@ core = "7.x"
 dependencies[] = tammuz_entity_types
 dependencies[] = tammuz_activities
 dependencies[] = tammuz_relationships
+dependencies[] = tammuz_menus
 
