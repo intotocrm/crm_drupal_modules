@@ -8,7 +8,6 @@ dependencies[] = entity
 dependencies[] = entityreference
 dependencies[] = features
 dependencies[] = field_collection
-dependencies[] = intoto_individual_details_page
 dependencies[] = tammuz_entity_types
 dependencies[] = taxonomy
 dependencies[] = text
