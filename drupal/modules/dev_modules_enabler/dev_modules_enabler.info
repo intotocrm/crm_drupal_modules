@@ -13,3 +13,4 @@ dependencies[] = module_filter
 dependencies[] = devel 
 dependencies[] = simplehtmldom  (7.x-1.12)
 dependencies[] = devel_themer
+;dependencies[] = xhprof
