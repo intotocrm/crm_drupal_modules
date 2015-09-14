@@ -9,5 +9,6 @@ core = "7.x"
 ; ----------
 
 ; Administration
+dependencies[] = ormil
 dependencies[] = orm_il_crm_core_customer_contact_type
 

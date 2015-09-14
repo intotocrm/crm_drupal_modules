@@ -76,19 +76,6 @@ function intoto_crm_admin_paths_alter(&$paths) {
     $paths['crm-core/contact/*/edit'] = TRUE;
 }
 
-function intoto_crm_menu_alter(&$items)
-{
-	//print("in intoto_crm_menu_alter\n:".print_r(array_keys($items), true). "\n");
-	//unset($items['crm-core/contact/%crm_core_contact']);
-	unset($items['crm-core/contact/%crm_core_contact/view']);
-//	unset($items['crm-core/contact/%crm_core_contact/edit']);
-	$items['crm-core/contact/%crm_core_contact/edit']['type'] = MENU_CALLBACK;
-	
-	
-//	$items['crm-core/contact/%crm_core_contact/view'] = $items['crm-core/contact/%crm_core_contact/details'];
-//	$items['crm-core/contact/%crm_core_contact/view']['type'] = MENU_CALLBACK;
-//	$items['crm-core/contact/%crm_core_contact/details']['type'] = MENU_DEFAULT_LOCAL_TASK;
-}
 
 
 //function intoto_crm_entity_update($entity, $type)
