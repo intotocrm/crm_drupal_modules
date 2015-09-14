@@ -111,7 +111,6 @@ function intoto_crm_block_view_add_household()
 	module_load_include('inc', 'crm_core_relationship_ui.pages');
 	$block = array();
 	$block['subject'] = t('Add Household');
-	$contact = NULL;
 	$contact = get_context_contact();
 	//dpm ($contact);
 	if ($contact){
@@ -131,7 +130,6 @@ function intoto_crm_block_view_add_household_member()
 	module_load_include('inc', 'crm_core_relationship_ui.pages');
 	$block = array();
 	$block['subject'] = t('Add Member to Household');
-	$contact = NULL;
 	$contact = get_context_contact();
 	//dpm ($contact);
 	if ($contact){
@@ -151,7 +149,6 @@ function intoto_crm_block_view_add_comment()
 	module_load_include('inc', 'crm_core_relationship_ui.pages');
 	$block = array();
 	$block['subject'] = t('Add Comment');
-	$contact = NULL;
 	$contact = get_context_contact();
 	//dpm ($contact);
 	if ($contact){
