@@ -10,6 +10,7 @@ core = "7.x"
 ; ----------
 
 ; Administration
+dependencies[] = tammuz
 dependencies[] = tammuz_entity_types
 dependencies[] = tammuz_activities
 dependencies[] = tammuz_relationships

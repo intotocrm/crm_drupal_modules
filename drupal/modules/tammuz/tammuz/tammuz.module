@@ -1,0 +1,51 @@
+<?php // 
+
+$module_name = 'tammuz';
+module_load_include('inc', $module_name , 'blocks');
+module_load_include('inc', $module_name , 'forms');
+
+function tammuz_menu_alter(&$items)
+{
+	//print("in intoto_crm_menu_alter\n:".print_r(array_keys($items), true). "\n");
+	//unset($items['crm-core/contact/%crm_core_contact']);
+	//unset($items['crm-core/contact/%crm_core_contact/view']);
+//	unset($items['crm-core/contact/%crm_core_contact/edit']);
+	$items['crm-core/contact/%crm_core_contact/edit']['type'] = MENU_CALLBACK;
+	
+	
+//	$items['crm-core/contact/%crm_core_contact/view'] = $items['crm-core/contact/%crm_core_contact/details'];
+//	$items['crm-core/contact/%crm_core_contact/view']['type'] = MENU_CALLBACK;
+//	$items['crm-core/contact/%crm_core_contact/details']['type'] = MENU_DEFAULT_LOCAL_TASK;
+}
+
+
+function tammuz_views_default_views_alter(&$views)
+{
+	$activities_view =& $views['crm_activities_by_contact'];
+	$activities_view -> disabled = true;
+	$relationships_view =& $views['crm_relationships_by_contact'];
+	$relationships_view -> disabled = true;
+}
+
+/**
+* Implementation of hook_ctools_plugin_api().
+*/
+function tammuz_ctools_plugin_api($module, $api) {
+  if ($module == 'page_manager' && $api == 'pages_default') {
+    return array('version' => 1); 
+  }
+}
+/**
+ * Implementation of hook_default_page_manager_pages().
+ */
+function tammuz_default_page_manager_pages() {
+	$files = file_scan_directory(drupal_get_path('module', 'tammuz'). '/pages', '/.*inc.*/');
+	foreach ($files as $absolute => $file) {
+		$page = NULL; //prevent IDE editor warning on uninitialized var
+		require $absolute;
+		if (isset($page)) {
+			$pages[$file->name] = $page;
+		}   
+	}
+	return $pages;
+}

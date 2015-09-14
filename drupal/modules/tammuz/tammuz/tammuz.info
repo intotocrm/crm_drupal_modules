@@ -1,0 +1,5 @@
+name =tammuz
+description = Implementation of pages, menus, tabs etc for Tammuz
+core = 7.x
+files[] = 'blocks.inc'
+files[] = 'forms.inc'
