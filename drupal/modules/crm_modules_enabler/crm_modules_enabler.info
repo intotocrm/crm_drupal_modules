@@ -154,6 +154,8 @@ dependencies[] = views_ui
 
 
 ; tb_megamenu
+dependencies[] = fontawesome
+dependencies[] = chosen 
 dependencies[] = tb_megamenu
 
 ; HTML Mail

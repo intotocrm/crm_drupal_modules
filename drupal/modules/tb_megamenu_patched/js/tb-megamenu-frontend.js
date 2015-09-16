@@ -9,7 +9,7 @@ Drupal.TBMegaMenu = Drupal.TBMegaMenu || {};
         $(document).ready(function($){
           var mm_duration = 0;
           if ($('.navbar-toggle').css("display") == "none" ) {
-            $('.nav-child-fixed-width').parent().css('position', 'static');
+            //$('.nav-child-fixed-width').parent().css('position', 'static');
             var mm_timeout = mm_duration ? 100 + mm_duration : 500;
             $('.nav > li, li.mega').hover(function(event) {
               var $this = $(this);
