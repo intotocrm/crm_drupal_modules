@@ -1,0 +1,16 @@
+name = ORMIL blocks
+description = ORMIL blocks
+core = 7.x
+package = ormil
+version = 7.x-1.0
+dependencies[] = fe_block
+dependencies[] = menu
+dependencies[] = search
+dependencies[] = tb_megamenu
+dependencies[] = views
+features[fe_block_settings][] = menu-features
+features[fe_block_settings][] = search-form
+features[fe_block_settings][] = tb_megamenu-main-menu
+features[fe_block_settings][] = views-whats_new-block
+features[features_api][] = api:2
+project path = /home/roi/sites/dev/0035-ORMIL_DEV/git/crm_drupal_modules/drupal/customers/ormil

@@ -11,4 +11,6 @@ core = "7.x"
 ; Administration
 dependencies[] = ormil
 dependencies[] = ormil_contact_types
+dependencies[] = ormil_menus
+dependencies[] = ormil_blocks
 

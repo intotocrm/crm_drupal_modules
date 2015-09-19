@@ -1,0 +1,17 @@
+name = ormil menus
+description = ormil menus
+core = 7.x
+package = ormil
+version = 7.x-1.0
+dependencies[] = features
+dependencies[] = menu
+features[features_api][] = api:2
+features[menu_custom][] = features
+features[menu_custom][] = main-menu
+features[menu_links][] = features_customers:report/customer
+features[menu_links][] = features_intended-parents:report/ips
+features[menu_links][] = main-menu_add:crm-core/contact/add/individual
+features[menu_links][] = main-menu_customer:crm-core/contact/add/customer
+features[menu_links][] = main-menu_home:<front>
+features[menu_links][] = main-menu_ip:crm-core/contact/add/ip
+project path = /home/roi/sites/dev/0035-ORMIL_DEV/git/crm_drupal_modules/drupal/customers/ormil
