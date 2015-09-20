@@ -27,6 +27,12 @@ function ormil_blocks_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
+       'bootstrap_dashboard_ormil' => array(
+         'region' => 'sidebar_first',
+         'status' => 1,
+         'theme' => 'bootstrap_dashboard_ormil',
+         'weight' => 0,
+       ),
       'bootstrap_dashboard' => array(
         'region' => 'sidebar_first',
         'status' => 1,
@@ -59,6 +65,12 @@ function ormil_blocks_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => -1,
       ),
+        'bootstrap_dashboard_ormil' => array(
+          'region' => 'sidebar_first',
+          'status' => 1,
+          'theme' => 'bootstrap_dashboard_ormil',
+          'weight' => -1,
+        ),
       'bootstrap_dashboard' => array(
         'region' => 'sidebar_first',
         'status' => 1,
@@ -97,6 +109,12 @@ function ormil_blocks_default_fe_block_settings() {
         'theme' => 'bootstrap_dashboard',
         'weight' => 0,
       ),
+        'bootstrap_dashboard_ormil' => array(
+          'region' => 'navigation',
+          'status' => 1,
+          'theme' => 'bootstrap_dashboard_ormil',
+          'weight' => 0,
+        ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -129,6 +147,12 @@ function ormil_blocks_default_fe_block_settings() {
         'theme' => 'bootstrap_dashboard',
         'weight' => 0,
       ),
+        'bootstrap_dashboard_ormil' => array(
+          'region' => 'sidebar_first',
+          'status' => 1,
+          'theme' => 'bootstrap_dashboard_ormil',
+          'weight' => 0,
+        ),
       'seven' => array(
         'region' => '',
         'status' => 0,
