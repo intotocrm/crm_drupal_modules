@@ -1,0 +1,11 @@
+name = ormil relations
+description = ormil crm-core relations
+core = 7.x
+package = ornil
+version = 7.x-1.0
+dependencies[] = ctools
+dependencies[] = relation
+features[ctools][] = relation:relation_type_default:1
+features[features_api][] = api:2
+features[relation_type][] = crm_member
+project path = sites/all/modules/ormil

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ormil relations feature.
+ */
+
+include_once 'ormil_relations.features.inc';
