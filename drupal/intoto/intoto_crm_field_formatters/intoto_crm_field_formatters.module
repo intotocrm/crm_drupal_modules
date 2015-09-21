@@ -18,6 +18,9 @@ function intoto_crm_field_formatters_theme() {
     'bootstrap_formatter' => array(
       'variables' => array('element' => NULL),
     ),
+    'icon_formatter' => array(
+      'variables' => array('element' => NULL),
+    ),
   );
 }
 	
@@ -39,6 +42,15 @@ function intoto_crm_field_formatters_field_formatter_info() {
 		'intoto_bootstrap_formatter' => array( //Machine name of the formatter
 			'label' => t('Bootstrap'),
 			'field types' => array('text', 'text_long', 'text_with_summary', 'datetime', 'date', 'number_decimal', 'email', 'list_text', 'list_boolean'), //This will only be available to text fields
+			'settings'	=> array( //Array of the settings we'll create
+//				'pic_size' => 'small', //give a default value for when the form is first loaded
+//				'tooltip' => 'Link to user Facebook page', //ditto
+			),
+			
+		),
+		'intoto_icon_formatter' => array( //Machine name of the formatter
+			'label' => t('Icon'),
+			'field types' => array('text', 'text_long', 'text_with_summary', 'datetime', 'date', 'number_decimal', 'email', 'list_text', 'list_boolean', "field_collection"), //This will only be available to text fields
 			'settings'	=> array( //Array of the settings we'll create
 //				'pic_size' => 'small', //give a default value for when the form is first loaded
 //				'tooltip' => 'Link to user Facebook page', //ditto
@@ -137,9 +149,7 @@ function intoto_crm_prepare_field_theme($theme, $entity_type, $entity, $field, $
 {
 	$elements = array(); // Initialize the var
 	$label_set = false;
-//	drupal_set_message("items:<pre>".print_r($items, true)."</pre>");
-//	drupal_set_message("field:<pre>".print_r($field, true)."</pre>");
-//	drupal_set_message("instance:<pre>".print_r($instance, true)."</pre>");
+	
 	foreach ($items as $delta => $item) {
 		$label = NULL;
 		//print_r($display);
@@ -152,6 +162,37 @@ function intoto_crm_prepare_field_theme($theme, $entity_type, $entity, $field, $
 					break;
 				case 'text_long':
 					$value = $item['safe_value'];
+					break;
+				case 'field_collection':
+					//load field collection by id
+					$field_collections = entity_load('field_collection_item', array($item['value']));
+					$field_collection = $field_collections [array_keys($field_collections)[0]]; //take only the first loaded collection
+
+					
+					$contact_wrapper = entity_metadata_wrapper('crm_core_contact', $entity);
+					$number_fields = $contact_wrapper
+						->field_phone[$delta]
+						->field_number
+						->value();
+					
+					$number = make_phone_number($number_fields, true);
+					$number_link = make_phone_number($number_fields, false);
+					if ($number != "")
+					{
+						$value = l($number, 'tel:'. $number_link , array('html' => TRUE, 'attributes' => array('class'=>array('callto'))));
+					}
+					
+					
+//					if (isset($field_collection->field_name) && $field_collection->field_name == 'field_phone')
+//					{
+//						//$number = theme_cck_phone_formatter_global_phone_number($field_collection->field_number['und'][0]);
+//						$number = $phone_wrapper->{"number"}->value();
+//						if ($number != "")
+//						{
+//							$value = l($number, 'tel:'. $field_collection->field_number['und'][0]['number'], array('attributes' => array('class'=>array('callto'))));
+//						}
+//						
+//					}
 					break;
 				case 'datetime':
 					$date = new DateTime($item['value']);
@@ -180,11 +221,14 @@ function intoto_crm_prepare_field_theme($theme, $entity_type, $entity, $field, $
 				$label = $instance['label'];
 				$label_set = true;
 			}
-		}			
-		$element = array('element' => $item, 'value' => $value, 'label' => $label, 'comment' => $comment, 'field' => $field, 'field_instance' => $instance, 'display' => $display);
-		$elements[$delta] = array(
-			'#markup' => theme($theme/*'label_formatter'*/, $element),
-		);
+		}
+		if ($value != NULL){
+			$element = array('element' => $item, 'value' => $value, 'label' => $label, 'comment' => $comment, 'field' => $field, 'field_instance' => $instance, 'display' => $display);
+			$elements[$delta] = array(
+				'#markup' => theme($theme/*'label_formatter'*/, $element),
+			);
+		}
+		//print "<pre>delta:$delta markup:" . $elements[$delta]['#markup'] . "</pre><br>";
 	}
 
 	return $elements;
@@ -204,6 +248,10 @@ function intoto_crm_field_formatters_field_formatter_view($entity_type, $entity,
 	{
 		return intoto_crm_prepare_field_theme('bootstrap_formatter', $entity_type, $entity, $field, $instance, $langcode, $items, $display) ;
 	}
+	if ($display['type'] == 'intoto_icon_formatter')
+	{
+		return intoto_crm_prepare_field_theme('icon_formatter', $entity_type, $entity, $field, $instance, $langcode, $items, $display) ;
+	}
 }
 			
 
@@ -216,4 +264,47 @@ function theme_label_formatter($element) {
 
 function theme_bootstrap_formatter($element) {
 	return '->>placeholder for element rendering in bootstrap_formatter theme<<-';// . $element['value'] . '<<-';//<a class="mobile-tel" href="tel:' . $element['element']['number']  . '">Call</a>';
+}
+
+function theme_icon_formatter($element) {
+	return '->>placeholder for element rendering in icon_formatter theme<<-';// . $element['value'] . '<<-';//<a class="mobile-tel" href="tel:' . $element['element']['number']  . '">Call</a>';
+}
+
+
+function make_phone_number($element, $paren) {
+  $phone = '';
+
+  // Display a global phone number with country code.
+  if (!empty($element['number']) && !empty($element['country_codes'])) {
+    // Call country default formatter if exists.
+    $custom_cc = _cck_phone_custom_cc();
+    if (isset($custom_cc[$element['country_codes']])) {
+      $function = $element['country_codes'] . '_formatter_default';
+      if (function_exists($function)) {
+        $phone = $function($element);
+      }
+    }
+
+    // Output a raw value if no custom formatter or formatter returns empty
+    // value.
+    if (empty($phone)) {
+      $cc = cck_phone_countrycodes($element['country_codes']);
+	  if ($paren){
+		  $phone = "(" . $cc['code'] . ") " . $element['number'];
+	  }else{
+		if ($element['number'][0] == '0') {
+			//peel off prefix zero (052-1234567 becomes 52-1234567)
+			$element['number'] = substr ($element['number'], 1);
+		}
+		$phone = $cc['code'] . '-' . $element['number'];
+	  }
+    }
+
+    // Extension.
+    if (!empty($element['extension'])) {
+      $phone = $phone . ($paren ? (" (". $element['extension'] . ")" ) : ("-" . $element['extension']));
+    }
+  }
+
+  return $phone;
 }

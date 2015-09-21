@@ -101,7 +101,7 @@ function template_preprocess_contact_header(&$variables)
 	$variables['title'] = $name_view["#markup"];
 	$variables['serial'] = NULL; // should be taken from another field in $contact
 	$variables['contact_id'] = isset($contact->contact_id) ? $contact->contact_id : NULL;
-        $variables['can_edit'] = contact_header_can_edit();
+	$variables['can_edit'] = contact_header_can_edit();
 	
     // get only one image per contact (index 0)
 	$images = field_get_items('crm_core_contact', $contact, 'field_image');
@@ -151,10 +151,12 @@ function intoto_contact_header_preprocess_page(&$page)
 	$contact_id = arg(2);
 	$contacts = array();
 	$page['contact_renderable'] = NULL;
-	if ($object_type == 'contact' && is_numeric($contact_id))
+	if ($object_type == 'contact' && is_numeric($contact_id)){
 		$contacts = entity_load('crm_core_contact', array($contact_id));
-	if (!$contacts)
+	}
+	if (!$contacts){
 		return;
+	}
 	$contact_ids = array_keys($contacts);
 	
 	$page['contact_renderable'] = array(
@@ -180,3 +182,50 @@ function intoto_contact_header_preprocess_page(&$page)
 		}
 	}
 }
+
+
+function intoto_contact_header_block_info() {
+	$blocks = array();
+	
+	$blocks['contact_header'] = array(
+		// The name that will appear in the block list.
+		'info' => t('Contact Header'),
+		// Default setting.
+		'cache' => DRUPAL_CACHE_PER_ROLE,
+	);
+	return $blocks;
+}
+
+function intoto_contact_header_block_view($delta = '')
+{
+	if ($delta == 'contact_header')
+	{
+		$object_type = arg(1);
+		$contact_id = arg(2);
+		$contacts = array();
+
+		if ($object_type == 'contact' && is_numeric($contact_id))
+		{
+			$contacts = entity_load('crm_core_contact', array($contact_id));
+		}
+		if (!$contacts)
+		{
+			return;
+		}
+		$contact_ids = array_keys($contacts);		$block = array();
+		$block['subject'] = t('');
+		if (user_access('access content'))
+		{
+			$render_array = array(
+							"#theme" => 'contact_header',
+							"#contact" => isset($contact_ids[0]) ? $contacts[$contact_ids[0]] : NULL,
+					);
+			$block['content'] = render ($render_array);
+		}
+		else {
+			$block['content'] = t('You are not allowed to view this');  
+		}
+		return $block;
+	}
+}
+
