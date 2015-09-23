@@ -229,3 +229,8 @@ function intoto_contact_header_block_view($delta = '')
 	}
 }
 
+function intoto_contact_header_views_api() {
+  return array(
+    'api' => 2.0,
+  );  
+}
