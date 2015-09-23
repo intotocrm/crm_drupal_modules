@@ -68,6 +68,40 @@ function intoto_display_formats_ds_layout_settings_info() {
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
+  $ds_layout->id = 'crm_core_contact|ip|one_liner';
+  $ds_layout->entity_type = 'crm_core_contact';
+  $ds_layout->bundle = 'ip';
+  $ds_layout->view_mode = 'one_liner';
+  $ds_layout->layout = 'ds_1col';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'field_image',
+        1 => 'contact_name',
+        2 => 'field_email',
+        3 => 'field_phone',
+      ),
+    ),
+    'fields' => array(
+      'field_image' => 'ds_content',
+      'contact_name' => 'ds_content',
+      'field_email' => 'ds_content',
+      'field_phone' => 'ds_content',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
+  );
+  $export['crm_core_contact|ip|one_liner'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
   $ds_layout->id = 'crm_core_contact|ip|small_block';
   $ds_layout->entity_type = 'crm_core_contact';
   $ds_layout->bundle = 'ip';
@@ -113,6 +147,16 @@ function intoto_display_formats_ds_view_modes_info() {
     'crm_core_contact' => 'crm_core_contact',
   );
   $export['contact_details'] = $ds_view_mode;
+
+  $ds_view_mode = new stdClass();
+  $ds_view_mode->api_version = 1;
+  $ds_view_mode->view_mode = 'one_liner';
+  $ds_view_mode->label = 'one liner';
+  $ds_view_mode->entities = array(
+    'crm_core_contact' => 'crm_core_contact',
+    'ticker' => 'ticker',
+  );
+  $export['one_liner'] = $ds_view_mode;
 
   $ds_view_mode = new stdClass();
   $ds_view_mode->api_version = 1;
