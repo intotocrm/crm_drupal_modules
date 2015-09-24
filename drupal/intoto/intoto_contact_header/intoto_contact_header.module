@@ -93,6 +93,10 @@ function template_preprocess_contact_header(&$variables)
 				)
 			);
     }
+	else
+	{
+		$name_view = array("#markup" => t('unnamed'));
+	}
 	$entity_info = entity_get_info("crm_core_contact");
 	$variables['contact'] = $contact;
 	$variables['contact_type'] = isset($contact->type) ? $contact->type: NULL;
