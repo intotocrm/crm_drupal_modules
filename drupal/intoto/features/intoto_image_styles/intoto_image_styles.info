@@ -5,5 +5,6 @@ package = intoto
 version = 7.x-1.0
 dependencies[] = image
 features[features_api][] = api:2
+features[image][] = thumb_tiny
 features[image][] = thumbnail_square
 project path = sites/all/modules/intoto/features
