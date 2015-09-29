@@ -11,6 +11,7 @@ function tammuz_menu_alter(&$items)
 	unset($items['crm-core/contact/%crm_core_contact/view']);
 //	unset($items['crm-core/contact/%crm_core_contact/edit']);
 	$items['crm-core/contact/%crm_core_contact/edit']['type'] = MENU_CALLBACK;
+	unset ($items['crm-core/contact/%crm_core_contact/relationships/add']);
 	
 	
 //	$items['crm-core/contact/%crm_core_contact/view'] = $items['crm-core/contact/%crm_core_contact/details'];

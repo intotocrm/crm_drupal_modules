@@ -12,6 +12,38 @@ function tammuz_blocks_default_fe_block_settings() {
 
   $export['version'] = '2.0';
 
+  $export['intoto_contact_header-contact_header'] = array(
+    'cache' => 1,
+    'custom' => 0,
+    'delta' => 'contact_header',
+    'module' => 'intoto_contact_header',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'bootstrap_dashboard_tammuz' => array(
+        'region' => 'contactheader',
+        'status' => 1,
+        'theme' => 'bootstrap_dashboard_tammuz',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
   $export['menu-features'] = array(
     'cache' => -1,
     'custom' => 0,
@@ -27,18 +59,12 @@ function tammuz_blocks_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
-      'bootstrap_dashboard' => array(
-        'region' => 'sidebar_first',
-        'status' => 1,
-        'theme' => 'bootstrap_dashboard',
-        'weight' => 0,
-      ),
       'bootstrap_dashboard_tammuz' => array(
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'bootstrap_dashboard_tammuz',
         'weight' => 0,
-	),
+      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -63,12 +89,6 @@ function tammuz_blocks_default_fe_block_settings() {
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'bartik',
-        'weight' => -1,
-      ),
-      'bootstrap_dashboard' => array(
-        'region' => 'sidebar_first',
-        'status' => 1,
-        'theme' => 'bootstrap_dashboard',
         'weight' => -1,
       ),
       'bootstrap_dashboard_tammuz' => array(
@@ -103,18 +123,12 @@ function tammuz_blocks_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
-      'bootstrap_dashboard' => array(
+      'bootstrap_dashboard_tammuz' => array(
         'region' => 'navigation',
         'status' => 1,
-        'theme' => 'bootstrap_dashboard',
+        'theme' => 'bootstrap_dashboard_tammuz',
         'weight' => 0,
       ),
-     'bootstrap_dashboard_tammuz' => array(
-       'region' => 'navigation',
-       'status' => 1,
-       'theme' => 'bootstrap_dashboard_tammuz',
-       'weight' => 0,
-     ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -141,19 +155,13 @@ function tammuz_blocks_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
-      'bootstrap_dashboard' => array(
-        'region' => 'sidebar_first',
-        'status' => 1,
-        'theme' => 'bootstrap_dashboard',
-        'weight' => -18,
-      ),
       'bootstrap_dashboard_tammuz' => array(
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'bootstrap_dashboard_tammuz',
         'weight' => -18,
       ),
-     'seven' => array(
+      'seven' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'seven',
