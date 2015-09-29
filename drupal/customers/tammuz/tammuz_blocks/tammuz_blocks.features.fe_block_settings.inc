@@ -33,6 +33,12 @@ function tammuz_blocks_default_fe_block_settings() {
         'theme' => 'bootstrap_dashboard',
         'weight' => 0,
       ),
+      'bootstrap_dashboard_tammuz' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'bootstrap_dashboard_tammuz',
+        'weight' => 0,
+	),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -63,6 +69,12 @@ function tammuz_blocks_default_fe_block_settings() {
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'bootstrap_dashboard',
+        'weight' => -1,
+      ),
+      'bootstrap_dashboard_tammuz' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'bootstrap_dashboard_tammuz',
         'weight' => -1,
       ),
       'seven' => array(
@@ -97,6 +109,12 @@ function tammuz_blocks_default_fe_block_settings() {
         'theme' => 'bootstrap_dashboard',
         'weight' => 0,
       ),
+     'bootstrap_dashboard_tammuz' => array(
+       'region' => 'navigation',
+       'status' => 1,
+       'theme' => 'bootstrap_dashboard_tammuz',
+       'weight' => 0,
+     ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -129,7 +147,13 @@ function tammuz_blocks_default_fe_block_settings() {
         'theme' => 'bootstrap_dashboard',
         'weight' => -18,
       ),
-      'seven' => array(
+      'bootstrap_dashboard_tammuz' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'bootstrap_dashboard_tammuz',
+        'weight' => -18,
+      ),
+     'seven' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'seven',
