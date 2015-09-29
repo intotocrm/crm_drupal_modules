@@ -8,7 +8,7 @@ function tammuz_menu_alter(&$items)
 {
 	//print("in intoto_crm_menu_alter\n:".print_r(array_keys($items), true). "\n");
 	//unset($items['crm-core/contact/%crm_core_contact']);
-	//unset($items['crm-core/contact/%crm_core_contact/view']);
+	unset($items['crm-core/contact/%crm_core_contact/view']);
 //	unset($items['crm-core/contact/%crm_core_contact/edit']);
 	$items['crm-core/contact/%crm_core_contact/edit']['type'] = MENU_CALLBACK;
 	
@@ -21,6 +21,7 @@ function tammuz_menu_alter(&$items)
 
 function tammuz_views_default_views_alter(&$views)
 {
+
 	$activities_view =& $views['crm_activities_by_contact'];
 	$activities_view -> disabled = true;
 	$relationships_view =& $views['crm_relationships_by_contact'];
