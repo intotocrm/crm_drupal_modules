@@ -1,0 +1,7 @@
+name = Contact Header
+description = Implement a header for contact page
+core = 7.x
+
+dependencies[] = crm_core_contact
+dependencies[] = crm_core_relationship_ui
+dependencies[] = entity_token

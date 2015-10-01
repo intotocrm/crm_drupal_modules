@@ -15,4 +15,4 @@ dependencies[] = ormil_relations
 dependencies[] = ormil_menus
 dependencies[] = ormil_blocks
 dependencies[] = ormil_activities
-
+dependencies[] = ormil_contact_header

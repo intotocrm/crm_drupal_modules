@@ -12,11 +12,11 @@ function ormil_blocks_default_fe_block_settings() {
 
   $export['version'] = '2.0';
 
-  $export['intoto_contact_header-contact_header'] = array(
+  $export['ormil_contact_header-contact_header'] = array(
     'cache' => 1,
     'custom' => 0,
     'delta' => 'contact_header',
-    'module' => 'intoto_contact_header',
+    'module' => 'ormil_contact_header',
     'node_types' => array(),
     'pages' => '',
     'roles' => array(),

@@ -1,0 +1,214 @@
+<?php
+//
+//function ormil_contact_header_preprocess(&$variables, $hook) {
+//  if (isset($variables['elements']['#entity_type'])) { // or maybe check for $hook name
+//	$function = __FUNCTION__ . '_' . $variables['elements']['#entity_type'];
+//	if (function_exists($function)) {
+//	  $function($variables, $hook);
+//	}
+//  }
+//}
+//
+//function ormil_contact_header_preprocess_crm_core_contact(&$variables, $hook) {
+////	print " in hooke_preprocess crm_core_contact ";
+////	drupal_add_region_content('contactheader', '^^^^^^^^');	
+//}
+//
+////function ormil_contact_header_entity_prepare_view($entities, $type, $langcode){
+////	print " in hook_entity_prepare_view ";
+////}
+//
+//function ormil_contact_header_entity_view($entity, $type, $view_mode, $langcode){
+//	//print " hook_entity_view ";
+//	
+//}
+/**
+* Implements hook_theme().
+*/
+function ormil_contact_header_theme($existing, $type, $theme, $path) {
+	$theme = array();
+
+//example:
+//	$theme['forums'] = array(
+//		'template' => 'forums',
+//		'variables' => array('forums' => NULL, 'topics' => NULL, 'parents' => NULL, 'tid' => NULL, 'sortby' => NULL, 'forum_per_page' => NULL),
+//	);
+
+	$theme['contact_header'] = array(
+		'template' => 'contact_header',
+		'variables' => array(
+							 'contact' => NULL, 
+							),
+	);
+	return $theme;
+}
+
+function get_default_bundle_image($bundle)
+{
+	$image_filename = "default_image_$bundle.jpg";
+	///sites/default/files/styles/thumbnail_square/public/profile_images/default_images/' . $image_filename . '
+	$file_uri = file_create_url(file_build_uri("pictures/$image_filename"));
+	return array(
+		"#markup" => '<img src="' . $file_uri . '" width="100" height="100"/>'
+	);
+//	
+//	return 
+//	array
+//	(
+//		'#theme' => 'image_formatter',
+//		'#item' => array
+//			(
+//				'filename' => "default_images/$image_filename",
+//				'uri' => "public://profile_images/default_images/$image_filename",
+//				'filemime' => 'image/jpeg',
+//				'alt' => "",
+//				'title' => "",
+//	//            'width' => 458,
+//	//            'height' => 300,
+//			),
+//
+//		'#image_style' => 'thumbnail_square',
+//		'#path' => '',
+//		'#access' => 1,
+//	);
+}
+
+
+function contact_header_can_edit()
+{
+    return user_access('edit any crm_core_contact entity');
+}
+
+function ormil_contact_header_preprocess_entity(&$variables, $hook)
+{
+//      watchdog("bootstrap_dashboard", "preprocess_entity". '_' . $variables['entity_type']);
+
+        $function = __FUNCTION__ . '_' . $variables['entity_type'];
+        if (function_exists ($function)) {
+                $function($variables, $hook);
+        }
+}
+
+function ormil_contact_header_preprocess_entity_crm_core_contact(&$variables, $hook)
+{
+	$contact = $variables['crm_core_contact'];
+
+	//contact's name
+	
+	$name = field_get_items('crm_core_contact', $contact, 'contact_name');
+
+	$name_view = "";
+	if(!empty($name)) {
+		$name_view = field_view_value('crm_core_contact', $contact, 'contact_name', $name[0], array(
+					'type' => 'Name',
+					'settings' => array(),
+				)
+			);
+    }
+	else
+	{
+		$name_view = array("#markup" => t('unnamed'));
+	}
+	$entity_info = entity_get_info("crm_core_contact");
+	$variables['contact'] = $contact;
+	$variables['contact_type'] = isset($contact->type) ? $contact->type: NULL;
+//	$variables['contact_type_label'] = (isset($contact->entityInfo['bundles'][$contact->type]['label'])) ? ($contact->entityInfo['bundles'][$contact->type]['label']) : "NULL";
+	$variables['contact_type_label'] = isset($entity_info['bundles'][$contact->type]['label']) ? $entity_info['bundles'][$contact->type]['label'] : "NULL";
+	$variables['title'] = $name_view["#markup"];
+	$variables['serial'] = NULL; // should be taken from another field in $contact
+	$variables['contact_id'] = isset($contact->contact_id) ? $contact->contact_id : NULL;
+	$variables['can_edit'] = contact_header_can_edit();
+	
+    // get only one image per contact (index 0)
+	$images = field_get_items('crm_core_contact', $contact, 'field_image');
+	$image = "";
+	if(!empty($images)) {
+		$image = field_view_value('crm_core_contact', $contact, 'field_image', $images[0], array(
+					'type' => 'image',
+					'settings' => array('image_style' => 'thumbnail_square') // could be 'thumbnail'
+				)
+			);
+    }else{
+		$image = get_default_bundle_image($contact->type);
+	}
+    $variables['image'] = $image;
+	$variables['photos'] = array($image);
+
+
+	//use this methods to bring alerts (use the alerts view, not the contacts view):
+	$my_view = views_get_view('crm_core_contacts');
+	if ( is_object($my_view) ) { 
+	//update the filters
+
+
+
+	//	$contact_id = $entity->contact_id;
+
+	//	$filter_source_contact_id = $my_view->get_item($my_display_name, 'filter', 'contact_id');
+	//	$filter_source_contact_id['value']['value'] = $contact_id;
+	//	$my_view->set_item($my_display_name , 'filter', 'contact_id', $filter_source_contact_id);	
+
+		$my_view->set_display('page');
+		$my_view->pre_execute();
+		$renderable_view = $my_view->render('page');
+		$variables['contacts'] = render($renderable_view);
+	}
+}
+
+function link_check_access($link)
+{
+    return contact_header_can_edit() ? $link : "#";
+}
+
+
+
+function ormil_contact_header_block_info() {
+	$blocks = array();
+	
+	$blocks['contact_header'] = array(
+		// The name that will appear in the block list.
+		'info' => t('Contact Header'),
+		// Default setting.
+		'cache' => DRUPAL_CACHE_PER_ROLE,
+	);
+	return $blocks;
+}
+
+function ormil_contact_header_block_view($delta = '')
+{
+	if ($delta == 'contact_header')
+	{
+		$object_type = arg(1);
+		$contact_id = arg(2);
+		$contacts = array();
+
+		if ($object_type == 'contact' && is_numeric($contact_id))
+		{
+			$contacts = entity_load('crm_core_contact', array($contact_id));
+		}
+		if (!$contacts)
+		{
+			return;
+		}
+		$contact_ids = array_keys($contacts);		$block = array();
+		$block['subject'] = t('');
+		if (user_access('access content'))
+		{
+			$render_array = array(
+							"#theme" => 'contact_header',
+							"#contact" => isset($contact_ids[0]) ? $contacts[$contact_ids[0]] : NULL,
+					);
+			$block['content'] = render ($render_array);
+		}
+		else {
+			$block['content'] = t('You are not allowed to view this');  
+		}
+		return $block;
+	}
+}
+
+function ormil_contact_header_views_api() {
+  return array(
+    'api' => 2.0,
+  );  
+}
