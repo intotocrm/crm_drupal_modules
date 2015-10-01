@@ -12,44 +12,6 @@ function ormil_blocks_default_fe_block_settings() {
 
   $export['version'] = '2.0';
 
-  $export['ormil_contact_header-contact_header'] = array(
-    'cache' => 1,
-    'custom' => 0,
-    'delta' => 'contact_header',
-    'module' => 'ormil_contact_header',
-    'node_types' => array(),
-    'pages' => '',
-    'roles' => array(),
-    'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
-      'bootstrap_dashboard' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bootstrap_dashboard',
-        'weight' => 0,
-      ),
-      'bootstrap_dashboard_ormil' => array(
-        'region' => 'contactheader',
-        'status' => 1,
-        'theme' => 'bootstrap_dashboard_ormil',
-        'weight' => -21,
-      ),
-      'seven' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'seven',
-        'weight' => 0,
-      ),
-    ),
-    'title' => '',
-    'visibility' => 0,
-  );
-
   $export['menu-features'] = array(
     'cache' => -1,
     'custom' => 0,
@@ -63,12 +25,6 @@ function ormil_blocks_default_fe_block_settings() {
         'region' => '',
         'status' => 0,
         'theme' => 'bartik',
-        'weight' => 0,
-      ),
-      'bootstrap_dashboard' => array(
-        'region' => 'sidebar_first',
-        'status' => 1,
-        'theme' => 'bootstrap_dashboard',
         'weight' => 0,
       ),
       'bootstrap_dashboard_ormil' => array(
@@ -103,12 +59,6 @@ function ormil_blocks_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => -1,
       ),
-      'bootstrap_dashboard' => array(
-        'region' => 'sidebar_first',
-        'status' => 1,
-        'theme' => 'bootstrap_dashboard',
-        'weight' => -1,
-      ),
       'bootstrap_dashboard_ormil' => array(
         'region' => 'sidebar_first',
         'status' => 1,
@@ -139,12 +89,6 @@ function ormil_blocks_default_fe_block_settings() {
         'region' => '',
         'status' => 0,
         'theme' => 'bartik',
-        'weight' => 0,
-      ),
-      'bootstrap_dashboard' => array(
-        'region' => 'navigation',
-        'status' => 1,
-        'theme' => 'bootstrap_dashboard',
         'weight' => 0,
       ),
       'bootstrap_dashboard_ormil' => array(
@@ -179,17 +123,11 @@ function ormil_blocks_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
-      'bootstrap_dashboard' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bootstrap_dashboard',
-        'weight' => 0,
-      ),
       'bootstrap_dashboard_ormil' => array(
         'region' => 'contactheader',
         'status' => 1,
         'theme' => 'bootstrap_dashboard_ormil',
-        'weight' => -20,
+        'weight' => -22,
       ),
       'seven' => array(
         'region' => '',
@@ -199,6 +137,38 @@ function ormil_blocks_default_fe_block_settings() {
       ),
     ),
     'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['views-contact_header-block'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'delta' => 'contact_header-block',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'bootstrap_dashboard_ormil' => array(
+        'region' => 'contactheader',
+        'status' => 1,
+        'theme' => 'bootstrap_dashboard_ormil',
+        'weight' => -24,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '<none>',
     'visibility' => 0,
   );
 
@@ -215,12 +185,6 @@ function ormil_blocks_default_fe_block_settings() {
         'region' => '',
         'status' => 0,
         'theme' => 'bartik',
-        'weight' => 0,
-      ),
-      'bootstrap_dashboard' => array(
-        'region' => 'sidebar_first',
-        'status' => 1,
-        'theme' => 'bootstrap_dashboard',
         'weight' => 0,
       ),
       'bootstrap_dashboard_ormil' => array(

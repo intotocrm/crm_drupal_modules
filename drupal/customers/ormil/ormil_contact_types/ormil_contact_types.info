@@ -67,6 +67,7 @@ features[field_instance][] = crm_core_contact-customer-field_bedford
 features[field_instance][] = crm_core_contact-customer-field_campaign
 features[field_instance][] = crm_core_contact-customer-field_caption
 features[field_instance][] = crm_core_contact-customer-field_customer_type
+features[field_instance][] = crm_core_contact-customer-field_image
 features[field_instance][] = crm_core_contact-customer-field_journey
 features[field_instance][] = crm_core_contact-customer-field_managing_country
 features[field_instance][] = crm_core_contact-customer-field_mhb

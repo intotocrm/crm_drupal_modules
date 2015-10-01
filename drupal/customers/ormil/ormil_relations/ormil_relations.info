@@ -1,7 +1,7 @@
 name = ormil relations
 description = ormil crm-core relations
 core = 7.x
-package = ornil
+package = ormil
 version = 7.x-1.0
 dependencies[] = ctools
 dependencies[] = relation
