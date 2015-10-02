@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * tammuz_entity_types.relation_type_default.inc
+ * tammuz_relationships.relation_type_default.inc
  */
 
 /**
  * Implements hook_relation_default_relation_types().
  */
-function tammuz_entity_types_relation_default_relation_types() {
+function tammuz_relationships_relation_default_relation_types() {
   $export = array();
 
   $relation_type = new stdClass();
@@ -32,41 +32,21 @@ function tammuz_entity_types_relation_default_relation_types() {
   $relation_type = new stdClass();
   $relation_type->disabled = FALSE; /* Edit this to true to make a default relation_type disabled initially */
   $relation_type->api_version = 1;
-  $relation_type->relation_type = 'crm_employee';
-  $relation_type->label = 'works for';
+  $relation_type->relation_type = 'employee';
+  $relation_type->label = 'employee';
   $relation_type->reverse_label = 'employs';
   $relation_type->directional = 1;
   $relation_type->transitive = 0;
-  $relation_type->r_unique = 1;
+  $relation_type->r_unique = 0;
   $relation_type->min_arity = 2;
   $relation_type->max_arity = 2;
   $relation_type->source_bundles = array(
     0 => 'crm_core_contact:doctor',
   );
   $relation_type->target_bundles = array(
-    0 => 'crm_core_contact:organization',
+    0 => 'crm_core_contact:clinic',
   );
-  $export['crm_employee'] = $relation_type;
-
-  $relation_type = new stdClass();
-  $relation_type->disabled = FALSE; /* Edit this to true to make a default relation_type disabled initially */
-  $relation_type->api_version = 1;
-  $relation_type->relation_type = 'crm_member';
-  $relation_type->label = 'is a member of';
-  $relation_type->reverse_label = 'has member';
-  $relation_type->directional = 1;
-  $relation_type->transitive = 0;
-  $relation_type->r_unique = 1;
-  $relation_type->min_arity = 2;
-  $relation_type->max_arity = 2;
-  $relation_type->source_bundles = array(
-    0 => 'crm_core_contact:ip',
-    1 => 'crm_core_contact:child',
-  );
-  $relation_type->target_bundles = array(
-    0 => 'crm_core_contact:customer',
-  );
-  $export['crm_member'] = $relation_type;
+  $export['employee'] = $relation_type;
 
   $relation_type = new stdClass();
   $relation_type->disabled = FALSE; /* Edit this to true to make a default relation_type disabled initially */
@@ -93,6 +73,26 @@ function tammuz_entity_types_relation_default_relation_types() {
     3 => 'crm_core_contact:sperm_specimen',
   );
   $export['genetic_parent_of'] = $relation_type;
+
+  $relation_type = new stdClass();
+  $relation_type->disabled = FALSE; /* Edit this to true to make a default relation_type disabled initially */
+  $relation_type->api_version = 1;
+  $relation_type->relation_type = 'member';
+  $relation_type->label = 'member';
+  $relation_type->reverse_label = 'member';
+  $relation_type->directional = 1;
+  $relation_type->transitive = 0;
+  $relation_type->r_unique = 0;
+  $relation_type->min_arity = 2;
+  $relation_type->max_arity = 2;
+  $relation_type->source_bundles = array(
+    0 => 'crm_core_contact:child',
+    1 => 'crm_core_contact:ip',
+  );
+  $relation_type->target_bundles = array(
+    0 => 'crm_core_contact:customer',
+  );
+  $export['member'] = $relation_type;
 
   $relation_type = new stdClass();
   $relation_type->disabled = FALSE; /* Edit this to true to make a default relation_type disabled initially */
