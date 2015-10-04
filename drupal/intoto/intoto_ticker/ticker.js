@@ -5,8 +5,9 @@
  */
 
 (function($) {
-    Drupal.behaviors.myBehavior = {
+    Drupal.behaviors.tooltips_behavior = {
       attach: function (context, settings) {
+
 //	$('.dont_show_link').click (function(){
 //	    alert("OK");
 //	});	
