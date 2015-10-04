@@ -28,6 +28,7 @@ features[ctools][] = ds:ds:1
 features[ctools][] = field_group:field_group:1
 features[ds_layout_settings][] = crm_core_contact|customer|default
 features[ds_layout_settings][] = crm_core_contact|customer|header
+features[ds_layout_settings][] = crm_core_contact|ip|header
 features[ds_view_modes][] = header
 features[features_api][] = api:2
 features[field_base][] = contact_name

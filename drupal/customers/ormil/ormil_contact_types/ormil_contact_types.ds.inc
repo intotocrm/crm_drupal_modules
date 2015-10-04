@@ -73,16 +73,16 @@ function ormil_contact_types_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'field_image',
-        1 => 'field_caption',
+        0 => 'contact_name',
+        1 => 'field_image',
         2 => 'field_status',
         3 => 'field_sales_category',
         4 => 'field_patient_status',
       ),
     ),
     'fields' => array(
+      'contact_name' => 'ds_content',
       'field_image' => 'ds_content',
-      'field_caption' => 'ds_content',
       'field_status' => 'ds_content',
       'field_sales_category' => 'ds_content',
       'field_patient_status' => 'ds_content',
@@ -98,6 +98,36 @@ function ormil_contact_types_ds_layout_settings_info() {
     'layout_link_custom' => '',
   );
   $export['crm_core_contact|customer|header'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'crm_core_contact|ip|header';
+  $ds_layout->entity_type = 'crm_core_contact';
+  $ds_layout->bundle = 'ip';
+  $ds_layout->view_mode = 'header';
+  $ds_layout->layout = 'ds_1col';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'field_image',
+        1 => 'contact_name',
+      ),
+    ),
+    'fields' => array(
+      'field_image' => 'ds_content',
+      'contact_name' => 'ds_content',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
+  );
+  $export['crm_core_contact|ip|header'] = $ds_layout;
 
   return $export;
 }
