@@ -6,7 +6,7 @@ function local_crm_core_relation_entity_ui_get_form_wrapper($contact, $type, $re
 }
 
 
-function tammuz_menu()
+function ormil_menu()
 {
 	$items = array();    
 	$items['crm-core/contact/%crm_core_contact/household/add'] = array(
@@ -52,5 +52,13 @@ function ormil_menu_alter(&$items)
 //	$items['crm-core/contact/%crm_core_contact/view'] = $items['crm-core/contact/%crm_core_contact/details'];
 //	$items['crm-core/contact/%crm_core_contact/view']['type'] = MENU_CALLBACK;
 //	$items['crm-core/contact/%crm_core_contact/details']['type'] = MENU_DEFAULT_LOCAL_TASK;
+}
+
+function ormil_admin_paths_alter(&$paths) {
+    $paths['crm-core/contact/*/household/add'] = TRUE;
+    $paths['crm-core/contact/*/household_member/add'] = TRUE;
+    $paths['crm-core/contact/*/activity/add'] = TRUE;
+    $paths['crm-core/contact/*/activity/add/*'] = TRUE;
+    $paths['crm-core/contact/*/edit'] = TRUE;
 }
 
