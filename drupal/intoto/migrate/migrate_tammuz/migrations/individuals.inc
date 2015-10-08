@@ -12,13 +12,15 @@
 class IndividualsMigration extends IntotoMigration {
 	public function __construct($arguments) {
 		parent::__construct($arguments);
-		//  print "creating MigrateIndividual for type $bundle<br>\n";
+		$this->debug(format_string("creating MigrateIndividual for type !bundle\n", ["!bundle"=>$this->bundle]));
 		$this->description = t('Import ' . $this->bundle . ' from CSV file.');
 
 		$this->destination = new MigrateDestinationCRMCoreContact($this->bundle);
 	}
+	
 	public function AddFieldMappings()
 	{
+//IP_id,customer_id,,name_first,name_middle_he,name_last,name_first_en,name_middle_en,name_last_en,gender,ID,Passport_number,DoB,Address,email,phone,phone_additional,profession,has_2_languages,ignore
 
 		$this->addFieldMapping('field_email', 'email')
 		  ->defaultValue(NULL)
@@ -76,20 +78,22 @@ class IndividualsMigration extends IntotoMigration {
 		return $columns;
 	}
 	
-	public function translateDate($date_string)
+	public function translateDate($date_string, $format="Y/m/d")
 	{
 		
 //		$date = date_parse_from_format("Y/m/d", trim($date_string));
 //		$timezone = new DateTimeZone('UTC');
-		$date = DateTime::createFromFormat("Y/m/d", trim($date_string));
+		$date_less_spaces = trim(preg_replace('!\s+!', '', $date_string));		
+		$date = DateTime::createFromFormat($format, $date_less_spaces);
 		$errors = DateTime::getLastErrors();
 		if ($errors["warning_count"] > 0 || $errors['error_count'] > 0)
 		{
+//			$this->error("date error for date($date_less_spaces) format ($format):" . print_r($errors, true));
 			return false;
 		}
 
-		$new_representation = $date->format("Y-m-d 00:00:00 +0000");
-		print "date $date_string translated to $new_representation\n";
+		$new_representation = $date->format("Y-m-d");
+//		$this->debug("date $date_string translated to $new_representation");
 		return $new_representation;
 	}
 
@@ -142,7 +146,7 @@ class IndividualsMigration extends IntotoMigration {
 			if(! filter_var($email, FILTER_VALIDATE_EMAIL))
 		{
 			$msg = "bad email $email";
-			$this->saveMessage($msg);
+			$this->message($msg);
 			return NULL;
 		}
 		return $email;

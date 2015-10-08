@@ -11,7 +11,16 @@
  * your migration classes to be recognized by the Migrate module.
  */
 
-
+function migrate_tammuz_key($key_name, $key_description)
+{
+	return array(
+	$key_name => array('type' => 'varchar',
+		'length' => 255,
+		'not null' => TRUE,
+		'description' => $key_description,
+		),
+	);
+}
 
 function migrate_tammuz_migrate_api()
 {
@@ -26,15 +35,12 @@ function migrate_tammuz_migrate_api()
 //			'description' => "person's name",
 //		)
 //	);
+	
+	
+	$ip_keys = migrate_tammuz_key("IP_id", "persons name together with customer ID and A/B");
+	$customer_keys = migrate_tammuz_key("customer_id", "Customer number in Tammuz");
   
-	$individual_key = array(
-	'id' => array('type' => 'varchar',
-		'length' => 255,
-		'not null' => TRUE,
-		'description' => "donor's unique id",
-	),
-	);
-
+	$individual_key = migrate_tammuz_key('id', "donor's unique id");
 
 	$migrate_individual = array(
 		'class_name' => 'IndividualsMigration',
@@ -49,18 +55,8 @@ function migrate_tammuz_migrate_api()
 		'keys' => $individual_key,
 		);
 	
-	$migrate_im = array(
-		'class_name' => 'InstantMessagingMigration',
-		'ini_file' => 'porting.ini',
-		'keys' => $individual_key,
-		);
+	
 
-  
-	$migrate_phone_field_collection = array(
-		'class_name' => 'PhoneMigration',
-		'ini_file' => 'porting.ini',
-		'keys' => $individual_key,
-		);
 
 
 	$api = array(
@@ -72,34 +68,44 @@ function migrate_tammuz_migrate_api()
 			'egg_donor' => array(
 				'title' => t('Egg Donors-related Migrations'),
 			),
+			'surrogate' => array(
+				'title' => t('Surrgate-related Migrations'),
+			),
+			'customer' => array(
+				'title' => t('Customer(household)-related Migrations'),
+			),
 	),
 		
 		'migrations' => array(
 
 			//IP-related migrations (IP fields and all the field-collections that are related to IP)
 			'ip' =>			array (
-//								'keys' => $ip_keys,
+								'keys' => $ip_keys,
 								'group_name' => 'ip',
-							)
-							+ $migrate_individual,
+								'class_name' => 'IpsMigration',
+								'ini_file' => 'porting.ini',
+							),
+			
 			'ip_im' => array (
-//								'keys' => $ip_keys,
+								'keys' => $ip_keys,
 								'group_name' => 'ip',
-							)
-							+ $migrate_im,  
-
+								'class_name' => 'InstantMessagingMigration',
+								'ini_file' => 'porting.ini',
+							),
 
 			'ip_address' => array (
-//									'keys' => $ip_keys,
+									'keys' => $ip_keys,
 									'group_name' => 'ip',
-									)
-									+ $migrate_address_field_collection,	  
+									'class_name' => 'AddressesMigration',
+									'ini_file' => 'porting.ini',
+									),
 
 			'ip_phone' => array (
-//									'keys' => $ip_keys,
+									'keys' => $ip_keys,
 									'group_name' => 'ip',
-									)
-									+ $migrate_phone_field_collection,
+									'class_name' => 'PhoneMigration',
+									'ini_file' => 'porting.ini',
+									),
 
 			//egg_donor-related migrations (egg donor's fields and all the field-collections related to egg donor)
 			'egg_donor' =>	array (
@@ -107,11 +113,43 @@ function migrate_tammuz_migrate_api()
 							)
 							+ $migrate_individual,
 
-			'egg_donor_address' => array (
+			'egg_donor_address' => [
 										'group_name' => 'egg_donor',
-									)
+									]
 									+ $migrate_address_field_collection,	  
 
+			//SM:
+			'surrogate' =>	array(
+								'group_name' => 'surrogate',
+//								'bundle' => 'surrogate',  //commented out: inherently understood from group name
+//								'dependency' => [],       //commented out: inherently understood from groupname which is == to machine name
+								'class_name' => 'SurrogatesMigration',
+								'ini_file' => 'porting.ini',
+//								'ini_section' => 'surrogate',  //commented out; inherently understood from groupname
+								'keys' => migrate_tammuz_key('surrogate_number', "SM ID"),
+							),
+			
+			
+			//CUSTOMER
+			'customer' =>	array (
+								'keys' => $customer_keys,
+								'group_name' => 'customer',
+								'class_name' => 'CustomersMigration',
+								'ini_file' => 'porting.ini',
+							),
+			
+			'crm_member' =>	array (
+								'group_name' => 'ip',
+								'class_name' => 'RelationsMigration',
+								'ini_file' => 'porting.ini',
+								'depend' => array("ip", "customer"),
+								'src_migration' => "ip",  //this is good for internal mapping that should be used while creating new relations
+								'dst_migration' => "customer",
+								'src_bundle' => "ip",
+								'dst_bundle' => "customer",
+								'keys' => $ip_keys, //this fits because the customer has 1-to-many relation to IPs
+							),
+			
 
 		),
 	);
