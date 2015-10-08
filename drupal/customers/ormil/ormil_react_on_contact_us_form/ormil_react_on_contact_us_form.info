@@ -1,0 +1,13 @@
+name = ORMIL React on Contact Us Form
+description = ORMIL add customer and ip contacts upon "contact us" form submit
+core = 7.x
+package = ormil
+version = 7.x-1.0
+dependencies[] = entity
+dependencies[] = intoto_post_connector
+dependencies[] = mailsystem
+dependencies[] = mimemail
+dependencies[] = rules
+features[features_api][] = api:2
+features[rules_config][] = rules_mail_on_new_lead
+project path = sites/all/modules/ormil

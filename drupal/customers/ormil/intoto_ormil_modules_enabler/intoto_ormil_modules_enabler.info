@@ -16,3 +16,4 @@ dependencies[] = ormil_menus
 dependencies[] = ormil_blocks
 dependencies[] = ormil_activities
 dependencies[] = ormil_contact_header
+dependencies[] = ormil_react_on_contact_us_form  
