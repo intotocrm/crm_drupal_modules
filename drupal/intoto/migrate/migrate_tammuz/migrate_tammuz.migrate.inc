@@ -138,7 +138,7 @@ function migrate_tammuz_migrate_api()
 								'ini_file' => 'porting.ini',
 							),
 			
-			'crm_member' =>	array (
+			'member' =>	array (
 								'group_name' => 'ip',
 								'class_name' => 'RelationsMigration',
 								'ini_file' => 'porting.ini',
