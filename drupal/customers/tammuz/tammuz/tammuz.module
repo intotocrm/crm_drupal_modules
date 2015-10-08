@@ -62,10 +62,13 @@ function tammuz_menu_alter(&$items)
 function tammuz_views_default_views_alter(&$views)
 {
 
-	$activities_view =& $views['crm_activities_by_contact'];
-	$activities_view -> disabled = true;
-	$relationships_view =& $views['crm_relationships_by_contact'];
-	$relationships_view -> disabled = true;
+	if (isset($views['crm_activities_by_contact']){
+		$views['crm_activities_by_contact'] -> disabled = true;
+	}
+	if (isset($views['crm_relationships_by_contact'])
+	{
+		$views['crm_relationships_by_contact'] -> disabled = true;
+	}
 }
 
 /**
