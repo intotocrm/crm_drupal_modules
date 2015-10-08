@@ -104,7 +104,6 @@ dependencies[] = file_entity
 
 ; Migration
 dependencies[] = migrate
-dependencies[] = migrate_intoto
 
 ; Other
 dependencies[] = entity
