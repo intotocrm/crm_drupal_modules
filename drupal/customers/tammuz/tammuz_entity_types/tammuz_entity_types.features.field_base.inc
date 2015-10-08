@@ -342,6 +342,27 @@ Prof.',
     'type' => 'field_collection',
   );
 
+  // Exported field_base: 'field_customer_number'
+  $field_bases['field_customer_number'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_customer_number',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
   // Exported field_base: 'field_customer_origin'
   $field_bases['field_customer_origin'] = array(
     'active' => 1,
@@ -590,6 +611,27 @@ Prof.',
     'type' => 'list_text',
   );
 
+  // Exported field_base: 'field_id'
+  $field_bases['field_id'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_id',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 20,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
   // Exported field_base: 'field_image'
   $field_bases['field_image'] = array(
     'active' => 1,
@@ -768,6 +810,130 @@ Prof.',
     'type' => 'list_text',
   );
 
+  // Exported field_base: 'field_name_in_english'
+  $field_bases['field_name_in_english'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_name_in_english',
+    'indexes' => array(
+      'family' => array(
+        0 => 'family',
+      ),
+      'given' => array(
+        0 => 'given',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'name',
+    'settings' => array(
+      'allow_family_or_given' => 0,
+      'autocomplete_separator' => array(
+        'credentials' => ', ',
+        'family' => ' -',
+        'generational' => ' ',
+        'given' => ' -',
+        'middle' => ' -',
+        'title' => ' ',
+      ),
+      'autocomplete_source' => array(
+        'credentials' => array(),
+        'family' => array(),
+        'generational' => array(
+          'generational' => 0,
+        ),
+        'given' => array(),
+        'middle' => array(),
+        'title' => array(
+          'title' => 'title',
+        ),
+      ),
+      'components' => array(
+        'credentials' => 0,
+        'family' => 'family',
+        'generational' => 0,
+        'given' => 'given',
+        'middle' => 'middle',
+        'title' => 0,
+      ),
+      'generational_options' => '-- --
+Jr.
+Sr.
+I
+II
+III
+IV
+V
+VI
+VII
+VIII
+IX
+X',
+      'labels' => array(
+        'credentials' => 'Credentials',
+        'family' => 'Family',
+        'generational' => 'Generational',
+        'given' => 'Given',
+        'middle' => 'Middle name(s)',
+        'title' => 'Title',
+      ),
+      'max_length' => array(
+        'credentials' => 255,
+        'family' => 63,
+        'generational' => 15,
+        'given' => 63,
+        'middle' => 127,
+        'title' => 31,
+      ),
+      'minimum_components' => array(
+        'credentials' => 0,
+        'family' => 'family',
+        'generational' => 0,
+        'given' => 'given',
+        'middle' => 0,
+        'title' => 0,
+      ),
+      'sort_options' => array(
+        'generational' => 0,
+        'title' => 'title',
+      ),
+      'title_options' => '-- --
+Mr.
+Mrs.
+Miss
+Ms.
+Dr.
+Prof.',
+    ),
+    'translatable' => 0,
+    'type' => 'name',
+  );
+
+  // Exported field_base: 'field_nationality'
+  $field_bases['field_nationality'] = array(
+    'active' => 1,
+    'cardinality' => 5,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_nationality',
+    'indexes' => array(
+      'iso2' => array(
+        0 => 'iso2',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'countries',
+    'settings' => array(
+      'continents' => array(),
+      'countries' => array(),
+      'enabled' => 1,
+      'size' => 5,
+    ),
+    'translatable' => 0,
+    'type' => 'country',
+  );
+
   // Exported field_base: 'field_number'
   $field_bases['field_number'] = array(
     'active' => 1,
@@ -783,6 +949,27 @@ Prof.',
     ),
     'translatable' => 0,
     'type' => 'phone_number',
+  );
+
+  // Exported field_base: 'field_passport_number'
+  $field_bases['field_passport_number'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_passport_number',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
   );
 
   // Exported field_base: 'field_phone'
@@ -805,6 +992,27 @@ Prof.',
     ),
     'translatable' => 0,
     'type' => 'field_collection',
+  );
+
+  // Exported field_base: 'field_profession'
+  $field_bases['field_profession'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_profession',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
   );
 
   // Exported field_base: 'field_spoken_languages'
@@ -871,29 +1079,25 @@ Prof.',
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_try1'
-  $field_bases['field_try1'] = array(
+  // Exported field_base: 'field_surrogate_number'
+  $field_bases['field_surrogate_number'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_try1',
+    'field_name' => 'field_surrogate_number',
     'indexes' => array(
-      'value' => array(
-        0 => 'value',
+      'format' => array(
+        0 => 'format',
       ),
     ),
     'locked' => 0,
-    'module' => 'list',
+    'module' => 'text',
     'settings' => array(
-      'allowed_values' => array(
-        0 => 'hasn\'t',
-        1 => 'has',
-      ),
-      'allowed_values_function' => '',
+      'max_length' => 9,
     ),
     'translatable' => 0,
-    'type' => 'list_boolean',
+    'type' => 'text',
   );
 
   // Exported field_base: 'field_type'

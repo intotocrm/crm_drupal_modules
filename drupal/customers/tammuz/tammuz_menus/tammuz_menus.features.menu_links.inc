@@ -74,7 +74,7 @@ function tammuz_menus_menu_default_menu_links() {
   $menu_links['main-menu_clinic:crm-core/contact/add/clinic'] = array(
     'menu_name' => 'main-menu',
     'link_path' => 'crm-core/contact/add/clinic',
-    'router_path' => 'crm-core/contact/add/clinic',
+    'router_path' => 'crm-core/contact/add',
     'link_title' => 'Clinic',
     'options' => array(
       'attributes' => array(
@@ -118,7 +118,7 @@ Medical screening, medical treatment, egg retrieval, IVF, lab work, sperm donati
   $menu_links['main-menu_doctor:crm-core/contact/add/doctor'] = array(
     'menu_name' => 'main-menu',
     'link_path' => 'crm-core/contact/add/doctor',
-    'router_path' => 'crm-core/contact/add/doctor',
+    'router_path' => 'crm-core/contact/add',
     'link_title' => 'Doctor',
     'options' => array(
       'attributes' => array(
@@ -139,7 +139,7 @@ Medical screening, medical treatment, egg retrieval, IVF, lab work, sperm donati
   $menu_links['main-menu_egg-donor:crm-core/contact/add/egg_donor'] = array(
     'menu_name' => 'main-menu',
     'link_path' => 'crm-core/contact/add/egg_donor',
-    'router_path' => 'crm-core/contact/add/egg_donor',
+    'router_path' => 'crm-core/contact/add',
     'link_title' => 'Egg Donor',
     'options' => array(
       'attributes' => array(
@@ -218,7 +218,7 @@ Medical screening, medical treatment, egg retrieval, IVF, lab work, sperm donati
   $menu_links['main-menu_surrogate:crm-core/contact/add/surrogate'] = array(
     'menu_name' => 'main-menu',
     'link_path' => 'crm-core/contact/add/surrogate',
-    'router_path' => 'crm-core/contact/add/surrogate',
+    'router_path' => 'crm-core/contact/add',
     'link_title' => 'Surrogate',
     'options' => array(
       'attributes' => array(

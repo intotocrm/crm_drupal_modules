@@ -861,7 +861,7 @@ Filling the address is optional, but at least fill in its country part.',
       'module' => 'name',
       'settings' => array(),
       'type' => 'name_widget',
-      'weight' => 0,
+      'weight' => 1,
     ),
   );
 
@@ -935,6 +935,40 @@ Pay attention that this should be in a language marked as "spoken language" for 
       ),
       'type' => 'text_textfield',
       'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-customer-field_customer_number'
+  $field_instances['crm_core_contact-customer-field_customer_number'] = array(
+    'bundle' => 'customer',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Customer\'s identifier in Tammuz lists',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 4,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_customer_number',
+    'label' => 'Customer Number',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 10,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 0,
     ),
   );
 
@@ -2683,7 +2717,7 @@ This is updated by activities deployed on the customer.',
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -2720,7 +2754,7 @@ This is updated by activities deployed on the customer.',
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 11,
+      'weight' => 12,
     ),
   );
 
@@ -2768,7 +2802,7 @@ This is updated by activities deployed on the customer.',
         'year_range' => '1950:+1',
       ),
       'type' => 'date_select',
-      'weight' => 8,
+      'weight' => 9,
     ),
   );
 
@@ -2816,7 +2850,7 @@ This is updated by activities deployed on the customer.',
         'year_range' => '1950:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 12,
+      'weight' => 13,
     ),
   );
 
@@ -2849,7 +2883,7 @@ This is updated by activities deployed on the customer.',
         'size' => 60,
       ),
       'type' => 'email_textfield',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -2883,7 +2917,7 @@ This is updated by activities deployed on the customer.',
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -2916,7 +2950,41 @@ This is updated by activities deployed on the customer.',
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 9,
+      'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-ip-field_id'
+  $field_instances['crm_core_contact-ip-field_id'] = array(
+    'bundle' => 'ip',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 20,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_id',
+    'label' => 'ID',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 14,
     ),
   );
 
@@ -2960,7 +3028,7 @@ This is updated by activities deployed on the customer.',
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 1,
+      'weight' => 2,
     ),
   );
 
@@ -2998,7 +3066,7 @@ This is updated by activities deployed on the customer.',
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -3031,7 +3099,155 @@ This is updated by activities deployed on the customer.',
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 7,
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-ip-field_name_in_english'
+  $field_instances['crm_core_contact-ip-field_name_in_english'] = array(
+    'bundle' => 'ip',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'A person\'s name might be in a language other than English. In this case add their name in English for people who don\'t speak the person\'s native language.<br>
+Leave empty if person\'s name is already in English.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'name',
+        'settings' => array(
+          'format' => 'default',
+          'markup' => 0,
+          'multiple' => 'default',
+          'multiple_and' => 'text',
+          'multiple_delimiter' => ', ',
+          'multiple_delimiter_precedes_last' => 'never',
+          'multiple_el_al_first' => 1,
+          'multiple_el_al_min' => 3,
+          'output' => 'default',
+        ),
+        'type' => 'name_formatter',
+        'weight' => 19,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_name_in_english',
+    'label' => 'Name in English',
+    'required' => 0,
+    'settings' => array(
+      'component_css' => '',
+      'component_layout' => 'default',
+      'credentials_inline' => 0,
+      'field_type' => array(
+        'credentials' => 'text',
+        'family' => 'text',
+        'generational' => 'select',
+        'given' => 'text',
+        'middle' => 'text',
+        'title' => 'select',
+      ),
+      'generational_field' => 'select',
+      'inline_css' => array(
+        'credentials' => '',
+        'family' => '',
+        'generational' => '',
+        'given' => '',
+        'middle' => '',
+        'title' => '',
+      ),
+      'override_format' => 'default',
+      'show_component_required_marker' => 0,
+      'size' => array(
+        'credentials' => 35,
+        'family' => 20,
+        'generational' => 5,
+        'given' => 20,
+        'middle' => 20,
+        'title' => 6,
+      ),
+      'title_display' => array(
+        'credentials' => 'description',
+        'family' => 'description',
+        'generational' => 'description',
+        'given' => 'description',
+        'middle' => 'description',
+        'title' => 'description',
+      ),
+      'title_field' => 'select',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'name',
+      'settings' => array(),
+      'type' => 'name_widget',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-ip-field_nationality'
+  $field_instances['crm_core_contact-ip-field_nationality'] = array(
+    'bundle' => 'ip',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'countries',
+        'settings' => array(),
+        'type' => 'country_default',
+        'weight' => 22,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_nationality',
+    'label' => 'Nationality',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => 1,
+      ),
+      'type' => 'options_select',
+      'weight' => 16,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-ip-field_passport_number'
+  $field_instances['crm_core_contact-ip-field_passport_number'] = array(
+    'bundle' => 'ip',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 21,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_passport_number',
+    'label' => 'Passport Number',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 15,
     ),
   );
 
@@ -3068,7 +3284,41 @@ This is updated by activities deployed on the customer.',
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 3,
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-ip-field_profession'
+  $field_instances['crm_core_contact-ip-field_profession'] = array(
+    'bundle' => 'ip',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 23,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_profession',
+    'label' => 'Profession',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 17,
     ),
   );
 
@@ -3105,7 +3355,7 @@ This is updated by activities deployed on the customer.',
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -3832,74 +4082,6 @@ This is updated by activities deployed on the customer.',
     ),
   );
 
-  // Exported field_instance:
-  // 'crm_core_contact-surrogate-field_facebook_user_name'
-  $field_instances['crm_core_contact-surrogate-field_facebook_user_name'] = array(
-    'bundle' => 'surrogate',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 6,
-      ),
-    ),
-    'entity_type' => 'crm_core_contact',
-    'field_name' => 'field_facebook_user_name',
-    'label' => 'Facebook User Name',
-    'required' => 0,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 6,
-    ),
-  );
-
-  // Exported field_instance: 'crm_core_contact-surrogate-field_gender'
-  $field_instances['crm_core_contact-surrogate-field_gender'] = array(
-    'bundle' => 'surrogate',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 15,
-      ),
-    ),
-    'entity_type' => 'crm_core_contact',
-    'field_name' => 'field_gender',
-    'label' => 'Gender',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => '',
-      ),
-      'type' => 'options_select',
-      'weight' => 9,
-    ),
-  );
-
   // Exported field_instance: 'crm_core_contact-surrogate-field_image'
   $field_instances['crm_core_contact-surrogate-field_image'] = array(
     'bundle' => 'surrogate',
@@ -3941,44 +4123,6 @@ This is updated by activities deployed on the customer.',
       ),
       'type' => 'image_image',
       'weight' => 1,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'crm_core_contact-surrogate-field_instant_messaging_collecti'
-  $field_instances['crm_core_contact-surrogate-field_instant_messaging_collecti'] = array(
-    'bundle' => 'surrogate',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'field_collection',
-        'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_view',
-        'weight' => 9,
-      ),
-    ),
-    'entity_type' => 'crm_core_contact',
-    'field_name' => 'field_instant_messaging_collecti',
-    'label' => 'Instant Messaging',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'field_collection',
-      'settings' => array(),
-      'type' => 'field_collection_embed',
-      'weight' => 5,
     ),
   );
 
@@ -4090,34 +4234,38 @@ This is updated by activities deployed on the customer.',
     ),
   );
 
-  // Exported field_instance: 'crm_core_contact-surrogate-field_try1'
-  $field_instances['crm_core_contact-surrogate-field_try1'] = array(
+  // Exported field_instance:
+  // 'crm_core_contact-surrogate-field_surrogate_number'
+  $field_instances['crm_core_contact-surrogate-field_surrogate_number'] = array(
     'bundle' => 'surrogate',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Surrogate Number as was in <i>old</i> Tammuz records',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 1,
+        'type' => 'text_default',
+        'weight' => 19,
       ),
     ),
     'entity_type' => 'crm_core_contact',
-    'field_name' => 'field_try1',
-    'label' => 'try1',
+    'field_name' => 'field_surrogate_number',
+    'label' => 'Surrogate Number',
     'required' => 0,
     'settings' => array(
+      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
-      'weight' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 13,
     ),
   );
 
@@ -5388,6 +5536,8 @@ Social Worker Review Summary',
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('A person\'s name might be in a language other than English. In this case add their name in English for people who don\'t speak the person\'s native language.<br>
+Leave empty if person\'s name is already in English.');
   t('Address');
   t('Attached Documents');
   t('Caption');
@@ -5397,8 +5547,10 @@ Social Worker Review Summary',
 Filling the address is optional, but at least fill in its country part.');
   t('Comment');
   t('Customer');
+  t('Customer Number');
   t('Customer Origin');
   t('Customer name, E.g. "Cohen Family".<br>Use English in this field.');
+  t('Customer\'s identifier in Tammuz lists');
   t('Date of Birth');
   t('Date of Death');
   t('Date of Retrieval');
@@ -5419,21 +5571,27 @@ Social Worker Review Summary');
   t('Journey');
   t('Marital Status');
   t('Name');
+  t('Name in English');
   t('Name in Native Language');
   t('Name of this customer in their own language, for example in Hebrew, Arabic or Portuguese letters.<br>
 This helps sending personalized emails, and for legal stuff.<br>
 Leave empty if you don\'t know how to fill this.<br>
 Pay attention that this should be in a language marked as "spoken language" for one of the household members of this customers.
 ');
+  t('Nationality');
   t('Number');
   t('Organization');
+  t('Passport Number');
   t('Phone');
   t('Plan');
+  t('Profession');
   t('Profile Image');
   t('Sperm Specimen');
   t('Spoken Languages');
   t('Status');
   t('Surrogate Label!');
+  t('Surrogate Number');
+  t('Surrogate Number as was in <i>old</i> Tammuz records');
   t('Tammuz Staff');
   t('This can usually be copied from the document itself.<br>For example, if this document is a report of a lab test, interview summary etc.,  just look for the date inside the document.');
   t('This dictates all activities, timelines and defaults for this journey');
@@ -5441,7 +5599,6 @@ Pay attention that this should be in a language marked as "spoken language" for 
 This is updated by activities deployed on the customer.');
   t('Type');
   t('Unique name of the clinic');
-  t('try1');
 
   return $field_instances;
 }
