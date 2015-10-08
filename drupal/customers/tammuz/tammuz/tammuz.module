@@ -79,6 +79,14 @@ function tammuz_ctools_plugin_api($module, $api) {
     return array('version' => 1); 
   }
 }
+
+
+function tammuz_views_api() {
+  return array(
+    'api' => '2.0',
+  );
+}
+
 /**
  * Implementation of hook_default_page_manager_pages().
  */

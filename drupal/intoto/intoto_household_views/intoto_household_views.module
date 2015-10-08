@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the intoto household views feature.
- */
-
-include_once 'intoto_household_views.features.inc';
