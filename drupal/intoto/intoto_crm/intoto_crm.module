@@ -106,7 +106,7 @@ function intoto_crm_entity_presave($entity, $type){
 			if (is_object($entity) &&
 				isset($entity->endpoints['und']) &&
 				isset($entity->relation_type) &&
-				$entity->relation_type == 'crm_member'
+				($entity->relation_type == 'crm_member' || $entity->relation_type == 'member' )
 				)
 			{
 				//			drupal_set_message("saving " . $type);
