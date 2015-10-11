@@ -40,6 +40,8 @@ class PhoneMigration extends IntotoMigration {  // learn from https://www.drupal
 			$this->message("check bad phone number: " . $phone);
 			return NULL;
 		}
+		print "phone is:$phone\n";
+		return $phone;
 	}
 	
 	function get_field($field, $row)

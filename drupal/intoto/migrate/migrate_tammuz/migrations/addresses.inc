@@ -301,11 +301,11 @@ class AddressesMigration extends IntotoMigration {  // learn from https://www.dr
 		$country_codes ['korea'] = $country_codes["Korea (the Republic of)"];
 		$country_codes ['taiwan'] = $country_codes["Taiwan (Province of China)"];
 		
-		$country_string = strtolower($country_string);
+		$country_string_lc = strtolower($country_string);
 		foreach ($country_codes as $name=>$code)
 		{
-			$minsize = min(strlen($name), strlen($country_string));
-			if (substr ($country_string, 0, $minsize) == substr(strtolower($name), 0, $minsize))
+			$minsize = min(strlen($name), strlen($country_string_lc));
+			if (substr ($country_string_lc, 0, $minsize) == substr(strtolower($name), 0, $minsize))
 			{
 				return $code;
 			}
@@ -322,7 +322,9 @@ class AddressesMigration extends IntotoMigration {  // learn from https://www.dr
 			{
 				$this->message("bad country: " . $country_string);
 			}
+			return $code;
 		}
+		return NULL;
 	}
 
 	
