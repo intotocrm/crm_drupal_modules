@@ -64,7 +64,7 @@ function ormil_admin_paths_alter(&$paths) {
 
 function ormil_views_api() {
   return array(
-    'api' => '2.0',
+    'api' => 3,
   );
 }
 
