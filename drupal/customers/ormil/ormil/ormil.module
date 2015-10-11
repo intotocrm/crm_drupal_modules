@@ -62,3 +62,9 @@ function ormil_admin_paths_alter(&$paths) {
     $paths['crm-core/contact/*/edit'] = TRUE;
 }
 
+function ormil_views_api() {
+  return array(
+    'api' => '2.0',
+  );
+}
+

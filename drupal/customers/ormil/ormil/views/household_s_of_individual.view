@@ -1,0 +1,65 @@
+<?php
+$view = new view();
+$view->name = 'household_s_of_individual';
+$view->description = 'Lists (hopefully 1) household of an individual';
+$view->tag = 'default';
+$view->base_table = 'crm_core_contact';
+$view->human_name = 'Household(s) of individual';
+$view->core = 7;
+$view->api_version = '3.0';
+$view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+/* Display: Master */
+$handler = $view->new_display('default', 'Master', 'default');
+$handler->display->display_options['title'] = 'Household(s) of individual';
+$handler->display->display_options['use_more_always'] = FALSE;
+$handler->display->display_options['access']['type'] = 'perm';
+$handler->display->display_options['access']['perm'] = 'view relation entities of any contact relationship';
+$handler->display->display_options['cache']['type'] = 'none';
+$handler->display->display_options['query']['type'] = 'views_query';
+$handler->display->display_options['exposed_form']['type'] = 'basic';
+$handler->display->display_options['pager']['type'] = 'some';
+$handler->display->display_options['pager']['options']['items_per_page'] = '5';
+$handler->display->display_options['style_plugin'] = 'default';
+$handler->display->display_options['row_plugin'] = 'entity';
+$handler->display->display_options['row_options']['view_mode'] = 'small_block';
+/* Relationship: CRM Core Contact: Relation: is a member of (crm_core_contact → crm_core_contact) */
+$handler->display->display_options['relationships']['relation_crm_member_crm_core_contact']['id'] = 'relation_crm_member_crm_core_contact';
+$handler->display->display_options['relationships']['relation_crm_member_crm_core_contact']['table'] = 'crm_core_contact';
+$handler->display->display_options['relationships']['relation_crm_member_crm_core_contact']['field'] = 'relation_crm_member_crm_core_contact';
+$handler->display->display_options['relationships']['relation_crm_member_crm_core_contact']['r_index'] = '1';
+$handler->display->display_options['relationships']['relation_crm_member_crm_core_contact']['entity_deduplication_left'] = 0;
+$handler->display->display_options['relationships']['relation_crm_member_crm_core_contact']['entity_deduplication_right'] = 0;
+/* Field: CRM Core Contact: Contact ID */
+$handler->display->display_options['fields']['contact_id']['id'] = 'contact_id';
+$handler->display->display_options['fields']['contact_id']['table'] = 'crm_core_contact';
+$handler->display->display_options['fields']['contact_id']['field'] = 'contact_id';
+/* Contextual filter: siblings */
+$handler->display->display_options['arguments']['contact_id']['id'] = 'contact_id';
+$handler->display->display_options['arguments']['contact_id']['table'] = 'crm_core_contact';
+$handler->display->display_options['arguments']['contact_id']['field'] = 'contact_id';
+$handler->display->display_options['arguments']['contact_id']['relationship'] = 'relation_base_crm_member_crm_core_contact_1';
+$handler->display->display_options['arguments']['contact_id']['ui_name'] = 'siblings';
+$handler->display->display_options['arguments']['contact_id']['default_action'] = 'empty';
+$handler->display->display_options['arguments']['contact_id']['default_argument_type'] = 'fixed';
+$handler->display->display_options['arguments']['contact_id']['summary']['number_of_records'] = '0';
+$handler->display->display_options['arguments']['contact_id']['summary']['format'] = 'default_summary';
+$handler->display->display_options['arguments']['contact_id']['summary_options']['items_per_page'] = '25';
+$handler->display->display_options['arguments']['contact_id']['validate']['fail'] = 'ignore';
+
+/* Display: Block - Household */
+$handler = $view->new_display('block', 'Block - Household', 'block');
+$handler->display->display_options['display_description'] = 'find the household of the individual';
+$handler->display->display_options['defaults']['arguments'] = FALSE;
+/* Contextual filter: CRM Core Contact: Contact ID */
+$handler->display->display_options['arguments']['contact_id']['id'] = 'contact_id';
+$handler->display->display_options['arguments']['contact_id']['table'] = 'crm_core_contact';
+$handler->display->display_options['arguments']['contact_id']['field'] = 'contact_id';
+$handler->display->display_options['arguments']['contact_id']['relationship'] = 'relation_crm_member_crm_core_contact';
+$handler->display->display_options['arguments']['contact_id']['default_action'] = 'empty';
+$handler->display->display_options['arguments']['contact_id']['default_argument_type'] = 'fixed';
+$handler->display->display_options['arguments']['contact_id']['summary']['number_of_records'] = '0';
+$handler->display->display_options['arguments']['contact_id']['summary']['format'] = 'default_summary';
+$handler->display->display_options['arguments']['contact_id']['summary_options']['items_per_page'] = '25';
+$handler->display->display_options['arguments']['contact_id']['validate']['fail'] = 'ignore';
+
