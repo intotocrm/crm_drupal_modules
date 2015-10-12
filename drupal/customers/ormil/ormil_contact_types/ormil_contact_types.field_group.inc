@@ -247,11 +247,11 @@ function ormil_contact_types_field_group_info() {
     'label' => 'Tabs',
     'weight' => '22',
     'children' => array(
-      0 => 'group_communication_fields',
-      1 => 'group_profile_image',
-      2 => 'group_accordion_item_address',
-      3 => 'group_bio_fields',
-      4 => 'group_files_fields',
+      0 => 'group_accordion_item_address',
+      1 => 'group_bio_fields',
+      2 => 'group_communication_fields',
+      3 => 'group_files_fields',
+      4 => 'group_profile_image',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(

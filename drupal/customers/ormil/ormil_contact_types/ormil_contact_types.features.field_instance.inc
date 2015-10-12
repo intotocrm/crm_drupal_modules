@@ -2059,6 +2059,57 @@ Promise|Promise',
     ),
   );
 
+  // Exported field_instance: 'crm_core_contact-ip-field_originally_came_from'
+  $field_instances['crm_core_contact-ip-field_originally_came_from'] = array(
+    'bundle' => 'ip',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 13,
+      ),
+      'header' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'one_liner' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'small_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_originally_came_from',
+    'label' => 'Registered By',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 21,
+    ),
+  );
+
   // Exported field_instance: 'crm_core_contact-ip-field_phone'
   $field_instances['crm_core_contact-ip-field_phone'] = array(
     'bundle' => 'ip',
@@ -2080,7 +2131,7 @@ Promise|Promise',
         'weight' => 11,
       ),
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'field_collection',
         'settings' => array(
           'add' => 'Add',

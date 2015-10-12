@@ -84,6 +84,8 @@ function intoto_post_connector_respond_to_contact_us_form($request)
 	$ip_wrapper->{"contact_name"}->{"given"}->set($first_name);
 	$ip_wrapper->{"contact_name"}->{"family"}->set($family_name);
 	$ip_wrapper->{"field_email"}->set($params['email']);
+	$ip_wrapper->{"field_originally_came_from"}->set("contact_us_form");
+	
 	$phone_collection = entity_create('field_collection_item', array('field_name' => 'field_phone'));
 	$phone_collection->setHostEntity('crm_core_contact', $ip_entity);
 	// Now define the collection parameters.
