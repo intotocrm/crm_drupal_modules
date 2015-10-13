@@ -164,3 +164,8 @@ dependencies[] = special_menu_items
 
 
 dependencies[] = rules
+
+; Search
+dependencies[] = search_api_db
+dependencies[] = search_api
+dependencies[] = search_api_views
