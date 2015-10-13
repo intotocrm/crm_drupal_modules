@@ -87,17 +87,3 @@ function tammuz_views_api() {
   );
 }
 
-/**
- * Implementation of hook_default_page_manager_pages().
- */
-function tammuz_default_page_manager_pages() {
-	$files = file_scan_directory(drupal_get_path('module', 'tammuz'). '/pages', '/.*inc.*/');
-	foreach ($files as $absolute => $file) {
-		$page = NULL; //prevent IDE editor warning on uninitialized var
-		require $absolute;
-		if (isset($page)) {
-			$pages[$file->name] = $page;
-		}   
-	}
-	return $pages;
-}
