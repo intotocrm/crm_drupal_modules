@@ -132,3 +132,40 @@ function intoto_crm_add_comment_form($form, &$form_state, $contact) {
 	}
 	return $form;
 }
+
+
+function intoto_crm_main_search_form($form) {
+	
+//	$form['static_placeholder'] =  array(
+//		'#markup' =>t('Place holder...'),
+//	);
+	$form['search_api_views_fulltext'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Search'),
+//		'#default_value' => variable_get('onthisdate_maxdisp', 3),
+		'#size' => 12,
+		'#maxlength' => 100,
+		'#description' => t("Enter list of keywords to search"),
+		'#required' => TRUE,
+	);
+	
+	$form['submit'] = array(
+		'#type' => 'submit',
+		'#value' => t('Search'),
+	);
+	
+	return $form;
+}
+function intoto_crm_main_search_form_submit($form, &$form_state)
+{
+	$strings = $form_state['input']['search_api_views_fulltext'];
+	$form_state['redirect'] = //"report/customer/$strings";
+		[
+			"search",
+			['query' => array(
+				'search_api_views_fulltext' => $strings,
+			)],
+		];
+	drupal_redirect_form($form_state);
+	dpm(array($strings,$form_state));
+}

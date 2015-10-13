@@ -61,6 +61,12 @@ function intoto_crm_block_info() {
 		'cache' => DRUPAL_CACHE_PER_ROLE,
 	);
 
+	$blocks['main_search'] = array(
+		// The name that will appear in the block list.
+		'info' => t('Main Search'),
+		// Default setting.
+		'cache' => DRUPAL_CACHE_PER_ROLE,
+	);
 	return $blocks;
 }
 
@@ -163,3 +169,15 @@ function intoto_crm_block_view_add_comment()
 	return $block;	
 }
 
+function intoto_crm_block_view_main_search()
+{
+	$block = array();
+	$block['subject'] = t('Search');
+	if (user_access('access content')) {
+		$block['content'] = drupal_get_form('intoto_crm_main_search_form');
+	}
+	else {
+		$block['content'] = t('You are not allowed to view this');  
+	}
+	return $block;
+}
