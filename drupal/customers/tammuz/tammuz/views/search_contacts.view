@@ -137,6 +137,24 @@ $handler->display->display_options['filters']['search_api_views_fulltext']['expo
   5 => 0,
   4 => 0,
 );
+/* Filter criterion: Indexed Multiple types: Bundle */
+$handler->display->display_options['filters']['item_bundle']['id'] = 'item_bundle';
+$handler->display->display_options['filters']['item_bundle']['table'] = 'search_api_index_contacts_index';
+$handler->display->display_options['filters']['item_bundle']['field'] = 'item_bundle';
+$handler->display->display_options['filters']['item_bundle']['value'] = array(
+  'crm_core_contact:child' => 'crm_core_contact:child',
+  'crm_core_contact:clinic' => 'crm_core_contact:clinic',
+  'crm_core_contact:customer' => 'crm_core_contact:customer',
+  'crm_core_contact:doctor' => 'crm_core_contact:doctor',
+  'crm_core_contact:egg' => 'crm_core_contact:egg',
+  'crm_core_contact:egg_donor' => 'crm_core_contact:egg_donor',
+  'crm_core_contact:embryo' => 'crm_core_contact:embryo',
+  'crm_core_contact:ip' => 'crm_core_contact:ip',
+  'crm_core_contact:journey' => 'crm_core_contact:journey',
+  'crm_core_contact:sperm_specimen' => 'crm_core_contact:sperm_specimen',
+  'crm_core_contact:surrogate' => 'crm_core_contact:surrogate',
+  'crm_core_contact:tammuz_staff' => 'crm_core_contact:tammuz_staff',
+);
 
 /* Display: Page */
 $handler = $view->new_display('page', 'Page', 'page');
