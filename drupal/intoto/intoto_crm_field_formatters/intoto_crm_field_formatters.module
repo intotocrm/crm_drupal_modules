@@ -32,7 +32,7 @@ function intoto_crm_field_formatters_field_formatter_info() {
 	return array(
 		'intoto_label_formatter' => array( //Machine name of the formatter
 			'label' => t('Small Label'),
-			'field types' => array('text', 'text_long', 'text_with_summary', 'datetime', 'date', 'number_decimal', 'email', 'list_text', 'list_boolean'), //This will only be available to text fields
+			'field types' => array('text', 'text_long', 'text_with_summary', 'datetime', 'date', 'number_decimal', 'email', 'list_text', 'list_boolean', 'phone_number'), //This will only be available to text fields
 			'settings'	=> array( //Array of the settings we'll create
 //				'pic_size' => 'small', //give a default value for when the form is first loaded
 //				'tooltip' => 'Link to user Facebook page', //ditto
@@ -41,7 +41,7 @@ function intoto_crm_field_formatters_field_formatter_info() {
 
 		'intoto_bootstrap_formatter' => array( //Machine name of the formatter
 			'label' => t('Bootstrap'),
-			'field types' => array('text', 'text_long', 'text_with_summary', 'datetime', 'date', 'number_decimal', 'email', 'list_text', 'list_boolean'), //This will only be available to text fields
+			'field types' => array('text', 'text_long', 'text_with_summary', 'datetime', 'date', 'number_decimal', 'email', 'list_text', 'list_boolean', 'phone_number', 'image'), //This will only be available to text fields
 			'settings'	=> array( //Array of the settings we'll create
 //				'pic_size' => 'small', //give a default value for when the form is first loaded
 //				'tooltip' => 'Link to user Facebook page', //ditto
@@ -50,7 +50,7 @@ function intoto_crm_field_formatters_field_formatter_info() {
 		),
 		'intoto_icon_formatter' => array( //Machine name of the formatter
 			'label' => t('Icon'),
-			'field types' => array('text', 'text_long', 'text_with_summary', 'datetime', 'date', 'number_decimal', 'email', 'list_text', 'list_boolean', "field_collection"), //This will only be available to text fields
+			'field types' => array('text', 'text_long', 'text_with_summary', 'datetime', 'date', 'number_decimal', 'email', 'list_text', 'list_boolean', "field_collection", 'phone_number'), //This will only be available to text fields
 			'settings'	=> array( //Array of the settings we'll create
 //				'pic_size' => 'small', //give a default value for when the form is first loaded
 //				'tooltip' => 'Link to user Facebook page', //ditto
@@ -163,6 +163,17 @@ function intoto_crm_prepare_field_theme($theme, $entity_type, $entity, $field, $
 				case 'text_long':
 					$value = $item['safe_value'];
 					break;
+				case 'phone_number':
+					$number = make_phone_number($item, true);
+					$number_link = make_phone_number($item, false);
+					$value = l($number, 'tel:'. $number_link , array('html' => TRUE, 'attributes' => array('class'=>array('callto'))));
+
+					break;
+				case 'image':
+					$value = $item['uri'];
+					$comment = $item['alt'];
+					break;
+
 				case 'field_collection':
 					//load field collection by id
 					$field_collections = entity_load('field_collection_item', array($item['value']));
