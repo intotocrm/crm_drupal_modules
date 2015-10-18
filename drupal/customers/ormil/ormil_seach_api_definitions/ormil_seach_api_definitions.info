@@ -1,0 +1,12 @@
+name = ORMIL seach_api definitions
+description = ORMIL search_api definitions (indexes and servers)
+core = 7.x
+package = intoto
+version = 7.x-1.0
+dependencies[] = entity
+dependencies[] = search_api
+dependencies[] = search_api_db
+features[features_api][] = api:2
+features[search_api_index][] = contacts_index
+features[search_api_server][] = contacts_server
+project path = sites/all/modules/ormil

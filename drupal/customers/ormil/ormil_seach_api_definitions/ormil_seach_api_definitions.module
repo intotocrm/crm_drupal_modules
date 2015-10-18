@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ORMIL seach_api definitions feature.
+ */
+
+include_once 'ormil_seach_api_definitions.features.inc';
