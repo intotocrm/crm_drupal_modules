@@ -16,4 +16,5 @@ dependencies[] = tammuz_activities
 dependencies[] = tammuz_relationships
 dependencies[] = tammuz_menus
 dependencies[] = tammuz_blocks
+dependencies[] = tammuz_search_api_server_index
 
