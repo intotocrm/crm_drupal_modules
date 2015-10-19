@@ -75,14 +75,15 @@ $handler->display->display_options['fields']['field_image']['table'] = 'search_a
 $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
 $handler->display->display_options['fields']['field_image']['label'] = '';
 $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_image']['empty'] = 'XX';
 $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
 $handler->display->display_options['fields']['field_image']['type'] = 'intoto_bootstrap_formatter';
 $handler->display->display_options['fields']['field_image']['settings'] = array(
-  'image_style' => '',
-  'image_link' => '',
+  'image_style' => 'thumb_tiny',
+  'image_link' => 'content',
 );
 $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
-/* Field: Indexed CRM Core Contact: Individual */
+/* Field: Indexed CRM Core Contact: Child */
 $handler->display->display_options['fields']['contact_name']['id'] = 'contact_name';
 $handler->display->display_options['fields']['contact_name']['table'] = 'search_api_index_contacts_index';
 $handler->display->display_options['fields']['contact_name']['field'] = 'contact_name';
