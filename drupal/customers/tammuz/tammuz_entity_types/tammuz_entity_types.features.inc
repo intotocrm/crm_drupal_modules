@@ -38,7 +38,7 @@ function tammuz_entity_types_default_crm_core_contact_type() {
     "label" : null,
     "weight" : 0,
     "primary_fields" : { "email" : "", "address" : "", "phone" : "" },
-    "name" : "Customer",
+    "name" : "Household",
     "description" : "The customer, usually a household, is the entity with which Tammuz works. Usually it relates to one or more IPs.",
     "custom" : "0",
     "disabled" : "0",
