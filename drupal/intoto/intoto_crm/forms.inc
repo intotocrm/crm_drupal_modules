@@ -67,13 +67,10 @@ function intoto_crm_add_household_member_form($form, &$form_state, $contact) {
 }
 
 function intoto_crm_add_household_form_submit($form, &$form_state) {
-    drupal_set_message(t('The form has been submitted.') );
-	dpm($form_state);
 }
 
 function intoto_crm_form_alter(&$form, &$form_state, $form_id)
 {
-//	drupal_set_message("form id:" . $form_id);
     switch($form_id) {
 		case 'crm_core_contact_ui_form':
 //			dpm($form);
@@ -141,31 +138,45 @@ function intoto_crm_main_search_form($form) {
 //	);
 	$form['search_api_views_fulltext'] = array(
 		'#type' => 'textfield',
-		'#title' => t('Search'),
-//		'#default_value' => variable_get('onthisdate_maxdisp', 3),
+//		'#title' => t('Search'),
+		'#default_value' => 'search contacts',
 		'#size' => 12,
 		'#maxlength' => 100,
 		'#description' => t("Enter list of keywords to search"),
 		'#required' => TRUE,
 	);
 	
-	$form['submit'] = array(
-		'#type' => 'submit',
-		'#value' => t('Search'),
-	);
+//	$form['submit'] = array(
+//		'#type' => 'submit',
+//		'#value' => t('Search'),
+//	);
 	
 	return $form;
 }
 function intoto_crm_main_search_form_submit($form, &$form_state)
 {
-	$strings = $form_state['input']['search_api_views_fulltext'];
+	$strings = $form_state['input']['search_block_form'];
 	$form_state['redirect'] = //"report/customer/$strings";
 		[
-			"search",
+			"search-contacts",
 			['query' => array(
 				'search_api_views_fulltext' => $strings,
 			)],
 		];
 	drupal_redirect_form($form_state);
-	dpm(array($strings,$form_state));
+}
+
+function intoto_crm_form_intoto_crm_main_search_form_alter(&$form, &$form_state, $form_id)
+{
+	$form['#theme_wrappers'] = array('bootstrap_search_form_wrapper');
+	
+	//bootstrap_form_alter($form, $form_state, "search_form");
+}
+
+
+function intoto_crm_form_search_block_form_alter(&$form, &$form_state, $form_id)
+{
+	$form['#submit'] = ['intoto_crm_main_search_form_submit'];
+	
+	//bootstrap_form_alter($form, $form_state, "search_form");
 }
