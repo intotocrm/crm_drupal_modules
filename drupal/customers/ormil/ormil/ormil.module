@@ -77,3 +77,23 @@ function ormil_ctools_plugin_api($module, $api) {
     return array('version' => 1); 
   }
 }
+
+
+function ormil_form_alter(&$form, &$form_state, $form_id)
+{
+    switch($form_id) {
+                case 'crm_core_contact_ui_form':
+//                      dpm($form);
+//                      dpm($form_state);
+                        $contact_type = $form['#entity']->type;
+                        switch($contact_type){
+                                case "customer":
+                              case "ip":
+                                        $form['contact_name']['#access'] = FALSE;
+                                        $form['field_originally_came_from']['#access'] = FALSE;
+                                        break;
+                        }
+                        break;
+    }
+}
+
