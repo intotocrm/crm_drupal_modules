@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Code for the CRM Entity Types feature.
+ * Code for the Tammuz Contact Types feature.
  */
 
 include_once 'tammuz_entity_types.features.inc';

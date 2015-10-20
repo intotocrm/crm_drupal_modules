@@ -21,6 +21,9 @@ function intoto_crm_field_formatters_theme() {
     'icon_formatter' => array(
       'variables' => array('element' => NULL),
     ),
+    'caption_formatter' => array(
+      'variables' => array('element' => NULL),
+    ),
   );
 }
 	
@@ -54,6 +57,12 @@ function intoto_crm_field_formatters_field_formatter_info() {
 			'settings'	=> array( //Array of the settings we'll create
 //				'pic_size' => 'small', //give a default value for when the form is first loaded
 //				'tooltip' => 'Link to user Facebook page', //ditto
+			),
+		),
+		'intoto_caption_formatter' => array( //Machine name of the formatter
+			'label' => t('Caption'),
+			'field types' => array('name', 'text'), //This will only be available to text fields
+			'settings'	=> array( //Array of the settings we'll create
 			),
 		),
 	);
@@ -160,6 +169,10 @@ function intoto_crm_prepare_field_theme($theme, $entity_type, $entity, $field, $
 				case 'email':
 					$value = l($item['email'], 'mailto:' . $item['email'], array('absolute' => TRUE));
 					break;
+				case 'name':
+					$value = $item;
+					break;
+					
 				case 'text_long':
 					$value = $item['safe_value'];
 					break;
@@ -263,6 +276,10 @@ function intoto_crm_field_formatters_field_formatter_view($entity_type, $entity,
 	{
 		return intoto_crm_prepare_field_theme('icon_formatter', $entity_type, $entity, $field, $instance, $langcode, $items, $display) ;
 	}
+	if ($display['type'] == 'intoto_caption_formatter')
+	{
+		return intoto_crm_prepare_field_theme('caption_formatter', $entity_type, $entity, $field, $instance, $langcode, $items, $display) ;
+	}
 }
 			
 
@@ -278,6 +295,10 @@ function theme_bootstrap_formatter($element) {
 }
 
 function theme_icon_formatter($element) {
+	return '->>placeholder for element rendering in icon_formatter theme<<-';// . $element['value'] . '<<-';//<a class="mobile-tel" href="tel:' . $element['element']['number']  . '">Call</a>';
+}
+
+function theme_caption_formatter($element) {
 	return '->>placeholder for element rendering in icon_formatter theme<<-';// . $element['value'] . '<<-';//<a class="mobile-tel" href="tel:' . $element['element']['number']  . '">Call</a>';
 }
 

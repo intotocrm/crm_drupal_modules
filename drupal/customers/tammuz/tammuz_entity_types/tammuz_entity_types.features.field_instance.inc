@@ -874,9 +874,9 @@ Filling the address is optional, but at least fill in its country part.',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
+        'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'intoto_caption_formatter',
         'weight' => 0,
       ),
     ),
@@ -1044,6 +1044,50 @@ This is updated by activities deployed on the customer.',
       ),
       'type' => 'options_select',
       'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-customer-field_image'
+  $field_instances['crm_core_contact-customer-field_image'] = array(
+    'bundle' => 'customer',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 5,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_image',
+    'label' => 'Image',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 2,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 7,
     ),
   );
 
@@ -2613,19 +2657,9 @@ This is updated by activities deployed on the customer.',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'name',
-        'settings' => array(
-          'format' => 'default',
-          'markup' => 0,
-          'multiple' => 'default',
-          'multiple_and' => 'text',
-          'multiple_delimiter' => ', ',
-          'multiple_delimiter_precedes_last' => 'never',
-          'multiple_el_al_first' => 1,
-          'multiple_el_al_min' => 3,
-          'output' => 'default',
-        ),
-        'type' => 'name_formatter',
+        'module' => 'intoto_crm_field_formatters',
+        'settings' => array(),
+        'type' => 'intoto_caption_formatter',
         'weight' => 0,
       ),
     ),
@@ -3011,7 +3045,7 @@ This is updated by activities deployed on the customer.',
     'required' => 0,
     'settings' => array(
       'alt_field' => 0,
-      'default_image' => 0,
+      'default_image' => 1,
       'file_directory' => 'profile_images',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
@@ -5043,6 +5077,13 @@ Leave empty if person\'s name is already in English.',
         'type' => 'global_phone_number',
         'weight' => 0,
       ),
+      'fieldcollection_label' => array(
+        'label' => 'above',
+        'module' => 'intoto_crm_field_formatters',
+        'settings' => array(),
+        'type' => 'intoto_label_formatter',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_number',
@@ -5318,6 +5359,12 @@ Leave empty if person\'s name is already in English.',
         'type' => 'list_default',
         'weight' => 1,
       ),
+      'fieldcollection_label' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_type',
@@ -5566,6 +5613,7 @@ Social Worker Review Summary');
   t('Gender');
   t('Household');
   t('ID');
+  t('Image');
   t('Instant Messaging');
   t('Issue Date');
   t('Journey');

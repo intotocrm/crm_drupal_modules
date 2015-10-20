@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Tammuz Search API server/index feature.
+ */
+
+include_once 'tammuz_search_api_server_index.features.inc';
