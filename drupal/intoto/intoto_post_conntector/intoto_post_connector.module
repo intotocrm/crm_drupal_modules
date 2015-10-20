@@ -18,7 +18,7 @@ function intoto_post_connector_menu()
 }
 function intoto_post_connector_get_request()
 {
-
+	
 	$request = array(
 		'params' => array(),
 		'request_data' => array(),
@@ -50,6 +50,8 @@ function respond_to_post($request_type)
 
 function intoto_post_connector_respond_to_contact_us_form($request)
 {
+	print_r($request);
+
 	$params = $request['params'];
 	$fields_alternative_fieldnames = array(
 		'name' => array('name', 'FirstName', 'your-name', ),
@@ -85,6 +87,7 @@ function intoto_post_connector_respond_to_contact_us_form($request)
 	$ip_wrapper->{"contact_name"}->{"family"}->set($family_name);
 	$ip_wrapper->{"field_email"}->set($params['email']);
 	$ip_wrapper->{"field_originally_came_from"}->set("contact_us_form");
+	$ip_wrapper->{"field_notes"}->set("Message from 'contact us' form:\n" . $params['message']);
 	
 	$phone_collection = entity_create('field_collection_item', array('field_name' => 'field_phone'));
 	$phone_collection->setHostEntity('crm_core_contact', $ip_entity);
@@ -124,5 +127,5 @@ function intoto_post_connector_respond_to_contact_us_form($request)
 	
 //	print "**\n". print_r($ip_id, true) . "\n\n&&&\n". print_r($customer_id,true)."\n\n";
 //	print "----\nip result:".print_r($ip_result, true)."\n\n\ncustomer result:".print_r($customer_result, true)."\n\n\nrelation:\n".print_r($member_relation,true)."\n\nbye";
-	print "";
+//	print "";
 }
