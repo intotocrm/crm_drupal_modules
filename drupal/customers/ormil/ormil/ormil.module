@@ -88,8 +88,9 @@ function ormil_form_alter(&$form, &$form_state, $form_id)
                         $contact_type = $form['#entity']->type;
                         switch($contact_type){
                                 case "customer":
-                              case "ip":
                                         $form['contact_name']['#access'] = FALSE;
+				//no break here: I want customer type to remove 'field_originally_came_from' too
+                              case "ip":
                                         $form['field_originally_came_from']['#access'] = FALSE;
                                         break;
                         }
