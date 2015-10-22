@@ -8,6 +8,21 @@ module_load_include('inc', $module_name , 'forms');
 module_load_include('inc', 'crm_core_relationship_ui', 'crm_core_relationship_ui.pages');
 
 
+
+function intoto_crm_menu()
+{
+	$items = [];
+	// URI for adding a new contact which is related (relation) to "current" contact
+	$items['crm-core/contact/%crm_core_contact/new_related/%/%/%'] = array(
+		'title' => 'Add new related entityy',
+		'page callback' => 'intoto_crm_create_new_relationship',
+		'page arguments' => array(2, 4, 5, 6),  //base contact, relationship_type, reverse, target-type
+		'access callback' => 'crm_core_relationship_access_permissions',
+		'access arguments' => array(NULL, 'create_view'),
+//		'file' => 'ticker.admin.inc',
+	);
+	return $items;
+}
 function intoto_crm_enable()
 {
 	variable_set('site_frontpage', 'home');

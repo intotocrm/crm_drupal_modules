@@ -25,7 +25,14 @@ function get_context_contact()
  */
 function intoto_crm_block_info() {
 	$blocks = array();
+
 	
+	$blocks['add_related_entity'] = array(
+		// The name that will appear in the block list.
+		'info' => t('Related Entity'),
+		// Default setting.
+		'cache' => DRUPAL_CACHE_PER_ROLE,
+	);
 	$blocks['recent_contacts'] = array(
 		// The name that will appear in the block list.
 		'info' => t('Recent Contacts'),
@@ -112,6 +119,24 @@ function intoto_crm_block_view_control_household()
 }
 
 
+function intoto_crm_block_view_add_related_entity()
+{
+	module_load_include('inc', 'crm_core_relationship_ui.pages');
+	$block = array();
+	$block['subject'] = t('Add RELATED');
+	$contact = get_context_contact();
+	//dpm ($contact);
+	if ($contact){
+		if (user_access('access content')) {
+	//				$block['content'] = "testing";
+			$block['content'] = crm_core_relation_entity_ui_get_form_wrapper($contact->data, 'crm_member', 1);//drupal_get_form('intoto_crm_add_related_form', $contact);
+		}
+		else {
+			$block['content'] = t('You are not allowed to view this');  
+		}
+	}
+	return $block;	
+}
 function intoto_crm_block_view_add_household()
 {
 	module_load_include('inc', 'crm_core_relationship_ui.pages');
