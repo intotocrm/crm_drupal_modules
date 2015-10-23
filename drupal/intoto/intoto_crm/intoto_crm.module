@@ -4,6 +4,7 @@ $module_name = 'intoto_crm';
 module_load_include('inc', $module_name , 'tokens');
 module_load_include('inc', $module_name , 'blocks');
 module_load_include('inc', $module_name , 'forms');
+module_load_include('inc', $module_name , 'add_related_contact');
 
 module_load_include('inc', 'crm_core_relationship_ui', 'crm_core_relationship_ui.pages');
 
@@ -14,7 +15,7 @@ function intoto_crm_menu()
 	$items = [];
 	// URI for adding a new contact which is related (relation) to "current" contact
 	$items['crm-core/contact/%crm_core_contact/new_related/%/%/%'] = array(
-		'title' => 'Add new related entityy',
+		'title' => 'Add new related entity',
 		'page callback' => 'intoto_crm_create_new_relationship',
 		'page arguments' => array(2, 4, 5, 6),  //base contact, relationship_type, reverse, target-type
 		'access callback' => 'crm_core_relationship_access_permissions',
@@ -45,9 +46,14 @@ function intoto_crm_help($path, $arg) {
       break;
   }
 } 
-
+function intoto_crm_admin_paths() {
+	$paths = array();
+//	$paths['crm-core/contact/*/new_related/*/*/*'] = TRUE;  
+	return $paths;
+}
 
 function intoto_crm_admin_paths_alter(&$paths) {
+	dpm($paths);
     $paths['crm-core/contact/*/household/add'] = TRUE;
     $paths['crm-core/contact/*/activity/add'] = TRUE;
     $paths['crm-core/contact/*/activity/add/*'] = TRUE;

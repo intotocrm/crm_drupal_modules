@@ -9,4 +9,4 @@ dependencies[] = entity_token
 files[] = 'tokens.inc'
 files[] = 'blocks.inc'
 files[] = 'forms.inc'
-files[] = 'add_related_contact.php'
+files[] = 'add_related_contact.inc'
