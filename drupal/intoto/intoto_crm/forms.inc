@@ -76,10 +76,12 @@ function intoto_crm_add_household_form_submit($form, &$form_state) {
 
 function intoto_crm_form_alter(&$form, &$form_state, $form_id)
 {
+	if (!array_key_exists('post_submit_instructions', $form_state))
+	{
+		$form_state['post_submit_instructions'] = [];
+	}
     switch($form_id) {
 		case 'crm_core_contact_ui_form':
-//			dpm($form);
-//			dpm($form_state);
 			$contact_type = $form['#entity']->type;
 			switch($contact_type){
 				case "customer": 
@@ -88,6 +90,16 @@ function intoto_crm_form_alter(&$form, &$form_state, $form_id)
 					$form['field_originally_came_from']['#access'] = FALSE;
 					break;
 			}
+			if (isset($form["#submit"])) {$form["#submit"][] = "intoto_crm_override_submit";}
+			if (isset($form['actions']['submit']['#submit'])) {$form['actions']['submit']['#submit'][] = "intoto_crm_override_submit";}
+			$form_state['post_submit_instructions'][] = ['id' => "redirect_to_newly_created_contact"];
+			break;
+			case 'crm_core_activity_edit_comment_form':
+			case 'crm_core_relationship_form':
+			if (isset($form["#submit"])) {$form["#submit"][] = "intoto_crm_override_submit";}
+			if (isset($form['actions']['submit']['#submit'])) {$form['actions']['submit']['#submit'][] = "intoto_crm_override_submit";}
+			$form_state['post_submit_instructions'][] = ['id' => "redirect_to_url", 'url' => current_path()];
+			
 			break;
     }
 // uncomment to show form_id inside each form 
@@ -96,6 +108,35 @@ function intoto_crm_form_alter(&$form, &$form_state, $form_id)
 //	);
 }
 
+/*
+ * override original form submit implementation
+ */
+function intoto_crm_override_submit($form, &$form_state)
+{
+	if (isset($form_state['post_submit_instructions']))
+	{
+		foreach($form_state['post_submit_instructions'] as $instruction)
+		{
+			switch($instruction ['id']) 
+			{
+				case "redirect_to_newly_created_contact":  
+					/* this is because crm-core form hook crm_core_contact_ui_form_submit sets redirect to crm-core/contact
+					 * instead to the newly created contact. this fixes it.
+					 */
+					$contact = &$form_state['crm_core_contact'];	
+					$form_state['redirect'] = "crm-core/contact/{$contact->contact_id}";
+					break;
+				case "redirect_to_url": //go to a specific url
+
+					$url = $instruction['url'];
+					$form_state['redirect'] = $url;
+					break;
+				default:
+
+			}
+		}
+	}
+}
 
 function  intoto_crm_settings_form()
 {
@@ -128,13 +169,25 @@ function intoto_crm_add_comment_form($form, &$form_state, $contact) {
                         )
                 {
                     $href = "/crm-core/contact/$contact_id/activity/add/comment";
-                    $btn_classes = "btn btn-success";
+                    $btn_classes = ["btn", "btn-success"];
+					$destination = drupal_get_destination();
+					$destination  = $destination['destination'];
+					$form['static_placeholder'] =  array(
+						'#markup' =>	l (t('Add a Comment'),
+												$href,
+												[
+													'query' => [
+														'destination' => $destination
+													],
+													'attributes' => [
+														'class' => $btn_classes,
+													],
+												]
+											),
+					);
                 }
 
 		
-		$form['static_placeholder'] =  array(
-			'#markup' =>	l (t('Add a Comment'), $href, array('attributes' => array('class' => array($btn_classes)))),
-		);
 	}
 	return $form;
 }
