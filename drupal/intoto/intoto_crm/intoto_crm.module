@@ -1,6 +1,7 @@
 <?php
 
 $module_name = 'intoto_crm';
+module_load_include('inc', $module_name , 'intoto_crm_hooks');
 module_load_include('inc', $module_name , 'tokens');
 module_load_include('inc', $module_name , 'blocks');
 module_load_include('inc', $module_name , 'forms');

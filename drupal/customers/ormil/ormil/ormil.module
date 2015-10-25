@@ -98,3 +98,24 @@ function ormil_form_alter(&$form, &$form_state, $form_id)
     }
 }
 
+function ormil_can_add_relationship($entity_type, $contact_id, $relation_id, $relation_r_index, &$messages)
+{
+	if ($entity_type == "crm_core_contact" && $relation_id == "crm_member" && $relation_r_index == 0)
+	{
+		// this is the case of an IP that wants to add a Household. only ne household can be related to each IP.
+		// TODO: take into account the due-date (from...until) of the existing relations.
+		// dont check the contact's bundle since there is other logic that prevents error of this kind.
+
+		// count how many relationships of this type are there already
+		$count = relation_query('crm_core_contact', $contact_id, $relation_r_index)
+			->propertyCondition('relation_type', $relation_id)
+			->count()
+			->execute();
+		
+		if ($count >= 1) //why should it be > 1? not in current implementation...
+		{
+			return 0;
+		}
+	}
+	return 1;
+}

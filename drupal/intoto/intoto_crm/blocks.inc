@@ -7,6 +7,7 @@
  */
 
 
+require_once "intoto_crm_hooks.inc";
 function get_page_context($context_key)
 {
 	$page = page_manager_get_current_page();
@@ -150,14 +151,14 @@ function intoto_crm_block_view_add_related_entity()
 	
 	//dpm ($contact);
 	if ($contact){
-		if (user_access('access content')) {
+		if (user_access('access content') && can_add_relationship("crm_core_contact", $contact->data->contact_id, $relationship_type, $relationship_reverse)) {
 	//				$block['content'] = "testing";
 			//discover if we need the relationship or the reverse-relationship.
 			
 			$block['content'] = crm_core_relation_entity_ui_get_form_wrapper($contact->data, $relationship_type, $relationship_reverse); //drupal_get_form('intoto_crm_add_related_form', $contact);
 		}
 		else {
-			$block['content'] = t('You are not allowed to view this');  
+			$block['content'] = '';
 		}
 	}
 	return $block;	
