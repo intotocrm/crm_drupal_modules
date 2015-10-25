@@ -91,11 +91,9 @@ function intoto_crm_form_alter(&$form, &$form_state, $form_id)
 			break;
     }
 // uncomment to show form_id inside each form 
-	$form['form_id_debug'] = array(
-		'#markup' => "<b>form_id:</b>:$form_id", 
-	);
-	//dpm($form, "form $form_id");
-
+//	$form['form_id_debug'] = array(
+//		'#markup' => "<b>form_id:</b>:$form_id", 
+//	);
 }
 
 

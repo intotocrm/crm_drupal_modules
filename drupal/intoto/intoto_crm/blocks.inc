@@ -7,18 +7,38 @@
  */
 
 
+function get_page_context($context_key)
+{
+	$page = page_manager_get_current_page();
+
+	$context = [];
+	if (	array_key_exists('contexts', $page) &&
+			array_key_exists($context_key, $page['contexts'])
+			)
+	{
+		if (isset($page['contexts'][$context_key] ) ){
+			return $page['contexts'][$context_key];
+		}
+	}
+	
+	//some of the needed context is in the configuration of the page. look there too.
+	if (isset($page['handler']->conf['contexts']))
+	{
+		foreach ($page['handler']->conf['contexts'] as $context_entry)
+		{
+			if (isset($context_entry['keyword']) && $context_entry['keyword'] == $context_key ) 
+			{
+				return isset($context_entry['string']) ? $context_entry['string'] : NULL;  //this is wrong. I don't know how to know the struct member of the value of the context
+			}
+		}
+	}
+	
+	return $context;
+}
+
 function get_context_contact()
 {
-	$contact = NULL;
-	$page = page_manager_get_current_page();
-	
-	if (	array_key_exists('contexts', $page) &&
-			array_key_exists('argument_entity_id:crm_core_contact_1', $page['contexts'])
-	)
-	{
-		$contact = $page['contexts']['argument_entity_id:crm_core_contact_1'];
-	}
-	return $contact;
+	return get_page_context('argument_entity_id:crm_core_contact_1');
 }
 /**
  * Implements hook_block_info().
@@ -123,13 +143,18 @@ function intoto_crm_block_view_add_related_entity()
 {
 	module_load_include('inc', 'crm_core_relationship_ui.pages');
 	$block = array();
-	$block['subject'] = t('Add RELATED');
-	$contact = get_context_contact();
+	$block['subject'] = t('Add');
+	$contact = get_context_contact(); //get_page_context("context_key");
+	$relationship_type = get_page_context("required-relationship");
+	$relationship_reverse = get_page_context("relationship-r_index");
+	
 	//dpm ($contact);
 	if ($contact){
 		if (user_access('access content')) {
 	//				$block['content'] = "testing";
-			$block['content'] = crm_core_relation_entity_ui_get_form_wrapper($contact->data, 'crm_member', 1);//drupal_get_form('intoto_crm_add_related_form', $contact);
+			//discover if we need the relationship or the reverse-relationship.
+			
+			$block['content'] = crm_core_relation_entity_ui_get_form_wrapper($contact->data, $relationship_type, $relationship_reverse); //drupal_get_form('intoto_crm_add_related_form', $contact);
 		}
 		else {
 			$block['content'] = t('You are not allowed to view this');  

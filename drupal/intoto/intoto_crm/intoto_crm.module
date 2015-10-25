@@ -48,12 +48,11 @@ function intoto_crm_help($path, $arg) {
 } 
 function intoto_crm_admin_paths() {
 	$paths = array();
-//	$paths['crm-core/contact/*/new_related/*/*/*'] = TRUE;  
+	$paths['crm-core/contact/*/new_related/*/*/*'] = TRUE;  
 	return $paths;
 }
 
 function intoto_crm_admin_paths_alter(&$paths) {
-	dpm($paths);
     $paths['crm-core/contact/*/household/add'] = TRUE;
     $paths['crm-core/contact/*/activity/add'] = TRUE;
     $paths['crm-core/contact/*/activity/add/*'] = TRUE;

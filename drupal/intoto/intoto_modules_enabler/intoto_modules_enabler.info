@@ -8,7 +8,6 @@ project = intoto_modules_enabler
 dependencies[] = intoto_crm
 
 dependencies[] = intoto_contact_view
-dependencies[] = intoto_household_tab_page
 dependencies[] = intoto_individual_details_page
 dependencies[] = intoto_unauth_page
 dependencies[] = intoto_report_pages
