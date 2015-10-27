@@ -23,6 +23,16 @@ function intoto_crm_menu()
 		'access arguments' => array(NULL, 'create_view'),
 //		'file' => 'ticker.admin.inc',
 	);
+
+	$items['crm-core/contact/%/remove_from_relationship/%'] = array(
+		'title' => 'Remove entity from relationship',
+		'page callback' => 'intoto_crm_remove_from_relationship',
+		'page arguments' => array(2, 4),  //base contact, r
+		'access callback' => 'crm_core_relationship_access_permissions',
+		'access arguments' => array(NULL, 'create_view'),
+		'type' => MENU_CALLBACK,
+	);
+	
 	return $items;
 }
 function intoto_crm_enable()
@@ -218,51 +228,10 @@ function intoto_crm_preprocess_entity(&$variables, $hook)
 	}
 }
 
-function intoto_crm_preprocess_entity_crm_core_contact(&$variables, $hook)
+
+function intoto_crm_remove_from_relationship($entity_id, $rid)
 {
-
-	//add some data on how to remove existing relations from this entity
-	if (isset($variables['crm_core_contact']->contact_id))
-	{
-    $variables['disconnect_links'] = array(
-        array   (
-                'text' => '-',
-                'path' => "#",
-                'alt' => "Disconnect from household not supported at this stage",
-                )
-                );
-    /* fix disconnect links below (both the link and the destination are wrong):
-     * 
-     * 
-     * 		$links = array();
-		$contact_id = $variables['crm_core_contact']->contact_id;
-		$result = relation_query('crm_core_contact', $contact_id)
-			->propertyCondition('relation_type', 'crm_member')
-			->execute();
-		$relations = relation_load_multiple(array_keys($result));
-
-		foreach($relations as $rel_id => $relation)
-		{
-			$endpoints = relation_get_endpoints($relation, 'crm_core_contact');
-			foreach($endpoints as $endpoint_type => $endpoint_array){
-				foreach($endpoint_array as $endpoint_id => $endpoint){
-					//$endpoint_contact_id = $endpoint->contact_id;  next line does it more simply:
-					$endpoint_contact_id = $endpoint_id;
-					if ($endpoint_contact_id != $contact_id) //don't need to supply a link to disconnect from self
-					{
-						$links[] = array
-						(
-							'text' => 'disconnect',
-							'path' => "/relation/$rel_id/delete?destination=crm-core/contact/$endpoint_contact_id/household",
-							'alt' => "Disconnect from household",							
-						);
-					}
-				}
-			}
-		}
-		$variables['disconnect_links'] = $links;
-     * 
-     */
-	}
+	drupal_set_message("removed relation #$rid");
+	relation_delete($rid);
+	print "OK";
 }
-
