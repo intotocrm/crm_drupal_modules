@@ -235,3 +235,10 @@ function intoto_crm_remove_from_relationship($entity_id, $rid)
 	relation_delete($rid);
 	print "OK";
 }
+
+
+function intoto_crm_views_api() {
+  return array(
+    'api' => 2.0,
+  );  
+}

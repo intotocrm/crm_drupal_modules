@@ -1,0 +1,151 @@
+<?php
+$view = new view();
+$view->name = 'ticker_management';
+$view->description = '';
+$view->tag = 'default';
+$view->base_table = 'ticker';
+$view->human_name = 'Ticker Management';
+$view->core = 7;
+$view->api_version = '3.0';
+$view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+/* Display: Master */
+$handler = $view->new_display('default', 'Master', 'default');
+$handler->display->display_options['title'] = 'Ticker Management';
+$handler->display->display_options['use_more_always'] = FALSE;
+$handler->display->display_options['access']['type'] = 'role';
+$handler->display->display_options['access']['role'] = array(
+  3 => '3',
+);
+$handler->display->display_options['cache']['type'] = 'none';
+$handler->display->display_options['query']['type'] = 'views_query';
+$handler->display->display_options['query']['options']['distinct'] = TRUE;
+$handler->display->display_options['exposed_form']['type'] = 'basic';
+$handler->display->display_options['pager']['type'] = 'full';
+$handler->display->display_options['pager']['options']['items_per_page'] = '30';
+$handler->display->display_options['style_plugin'] = 'table';
+$handler->display->display_options['style_options']['columns'] = array(
+  'field_ticker_created' => 'field_ticker_created',
+  'title' => 'title',
+  'description' => 'description',
+  'id' => 'id',
+  'field_ticker_due' => 'field_ticker_due',
+  'field_ticker_external_id' => 'field_ticker_external_id',
+  'field_ticker_users_ref' => 'field_ticker_users_ref',
+);
+$handler->display->display_options['style_options']['default'] = '-1';
+$handler->display->display_options['style_options']['info'] = array(
+  'field_ticker_created' => array(
+    'sortable' => 0,
+    'default_sort_order' => 'asc',
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+  'title' => array(
+    'sortable' => 0,
+    'default_sort_order' => 'asc',
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+  'description' => array(
+    'sortable' => 0,
+    'default_sort_order' => 'asc',
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+  'id' => array(
+    'sortable' => 0,
+    'default_sort_order' => 'asc',
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+  'field_ticker_due' => array(
+    'sortable' => 0,
+    'default_sort_order' => 'asc',
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+  'field_ticker_external_id' => array(
+    'sortable' => 0,
+    'default_sort_order' => 'asc',
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+  'field_ticker_users_ref' => array(
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+);
+/* Field: Ticker Entity: Custom entity ID */
+$handler->display->display_options['fields']['id']['id'] = 'id';
+$handler->display->display_options['fields']['id']['table'] = 'ticker';
+$handler->display->display_options['fields']['id']['field'] = 'id';
+$handler->display->display_options['fields']['id']['separator'] = '';
+/* Field: Ticker Entity: Created */
+$handler->display->display_options['fields']['field_ticker_created']['id'] = 'field_ticker_created';
+$handler->display->display_options['fields']['field_ticker_created']['table'] = 'field_data_field_ticker_created';
+$handler->display->display_options['fields']['field_ticker_created']['field'] = 'field_ticker_created';
+$handler->display->display_options['fields']['field_ticker_created']['settings'] = array(
+  'format_type' => 'short',
+  'fromto' => 'both',
+  'multiple_number' => '',
+  'multiple_from' => '',
+  'multiple_to' => '',
+  'show_remaining_days' => 0,
+);
+/* Field: Ticker Entity: Custom entity title */
+$handler->display->display_options['fields']['title']['id'] = 'title';
+$handler->display->display_options['fields']['title']['table'] = 'ticker';
+$handler->display->display_options['fields']['title']['field'] = 'title';
+$handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
+$handler->display->display_options['fields']['title']['alter']['path'] = '/ticker/[id]/edit';
+/* Field: Ticker Entity: Custom entity description */
+$handler->display->display_options['fields']['description']['id'] = 'description';
+$handler->display->display_options['fields']['description']['table'] = 'ticker';
+$handler->display->display_options['fields']['description']['field'] = 'description';
+/* Field: Ticker Entity: Due */
+$handler->display->display_options['fields']['field_ticker_due']['id'] = 'field_ticker_due';
+$handler->display->display_options['fields']['field_ticker_due']['table'] = 'field_data_field_ticker_due';
+$handler->display->display_options['fields']['field_ticker_due']['field'] = 'field_ticker_due';
+$handler->display->display_options['fields']['field_ticker_due']['settings'] = array(
+  'format_type' => 'short',
+  'fromto' => 'both',
+  'multiple_number' => '',
+  'multiple_from' => '',
+  'multiple_to' => '',
+  'show_remaining_days' => 0,
+);
+/* Field: Ticker Entity: External ID */
+$handler->display->display_options['fields']['field_ticker_external_id']['id'] = 'field_ticker_external_id';
+$handler->display->display_options['fields']['field_ticker_external_id']['table'] = 'field_data_field_ticker_external_id';
+$handler->display->display_options['fields']['field_ticker_external_id']['field'] = 'field_ticker_external_id';
+/* Field: Ticker Entity: Users */
+$handler->display->display_options['fields']['field_ticker_users_ref']['id'] = 'field_ticker_users_ref';
+$handler->display->display_options['fields']['field_ticker_users_ref']['table'] = 'field_data_field_ticker_users_ref';
+$handler->display->display_options['fields']['field_ticker_users_ref']['field'] = 'field_ticker_users_ref';
+$handler->display->display_options['fields']['field_ticker_users_ref']['settings'] = array(
+  'link' => 0,
+);
+$handler->display->display_options['fields']['field_ticker_users_ref']['delta_offset'] = '0';
+$handler->display->display_options['fields']['field_ticker_users_ref']['multi_type'] = 'ol';
+/* Sort criterion: Ticker Entity: Created (field_ticker_created) */
+$handler->display->display_options['sorts']['field_ticker_created_value']['id'] = 'field_ticker_created_value';
+$handler->display->display_options['sorts']['field_ticker_created_value']['table'] = 'field_data_field_ticker_created';
+$handler->display->display_options['sorts']['field_ticker_created_value']['field'] = 'field_ticker_created_value';
+$handler->display->display_options['sorts']['field_ticker_created_value']['order'] = 'DESC';
+/* Filter criterion: Ticker Entity: Users (field_ticker_users_ref) */
+$handler->display->display_options['filters']['field_ticker_users_ref_target_id']['id'] = 'field_ticker_users_ref_target_id';
+$handler->display->display_options['filters']['field_ticker_users_ref_target_id']['table'] = 'field_data_field_ticker_users_ref';
+$handler->display->display_options['filters']['field_ticker_users_ref_target_id']['field'] = 'field_ticker_users_ref_target_id';
+$handler->display->display_options['filters']['field_ticker_users_ref_target_id']['operator'] = 'not empty';
+
+/* Display: Page */
+$handler = $view->new_display('page', 'Page', 'page');
+$handler->display->display_options['path'] = 'ticker-management';
