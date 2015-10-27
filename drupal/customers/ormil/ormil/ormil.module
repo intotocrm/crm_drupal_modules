@@ -42,12 +42,13 @@ function ormil_menu()
 
 function ormil_menu_alter(&$items)
 {
-	//print("in intoto_crm_menu_alter\n:".print_r(array_keys($items), true). "\n");
+//print("in intoto_crm_menu_alter\n:".print_r(array_keys($items), true). "\n");
 	//unset($items['crm-core/contact/%crm_core_contact']);
 	unset($items['crm-core/contact/%crm_core_contact/view']);
 //	unset($items['crm-core/contact/%crm_core_contact/edit']);
 	$items['crm-core/contact/%crm_core_contact/edit']['type'] = MENU_CALLBACK;
-	
+	unset ($items['crm-core/contact/%crm_core_contact/relationships/add']);
+
 	
 //	$items['crm-core/contact/%crm_core_contact/view'] = $items['crm-core/contact/%crm_core_contact/details'];
 //	$items['crm-core/contact/%crm_core_contact/view']['type'] = MENU_CALLBACK;
@@ -118,4 +119,20 @@ function ormil_can_add_relationship($entity_type, $contact_id, $relation_id, $re
 		}
 	}
 	return 1;
+}
+
+
+
+function ormil_views_default_views_alter(&$views)
+{
+
+//	if (isset($views['crm_activities_by_contact']))
+//	{
+//		$views['crm_activities_by_contact'] -> disabled = true;
+//	}
+
+	if (isset($views['crm_relationships_by_contact']))
+	{
+		$views['crm_relationships_by_contact'] -> disabled = true;
+	}
 }
