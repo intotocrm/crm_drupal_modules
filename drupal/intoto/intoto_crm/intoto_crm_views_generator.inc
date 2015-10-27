@@ -40,8 +40,8 @@ $handler->display->display_options['access']['role'] = array(
 $handler->display->display_options['cache']['type'] = 'none';
 $handler->display->display_options['query']['type'] = 'views_query';
 $handler->display->display_options['exposed_form']['type'] = 'basic';
-$handler->display->display_options['pager']['type'] = 'full';
-$handler->display->display_options['pager']['options']['items_per_page'] = '10';
+$handler->display->display_options['pager']['type'] = 'some';
+$handler->display->display_options['pager']['options']['items_per_page'] = '9';
 $handler->display->display_options['style_plugin'] = 'table';
 /* Relationship: CRM Core Contact: Relation: is a member of (crm_core_contact → relation) */
 $relationship_id_from_contact_to_rel = 'relation_base_left_' . $view_data['relation_id'];
@@ -101,8 +101,27 @@ $handler->display->display_options['arguments']['contact_id']['summary']['number
 $handler->display->display_options['arguments']['contact_id']['summary']['format'] = 'default_summary';
 $handler->display->display_options['arguments']['contact_id']['summary_options']['items_per_page'] = '25';
 
-/* Display: Page */
-$handler = $view->new_display('page', 'Page', 'page');
-$handler->display->display_options['path'] = 'related-contacts';
+/* Display: Content Pane */
+$handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+$handler->display->display_options['allow']['use_pager'] = 'use_pager';
+$handler->display->display_options['allow']['items_per_page'] = 'items_per_page';
+$handler->display->display_options['allow']['offset'] = 'offset';
+$handler->display->display_options['allow']['link_to_view'] = 'link_to_view';
+$handler->display->display_options['allow']['more_link'] = 'more_link';
+$handler->display->display_options['allow']['path_override'] = 'path_override';
+$handler->display->display_options['allow']['title_override'] = 'title_override';
+$handler->display->display_options['allow']['exposed_form'] = 'exposed_form';
+$handler->display->display_options['allow']['fields_override'] = 'fields_override';
+$handler->display->display_options['argument_input'] = array(
+  'contact_id' => array(
+    'type' => 'user',
+    'context' => 'entity:crm_core_activity.activity-id',
+    'context_optional' => 0,
+    'panel' => '0',
+    'fixed' => '',
+    'label' => 'CRM Core Contact: Contact ID',
+  ),
+);
 return $view;
 }
+
