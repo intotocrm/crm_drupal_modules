@@ -133,24 +133,7 @@ dependencies[] = views
 dependencies[] = views_bulk_operations
 dependencies[] = views_dynamic_fields
 dependencies[] = views_ui
-
-; intoto
-;dependencies[] = crm_core_ip_contact_type
-;dependencies[] = individual_field_collection
-;dependencies[] = intoto_blocks
-;dependencies[] = intoto_crm_individual
-;dependencies[] = intoto_dashboard
-;dependencies[] = intoto_display_formats
-;dependencies[] = intoto_household_tab_page
-;dependencies[] = intoto_image_styles
-;dependencies[] = intoto_individual_details_page
-;dependencies[] = intoto_menus
-;dependencies[] = intoto_modules_enabler
-;dependencies[] = intoto_report_pages
-;dependencies[] = intoto_staff_permissions
-;dependencies[] = intoto_staff_role
-;dependencies[] = intoto_unauth_page
-
+dependencies[] = views_field_view
 
 ; tb_megamenu
 dependencies[] = fontawesome
