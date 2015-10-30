@@ -41,7 +41,28 @@ function ormil_seach_api_definitions_default_search_api_index() {
         "field_phone:field_number:extension" : { "type" : "list\\u003Ctext\\u003E" },
         "field_phone:field_number:number" : { "type" : "list\\u003Ctext\\u003E" },
         "field_program" : { "type" : "text" },
+        "relation_crm_member_crm_core_contact" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "crm_core_contact" },
+        "relation_crm_member_crm_core_contact:contact_name:family" : { "type" : "list\\u003Ctext\\u003E" },
+        "relation_crm_member_crm_core_contact:contact_name:given" : { "type" : "list\\u003Ctext\\u003E" },
+        "relation_crm_member_crm_core_contact:field_address:field_address_details:administrative_area" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
+        "relation_crm_member_crm_core_contact:field_address:field_address_details:country" : { "type" : "list\\u003Clist\\u003Cstring\\u003E\\u003E" },
+        "relation_crm_member_crm_core_contact:field_address:field_address_details:dependent_locality" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
+        "relation_crm_member_crm_core_contact:field_address:field_address_details:locality" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
+        "relation_crm_member_crm_core_contact:field_address:field_address_details:organisation_name" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
+        "relation_crm_member_crm_core_contact:field_address:field_address_details:postal_code" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
+        "relation_crm_member_crm_core_contact:field_address:field_address_details:sub_administrative_area" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
+        "relation_crm_member_crm_core_contact:field_address:field_address_details:thoroughfare" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
+        "relation_crm_member_crm_core_contact:field_agency" : { "type" : "list\\u003Ctext\\u003E" },
+        "relation_crm_member_crm_core_contact:field_caption" : { "type" : "list\\u003Ctext\\u003E" },
+        "relation_crm_member_crm_core_contact:field_email" : { "type" : "list\\u003Ctext\\u003E" },
+        "relation_crm_member_crm_core_contact:field_facebook_user_name" : { "type" : "list\\u003Ctext\\u003E" },
+        "relation_crm_member_crm_core_contact:field_instant_messaging_collecti:field_instant_messaging_id" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
+        "relation_crm_member_crm_core_contact:field_occupation" : { "type" : "list\\u003Ctext\\u003E" },
+        "relation_crm_member_crm_core_contact:field_phone:field_number:number" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
+        "relation_crm_member_crm_core_contact:url" : { "type" : "list\\u003Curi\\u003E" },
+        "relation_crm_member_crm_core_contact_reverse" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "crm_core_contact" },
         "search_api_language" : { "type" : "string" },
+        "type" : { "type" : "string" },
         "url" : { "type" : "uri" }
       },
       "data_alter_callbacks" : {
@@ -323,6 +344,116 @@ function ormil_seach_api_definitions_default_search_api_server() {
           "field_phone:field_number:extension" : {
             "table" : "search_api_db_contacts_index_text",
             "type" : "list\\u003Ctext\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_crm_member_crm_core_contact" : {
+            "table" : "search_api_db_contacts_index_relation_crm_member_crm_core_cont",
+            "column" : "value",
+            "type" : "list\\u003Cinteger\\u003E",
+            "boost" : "1.0"
+          },
+          "type" : {
+            "table" : "search_api_db_contacts_index",
+            "column" : "type",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "relation_crm_member_crm_core_contact_reverse" : {
+            "table" : "search_api_db_contacts_index_relation_crm_member_crm_core_co_1",
+            "column" : "value",
+            "type" : "list\\u003Cinteger\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_crm_member_crm_core_contact:url" : {
+            "table" : "search_api_db_contacts_index_relation_crm_member_crm_core_co_2",
+            "column" : "value",
+            "type" : "list\\u003Curi\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_crm_member_crm_core_contact:field_email" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Ctext\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_crm_member_crm_core_contact:field_facebook_user_name" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Ctext\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_crm_member_crm_core_contact:field_occupation" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Ctext\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_crm_member_crm_core_contact:field_agency" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Ctext\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_crm_member_crm_core_contact:field_caption" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Ctext\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_crm_member_crm_core_contact:contact_name:given" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Ctext\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_crm_member_crm_core_contact:contact_name:family" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Ctext\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_crm_member_crm_core_contact:field_instant_messaging_collecti:field_instant_messaging_id" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_crm_member_crm_core_contact:field_address:field_address_details:country" : {
+            "table" : "search_api_db_contacts_index_relation_crm_member_crm_core_co_3",
+            "column" : "value",
+            "type" : "list\\u003Clist\\u003Cstring\\u003E\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_crm_member_crm_core_contact:field_address:field_address_details:organisation_name" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_crm_member_crm_core_contact:field_address:field_address_details:administrative_area" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_crm_member_crm_core_contact:field_address:field_address_details:sub_administrative_area" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_crm_member_crm_core_contact:field_address:field_address_details:locality" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_crm_member_crm_core_contact:field_address:field_address_details:dependent_locality" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_crm_member_crm_core_contact:field_address:field_address_details:postal_code" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_crm_member_crm_core_contact:field_address:field_address_details:thoroughfare" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_crm_member_crm_core_contact:field_phone:field_number:number" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E",
             "boost" : "1.0"
           }
         }

@@ -1,3 +1,13 @@
 <?php
-
+function keep_dev_modules_enabler_admin_paths_alter(&$paths)
+{
+        foreach (array_keys($paths) as $path)
+        {
+#		print "$path\n";
+                if (substr($path, 0, 5) == "admin")
+                {
+                        unset($paths[$path]);
+                }
+        }
+}
 

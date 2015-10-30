@@ -1,7 +1,7 @@
 name = ORMIL seach_api definitions
 description = ORMIL search_api definitions (indexes and servers)
 core = 7.x
-package = intoto
+package = ormil
 version = 7.x-1.0
 dependencies[] = entity
 dependencies[] = search_api

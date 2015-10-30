@@ -1,6 +1,15 @@
 <?php
+function ormil_search_api_views_query_alter (&$view, &$query)
+{
+	ormil_views_query_alter($view, $query);
+}
 
 function ormil_views_query_alter(&$view, &$query) {
+	if ($view->name == 'search_contacts'){
+		
+//		dpm($query);
+//		dpm($query->getKeys());
+	}
 	if ($view->name == 'crm_comments_by_contact' || $view->name == 'relevant_comments') {
 /*
 		$query->where[0]['conditions'][] = array
