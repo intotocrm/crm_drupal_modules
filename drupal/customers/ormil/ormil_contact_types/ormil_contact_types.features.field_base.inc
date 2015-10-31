@@ -602,7 +602,7 @@ Prof.',
     'locked' => 0,
     'module' => 'field_collection',
     'settings' => array(
-      'hide_blank_items' => 1,
+      'hide_blank_items' => 0,
       'path' => '',
     ),
     'translatable' => 0,

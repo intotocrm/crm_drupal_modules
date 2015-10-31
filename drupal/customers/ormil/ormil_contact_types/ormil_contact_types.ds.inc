@@ -53,13 +53,14 @@ function ormil_contact_types_ds_layout_settings_info() {
       'field_notes' => 'ds_content',
     ),
     'classes' => array(),
-    'wrappers' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
-    'layout_attributes_merge' => TRUE,
-    'layout_link_attribute' => FALSE,
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
     'layout_link_custom' => '',
-    'layout_disable_css' => FALSE,
   );
   $export['crm_core_contact|customer|default'] = $ds_layout;
 
