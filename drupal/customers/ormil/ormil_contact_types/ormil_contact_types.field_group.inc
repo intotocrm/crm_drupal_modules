@@ -128,6 +128,33 @@ function ormil_contact_types_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_images|crm_core_contact|customer|form';
+  $field_group->group_name = 'group_images';
+  $field_group->entity_type = 'crm_core_contact';
+  $field_group->bundle = 'customer';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_profile_tabs';
+  $field_group->data = array(
+    'label' => 'Images',
+    'weight' => '21',
+    'children' => array(
+      0 => 'field_image',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-images field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_images|crm_core_contact|customer|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_journeys|crm_core_contact|customer|form';
   $field_group->group_name = 'group_journeys';
   $field_group->entity_type = 'crm_core_contact';
@@ -223,6 +250,7 @@ function ormil_contact_types_field_group_info() {
       0 => 'group_journeys',
       1 => 'group_personal',
       2 => 'group_sales',
+      3 => 'group_images',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(

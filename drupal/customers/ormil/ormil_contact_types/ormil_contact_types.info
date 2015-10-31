@@ -75,6 +75,7 @@ features[field_group][] = group_accordion_item_address|crm_core_contact|ip|form
 features[field_group][] = group_bio_fields|crm_core_contact|ip|form
 features[field_group][] = group_communication_fields|crm_core_contact|ip|form
 features[field_group][] = group_files_fields|crm_core_contact|ip|form
+features[field_group][] = group_images|crm_core_contact|customer|form
 features[field_group][] = group_journeys|crm_core_contact|customer|form
 features[field_group][] = group_personal|crm_core_contact|customer|form
 features[field_group][] = group_profile_image|crm_core_contact|ip|form
