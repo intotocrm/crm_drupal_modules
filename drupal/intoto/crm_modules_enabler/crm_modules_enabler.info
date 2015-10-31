@@ -152,3 +152,6 @@ dependencies[] = rules
 dependencies[] = search_api_db
 dependencies[] = search_api
 dependencies[] = search_api_views
+
+
+dependencies[] = recently_read

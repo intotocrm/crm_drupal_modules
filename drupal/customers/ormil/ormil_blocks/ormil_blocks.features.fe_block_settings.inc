@@ -31,7 +31,7 @@ function ormil_blocks_default_fe_block_settings() {
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'bootstrap_dashboard_ormil',
-        'weight' => 0,
+        'weight' => -21,
       ),
       'seven' => array(
         'region' => '',
@@ -63,7 +63,7 @@ function ormil_blocks_default_fe_block_settings() {
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'bootstrap_dashboard_ormil',
-        'weight' => -1,
+        'weight' => -22,
       ),
       'seven' => array(
         'region' => 'dashboard_sidebar',
@@ -127,7 +127,7 @@ function ormil_blocks_default_fe_block_settings() {
         'region' => 'contactheader',
         'status' => 1,
         'theme' => 'bootstrap_dashboard_ormil',
-        'weight' => -22,
+        'weight' => -21,
       ),
       'seven' => array(
         'region' => '',
@@ -159,7 +159,7 @@ function ormil_blocks_default_fe_block_settings() {
         'region' => 'contactheader',
         'status' => 1,
         'theme' => 'bootstrap_dashboard_ormil',
-        'weight' => -24,
+        'weight' => -22,
       ),
       'seven' => array(
         'region' => '',
@@ -169,6 +169,38 @@ function ormil_blocks_default_fe_block_settings() {
       ),
     ),
     'title' => '<none>',
+    'visibility' => 0,
+  );
+
+  $export['views-recent_contacts-block'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'delta' => 'recent_contacts-block',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'bootstrap_dashboard_ormil' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'bootstrap_dashboard_ormil',
+        'weight' => -20,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => 'Recent Contacts',
     'visibility' => 0,
   );
 
@@ -191,7 +223,7 @@ function ormil_blocks_default_fe_block_settings() {
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'bootstrap_dashboard_ormil',
-        'weight' => 0,
+        'weight' => -19,
       ),
       'seven' => array(
         'region' => '',
