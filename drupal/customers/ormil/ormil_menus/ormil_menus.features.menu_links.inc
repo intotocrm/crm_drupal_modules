@@ -50,6 +50,26 @@ function ormil_menus_menu_default_menu_links() {
     'weight' => 0,
     'customized' => 1,
   );
+  // Exported menu link: main-menu_add:<nolink>
+  $menu_links['main-menu_add:<nolink>'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => '<nolink>',
+    'router_path' => '<nolink>',
+    'link_title' => 'Add',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'main-menu_add:<nolink>',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 1,
+    'expanded' => 0,
+    'weight' => -49,
+    'customized' => 1,
+  );
   // Exported menu link: main-menu_customer:crm-core/contact/add/customer
   $menu_links['main-menu_customer:crm-core/contact/add/customer'] = array(
     'menu_name' => 'main-menu',
@@ -112,6 +132,7 @@ function ormil_menus_menu_default_menu_links() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Add');
   t('Customer');
   t('Customers');
   t('Home');
