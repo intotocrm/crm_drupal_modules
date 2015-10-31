@@ -50,26 +50,6 @@ function ormil_menus_menu_default_menu_links() {
     'weight' => 0,
     'customized' => 1,
   );
-  // Exported menu link: main-menu_add:crm-core/contact/add/individual
-  $menu_links['main-menu_add:crm-core/contact/add/individual'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'crm-core/contact/add/individual',
-    'router_path' => 'crm-core/contact/add/individual',
-    'link_title' => 'Add',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'main-menu_add:crm-core/contact/add/individual',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 1,
-    'expanded' => 0,
-    'weight' => -49,
-    'customized' => 1,
-  );
   // Exported menu link: main-menu_customer:crm-core/contact/add/customer
   $menu_links['main-menu_customer:crm-core/contact/add/customer'] = array(
     'menu_name' => 'main-menu',
@@ -89,7 +69,7 @@ function ormil_menus_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 0,
     'customized' => 1,
-    'parent_identifier' => 'main-menu_add:crm-core/contact/add/individual',
+    'parent_identifier' => 'main-menu_add:<nolink>',
   );
   // Exported menu link: main-menu_home:<front>
   $menu_links['main-menu_home:<front>'] = array(
@@ -127,12 +107,11 @@ function ormil_menus_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 0,
     'customized' => 1,
-    'parent_identifier' => 'main-menu_add:crm-core/contact/add/individual',
+    'parent_identifier' => 'main-menu_add:<nolink>',
   );
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Add');
   t('Customer');
   t('Customers');
   t('Home');
