@@ -1,7 +1,7 @@
 name = intoto_dashboard
 description = features module for exporting the main user's dashboard (by homebox)
 core = 7.x
-package = intoto
+package = ormil
 version = 7.x-1.0
 dependencies[] = homebox
 features[features_api][] = api:2

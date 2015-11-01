@@ -234,30 +234,48 @@ function ormil_block_view_customers_summary()
 		$html .= "</ul>";
 		$html .= "</ul>";
 		
-		$chart = array(
+		$status_chart = array(
 			'#type' => 'chart',
-			'#title' => t("Customers per Status (total = $customers_count)"),
+			'#title' => t("Customers Status\n(total = $customers_count)"),
 			'#chart_type' => 'pie',
 			'#chart_library' => 'google', // Allowed values: 'google' or 'highcharts'
 			'#legend_position' => 'right',
 			'#data_labels' => TRUE,
 			'#tooltips' => TRUE,
 		);
-		$chart['pie_data'] = array(
+		$status_chart['pie_data'] = array(
 			'#type' => 'chart_data',
-			'#title' => t('Gender'),
-			'#data' => [//array('Male', 10), array('Female', 20),
-				['Potential', 0 + $status_potential_count],
-				['Patient', 0 + $status_patient_count],
-				['Past Patient', 0 + $status_past_patient_count],
-				['Chose Competitor', 0 + $status_competitor_count],
-				['Unknown', 0 + $customers_status_unknown_count],
+			'#title' => t('Status'),
+			'#data' => [
+				["Potential ($status_potential_count)", 0 + $status_potential_count],
+				["Patient ($status_patient_count)", 0 + $status_patient_count],
+				["Past Patient ($status_past_patient_count)", 0 + $status_past_patient_count],
+				["Chose Competitor ($status_competitor_count)", 0 + $status_competitor_count],
+				["Unknown ($customers_status_unknown_count)", 0 + $customers_status_unknown_count],
 				],
 		);
 
-		$example['chart'] = $chart;
-  
-		$block['content'] = drupal_render($example);
+		$patient_chart = array(
+			'#type' => 'chart',
+			'#title' => t("Patients\n(total = $status_patient_count)"),
+			'#chart_type' => 'pie',
+			'#chart_library' => 'google', // Allowed values: 'google' or 'highcharts'
+			'#legend_position' => 'right',
+			'#data_labels' => TRUE,
+			'#tooltips' => TRUE,
+		);
+		$patient_chart['pie_data'] = array(
+			'#type' => 'chart_data',
+			'#title' => t('Patient Status'),
+			'#data' => [
+				["Waiting GC ($status_patient_status_waiting_gc_count)", 0 + $status_patient_status_waiting_gc_count],
+				["Post Visit ($status_patient_status_post_visit_count)", 0 + $status_patient_status_post_visit_count],
+				["Past Patient ($status_past_patient_count)", 0 + $status_past_patient_count],
+				["ORM Graduate ($status_patient_status_orm_graduate_count)", 0 + $status_patient_status_orm_graduate_count],
+				],
+		);
+		$chart_renderable = ['chart' => $status_chart, 'chart2'=> $patient_chart];
+		$block['content'] = drupal_render($chart_renderable );
 		 
 		
 	//	$block['content'] = t($html);  
