@@ -239,6 +239,6 @@ function intoto_crm_remove_from_relationship($entity_id, $rid)
 
 function intoto_crm_views_api() {
   return array(
-    'api' => 2.0,
+    'api' => 3,
   );  
 }
