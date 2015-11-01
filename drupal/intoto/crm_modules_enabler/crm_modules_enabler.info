@@ -155,3 +155,7 @@ dependencies[] = search_api_views
 
 
 dependencies[] = recently_read
+
+
+dependencies[] = charts
+dependencies[] = charts_google

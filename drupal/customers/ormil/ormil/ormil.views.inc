@@ -5,10 +5,10 @@ function ormil_search_api_views_query_alter (&$view, &$query)
 }
 
 function ormil_views_query_alter(&$view, &$query) {
-	if ($view->name == 'search_contacts'){
+	if ($view->name == 'communication_required'){
 		
-//		dpm($query);
-//		dpm($query->getKeys());
+		dpm($query);
+		//dpm($query->getKeys());
 	}
 	if ($view->name == 'crm_comments_by_contact' || $view->name == 'relevant_comments') {
 /*
