@@ -1,0 +1,7 @@
+drush dl simplehtmldom-7.x-1.12
+drush -y en diff
+drush -y en module_filter
+drush -y en devel
+# xhprof
+# devel_themer
+

@@ -242,3 +242,38 @@ function intoto_crm_views_api() {
     'api' => 3,
   );  
 }
+
+
+/**
+ * Implements hook_user_view().
+ */
+function intoto_crm_user_view_alter(&$build)
+{
+	dpm($build);
+	unset($build['mimemail']);
+}
+
+
+function intoto_crm_form_user_profile_form_alter(&$form, &$form_state, $form_id)
+{
+	if (isset($form['mimemail']))
+	{
+		unset($form['mimemail']);
+	}
+	
+}
+
+//function intoto_crm_form_user_edit_alter(&$form, &$form_state, $form_id)
+//{
+//	dvm($form);	
+//}
+
+
+//force hook system to call our form_alter last, after other modules have added their form elements
+function intoto_crm_module_implements_alter(&$implementations, $hook) {
+  if (($hook == 'form_alter' || $hook == 'form_user_profile_form_alter') && isset($implementations['intoto_crm'])) {
+    $group = $implementations['intoto_crm'];
+    unset($implementations['intoto_crm']);
+    $implementations['intoto_crm'] = $group;
+  }
+}
