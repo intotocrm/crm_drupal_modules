@@ -1693,7 +1693,7 @@ Promise|Promise',
     'entity_type' => 'crm_core_contact',
     'field_name' => 'field_email',
     'label' => 'Email',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
