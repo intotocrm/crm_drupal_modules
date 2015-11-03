@@ -1,0 +1,3 @@
+<?php
+$module_name = 'intoto_main';
+module_load_include('inc', $module_name , 'functions');

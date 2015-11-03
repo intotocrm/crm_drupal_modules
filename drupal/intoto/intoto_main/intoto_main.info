@@ -1,0 +1,7 @@
+name = Intoto Main
+description = General Functions
+core = 7.x
+
+;dependencies[] = 
+
+files[] = 'functions.inc'

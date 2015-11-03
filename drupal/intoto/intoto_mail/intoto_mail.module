@@ -1,0 +1,272 @@
+<?php
+
+$module_name = 'intoto_mail';
+
+module_load_include('inc', 'intoto_main', 'functions');
+
+
+function OBSOLETE_intoto_mail_entity_presave_crm_core_activity_email($activity_wrapper)
+{
+	global $user;
+
+	$subject = $activity_wrapper->{"title"}->value();
+	$field_send_option = $activity_wrapper->{"field_send_option"}->value();
+
+	$to = [];
+	$activity_wrapper->{"field_real_send"}->set(0);
+	if (in_array('send_test', $field_send_option))
+	{
+		$to = [$user->mail];
+	}elseif(in_array('send', $field_send_option))  //elseif and not if because there's no point in sending test AND real mail.
+	{
+		//the case when we don't have 'test email to self' checked
+		$activity_wrapper->{"field_real_send"}->set(1);
+		$to_array = $activity_wrapper->{"field_activity_participants"};
+		foreach($to_array as $to_contact)
+		{
+			if (isset($to_contact->{"type"}) && $to_contact->{"type"}->value() == 'customer')
+			{
+				//we need to add mails of IPs belonging to this customer.
+				dpm($to_contact->{"contact_id"}->value(), "contact_id");
+				$IPs = intoto_get_related_contacts($to_contact->{"contact_id"}->value(), 'crm_member');
+			}else
+			{
+				$IPs = [$to_contact];
+			}
+
+			foreach ($IPs as $ip_entity)
+			{
+				$ip = entity_metadata_wrapper("crm_core_contact", $ip_entity);
+				$name = $ip->{"contact_name"}->{"given"}->value() . " " . $ip->{"contact_name"}->{"family"}->value();
+
+				if (strlen($name) > 1)
+				{
+					$name = "<$name> ";
+				}
+	//			$to[] = $name . $ip->{"field_email"}->value();
+				$to[] = $ip->{"field_email"}->value();
+			}
+		}
+	}
+	$activity_wrapper->{"field_to_addresses"}->set(join(",", $to));
+	drupal_set_message("Saving mail $subject<br>to " . join(", ", $to));
+}
+
+function intoto_mail_entity_presave($entity, $type)
+{
+//	intoto_entity_generic_function_dispatcher($entity, $type);
+}
+
+
+function intoto_mail_form_crm_core_activity_edit_email_form_alter(&$form, &$form_state, $form_id)
+{
+	$form['actions']['test'] =
+		[
+			'#type' => 'submit',
+			'#value' => 'Send Test',
+			'#validate' => ['intoto_mail_send_test_mail_validate',],
+		];
+	$form['actions']['send'] =
+		[
+			'#type' => 'submit',
+			'#value' => 'Save and Send',
+			'#validate' => ['intoto_mail_send_mail_validate',],
+			'#submit' => ["intoto_mail_send_mail_submit",],
+		];
+	$form['actions']['submit']['#value'] = "Save without Sending";
+	$form['actions']['submit']['#submit'][] = "intoto_mail_save_mail_without_submit";
+	
+	//hide some fields
+	foreach (['field_activity_date', 'field_activity_notes', 'field_sent', 'field_log'] as $ctrl_id)
+	{
+		$form[$ctrl_id]['#type'] = 'hidden';
+	}
+	
+	//if this mail has been sent already, disable most controls and show log as markup
+	if ($form_state['op'] != 'add')
+	{
+		$entity_wrapper = entity_metadata_wrapper("crm_core_activity", $form['#entity']);
+		if ($entity_wrapper->{"field_sent"}->value() == 1)
+		{
+			$form['title']['#disabled'] = TRUE;
+			$form['field_mail_body']['#disabled'] = TRUE;
+			$form['field_activity_participants']['#disabled'] = TRUE;
+			$form['actions']['submit']['#disabled'] = TRUE;
+			$form['actions']['delete']['#disabled'] = TRUE;
+			$form['actions']['send']['#disabled'] = TRUE;
+			
+			$log_text = $entity_wrapper->{"field_log"}->value()['value'];
+			$form['log_markup'] = ['#markup'=>$log_text, '#weight'=>100];
+		}
+	}
+	
+	
+	//now see if this is a sent message, if so display it differently.
+}
+
+function intoto_mail_save_mail_without_submit($form, $form_state)
+{
+	drupal_set_message("Email was not sent");
+}
+
+function intoto_mail_send_mail_submit($form, $form_state)
+{
+	global $user;
+	$email_from = $user->mail;
+	$success = FALSE;
+	$report_message = "";
+	if (isset($form_state['email_params']['params']) && isset($form_state['email_params']['to']))
+	{
+		$message = drupal_mail('intoto_mail', 'mail_activity', $form_state['email_params']['to'], language_default(), $form_state['email_params']['params'], $email_from);
+		$success = isset($message['result']) && $message['result'];
+		if ($success){
+			$report_message = "Sent mail:" .
+					"<br><b>Subject</b>: " . check_plain($message['subject']) . 
+					"<br><b>To:</b> " . check_plain($message['to']) . 
+					(isset($message['headers']['cc']) ? "<br><b>CC:</b> " . check_plain($message['headers']['cc']) : "") .
+					(isset($message['headers']['bcc']) ? "<br><b>BCC:</b> " . check_plain($message['headers']['bcc']): "") .
+//					(isset($message['headers']['Return-Path']) ? "<br>Return-Path: " . check_plain($message['headers']['Return-Path']) : "") .
+					(isset($message['headers']['Reply-To']) ? "<br><b>Reply To</b>: " . check_plain($message['headers']['Reply-To']) : "") .
+					"";
+			drupal_set_message($report_message);
+		}else
+		{
+			drupal_set_message("Error sending mail");
+		}
+	}else
+	{
+		drupal_set_messsage('Nothing to send', 'error');
+	}
+	
+	if ($success)
+	{
+		$entity_wrapper = entity_metadata_wrapper("crm_core_activity", $form_state['crm_core_activity']);
+		$entity_wrapper->{"field_sent"}->set("1");
+		$entity_wrapper->{"field_activity_date"}->set(time());
+		$entity_wrapper->{"field_log"}->set(['value'=>$report_message, 'format'=>"filtered_html"] );
+		$entity_wrapper->save();
+	}
+}
+
+function intoto_mail_send_mail_validate($form, &$form_state)
+{
+	$participants = [];
+	if (isset($form_state['values']['field_activity_participants']['und']))
+	{
+		foreach($form_state['values']['field_activity_participants']['und'] as $participant)
+		{
+			$participants[] = $participant['target_id'];
+		}
+	}
+	$contacts = entity_load('crm_core_contact', $participants);
+	$to = [];
+	$IPs = [];
+	foreach($contacts as $to_contact)
+	{
+		if (isset($to_contact->type) && $to_contact->type == 'customer')
+		{
+			//we need to add mails of IPs belonging to this customer.
+			$IPs = $IPs + intoto_get_related_contacts($to_contact->contact_id, 'crm_member');
+		}else
+		{
+			$IPs[] = $to_contact;
+		}
+	}
+	
+	//now we have all the contacts (IPs), we should build the "to" addresses list
+	foreach ($IPs as $ip_entity)
+	{
+		$ip = entity_metadata_wrapper("crm_core_contact", $ip_entity);
+		$name = $ip->{"contact_name"}->{"given"}->value() . " " . $ip->{"contact_name"}->{"family"}->value();
+
+		if (strlen($name) > 1)
+		{
+			$to[] = "\"$name\" <" . $ip->{"field_email"}->value() . ">";
+		}else
+		{
+			$to[] = $ip->{"field_email"}->value();
+		}
+	}
+
+	$email_to = join(",", $to);
+	
+	$form_state['email_params'] = [
+		'params' => [
+			'subject' => $form_state['values']['title'],
+			'message' => $form_state['values']['field_mail_body']['und'][0]['value'],
+			],
+		'to' => $email_to,
+	];
+}
+
+function intoto_mail_send_test_mail_validate($form, &$form_state)
+{
+	global $user;
+	
+	//$contacts = _crm_core_relationship_ui_get_contact_from_autocomplete_field_value($form_state['values']['field_activity_participants']);
+	
+
+	$email_to = $user->mail;
+	$params = array('subject' => $form_state['values']['title'], 'message' => $form_state['values']['field_mail_body']['und'][0]['value']);
+	
+	$message = drupal_mail('intoto_mail', 'mail_activity', $email_to, language_default(), $params);
+	
+	form_set_error('form', t('Test mail sent'));
+	
+//	form_set_value($form['field_send_option']['und']['no_send'], 0, $form_state);
+//	form_set_value($form['field_send_option']['und']['send_test'], 1, $form_state);
+//	form_set_value($form['field_send_option']['und']['send'], 0, $form_state);
+//	dpm($form_state);
+////	$form['field_send_option']['und']['no_send']['#value'] = 0;
+//	$form['field_send_option']['und']['send_test']['#value'] = 1; //only send_test should be set.
+//	$form['field_send_option']['und']['send']['#value'] = 0;
+}
+
+
+
+/**
+ * Implements hook_mail().
+ */
+function intoto_mail_mail($key, &$message, $params) {
+	global $user;
+	
+	//read user preferences (profile)
+	$profile = profile2_load_by_user($user->uid, "preferences");
+
+	//preferences: copy me on every mail
+	if (isset($profile->field_copy_me_on_every_mail['und'][0]['value']))
+	{
+		$copy_sender_method = $profile->field_copy_me_on_every_mail['und'][0]['value'];
+		if ($copy_sender_method == "cc" || $copy_sender_method == "bcc")
+		{
+			$message['headers'][$copy_sender_method] = (isset($message['headers'][$copy_sender_method]) ?  $message['headers'][$copy_sender_method] . "," : "" ) . $user->mail;
+		}
+	}
+
+	//preferences: reply-to: my email
+	$reply_to_myself = FALSE;
+	if (isset($profile->field_reply_to_myself['und'][0]['value']))
+	{
+		$reply_to_myself = $profile->field_reply_to_myself['und'][0]['value'];
+	}
+	$reply_to = [];
+	if ($reply_to_myself){
+		$reply_to [] = $user->mail;
+	}
+
+	//preferences: reply-to: additional addresses
+	if(isset($profile->field_reply_to_emails['und']))
+	{
+		foreach($profile->field_reply_to_emails['und'] as $email_struct)
+		{
+			$reply_to [] = $email_struct['email'];
+		}
+	}
+
+	if ($reply_to)
+	{
+		$message['headers']["Reply-To"] = (isset($message['headers']["Reply-To"]) ?  $message['headers'][Reply-To] . "," : "" ) . join(",", $reply_to);
+	}
+	$message['subject'] = $params['subject'];
+	$message['body'][] = $params['message'];
+}

@@ -1,0 +1,7 @@
+name = Intoto Mail
+description = Implementation and Hooks for Intoto Mail Sending
+core = 7.x
+
+dependencies[] = intoto_main
+
+;files[] = 'tokens.inc'
