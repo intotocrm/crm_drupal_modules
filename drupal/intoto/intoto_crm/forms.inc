@@ -94,8 +94,8 @@ function intoto_crm_form_alter(&$form, &$form_state, $form_id)
 			if (isset($form['actions']['submit']['#submit'])) {$form['actions']['submit']['#submit'][] = "intoto_crm_override_submit";}
 			$form_state['post_submit_instructions'][] = ['id' => "redirect_to_newly_created_contact"];
 			break;
-			case 'crm_core_activity_edit_comment_form':
-			case 'crm_core_relationship_form':
+		case 'crm_core_activity_edit_comment_form':
+		case 'crm_core_relationship_form':
 			if (isset($form["#submit"])) {$form["#submit"][] = "intoto_crm_override_submit";}
 			if (isset($form['actions']['submit']['#submit'])) {$form['actions']['submit']['#submit'][] = "intoto_crm_override_submit";}
 			$form_state['post_submit_instructions'][] = ['id' => "redirect_to_url", 'url' => current_path()];

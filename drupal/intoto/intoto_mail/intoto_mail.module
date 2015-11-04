@@ -8,6 +8,8 @@ module_load_include('inc', 'intoto_main', 'functions');
 function intoto_mail_form_crm_core_activity_edit_email_form_alter(&$form, &$form_state, $form_id)
 {
 	dpm($form, "form before alter");
+	$entity_wrapper = entity_metadata_wrapper("crm_core_activity", $form['#entity']);
+	$mail_was_sent = ($form_state['op'] != 'add' && $entity_wrapper->{"field_sent"}->value() == 1);
 	$form['actions']['test'] =
 		[
 			'#type' => 'submit',
@@ -34,34 +36,38 @@ function intoto_mail_form_crm_core_activity_edit_email_form_alter(&$form, &$form
 	}
 	
 	//if this mail has been sent already, disable most controls and show log as markup
-	if ($form_state['op'] != 'add')
+	if ($mail_was_sent)
 	{
-		$entity_wrapper = entity_metadata_wrapper("crm_core_activity", $form['#entity']);
-		if ($entity_wrapper->{"field_sent"}->value() == 1)
-		{
-			drupal_set_message(t("This mail was sent, therefore it cannot be edited"), "error");
-			$form['title']['#disabled'] = TRUE;
-			$form['field_mail_body']['#disabled'] = TRUE;
-			$form['field_activity_participants']['#disabled'] = TRUE;
-			$form['actions']['submit']['#disabled'] = TRUE;
-			$form['actions']['delete']['#disabled'] = TRUE;
-			$form['actions']['send']['#disabled'] = TRUE;
+		drupal_set_message(t("This mail was sent, therefore it cannot be edited"), "error");
+		$date = $entity_wrapper->{'field_activity_date'}->value();
+		$form['date_sent'] = [
+			'#type' => 'textfield',
+			'#title' => t('Date'),
+			'#default_value' => format_date($date, "custom", "D M j G:i:s T Y"),
+			'#disabled' => TRUE,
 			
-			$log_text = $entity_wrapper->{"field_log"}->value()['value'];
-			
-			$form['log_container'] = 
-			[
-				'#type' => 'container',
-				'#weight'=>100,
-				'log_markup' =>
-							[
-								'#markup' => "<div>$log_text</div>",
-							],
-				'#prefix' => "<label>Log:</label><div class='well'>",
-				'#suffix' => "</div>",
-					
-			];
-		}
+		];
+		$form['title']['#disabled'] = TRUE;
+		$form['field_mail_body']['#disabled'] = TRUE;
+		$form['field_activity_participants']['#disabled'] = TRUE;
+		$form['actions']['submit']['#access'] = FALSE;
+		$form['actions']['delete']['#access'] = FALSE;
+		$form['actions']['send']['#access'] = FALSE;
+
+		$log_text = $entity_wrapper->{"field_log"}->value()['value'];
+
+		$form['log_container'] = 
+		[
+			'#type' => 'container',
+			'#weight'=>100,
+			'log_markup' =>
+						[
+							'#markup' => "<div>$log_text</div>",
+						],
+			'#prefix' => "<label>Log:</label><div class='well'>",
+			'#suffix' => "</div>",
+
+		];
 	}
 	
 	dpm($form, "form after alter");
