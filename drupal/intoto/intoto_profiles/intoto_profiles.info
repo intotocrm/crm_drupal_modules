@@ -1,0 +1,5 @@
+name = intoto profiles
+description = tweaks profile2 settings (menu etc)
+core = 7.x
+package = intoto
+version = 7.x-1.0

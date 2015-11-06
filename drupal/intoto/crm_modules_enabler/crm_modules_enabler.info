@@ -57,7 +57,7 @@ dependencies[] = taxonomy
 dependencies[] = text
 dependencies[] = toolbar
 dependencies[] = user
-
+dependencies[] = php
 ; Date/Time
 dependencies[] = date
 dependencies[] = date_api
@@ -159,3 +159,6 @@ dependencies[] = recently_read
 
 dependencies[] = charts
 dependencies[] = charts_google
+
+dependencies[] = profile2
+dependencies[] = profile2_page

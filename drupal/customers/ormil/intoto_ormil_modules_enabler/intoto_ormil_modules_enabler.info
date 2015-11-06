@@ -17,3 +17,6 @@ dependencies[] = ormil_blocks
 dependencies[] = ormil_activities
 dependencies[] = ormil_contact_header
 dependencies[] = ormil_react_on_contact_us_form  
+dependencies[] = ormil_seach_api_definitions
+dependencies[] = ormil_site_settings_entities
+dependencies[] = ormil_profile2_bundles

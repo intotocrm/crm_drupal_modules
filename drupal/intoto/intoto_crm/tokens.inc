@@ -30,19 +30,19 @@ function intoto_crm_token_info() {
 function intoto_crm_tokens($type, $tokens, array $data = array(), array $options = array()) {
 	$replacements = array();
 //	if ($type == 'my_custom_tokens') {
-//	// Loop through the available tokens.
-//	foreach ($tokens as $name => $original) {
-//	  // Find our custom tokens by name.
-//	  switch ($name) {
-//		case 'my_cool_token':
-//		  // Work out the value of our token.
-//		  $value = 'Whatever we want the token to be';
-//		  // Give our token it's value!
-//		  $replacements[$original] = $value;
-//		  break;
-//	  }
+//		// Loop through the available tokens.
+//		foreach ($tokens as $name => $original) {
+//		  // Find our custom tokens by name.
+//		  switch ($name) {
+//			case 'my_cool_token':
+//				// Work out the value of our token.
+//				$value = 'Whatever we want the token to be';
+//				// Give our token it's value!
+//				$replacements[$original] = $value;
+//				break;
+//		  }
+//		}
 //	}
-//	}
-//
+
 	return $replacements;
 }

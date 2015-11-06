@@ -1,0 +1,53 @@
+<?php
+
+module_load_include('inc', 'user', 'user.pages');
+module_load_include('inc', 'profile2_page' , 'profile2_page');
+
+function profile_get_form_own($profile_name)
+{
+	global $user;
+	$profile_entity = profile2_by_uid_load($user->uid, $profile_name);
+	return entity_ui_get_form('profile2', $profile_entity, 'edit');
+}
+
+function user_get_form_own()
+{
+	global $user;
+	$user_entity = user_load($user->uid);
+	drupal_set_title("User Account");
+	return drupal_get_form('user_profile_form', $user_entity);
+}
+
+
+function intoto_profiles_menu()
+{
+	$items = [];
+	$items["account"] = array(
+		'page callback' => 'user_get_form_own',
+		'page arguments' => array(),
+		'access callback' => TRUE,//'profile2_access',
+		'access arguments' => [],//array('edit', 'profile2-preferences'),
+		'title' => 'User',
+		'type' => MENU_LOCAL_TASK,
+		'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
+//		'file' => 'profile2_page.inc',
+        // Copied over the following hack from user_menu() to avoid $path
+        // appearing in the breadcrumb:
+        //
+	);
+
+	$items["my/%"] = array(
+		'page callback' => 'profile_get_form_own',
+		'page arguments' => array(1),
+		'access callback' => TRUE,//'profile2_access',
+		'access arguments' => [],//array('edit', 'profile2-preferences'),
+		'title' => 'My',
+		'type' => MENU_LOCAL_TASK,
+		'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
+//		'file' => 'profile2_page.inc',
+        // Copied over the following hack from user_menu() to avoid $path
+        // appearing in the breadcrumb:
+        //
+	);
+	return $items;
+}

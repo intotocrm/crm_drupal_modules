@@ -13,11 +13,12 @@ function intoto_site_settings_rules_action_info() {
 			'group'     => t('Site Settings'),
 			'label'     => t('Load site settings'),
 			'module'    => 'intoto_site_settings',
-			'callbacks' => array(''),
+			'callbacks' => array('site_settings_load_settings'),
 			'provides'  => array(
 				'site_settings' => array(
-					'label' => 'Site Settings',
-					'type'  => 'intoto_site_settings',
+					'label'		=> 'Site Settings',
+					'type'		=> 'intoto_site_settings',
+					'bundle'	=> 'general_site_settings',
 				),
 			),
 		),
@@ -26,11 +27,10 @@ function intoto_site_settings_rules_action_info() {
 
 
 
-function  intoto_site_settings_get_settings()
+function site_settings_load_settings()
 {
-//	$site_settings_entity = entity_load('intoto_site_settings', 1);
-	$site_settings_entities = intoto_site_settings_load_settings($site_settings_type);
-	$site_settings_entity = $site_settings_entities[0]; //there should be only one settings entity, as in singleton
+	$site_settings_entities = intoto_site_settings_load_settings("general_site_settings");  //todo: the type should be parameterized by the rule
+	$site_settings_entity = $site_settings_entities[1]; //there should be only one settings entity, as in singleton
 	$w = entity_metadata_wrapper('intoto_site_settings', $site_settings_entity);
 	return ['site_settings' => $w,];
 }

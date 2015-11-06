@@ -63,17 +63,6 @@ function intoto_site_settings_form($form, &$form_state, $entity) {
 
   // Describe all properties of the entity which shall be shown on the form.
   $wrapper = entity_metadata_wrapper('intoto_site_settings', $entity);
-  $form['title'] = array(
-    '#type' => 'textfield',
-    '#required' => TRUE,
-    '#title' => t('Name'),
-    '#default_value' => $wrapper->title->value(),
-  );
-  $form['description'] = array(
-    '#type' => 'textarea',
-    '#title' => t('Description'),
-    '#default_value' => $wrapper->description->value(),
-  );
 
   // Add fields of the entity to the form.
   field_attach_form('intoto_site_settings', $entity, $form, $form_state);

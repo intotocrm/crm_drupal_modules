@@ -17,6 +17,14 @@ function ormil_activities_default_crm_core_activity_type() {
     "description" : "",
     "rdf_mapping" : []
   }');
+  $items['email'] = entity_import('crm_core_activity_type', '{
+    "type" : "email",
+    "label" : "Email",
+    "weight" : 0,
+    "activity_string" : "",
+    "description" : "Send a mail to one or more contacts",
+    "rdf_mapping" : []
+  }');
   $items['meeting'] = entity_import('crm_core_activity_type', '{
     "type" : "meeting",
     "label" : "Meeting",

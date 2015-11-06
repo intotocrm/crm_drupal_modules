@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ORMIL Site Settings Entities feature.
+ */
+
+include_once 'ormil_site_settings_entities.features.inc';

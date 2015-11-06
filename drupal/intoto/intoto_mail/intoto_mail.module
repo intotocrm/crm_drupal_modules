@@ -7,7 +7,6 @@ module_load_include('inc', 'intoto_main', 'functions');
 
 function intoto_mail_form_crm_core_activity_edit_email_form_alter(&$form, &$form_state, $form_id)
 {
-	dpm($form, "form before alter");
 	$entity_wrapper = entity_metadata_wrapper("crm_core_activity", $form['#entity']);
 	$mail_was_sent = ($form_state['op'] != 'add' && $entity_wrapper->{"field_sent"}->value() == 1);
 	$form['actions']['test'] =
@@ -45,7 +44,6 @@ function intoto_mail_form_crm_core_activity_edit_email_form_alter(&$form, &$form
 			'#title' => t('Date'),
 			'#default_value' => format_date($date, "custom", "D M j G:i:s T Y"),
 			'#disabled' => TRUE,
-			
 		];
 		$form['title']['#disabled'] = TRUE;
 		$form['field_mail_body']['#disabled'] = TRUE;
@@ -69,9 +67,6 @@ function intoto_mail_form_crm_core_activity_edit_email_form_alter(&$form, &$form
 
 		];
 	}
-	
-	dpm($form, "form after alter");
-	
 }
 
 function intoto_mail_save_mail_without_submit($form, $form_state)

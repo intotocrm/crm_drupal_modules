@@ -13,7 +13,7 @@ class IntotoSiteSettings extends Entity {
    * Define the label of the entity.
    */
   protected function defaultLabel() {
-    return $this->title;
+    return t("Site Settings");//$this->title;
   }
 
   /**
@@ -33,22 +33,22 @@ class IntotoSiteSettingsController extends EntityAPIController {
    */
   public function buildContent($entity, $view_mode = 'full', $langcode = NULL, $content = array()) {
     // Make "description" property themed like default fields.
-    $content['description'] = array(
-      '#theme' => 'field',
-      '#weight' => 0,
-      '#title' => t('Description'),
-      '#access' => TRUE,
-      '#label_display' => 'above',
-      '#view_mode' => 'full',
-      '#language' => LANGUAGE_NONE,
-      '#field_name' => 'field_fake_description',
-      '#field_type' => 'text',
-      '#entity_type' => 'intoto_site_settings',
-      '#bundle' => $entity->type,
-      '#items' => array(array('value' => $entity->description)),
-      '#formatter' => 'text_default',
-      0 => array('#markup' => check_plain($entity->description)),
-    );
+//    $content['description'] = array(
+//      '#theme' => 'field',
+//      '#weight' => 0,
+//      '#title' => t('Description'),
+//      '#access' => TRUE,
+//      '#label_display' => 'above',
+//      '#view_mode' => 'full',
+//      '#language' => LANGUAGE_NONE,
+//      '#field_name' => 'field_fake_description',
+//      '#field_type' => 'text',
+//      '#entity_type' => 'intoto_site_settings',
+//      '#bundle' => $entity->type,
+//      '#items' => array(array('value' => $entity->description)),
+//      '#formatter' => 'text_default',
+//      0 => array('#markup' => check_plain($entity->description)),
+//    );
 
     return parent::buildContent($entity, $view_mode, $langcode, $content);
   }

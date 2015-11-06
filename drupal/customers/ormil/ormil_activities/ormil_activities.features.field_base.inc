@@ -10,7 +10,7 @@
 function ormil_activities_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_activity_date'
+  // Exported field_base: 'field_activity_date'.
   $field_bases['field_activity_date'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -23,14 +23,17 @@ function ormil_activities_field_default_field_bases() {
     'locked' => 0,
     'module' => 'date',
     'settings' => array(
+      'cache_count' => 4,
+      'cache_enabled' => 0,
       'granularity' => array(
         'day' => 'day',
         'hour' => 'hour',
         'minute' => 'minute',
         'month' => 'month',
-        'second' => 0,
+        'second' => 'second',
         'year' => 'year',
       ),
+      'profile2_private' => FALSE,
       'repeat' => 0,
       'timezone_db' => 'UTC',
       'todate' => '',
@@ -40,7 +43,7 @@ function ormil_activities_field_default_field_bases() {
     'type' => 'datetime',
   );
 
-  // Exported field_base: 'field_activity_notes'
+  // Exported field_base: 'field_activity_notes'.
   $field_bases['field_activity_notes'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -61,7 +64,7 @@ function ormil_activities_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_activity_participants'
+  // Exported field_base: 'field_activity_participants'.
   $field_bases['field_activity_participants'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -87,6 +90,74 @@ function ormil_activities_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'entityreference',
+  );
+
+  // Exported field_base: 'field_log'.
+  $field_bases['field_log'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_log',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text_long',
+  );
+
+  // Exported field_base: 'field_mail_body'.
+  $field_bases['field_mail_body'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_mail_body',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text_long',
+  );
+
+  // Exported field_base: 'field_sent'.
+  $field_bases['field_sent'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_sent',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => '',
+        1 => '',
+      ),
+      'allowed_values_function' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
   );
 
   return $field_bases;

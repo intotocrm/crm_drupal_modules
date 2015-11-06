@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ORMIL profile2 bundles feature.
+ */
+
+include_once 'ormil_profile2_bundles.features.inc';

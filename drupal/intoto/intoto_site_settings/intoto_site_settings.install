@@ -28,17 +28,6 @@ function intoto_site_settings_schema() {
         'not null' => TRUE,
         'default' => '',
       ),
-      'title' => array(
-        'description' => 'Entity title.',
-        'type' => 'varchar',
-        'length' => 255,
-        'not null' => TRUE,
-        'default' => '',
-      ),
-      'description' => array(
-        'description' => 'Entity description.',
-        'type' => 'text',
-      ),
     ),
     'primary key' => array('id'),
   );

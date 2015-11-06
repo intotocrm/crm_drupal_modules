@@ -1,0 +1,14 @@
+name = ORMIL Site Settings Entities
+description = ORMIL Site Settings Entities - settings types (bundles) and fileds
+core = 7.x
+package = ormil
+version = 7.x-1.0
+dependencies[] = entity
+dependencies[] = entityreference
+dependencies[] = features
+dependencies[] = intoto_site_settings
+features[features_api][] = api:2
+features[field_base][] = field_new_leads_notify_users
+features[field_instance][] = intoto_site_settings-general_site_settings-field_new_leads_notify_users
+features[intoto_site_settings_type][] = general_site_settings
+project path = sites/all/modules/ormil
