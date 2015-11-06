@@ -12,6 +12,7 @@ dependencies[] = views
 features[fe_block_settings][] = menu-features
 features[fe_block_settings][] = search-form
 features[fe_block_settings][] = tb_megamenu-main-menu
+features[fe_block_settings][] = tb_megamenu-user-menu
 features[fe_block_settings][] = views-00d9d681566b18de6c08a85415c42a0f
 features[fe_block_settings][] = views-contact_header-block
 features[fe_block_settings][] = views-recent_contacts-block
