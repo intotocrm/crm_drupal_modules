@@ -10,7 +10,7 @@
 function ormil_menus_menu_default_menu_links() {
   $menu_links = array();
 
-  // Exported menu link: features_customers:report/customer.
+  // Exported menu link: features_customers:report/customer
   $menu_links['features_customers:report/customer'] = array(
     'menu_name' => 'features',
     'link_path' => 'report/customer',
@@ -30,7 +30,7 @@ function ormil_menus_menu_default_menu_links() {
     'weight' => 0,
     'customized' => 1,
   );
-  // Exported menu link: features_intended-parents:report/ips.
+  // Exported menu link: features_intended-parents:report/ips
   $menu_links['features_intended-parents:report/ips'] = array(
     'menu_name' => 'features',
     'link_path' => 'report/ips',
@@ -50,7 +50,7 @@ function ormil_menus_menu_default_menu_links() {
     'weight' => 0,
     'customized' => 1,
   );
-  // Exported menu link: main-menu_add:<nolink>.
+  // Exported menu link: main-menu_add:<nolink>
   $menu_links['main-menu_add:<nolink>'] = array(
     'menu_name' => 'main-menu',
     'link_path' => '<nolink>',
@@ -70,7 +70,7 @@ function ormil_menus_menu_default_menu_links() {
     'weight' => -49,
     'customized' => 1,
   );
-  // Exported menu link: main-menu_customer:crm-core/contact/add/customer.
+  // Exported menu link: main-menu_customer:crm-core/contact/add/customer
   $menu_links['main-menu_customer:crm-core/contact/add/customer'] = array(
     'menu_name' => 'main-menu',
     'link_path' => 'crm-core/contact/add/customer',
@@ -91,7 +91,7 @@ function ormil_menus_menu_default_menu_links() {
     'customized' => 1,
     'parent_identifier' => 'main-menu_add:<nolink>',
   );
-  // Exported menu link: main-menu_home:<front>.
+  // Exported menu link: main-menu_home:<front>
   $menu_links['main-menu_home:<front>'] = array(
     'menu_name' => 'main-menu',
     'link_path' => '<front>',
@@ -108,7 +108,7 @@ function ormil_menus_menu_default_menu_links() {
     'weight' => -50,
     'customized' => 1,
   );
-  // Exported menu link: main-menu_ip:crm-core/contact/add/ip.
+  // Exported menu link: main-menu_ip:crm-core/contact/add/ip
   $menu_links['main-menu_ip:crm-core/contact/add/ip'] = array(
     'menu_name' => 'main-menu',
     'link_path' => 'crm-core/contact/add/ip',
@@ -129,7 +129,7 @@ function ormil_menus_menu_default_menu_links() {
     'customized' => 1,
     'parent_identifier' => 'main-menu_add:<nolink>',
   );
-  // Exported menu link: user-menu_:profile-preferences.
+  // Exported menu link: user-menu_:profile-preferences
   $menu_links['user-menu_:profile-preferences'] = array(
     'menu_name' => 'user-menu',
     'link_path' => 'profile-preferences',
@@ -143,10 +143,10 @@ function ormil_menus_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -47,
+    'weight' => -49,
     'customized' => 1,
   );
-  // Exported menu link: user-menu_log-out:user/logout.
+  // Exported menu link: user-menu_log-out:user/logout
   $menu_links['user-menu_log-out:user/logout'] = array(
     'menu_name' => 'user-menu',
     'link_path' => 'user/logout',
@@ -160,11 +160,11 @@ function ormil_menus_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -48,
+    'weight' => -47,
     'customized' => 1,
-    'parent_identifier' => 'user-menu_user-account:user',
+    'parent_identifier' => 'user-menu_user:<nolink>',
   );
-  // Exported menu link: user-menu_my-preferences:my/preferences.
+  // Exported menu link: user-menu_my-preferences:my/preferences
   $menu_links['user-menu_my-preferences:my/preferences'] = array(
     'menu_name' => 'user-menu',
     'link_path' => 'my/preferences',
@@ -183,9 +183,9 @@ function ormil_menus_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -49,
     'customized' => 1,
-    'parent_identifier' => 'user-menu_user-account:user',
+    'parent_identifier' => 'user-menu_user:<nolink>',
   );
-  // Exported menu link: user-menu_user-account:account.
+  // Exported menu link: user-menu_user-account:account
   $menu_links['user-menu_user-account:account'] = array(
     'menu_name' => 'user-menu',
     'link_path' => 'account',
@@ -204,9 +204,9 @@ function ormil_menus_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -50,
     'customized' => 1,
-    'parent_identifier' => 'user-menu_user-account:user',
+    'parent_identifier' => 'user-menu_user:<nolink>',
   );
-  // Exported menu link: user-menu_user-account:user.
+  // Exported menu link: user-menu_user-account:user
   $menu_links['user-menu_user-account:user'] = array(
     'menu_name' => 'user-menu',
     'link_path' => 'user',
@@ -220,9 +220,9 @@ function ormil_menus_menu_default_menu_links() {
       'identifier' => 'user-menu_user-account:user',
     ),
     'module' => 'system',
-    'hidden' => 0,
+    'hidden' => 1,
     'external' => 0,
-    'has_children' => 1,
+    'has_children' => 0,
     'expanded' => 0,
     'weight' => -50,
     'customized' => 1,

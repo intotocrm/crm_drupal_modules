@@ -10,7 +10,7 @@
 function ormil_site_settings_entities_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_new_leads_notify_users'.
+  // Exported field_base: 'field_new_leads_notify_users'
   $field_bases['field_new_leads_notify_users'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -29,7 +29,7 @@ function ormil_site_settings_entities_field_default_field_bases() {
       'handler_settings' => array(
         'behaviors' => array(
           'views-select-list' => array(
-            'status' => 0,
+            'status' => 1,
           ),
         ),
         'sort' => array(

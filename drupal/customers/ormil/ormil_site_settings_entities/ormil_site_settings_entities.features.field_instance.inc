@@ -11,12 +11,19 @@ function ormil_site_settings_entities_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance:
-  // 'intoto_site_settings-general_site_settings-field_new_leads_notify_users'.
+  // 'intoto_site_settings-general_site_settings-field_new_leads_notify_users'
   $field_instances['intoto_site_settings-general_site_settings-field_new_leads_notify_users'] = array(
     'bundle' => 'general_site_settings',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'target_id' => 3,
+      ),
+      1 => array(
+        'target_id' => 4,
+      ),
+    ),
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Fill in user names that will be notified by mail whenever there is a new lead coming from "contact-us" form',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -37,19 +44,16 @@ function ormil_site_settings_entities_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'entityreference',
-      'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'size' => 60,
-      ),
-      'type' => 'entityreference_autocomplete_tags',
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
       'weight' => 2,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Fill in user names that will be notified by mail whenever there is a new lead coming from "contact-us" form');
   t('New Leads Notify Users');
 
   return $field_instances;

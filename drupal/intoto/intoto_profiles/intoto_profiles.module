@@ -22,6 +22,8 @@ function user_get_form_own()
 function intoto_profiles_menu()
 {
 	$items = [];
+	
+	
 	$items["account"] = array(
 		'page callback' => 'user_get_form_own',
 		'page arguments' => array(),
@@ -51,3 +53,4 @@ function intoto_profiles_menu()
 	);
 	return $items;
 }
+

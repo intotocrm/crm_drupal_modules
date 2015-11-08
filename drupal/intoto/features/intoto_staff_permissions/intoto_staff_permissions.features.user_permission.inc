@@ -60,8 +60,18 @@ function intoto_staff_permissions_user_default_permissions() {
     'name' => 'administer crm_core_contact entities',
     'roles' => array(
       'administrator' => 'administrator',
+      'staff' => 'staff',
     ),
     'module' => 'crm_core_contact',
+  );
+
+  // Exported permission: 'administer intoto_site_settings content'.
+  $permissions['administer intoto_site_settings content'] = array(
+    'name' => 'administer intoto_site_settings content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'intoto_site_settings',
   );
 
   // Exported permission: 'create crm_core_activity entities'.
@@ -71,6 +81,22 @@ function intoto_staff_permissions_user_default_permissions() {
       'administrator' => 'administrator',
       'staff' => 'staff',
     ),
+    'module' => 'crm_core_activity',
+  );
+
+  // Exported permission: 'create crm_core_activity entities of bundle comment'.
+  $permissions['create crm_core_activity entities of bundle comment'] = array(
+    'name' => 'create crm_core_activity entities of bundle comment',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'crm_core_activity',
+  );
+
+  // Exported permission: 'create crm_core_activity entities of bundle email'.
+  $permissions['create crm_core_activity entities of bundle email'] = array(
+    'name' => 'create crm_core_activity entities of bundle email',
+    'roles' => array(),
     'module' => 'crm_core_activity',
   );
 
@@ -175,6 +201,22 @@ function intoto_staff_permissions_user_default_permissions() {
     'module' => 'crm_core_relationship',
   );
 
+  // Exported permission: 'delete any crm_core_activity entity of bundle comment'.
+  $permissions['delete any crm_core_activity entity of bundle comment'] = array(
+    'name' => 'delete any crm_core_activity entity of bundle comment',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'crm_core_activity',
+  );
+
+  // Exported permission: 'delete any crm_core_activity entity of bundle email'.
+  $permissions['delete any crm_core_activity entity of bundle email'] = array(
+    'name' => 'delete any crm_core_activity entity of bundle email',
+    'roles' => array(),
+    'module' => 'crm_core_activity',
+  );
+
   // Exported permission: 'delete any crm_core_activity entity of bundle meeting'.
   $permissions['delete any crm_core_activity entity of bundle meeting'] = array(
     'name' => 'delete any crm_core_activity entity of bundle meeting',
@@ -263,6 +305,22 @@ function intoto_staff_permissions_user_default_permissions() {
       'administrator' => 'administrator',
       'staff' => 'staff',
     ),
+    'module' => 'crm_core_activity',
+  );
+
+  // Exported permission: 'edit any crm_core_activity entity of bundle comment'.
+  $permissions['edit any crm_core_activity entity of bundle comment'] = array(
+    'name' => 'edit any crm_core_activity entity of bundle comment',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'crm_core_activity',
+  );
+
+  // Exported permission: 'edit any crm_core_activity entity of bundle email'.
+  $permissions['edit any crm_core_activity entity of bundle email'] = array(
+    'name' => 'edit any crm_core_activity entity of bundle email',
+    'roles' => array(),
     'module' => 'crm_core_activity',
   );
 
@@ -357,6 +415,16 @@ function intoto_staff_permissions_user_default_permissions() {
     'module' => 'crm_core_relationship',
   );
 
+  // Exported permission: 'edit intoto_site_settings content'.
+  $permissions['edit intoto_site_settings content'] = array(
+    'name' => 'edit intoto_site_settings content',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'staff' => 'staff',
+    ),
+    'module' => 'intoto_site_settings',
+  );
+
   // Exported permission: 'edit relation entities of any contact relationship'.
   $permissions['edit relation entities of any contact relationship'] = array(
     'name' => 'edit relation entities of any contact relationship',
@@ -405,6 +473,22 @@ function intoto_staff_permissions_user_default_permissions() {
       'administrator' => 'administrator',
       'staff' => 'staff',
     ),
+    'module' => 'crm_core_activity',
+  );
+
+  // Exported permission: 'view any crm_core_activity entity of bundle comment'.
+  $permissions['view any crm_core_activity entity of bundle comment'] = array(
+    'name' => 'view any crm_core_activity entity of bundle comment',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'crm_core_activity',
+  );
+
+  // Exported permission: 'view any crm_core_activity entity of bundle email'.
+  $permissions['view any crm_core_activity entity of bundle email'] = array(
+    'name' => 'view any crm_core_activity entity of bundle email',
+    'roles' => array(),
     'module' => 'crm_core_activity',
   );
 
@@ -518,6 +602,17 @@ function intoto_staff_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'crm_core_contact',
+  );
+
+  // Exported permission: 'view intoto_site_settings content'.
+  $permissions['view intoto_site_settings content'] = array(
+    'name' => 'view intoto_site_settings content',
+    'roles' => array(
+      'Staff Read Only' => 'Staff Read Only',
+      'administrator' => 'administrator',
+      'staff' => 'staff',
+    ),
+    'module' => 'intoto_site_settings',
   );
 
   // Exported permission: 'view relation entities of any contact relationship'.

@@ -81,7 +81,7 @@ function intoto_site_settings_form($form, &$form_state, $entity) {
     '#submit' => $submit + array('intoto_site_settings_form_submit'),
   );
   $entity_id = entity_id('intoto_site_settings', $entity);
-  if (!empty($entity_id)) {
+  if (!empty($entity_id) && entity_access('delete', "intoto_site_settings", $entity)) {
     $form['actions']['delete'] = array(
       '#type' => 'submit',
       '#value' => t('Delete'),
@@ -103,9 +103,10 @@ function intoto_site_settings_form_submit($form, &$form_state) {
   entity_save('intoto_site_settings', $entity);
 
   // Redirect user to edited entity page.
-  $entity_uri = entity_uri('intoto_site_settings', $entity);
-  $form_state['redirect'] = $entity_uri['path'];
-  drupal_set_message(t('Entity %title saved.', array('%title' => entity_label('intoto_site_settings', $entity))));
+//  $entity_uri = entity_uri('intoto_site_settings', $entity);
+
+//  $form_state['redirect'] = "";//$entity_uri['path'];
+  drupal_set_message(t('%title saved.', array('%title' => entity_label('intoto_site_settings', $entity))));
 }
 
 /**

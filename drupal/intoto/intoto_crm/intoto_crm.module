@@ -249,7 +249,6 @@ function intoto_crm_views_api() {
  */
 function intoto_crm_user_view_alter(&$build)
 {
-	dpm($build);
 	unset($build['mimemail']);
 }
 

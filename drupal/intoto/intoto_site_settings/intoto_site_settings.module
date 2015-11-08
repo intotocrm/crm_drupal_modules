@@ -28,6 +28,7 @@ function intoto_site_settings_entity_info() {
       'uri callback' => 'entity_class_uri',
       'label callback' => 'entity_class_label',
       'module' => 'intoto_site_settings',
+    'access callback' => 'intoto_site_settings_access',
     ),
   );
   $info['intoto_site_settings_type'] = array(
@@ -130,6 +131,10 @@ function intoto_site_settings_entity_property_info() {
   return $info;
 }
 
+function intoto_site_settings_form_title($title)
+{
+	return t("System Settings");
+}
 /**
  * Implements hook_entity_info_alter().
  * 
@@ -191,29 +196,30 @@ function intoto_site_settings_menu() {
   }
 
   // URI for viewing entity instances.
-  $items[$base_uri] = array(
-    'title callback' => 'entity_label',
-    'title arguments' => array('intoto_site_settings', $base_uri_argument_position),
-    'page callback' => 'intoto_site_settings_view',
-    'page arguments' => array($base_uri_argument_position),
-    'access arguments' => array('view intoto_site_settings content'),
-    'file' => 'intoto_site_settings.pages.inc',
-  );
-  $items[$base_uri . '/view'] = array(
-    'title' => 'View Intoto Site Settings',
-    'type' => MENU_DEFAULT_LOCAL_TASK,
-    'weight' => -10,
-  );
+//  $items[$base_uri] = array(
+//    'title callback' => 'entity_label',
+//    'title arguments' => array('intoto_site_settings', $base_uri_argument_position),
+//    'page callback' => 'intoto_site_settings_view',
+//    'page arguments' => array($base_uri_argument_position),
+//    'access arguments' => array('view intoto_site_settings content'),
+//    'file' => 'intoto_site_settings.pages.inc',
+//  );
+//  $items[$base_uri . '/view'] = array(
+//    'title' => 'View Intoto Site Settings',
+//    'type' => MENU_DEFAULT_LOCAL_TASK,
+//    'weight' => -10,
+//  );
 
   // URI for editing entity instances.
   $items[$base_uri . '/edit'] = array(
     'title' => 'Edit Intoto Site Settings',
+	'title callback' => 'intoto_site_settings_form_title',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('intoto_site_settings_form', $base_uri_argument_position),
-    'access arguments' => array('administer intoto_site_settings content'),
+    'access arguments' => array('edit intoto_site_settings content'),
     'file' => 'intoto_site_settings.admin.inc',
     'type' => MENU_LOCAL_TASK,
-    'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
+    'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE | MENU_DEFAULT_LOCAL_TASK,
   );
 
   // URI for deleting entity instances.
@@ -238,6 +244,34 @@ function intoto_site_settings_menu() {
   );
 
   return $items;
+}
+
+function intoto_site_settings_form_intoto_site_settings_form_alter(&$form, &$form_state, $form_id)
+{
+	$bundles= entity_load("intoto_site_settings_type");
+	$bundle_id = isset($form_state['entity']->type) ? $form_state['entity']->type : NULL;
+	$title = "Settings";
+	foreach ($bundles as $bundle){
+		if ($bundle->type == $bundle_id){
+			$title = $bundle->label;
+			break;
+		}
+	}
+	drupal_set_title($title);
+	$path = current_path();
+	dpm($path, "path");
+	dpm($form, "form");
+	dpm($form_state, "form_state");
+	//$form_state['redirect'] = 
+	$form['actions']['submit']['#value'] = t("Save");
+}
+
+function intoto_site_settings_admin_paths()
+{
+	return
+	[
+		"intoto_site_settings/*/edit" => TRUE,
+	];
 }
 
 /**
@@ -308,8 +342,40 @@ function intoto_site_settings_type_access($op, $entity = NULL) {
 }
 
 
+function intoto_site_settings_access($op, $entity = NULL)
+{
+	if ($op == 'edit'){
+		return user_access('edit intoto_site_settings content');
+	}
+  return user_access('administer intoto_site_settings content');
+}
+
 function intoto_site_settings_load_settings($site_settings_type) {
 	$entities = intoto_site_settings_load_multiple([1]);  //1 is the default for the site settings for this stage of development when I have only one bundle
 	//in the future take $site_settings_type into account (map it to the relevant single entity id)
 	return $entities;
+}
+
+/**
+ * @file
+ * Provide permissions for all sub-modules.
+ */
+
+/**
+ * Implements hook_permission().
+ */
+function intoto_site_settings_permission() {
+  $permissions = array(
+    'view intoto_site_settings content' => array(
+      'title' => t('View Site Settings content'),
+    ),
+    'administer intoto_site_settings content' => array(
+      'title' => t('Administer Site Settings content'),
+      'restrict access' => TRUE,
+    ),
+    'edit intoto_site_settings content' => array(
+      'title' => t('Edit Site Settings content'),
+    ),
+  );
+  return $permissions;
 }

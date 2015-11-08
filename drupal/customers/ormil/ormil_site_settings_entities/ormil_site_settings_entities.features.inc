@@ -11,7 +11,7 @@ function ormil_site_settings_entities_default_intoto_site_settings_type() {
   $items = array();
   $items['general_site_settings'] = entity_import('intoto_site_settings_type', '{
     "type" : "general_site_settings",
-    "label" : "General Site Settings",
+    "label" : "General System Settings",
     "weight" : 0,
     "description" : "",
     "rdf_mapping" : []
