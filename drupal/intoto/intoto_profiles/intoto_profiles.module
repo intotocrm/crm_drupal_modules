@@ -32,6 +32,8 @@ function intoto_profiles_menu()
 		'title' => 'User',
 		'type' => MENU_LOCAL_TASK,
 		'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
+		'menu_name' => 'user',
+		
 //		'file' => 'profile2_page.inc',
         // Copied over the following hack from user_menu() to avoid $path
         // appearing in the breadcrumb:
@@ -50,6 +52,7 @@ function intoto_profiles_menu()
         // Copied over the following hack from user_menu() to avoid $path
         // appearing in the breadcrumb:
         //
+		'menu_name' => 'user',
 	);
 	return $items;
 }

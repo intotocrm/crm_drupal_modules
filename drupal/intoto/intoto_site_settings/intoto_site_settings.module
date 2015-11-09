@@ -220,6 +220,7 @@ function intoto_site_settings_menu() {
     'file' => 'intoto_site_settings.admin.inc',
     'type' => MENU_LOCAL_TASK,
     'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE | MENU_DEFAULT_LOCAL_TASK,
+	'menu_name' => 'user',
   );
 
   // URI for deleting entity instances.

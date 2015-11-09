@@ -1,13 +1,13 @@
 #!/bin/bash
 #start at the base dir of the project, where the git and drupal dirs reside
 
-#GIT PULL
-pushd git/crm_drupal_modules
-git pull
-popd
-pushd git/drupal_themes
-git pull
-popd
+##GIT PULL
+#pushd git/crm_drupal_modules
+#git pull
+#popd
+#pushd git/drupal_themes
+#git pull
+#popd
 
 
 #work in DRUPAL

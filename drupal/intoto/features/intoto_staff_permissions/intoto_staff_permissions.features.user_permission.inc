@@ -10,6 +10,16 @@
 function intoto_staff_permissions_user_default_permissions() {
   $permissions = array();
 
+  // Exported permission: 'access user profiles'.
+  $permissions['access user profiles'] = array(
+    'name' => 'access user profiles',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'staff' => 'staff',
+    ),
+    'module' => 'user',
+  );
+
   // Exported permission: 'administer activity types'.
   $permissions['administer activity types'] = array(
     'name' => 'administer activity types',
