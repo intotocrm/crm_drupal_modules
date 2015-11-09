@@ -1,0 +1,11 @@
+name = Intoto User Account Fields
+description = Intoto User Account Fields
+core = 7.x
+package = intoto
+version = 7.x-1.0
+dependencies[] = features
+dependencies[] = name
+dependencies[] = ormil_contact_types
+features[features_api][] = api:2
+features[field_instance][] = user-user-contact_name
+project path = sites/all/modules/intoto/features
