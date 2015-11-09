@@ -10,8 +10,7 @@
 function ormil_profile2_bundles_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance:
-  // 'profile2-preferences-field_copy_me_on_every_mail'.
+  // Exported field_instance: 'profile2-preferences-field_copy_me_on_every_mail'
   $field_instances['profile2-preferences-field_copy_me_on_every_mail'] = array(
     'bundle' => 'preferences',
     'default_value' => array(
@@ -20,7 +19,7 @@ function ormil_profile2_bundles_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'Every mail that is originated from the system can be copied to your mailbox',
+    'description' => 'Every mail that is originated from the system will be sent to you',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -33,7 +32,7 @@ function ormil_profile2_bundles_field_default_field_instances() {
     'entity_type' => 'profile2',
     'field_name' => 'field_copy_me_on_every_mail',
     'label' => 'Copy me on every mail',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -47,7 +46,7 @@ function ormil_profile2_bundles_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'profile2-preferences-field_no_communication_alert'.
+  // 'profile2-preferences-field_no_communication_alert'
   $field_instances['profile2-preferences-field_no_communication_alert'] = array(
     'bundle' => 'preferences',
     'default_value' => array(
@@ -91,7 +90,7 @@ function ormil_profile2_bundles_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'profile2-preferences-field_reply_to_emails'.
+  // Exported field_instance: 'profile2-preferences-field_reply_to_emails'
   $field_instances['profile2-preferences-field_reply_to_emails'] = array(
     'bundle' => 'preferences',
     'default_value' => NULL,
@@ -124,7 +123,7 @@ function ormil_profile2_bundles_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'profile2-preferences-field_reply_to_myself'.
+  // Exported field_instance: 'profile2-preferences-field_reply_to_myself'
   $field_instances['profile2-preferences-field_reply_to_myself'] = array(
     'bundle' => 'preferences',
     'default_value' => array(
@@ -165,7 +164,7 @@ function ormil_profile2_bundles_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Additional email addresses to set the \'reply-to\' field of mails that you send to contacts.<br>When your contacts hit the <i>reply</i> button on emails you send them, these are the addresses that are going to be in the \'to\' field (in addition to your own address if you checked to use it)');
   t('Copy me on every mail');
-  t('Every mail that is originated from the system can be copied to your mailbox');
+  t('Every mail that is originated from the system will be sent to you');
   t('No Communication Alert');
   t('Reply-to Emails');
   t('Reply-to myself');

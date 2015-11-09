@@ -10,7 +10,7 @@
 function ormil_profile2_bundles_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_copy_me_on_every_mail'.
+  // Exported field_base: 'field_copy_me_on_every_mail'
   $field_bases['field_copy_me_on_every_mail'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -37,7 +37,7 @@ function ormil_profile2_bundles_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_no_communication_alert'.
+  // Exported field_base: 'field_no_communication_alert'
   $field_bases['field_no_communication_alert'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -54,7 +54,7 @@ function ormil_profile2_bundles_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_reply_to_emails'.
+  // Exported field_base: 'field_reply_to_emails'
   $field_bases['field_reply_to_emails'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -71,7 +71,7 @@ function ormil_profile2_bundles_field_default_field_bases() {
     'type' => 'email',
   );
 
-  // Exported field_base: 'field_reply_to_myself'.
+  // Exported field_base: 'field_reply_to_myself'
   $field_bases['field_reply_to_myself'] = array(
     'active' => 1,
     'cardinality' => 1,

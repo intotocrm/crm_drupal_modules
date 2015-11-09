@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * prevent 'unknown function' errors
+ */
+if (!function_exists('dpm')) { 
+	function dpm($x=NULL, $y=NULL) {} 
+} 
+
+
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
