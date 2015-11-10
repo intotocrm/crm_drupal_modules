@@ -92,8 +92,6 @@ function get_mail_string($person_wrapper)
 		return NULL;
 	}
 	
-dpm($person_wrapper->__isset("contact_name"), 'isset contact_name');
-dpm($person_wrapper->{"contact_name"}, "person_wrapper->contact_name");
 	foreach($name_parts as $name_part_index)
 	{
 	try{
@@ -241,7 +239,7 @@ function intoto_mail_send_test_mail_validate($form, &$form_state)
 	//$contacts = _crm_core_relationship_ui_get_contact_from_autocomplete_field_value($form_state['values']['field_activity_participants']);
 	
 	$email_to = get_mail_string($user_wrapper);
-	dpm($email_to, 'email_to');
+
 	
 	$params = array('subject' => $form_state['values']['title'], 'message' => $form_state['values']['field_mail_body']['und'][0]['value']);
 	
