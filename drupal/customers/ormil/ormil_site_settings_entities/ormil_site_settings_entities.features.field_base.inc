@@ -25,17 +25,18 @@ function ormil_site_settings_entities_field_default_field_bases() {
     'locked' => 0,
     'module' => 'entityreference',
     'settings' => array(
-      'handler' => 'base',
+      'handler' => 'views',
       'handler_settings' => array(
         'behaviors' => array(
           'views-select-list' => array(
             'status' => 1,
           ),
         ),
-        'sort' => array(
-          'type' => 'none',
+        'view' => array(
+          'args' => array(),
+          'display_name' => 'entityreference_1',
+          'view_name' => 'users',
         ),
-        'target_bundles' => array(),
       ),
       'profile2_private' => FALSE,
       'target_type' => 'user',
