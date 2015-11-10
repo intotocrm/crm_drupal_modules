@@ -8,6 +8,12 @@
  * and open the template in the editor.
  */
 
+if (!module_exists('devel'))
+{
+        function dpm($a, $b){}
+}
+
+
 function intoto_generic_function_dispatcher($function_parts, $arguments, $depth = 1)
 {
 	$trace = debug_backtrace();
