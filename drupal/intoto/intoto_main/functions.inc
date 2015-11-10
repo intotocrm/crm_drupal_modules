@@ -1,11 +1,5 @@
 <?php
 
-/*
- * prevent 'unknown function' errors
- */
-if (!function_exists('dpm')) { 
-	function dpm($x=NULL, $y=NULL) {} 
-} 
 
 
 /* 
