@@ -1,0 +1,3 @@
+name = Intoto Drush
+description = Implementation and Hooks for Drush
+core = 7.x
