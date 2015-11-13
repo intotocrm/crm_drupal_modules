@@ -39,6 +39,7 @@ function migrate_tammuz_migrate_api()
 	
 	$ip_keys = migrate_tammuz_key("IP_id", "persons name together with customer ID and A/B");
 	$customer_keys = migrate_tammuz_key("customer_id", "Customer number in Tammuz");
+	$journey_keys = migrate_tammuz_key("journey_line_number", "Journey line in Tammuz excel");
   
 	$individual_key = migrate_tammuz_key('id', "donor's unique id");
 
@@ -73,6 +74,9 @@ function migrate_tammuz_migrate_api()
 			),
 			'customer' => array(
 				'title' => t('Customer(household)-related Migrations'),
+			),
+			'journey' => array(
+				'title' => t('Journey-related Migrations'),
 			),
 	),
 		
@@ -138,11 +142,18 @@ function migrate_tammuz_migrate_api()
 								'ini_file' => 'porting.ini',
 							),
 			
+			'journey' =>	array (
+								'keys' => $journey_keys,
+								'group_name' => 'journey',
+								'class_name' => 'JourneysMigration',
+								'ini_file' => 'porting.ini',
+							),
+			
 			'member' =>	array (
 								'group_name' => 'ip',
 								'class_name' => 'RelationsMigration',
 								'ini_file' => 'porting.ini',
-								'depend' => array("ip", "customer"),
+								'dependency' => array("ip", "customer"),
 								'src_migration' => "ip",  //this is good for internal mapping that should be used while creating new relations
 								'dst_migration' => "customer",
 								'src_bundle' => "ip",
@@ -150,7 +161,35 @@ function migrate_tammuz_migrate_api()
 								'keys' => $ip_keys, //this fits because the customer has 1-to-many relation to IPs
 							),
 			
+			'household_participate_in' =>	array (
+								'group_name' => 'journey',
+								'class_name' => 'GenericRelationsMigration',
+								'ini_file' => 'porting.ini',
+								'bundle' => 'participate_in',
+								'dependency' => array("journey", "customer"),
+								'src_migration' => "customer",  //this is good for internal mapping that should be used while creating new relations
+								'dst_migration' => "journey",
+								'src_bundle' => "customer",
+								'dst_bundle' => "journey",
+								'src_column' => "customer_id",
+								'dst_column' => "journey_line_number",
+								'keys' => $journey_keys, 
+							),
 
+			'surrogate_participate_in' =>	array (
+								'group_name' => 'journey',
+								'class_name' => 'GenericRelationsMigration',
+								'ini_file' => 'porting.ini',
+								'bundle' => 'participate_in',
+								'dependency' => array("journey", "surrogate"),
+								'src_migration' => "surrogate",  //this is good for internal mapping that should be used while creating new relations
+								'dst_migration' => "journey",
+								'src_bundle' => "surrogate",
+								'dst_bundle' => "journey",
+								'src_column' => "surrogate_number",
+								'dst_column' => "journey_line_number",
+								'keys' => $journey_keys, 
+							),
 		),
 	);
 	return $api;

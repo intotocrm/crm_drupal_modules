@@ -17,6 +17,10 @@ function intoto_crm_form_crm_core_relationship_form_alter(&$form, &$form_state, 
 {
 	//This form is usually embedded in a contact's page, no need to see where it is being related from
 	$fields = ['source_contact', 'destination_contact'];
+	if (!isset($form['relationship_type']['#value']->crm_core_contact))
+	{
+		return; //this form appears in two ways: with original entity to relate from, or without. if without - we don't alter.
+	}
 	$contact_id = $form['relationship_type']['#value']->crm_core_contact->contact_id;
 	$reverse = isset($form['reverse']['#value']) ? $form['reverse']['#value'] : 0;
 	if(isset($form[$fields[$reverse]]))

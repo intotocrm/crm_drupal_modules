@@ -3,6 +3,7 @@
 $module_name = 'tammuz';
 module_load_include('inc', $module_name , 'blocks');
 module_load_include('inc', $module_name , 'forms');
+module_load_include('inc', "intoto_main" , 'functions');
 
 function local_crm_core_relation_entity_ui_get_form_wrapper($contact, $type, $reverse) {
 	return crm_core_relation_entity_ui_get_form_wrapper($contact, $type, $reverse);
@@ -87,3 +88,41 @@ function tammuz_views_api() {
   );
 }
 
+
+
+function tammuz_entity_presave($entity, $type)
+{
+	intoto_entity_generic_function_dispatcher($entity, $type);
+}
+
+function tammuz_entity_presave_relation($entity)
+{
+	dpm($entity, 'tammuz_entity_presave::entity');
+	dpm($entity->getPropertyInfo(), "wrapper ->getPropertyInfo()");
+	$participates_in_journey_relation_id = 'participate_in';
+	if(	$entity->relation_type->value() == $participates_in_journey_relation_id	)
+	{
+		$endpoints = [];
+		foreach($entity->endpoints as $endpoint)
+		{
+			dpm($endpoint->getPropertyInfo(), "\$endpoint ->getPropertyInfo()");
+			dpm($endpoint->type->value(), "endpoint->type->value()");
+			$endpoints[$endpoint->{"type"}->value()] = $endpoint;
+		}
+		if (isset($endpoints['journey']) && isset($endpoints['customer'])){
+			//count journeys on this customer already.
+			//don't use $endpoints['customer']->relation_participate_in_crm_core_contact->count();
+			// because it counts both sides of the relation
+			$journey_count_per_customer = intoto_count_relations($endpoints['customer']->contact_id->value(), $participates_in_journey_relation_id);
+			$endpoints['journey']->{'field_caption'}->set($journey_count_per_customer); //the caption of the journey is simply its ordinal per the customer
+		
+		//	$endpoints['journey']->{'contact_name'}->{"family"}->set("x"); 
+			$endpoints['journey']->save();
+		}
+	}
+}
+
+//function tammuz_entity_presave_crm_core_contact_journey($entity, $type)
+//{
+//
+//}

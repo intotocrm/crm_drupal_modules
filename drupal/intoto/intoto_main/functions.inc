@@ -19,11 +19,14 @@ function intoto_generic_function_dispatcher($function_parts, $arguments, $depth 
 	$trace = debug_backtrace();
 	$caller = $trace[$depth];
 	$function_prefix = $caller['function'];
-	
-	$function = $function_prefix . "_" . (join("_", $function_parts));
-	
-	if (function_exists($function)){
-		return call_user_func_array($function, $arguments);
+	while(count($function_parts) > 0)
+	{
+		$function = $function_prefix . "_" . (join("_", $function_parts));
+
+		if (function_exists($function)){
+			return call_user_func_array($function, $arguments);
+		}
+		array_pop($function_parts);  // we didn't find the specific function definition, look for something more generic
 	}
 	return FALSE;
 }
@@ -46,16 +49,26 @@ function intoto_entity_generic_function_dispatcher($entity, $type)
 {
 	if (isset($type)){
 		$entity_wrapper = entity_metadata_wrapper($type, $entity);
-		if (isset($entity_wrapper->{"type"}))
+		$functions_parts = [$type];
+		if(isset($entity_wrapper->{"type"}))
 		{
-			intoto_generic_function_dispatcher([$type, $entity_wrapper->{"type"}->value()], [$entity_wrapper], 2);
+			$functions_parts[] = $entity_wrapper->{"type"}->value();
 		}
+		return intoto_generic_function_dispatcher($functions_parts, [$entity_wrapper], 2);
 	}				
 }
 
 
 
 
+
+function intoto_count_relations($base_contact, $relation_name)
+{
+	return relation_query('crm_core_contact', $base_contact)
+		->propertyCondition('relation_type', $relation_name)
+		->count()
+		->execute();
+}
 
 function intoto_get_related_contacts($base_contact, $relation_name)
 {

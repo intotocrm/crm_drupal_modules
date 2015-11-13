@@ -17,6 +17,8 @@ files[] = "migrations/surrogates.inc"
 files[] = "migrations/ips.inc"
 files[] = "migrations/customer.inc"
 files[] = "migrations/relationship.inc"
+files[] = "migrations/journey.inc"
+files[] = "migrations/generic_relationship.inc"
 
 name = "migrate_tammuz"
 package = "Migration"

@@ -20,47 +20,6 @@ class CustomersMigration extends IntotoMigration {
 	public function AddFieldMappings()
 	{
 		$this->addFieldMapping('field_customer_number', 'customer_id');
-//		$this->addFieldMapping('field_status', 'customer_type');
-//		$this->addFieldMapping('field_notes', 'notes');
-	   //		$this->addFieldMapping('contact_id ', 'id');
-//		$this->addFieldMapping('field_email', 'email')
-//		  ->defaultValue(NULL)
-//		  ->callbacks('trim', array($this, 'valid_email_address'))
-//				;
-//		$this->addFieldMapping('field_facebook_user_name', 'facebook_user_name');
-//		$this->addFieldMapping('field_facebook_user_name:language');  //empty. facebook id doens't have a language.
-
-//		$this->addFieldMapping('contact_name','name_first');  //based on migrate_extras (see name.inc)
-//		$this->addFieldMapping('contact_name:given'); //empty mapping
-//		$this->addFieldMapping('contact_name:middle'); //empty mapping
-//		$this->addFieldMapping('contact_name:family', 'name_last');
-//		$this->addFieldMapping('contact_name:generational'); //empty mapping
-//		$this->addFieldMapping('contact_name:credentials'); //empty mapping
-
-//		$this->addFieldMapping('field_address'); //empty mapping - being taken care of in addresses.inc
-//		$this->addFieldMapping('field_address:revision_id'); //empty mapping - being taken care of in addresses.inc
-
-//		$this->addFieldMapping('field_instant_messaging_collecti'); //empty mapping - being taken care of in instant_messaging.inc
-//		$this->addFieldMapping('field_instant_messaging_collecti:revision_id'); //empty mapping - being taken care of in instant_messaging.inc
-
-//		$this->addFieldMapping('field_phone'); //empty mapping - being taken care of in phone.inc
-//		$this->addFieldMapping('field_phone:revision_id'); //empty mapping - being taken care of in phone.inc
-		
-//		$this->AddFieldMapping('field_marital_status', 'marital_status');
-		
-		//		$this->AddFieldMapping('field_date_of_birth', 'date_of_birth');
-		//		$this->AddFieldMapping('field_date_of_birth:timezone');  //empty mapping
-		//		$this->AddFieldMapping('field_date_of_birth:to');  //empty mapping
-		//		$this->AddFieldMapping('field_date_of_birth:rrule');  //empty mapping
-		
-		
-//		$this->AddFieldMapping('field_date_of_death')
-//				->defaultValue(NULL);//empty.
-//		$this->AddFieldMapping('field_date_of_death:timezone');  //empty mapping
-//		$this->AddFieldMapping('field_date_of_death:to');  //empty mapping
-//		$this->AddFieldMapping('field_date_of_death:rrule');  //empty mapping
-		
-//		$this->AddFieldMapping('field_gender', 'gender');
 	}
 	
 	public function DestinationKey()
