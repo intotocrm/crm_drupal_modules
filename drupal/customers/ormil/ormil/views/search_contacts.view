@@ -27,15 +27,26 @@ $handler->display->display_options['pager']['options']['offset'] = '0';
 $handler->display->display_options['pager']['options']['id'] = '0';
 $handler->display->display_options['style_plugin'] = 'table';
 $handler->display->display_options['style_options']['columns'] = array(
+  'contact_id' => 'contact_id',
   'url' => 'url',
   'field_email' => 'field_email',
   'field_phone' => 'field_phone',
-  'nothing' => 'nothing',
-  'contact_name' => 'contact_name',
   'field_image' => 'field_image',
+  'field_image_1' => 'field_image_1',
+  'contact_name' => 'contact_name',
+  'nothing' => 'nothing',
+  'view' => 'view',
+  'type_1' => 'type_1',
 );
 $handler->display->display_options['style_options']['default'] = '-1';
 $handler->display->display_options['style_options']['info'] = array(
+  'contact_id' => array(
+    'sortable' => 0,
+    'default_sort_order' => 'asc',
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
   'url' => array(
     'sortable' => 0,
     'default_sort_order' => 'asc',
@@ -53,7 +64,12 @@ $handler->display->display_options['style_options']['info'] = array(
     'separator' => '',
     'empty_column' => 0,
   ),
-  'nothing' => array(
+  'field_image' => array(
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+  'field_image_1' => array(
     'align' => '',
     'separator' => '',
     'empty_column' => 0,
@@ -63,13 +79,24 @@ $handler->display->display_options['style_options']['info'] = array(
     'separator' => '',
     'empty_column' => 0,
   ),
-  'field_image' => array(
+  'nothing' => array(
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+  'view' => array(
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+  'type_1' => array(
+    'sortable' => 0,
+    'default_sort_order' => 'asc',
     'align' => '',
     'separator' => '',
     'empty_column' => 0,
   ),
 );
-$handler->display->display_options['style_options']['empty_table'] = TRUE;
 /* Header: Global: Result summary */
 $handler->display->display_options['header']['result']['id'] = 'result';
 $handler->display->display_options['header']['result']['table'] = 'views';
@@ -110,6 +137,39 @@ $handler->display->display_options['fields']['field_email']['table'] = 'search_a
 $handler->display->display_options['fields']['field_email']['field'] = 'field_email';
 $handler->display->display_options['fields']['field_email']['exclude'] = TRUE;
 $handler->display->display_options['fields']['field_email']['type'] = 'intoto_label_formatter';
+/* Field: email activity label */
+$handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
+$handler->display->display_options['fields']['nothing_1']['table'] = 'views';
+$handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
+$handler->display->display_options['fields']['nothing_1']['ui_name'] = 'email activity label';
+$handler->display->display_options['fields']['nothing_1']['label'] = '';
+$handler->display->display_options['fields']['nothing_1']['exclude'] = TRUE;
+$handler->display->display_options['fields']['nothing_1']['alter']['text'] = '<span><i class="fa fa-envelope"></i></span>';
+$handler->display->display_options['fields']['nothing_1']['alter']['make_link'] = TRUE;
+$handler->display->display_options['fields']['nothing_1']['alter']['path'] = 'crm-core/contact/[contact_id]/activity/add/email';
+$handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
+/* Field: edit this contact */
+$handler->display->display_options['fields']['nothing_2']['id'] = 'nothing_2';
+$handler->display->display_options['fields']['nothing_2']['table'] = 'views';
+$handler->display->display_options['fields']['nothing_2']['field'] = 'nothing';
+$handler->display->display_options['fields']['nothing_2']['ui_name'] = 'edit this contact';
+$handler->display->display_options['fields']['nothing_2']['label'] = '';
+$handler->display->display_options['fields']['nothing_2']['exclude'] = TRUE;
+$handler->display->display_options['fields']['nothing_2']['alter']['text'] = '<span class="fa fa-pencil"></span>';
+$handler->display->display_options['fields']['nothing_2']['alter']['make_link'] = TRUE;
+$handler->display->display_options['fields']['nothing_2']['alter']['path'] = 'crm-core/contact/[contact_id]/edit';
+$handler->display->display_options['fields']['nothing_2']['element_label_colon'] = FALSE;
+/* Field: comment on  this contact */
+$handler->display->display_options['fields']['nothing_3']['id'] = 'nothing_3';
+$handler->display->display_options['fields']['nothing_3']['table'] = 'views';
+$handler->display->display_options['fields']['nothing_3']['field'] = 'nothing';
+$handler->display->display_options['fields']['nothing_3']['ui_name'] = 'comment on  this contact';
+$handler->display->display_options['fields']['nothing_3']['label'] = '';
+$handler->display->display_options['fields']['nothing_3']['exclude'] = TRUE;
+$handler->display->display_options['fields']['nothing_3']['alter']['text'] = '<i class="fa fa-comment"></i>';
+$handler->display->display_options['fields']['nothing_3']['alter']['make_link'] = TRUE;
+$handler->display->display_options['fields']['nothing_3']['alter']['path'] = 'crm-core/contact/[contact_id]/activity/add/comment';
+$handler->display->display_options['fields']['nothing_3']['element_label_colon'] = FALSE;
 /* Field: Indexed CRM Core Contact: Phone */
 $handler->display->display_options['fields']['field_phone']['id'] = 'field_phone';
 $handler->display->display_options['fields']['field_phone']['table'] = 'search_api_index_contacts_index';
@@ -127,6 +187,7 @@ $handler->display->display_options['fields']['field_image']['table'] = 'search_a
 $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
 $handler->display->display_options['fields']['field_image']['label'] = '';
 $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_image']['element_default_classes'] = FALSE;
 $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
 $handler->display->display_options['fields']['field_image']['type'] = 'intoto_bootstrap_formatter';
 $handler->display->display_options['fields']['field_image']['settings'] = array(
@@ -141,8 +202,9 @@ $handler->display->display_options['fields']['contact_name']['field'] = 'contact
 $handler->display->display_options['fields']['contact_name']['label'] = '';
 $handler->display->display_options['fields']['contact_name']['alter']['make_link'] = TRUE;
 $handler->display->display_options['fields']['contact_name']['alter']['path'] = '[url] ';
-$handler->display->display_options['fields']['contact_name']['element_type'] = 'h3';
+$handler->display->display_options['fields']['contact_name']['element_type'] = 'strong';
 $handler->display->display_options['fields']['contact_name']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['contact_name']['element_default_classes'] = FALSE;
 $handler->display->display_options['fields']['contact_name']['click_sort_column'] = 'title';
 $handler->display->display_options['fields']['contact_name']['settings'] = array(
   'format' => 'default',
@@ -155,12 +217,28 @@ $handler->display->display_options['fields']['contact_name']['settings'] = array
   'multiple_el_al_min' => '3',
   'multiple_el_al_first' => '1',
 );
+/* Field: bundle-icon */
+$handler->display->display_options['fields']['field_image_1']['id'] = 'field_image_1';
+$handler->display->display_options['fields']['field_image_1']['table'] = 'search_api_index_contacts_index';
+$handler->display->display_options['fields']['field_image_1']['field'] = 'field_image';
+$handler->display->display_options['fields']['field_image_1']['ui_name'] = 'bundle-icon';
+$handler->display->display_options['fields']['field_image_1']['label'] = '';
+$handler->display->display_options['fields']['field_image_1']['exclude'] = TRUE;
+$handler->display->display_options['fields']['field_image_1']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_image_1']['element_default_classes'] = FALSE;
+$handler->display->display_options['fields']['field_image_1']['click_sort_column'] = 'fid';
+$handler->display->display_options['fields']['field_image_1']['type'] = 'intoto_icon_formatter';
+$handler->display->display_options['fields']['field_image_1']['settings'] = array(
+  'image_style' => '',
+  'image_link' => '',
+);
+$handler->display->display_options['fields']['field_image_1']['delta_offset'] = '0';
 /* Field: Global: Custom text */
 $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
 $handler->display->display_options['fields']['nothing']['table'] = 'views';
 $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
 $handler->display->display_options['fields']['nothing']['label'] = '';
-$handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_phone][field_email]';
+$handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_image_1][nothing_2][field_phone][nothing_1][nothing_3]';
 $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
 /* Field: Global: View */
 $handler->display->display_options['fields']['view']['id'] = 'view';
