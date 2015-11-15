@@ -55,13 +55,35 @@ $handler->display->display_options['fields']['contact_id']['table'] = 'crm_core_
 $handler->display->display_options['fields']['contact_id']['field'] = 'contact_id';
 $handler->display->display_options['fields']['contact_id']['exclude'] = TRUE;
 $handler->display->display_options['fields']['contact_id']['link_to_contact'] = 0;
+/* Field: Field: Image */
+$handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+$handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+$handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+$handler->display->display_options['fields']['field_image']['label'] = '';
+$handler->display->display_options['fields']['field_image']['exclude'] = TRUE;
+$handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+$handler->display->display_options['fields']['field_image']['type'] = 'intoto_icon_formatter';
+$handler->display->display_options['fields']['field_image']['settings'] = array(
+  'image_style' => '',
+  'image_link' => '',
+);
+$handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
+/* Field: CRM Core Contact: URL */
+$handler->display->display_options['fields']['url']['id'] = 'url';
+$handler->display->display_options['fields']['url']['table'] = 'views_entity_crm_core_contact';
+$handler->display->display_options['fields']['url']['field'] = 'url';
+$handler->display->display_options['fields']['url']['exclude'] = TRUE;
+$handler->display->display_options['fields']['url']['link_to_entity'] = 0;
 /* Field: Field: Name */
 $handler->display->display_options['fields']['contact_name']['id'] = 'contact_name';
 $handler->display->display_options['fields']['contact_name']['table'] = 'field_data_contact_name';
 $handler->display->display_options['fields']['contact_name']['field'] = 'contact_name';
 $handler->display->display_options['fields']['contact_name']['label'] = '';
+$handler->display->display_options['fields']['contact_name']['alter']['alter_text'] = TRUE;
+$handler->display->display_options['fields']['contact_name']['alter']['text'] = '[field_image][contact_name]';
 $handler->display->display_options['fields']['contact_name']['alter']['make_link'] = TRUE;
-$handler->display->display_options['fields']['contact_name']['alter']['path'] = 'crm-core/contact/[contact_id]';
+$handler->display->display_options['fields']['contact_name']['alter']['path'] = '[url]';
 $handler->display->display_options['fields']['contact_name']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['contact_name']['click_sort_column'] = 'title';
 $handler->display->display_options['fields']['contact_name']['settings'] = array(
@@ -99,4 +121,3 @@ $handler->display->display_options['filters']['type']['value'] = array(
 /* Display: Block */
 $handler = $view->new_display('block', 'Block', 'block');
 $handler->display->display_options['block_description'] = 'Recent Contacts';
-
