@@ -35,7 +35,7 @@ function intoto_crm_field_formatters_field_formatter_info() {
 	return array(
 		'intoto_label_formatter' => array( //Machine name of the formatter
 			'label' => t('Small Label'),
-			'field types' => array('text', 'text_long', 'text_with_summary', 'datetime', 'date', 'number_decimal', 'email', 'list_text', 'list_boolean', 'phone_number'), //This will only be available to text fields
+			'field types' => array('text', 'text_long', 'text_with_summary', 'datetime', 'date', 'number_decimal', 'email', 'list_text', 'list_boolean', 'field_collection', 'phone_number'), //This will only be available to text fields
 			'settings'	=> array( //Array of the settings we'll create
 //				'pic_size' => 'small', //give a default value for when the form is first loaded
 //				'tooltip' => 'Link to user Facebook page', //ditto
@@ -44,7 +44,7 @@ function intoto_crm_field_formatters_field_formatter_info() {
 
 		'intoto_bootstrap_formatter' => array( //Machine name of the formatter
 			'label' => t('Bootstrap'),
-			'field types' => array('text', 'text_long', 'text_with_summary', 'datetime', 'date', 'number_decimal', 'email', 'list_text', 'list_boolean', 'phone_number', 'image'), //This will only be available to text fields
+			'field types' => array('text', 'text_long', 'text_with_summary', 'datetime', 'date', 'number_decimal', 'email', 'list_text', 'list_boolean', 'field_collection', 'phone_number', 'image'), //This will only be available to text fields
 			'settings'	=> array( //Array of the settings we'll create
 //				'pic_size' => 'small', //give a default value for when the form is first loaded
 //				'tooltip' => 'Link to user Facebook page', //ditto
@@ -168,10 +168,16 @@ function intoto_crm_prepare_field_theme($theme, $entity_type, $entity, $field, $
 		$value = NULL;
 		$is_default = FALSE;
 		$comment = "";
+		$link = "";
 		if (isset($item)){
 			switch($field['type']){
 				case 'email':
-					$value = l($item['email'], 'mailto:' . $item['email'], array('absolute' => TRUE));
+					//$value = l($item['email'], 'mailto:' . $item['email'], array('absolute' => TRUE));
+					$link = [
+							'uri' => 'mailto:' . $item['email'],
+							'options' => ['html'=>TRUE, 'absolute' => TRUE],
+						];
+					$value = $item['email'];
 					break;
 				case 'name':
 					$value = $item;
@@ -183,7 +189,12 @@ function intoto_crm_prepare_field_theme($theme, $entity_type, $entity, $field, $
 				case 'phone_number':
 					$number = make_phone_number($item, true);
 					$number_link = make_phone_number($item, false);
-					$value = l($number, 'tel:'. $number_link , array('html' => TRUE, 'attributes' => array('class'=>array('callto'))));
+					$link = [
+						'uri' => 'tel:'. $number_link,
+						'options' => ['html' => TRUE, 'attributes' => ['class'=>array('callto')]],
+						];
+					//$value = l($number, 'tel:'. $number_link , array('html' => TRUE, 'attributes' => array('class'=>array('callto'))));
+					$value = $number;
 
 					break;
 				case 'image':
@@ -208,7 +219,12 @@ function intoto_crm_prepare_field_theme($theme, $entity_type, $entity, $field, $
 					$number_link = make_phone_number($number_fields, false);
 					if ($number != "")
 					{
-						$value = l($number, 'tel:'. $number_link , array('html' => TRUE, 'attributes' => array('class'=>array('callto'))));
+						$link = [
+							'uri' => 'tel:'. $number_link,
+							'options' => ['html' => TRUE, 'attributes' => ['class'=>array('callto')]],
+						];
+
+						$value = $number;
 					}
 					
 					
@@ -264,6 +280,7 @@ function intoto_crm_prepare_field_theme($theme, $entity_type, $entity, $field, $
 				'field_instance' => $instance, 
 				'display' => $display,
 				'is_default' => $is_default,
+				'link' => $link,
 			];
 			$elements[$delta] = array(
 				'#markup' => theme($theme/*'label_formatter'*/, $element),
