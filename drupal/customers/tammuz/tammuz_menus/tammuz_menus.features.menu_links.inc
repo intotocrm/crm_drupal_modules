@@ -194,6 +194,27 @@ Medical screening, medical treatment, egg retrieval, IVF, lab work, sperm donati
     'customized' => 1,
     'parent_identifier' => 'main-menu_add:<nolink>',
   );
+  // Exported menu link: main-menu_journey:crm-core/contact/add/journey
+  $menu_links['main-menu_journey:crm-core/contact/add/journey'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'crm-core/contact/add/journey',
+    'router_path' => 'crm-core/contact/add/journey',
+    'link_title' => 'Journey',
+    'options' => array(
+      'attributes' => array(
+        'title' => 'Add a new journey to the system',
+      ),
+      'identifier' => 'main-menu_journey:crm-core/contact/add/journey',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
+    'customized' => 1,
+    'parent_identifier' => 'main-menu_add:<nolink>',
+  );
   // Exported menu link: main-menu_settings:<nolink>
   $menu_links['main-menu_settings:<nolink>'] = array(
     'menu_name' => 'main-menu',
@@ -247,6 +268,7 @@ Medical screening, medical treatment, egg retrieval, IVF, lab work, sperm donati
   t('Home');
   t('IP');
   t('Intended Parents');
+  t('Journey');
   t('Settings');
   t('Surrogate');
 
