@@ -157,6 +157,7 @@ features[field_instance][] = crm_core_contact-ip-field_profession
 features[field_instance][] = crm_core_contact-ip-field_spoken_languages
 features[field_instance][] = crm_core_contact-journey-contact_name
 features[field_instance][] = crm_core_contact-journey-field_caption
+features[field_instance][] = crm_core_contact-journey-field_id
 features[field_instance][] = crm_core_contact-journey-field_journey_type
 features[field_instance][] = crm_core_contact-journey-field_surrogacy_plan_type
 features[field_instance][] = crm_core_contact-organization-contact_name

@@ -244,7 +244,8 @@ function tammuz_search_api_server_index_default_search_api_index() {
             "highlight" : "always"
           }
         }
-      }
+      },
+      "additional fields" : { "field_image" : "field_image" }
     },
     "enabled" : "1",
     "read_only" : "0",

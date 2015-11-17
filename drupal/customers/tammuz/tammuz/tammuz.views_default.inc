@@ -5,13 +5,28 @@
  */
 // Declare all the .view files in the views subdir that end in .view
 function tammuz_views_default_views() {
-  $files = file_scan_directory(drupal_get_path('module', 'tammuz'). '/views', '/.*view.*/');
-  $views = [];
-  foreach ($files as $absolute => $file) {
-    require $absolute;
-    if (isset($view)) {
-      $views[$file->name] = $view;
-    }   
-  }
-  return $views;
+	$views = intoto_crm_views_hard_coded_views("tammuz");
+	$views[] = create_related_contacts_view(
+				[
+					'name' => 'journey_participants',
+					'description' => 'Views to show all related contacts to journey(generated view)',
+					'human_name' => "Journey Participants",
+					'relation_id' => "participate_in",
+					'r_index' => 1, 
+					'remove_text' => t("Disconnect from journey"),
+				]
+			);
+
+	$views[] = create_related_contacts_view(
+				[
+					'name' => 'contacts_journey',
+					'description' => 'Views to show all related journeys per contact',
+					'human_name' => "Contact's Journeys",
+					'relation_id' => "participate_in",
+					'r_index' => 0, 
+					'remove_text' => t("Disconnect from journey"),
+				]
+			);
+	return $views;
 }
+	 

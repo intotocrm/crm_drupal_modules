@@ -62,39 +62,13 @@ function intoto_display_formats_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'field_image',
-        1 => 'contact_name',
-        2 => 'field_agency',
-        3 => 'field_program',
-        4 => 'field_bedford',
-        5 => 'field_customer_type',
-        6 => 'field_surrogacy_type',
-        7 => 'field_managing_country',
-        8 => 'field_mhb',
-        9 => 'field_status',
-        10 => 'field_sales_category',
-        11 => 'field_patient_status',
-        12 => 'field_journey',
-        13 => 'field_campaign',
-        14 => 'field_referred_by',
+        0 => 'contact_name',
+        1 => 'field_customer_number',
       ),
     ),
     'fields' => array(
-      'field_image' => 'ds_content',
       'contact_name' => 'ds_content',
-      'field_agency' => 'ds_content',
-      'field_program' => 'ds_content',
-      'field_bedford' => 'ds_content',
-      'field_customer_type' => 'ds_content',
-      'field_surrogacy_type' => 'ds_content',
-      'field_managing_country' => 'ds_content',
-      'field_mhb' => 'ds_content',
-      'field_status' => 'ds_content',
-      'field_sales_category' => 'ds_content',
-      'field_patient_status' => 'ds_content',
-      'field_journey' => 'ds_content',
-      'field_campaign' => 'ds_content',
-      'field_referred_by' => 'ds_content',
+      'field_customer_number' => 'ds_content',
     ),
     'classes' => array(),
     'wrappers' => array(
@@ -152,13 +126,13 @@ function intoto_display_formats_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'field_image',
-        1 => 'contact_name',
+        0 => 'contact_name',
+        1 => 'field_image',
       ),
     ),
     'fields' => array(
-      'field_image' => 'ds_content',
       'contact_name' => 'ds_content',
+      'field_image' => 'ds_content',
     ),
     'classes' => array(),
     'wrappers' => array(

@@ -1,5 +1,4 @@
 <?php
-
 $page = new stdClass();
 $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
 $page->api_version = 1;
@@ -45,18 +44,44 @@ $handler->subtask = 'journeys';
 $handler->handler = 'panel_context';
 $handler->weight = 0;
 $handler->conf = array(
-  'title' => 'Journey General',
+  'title' => 'for non-journeys',
   'no_blocks' => 0,
   'pipeline' => 'standard',
   'body_classes_to_remove' => '',
   'body_classes_to_add' => '',
   'css_id' => '',
   'css' => '',
-  'contexts' => array(),
+  'contexts' => array(
+    0 => array(
+      'identifier' => 'Required Relationship',
+      'keyword' => 'required-relationship',
+      'name' => 'string',
+      'string' => 'participate_in',
+      'id' => 1,
+    ),
+    1 => array(
+      'identifier' => 'relationship r_index',
+      'keyword' => 'relationship-r_index',
+      'name' => 'string',
+      'string' => '1',
+      'id' => 2,
+    ),
+  ),
   'relationships' => array(),
   'access' => array(
-    'logic' => 'or',
-    'plugins' => array(),
+    'logic' => 'and',
+    'plugins' => array(
+      0 => array(
+        'name' => 'entity_bundle:crm_core_contact',
+        'settings' => array(
+          'type' => array(
+            'journey' => 'journey',
+          ),
+        ),
+        'context' => 'argument_entity_id:crm_core_contact_1',
+        'not' => TRUE,
+      ),
+    ),
   ),
   'name' => '',
 );
@@ -78,18 +103,18 @@ $display->uuid = '3b1e69d6-f23c-4d9f-a24d-c90891310363';
 $display->content = array();
 $display->panels = array();
   $pane = new stdClass();
-  $pane->pid = 'new-a1256d53-9891-4c58-b60c-5ccc8d06e13b';
+  $pane->pid = 'new-4a7570a7-597f-4a52-bb41-aba729f6f35a';
   $pane->panel = 'top';
   $pane->type = 'custom';
   $pane->subtype = 'custom';
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'admin_title' => 'placeholder for journey',
-    'title' => 'placeholder for journey',
-    'body' => 'placeholder for journey',
+    'admin_title' => 'custom-non-journey',
+    'title' => 'custom-non-journey',
+    'body' => 'custom-non-journey',
     'format' => 'filtered_html',
-    'substitute' => TRUE,
+    'substitute' => 1,
   );
   $pane->cache = array();
   $pane->style = array(
@@ -99,9 +124,215 @@ $display->panels = array();
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();
-  $pane->uuid = 'a1256d53-9891-4c58-b60c-5ccc8d06e13b';
-  $display->content['new-a1256d53-9891-4c58-b60c-5ccc8d06e13b'] = $pane;
-  $display->panels['top'][0] = 'new-a1256d53-9891-4c58-b60c-5ccc8d06e13b';
+  $pane->uuid = '4a7570a7-597f-4a52-bb41-aba729f6f35a';
+  $display->content['new-4a7570a7-597f-4a52-bb41-aba729f6f35a'] = $pane;
+  $display->panels['top'][0] = 'new-4a7570a7-597f-4a52-bb41-aba729f6f35a';
+  $pane = new stdClass();
+  $pane->pid = 'new-febc3e2c-8518-4742-bc7f-9b334076e944';
+  $pane->panel = 'top';
+  $pane->type = 'views';
+  $pane->subtype = 'contacts_journey';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_pager_settings' => 0,
+    'use_pager' => 0,
+    'nodes_per_page' => '9',
+    'pager_id' => '0',
+    'offset' => '0',
+    'more_link' => 0,
+    'feed_icons' => 0,
+    'panel_args' => 0,
+    'link_to_view' => 0,
+    'args' => '',
+    'url' => '',
+    'display' => 'default',
+    'context' => array(
+      0 => 'argument_entity_id:crm_core_contact_1.contact-id',
+    ),
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 1;
+  $pane->locks = array();
+  $pane->uuid = 'febc3e2c-8518-4742-bc7f-9b334076e944';
+  $display->content['new-febc3e2c-8518-4742-bc7f-9b334076e944'] = $pane;
+  $display->panels['top'][1] = 'new-febc3e2c-8518-4742-bc7f-9b334076e944';
+  $pane = new stdClass();
+  $pane->pid = 'new-cca93250-657d-4169-b9cb-01a8505d770a';
+  $pane->panel = 'top';
+  $pane->type = 'block';
+  $pane->subtype = 'intoto_crm-add_related_entity';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 2;
+  $pane->locks = array();
+  $pane->uuid = 'cca93250-657d-4169-b9cb-01a8505d770a';
+  $display->content['new-cca93250-657d-4169-b9cb-01a8505d770a'] = $pane;
+  $display->panels['top'][2] = 'new-cca93250-657d-4169-b9cb-01a8505d770a';
+$display->hide_title = PANELS_TITLE_FIXED;
+$display->title_pane = '0';
+$handler->conf['display'] = $display;
+$page->default_handlers[$handler->name] = $handler;
+$handler = new stdClass();
+$handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+$handler->api_version = 1;
+$handler->name = 'page_journeys__panel_context_d0adeecf-b3e4-4411-b900-75cec070d5b4';
+$handler->task = 'page';
+$handler->subtask = 'journeys';
+$handler->handler = 'panel_context';
+$handler->weight = 1;
+$handler->conf = array(
+  'title' => 'for journey',
+  'no_blocks' => 0,
+  'pipeline' => 'standard',
+  'body_classes_to_remove' => '',
+  'body_classes_to_add' => '',
+  'css_id' => '',
+  'css' => '',
+  'contexts' => array(
+    0 => array(
+      'identifier' => 'Required Relationship',
+      'keyword' => 'required-relationship',
+      'name' => 'string',
+      'string' => 'participate_in',
+      'id' => 1,
+    ),
+    1 => array(
+      'identifier' => 'relationship r_index',
+      'keyword' => 'relationship-r_index',
+      'name' => 'string',
+      'string' => '1',
+      'id' => 2,
+    ),
+  ),
+  'relationships' => array(),
+  'name' => '',
+  'access' => array(
+    'logic' => 'and',
+  ),
+);
+$display = new panels_display();
+$display->layout = 'twocol_stacked';
+$display->layout_settings = array();
+$display->panel_settings = array(
+  'style_settings' => array(
+    'default' => NULL,
+    'top' => NULL,
+    'left' => NULL,
+    'right' => NULL,
+    'bottom' => NULL,
+  ),
+);
+$display->cache = array();
+$display->title = '';
+$display->uuid = 'd4fb1856-a60e-449d-9317-105cb8cfb6f8';
+$display->content = array();
+$display->panels = array();
+  $pane = new stdClass();
+  $pane->pid = 'new-18c67239-fb20-4740-a039-fd512375f115';
+  $pane->panel = 'top';
+  $pane->type = 'custom';
+  $pane->subtype = 'custom';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'admin_title' => 'custom-journey',
+    'title' => 'custom-journey',
+    'body' => 'custom-journey',
+    'format' => 'filtered_html',
+    'substitute' => 1,
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = '18c67239-fb20-4740-a039-fd512375f115';
+  $display->content['new-18c67239-fb20-4740-a039-fd512375f115'] = $pane;
+  $display->panels['top'][0] = 'new-18c67239-fb20-4740-a039-fd512375f115';
+  $pane = new stdClass();
+  $pane->pid = 'new-f35c0e0e-9d51-4b5f-8ead-2a7537172fd0';
+  $pane->panel = 'top';
+  $pane->type = 'views';
+  $pane->subtype = 'journey_participants';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_pager_settings' => 0,
+    'use_pager' => 0,
+    'nodes_per_page' => '9',
+    'pager_id' => '0',
+    'offset' => '0',
+    'more_link' => 0,
+    'feed_icons' => 0,
+    'panel_args' => 0,
+    'link_to_view' => 0,
+    'args' => '',
+    'url' => '',
+    'display' => 'default',
+    'context' => array(
+      0 => 'argument_entity_id:crm_core_contact_1.contact-id',
+    ),
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 1;
+  $pane->locks = array();
+  $pane->uuid = 'f35c0e0e-9d51-4b5f-8ead-2a7537172fd0';
+  $display->content['new-f35c0e0e-9d51-4b5f-8ead-2a7537172fd0'] = $pane;
+  $display->panels['top'][1] = 'new-f35c0e0e-9d51-4b5f-8ead-2a7537172fd0';
+  $pane = new stdClass();
+  $pane->pid = 'new-cbc4b133-7edd-4afb-948a-eef50f37d2bd';
+  $pane->panel = 'top';
+  $pane->type = 'block';
+  $pane->subtype = 'intoto_crm-add_related_entity';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 1,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 2;
+  $pane->locks = array();
+  $pane->uuid = 'cbc4b133-7edd-4afb-948a-eef50f37d2bd';
+  $display->content['new-cbc4b133-7edd-4afb-948a-eef50f37d2bd'] = $pane;
+  $display->panels['top'][2] = 'new-cbc4b133-7edd-4afb-948a-eef50f37d2bd';
 $display->hide_title = PANELS_TITLE_FIXED;
 $display->title_pane = '0';
 $handler->conf['display'] = $display;

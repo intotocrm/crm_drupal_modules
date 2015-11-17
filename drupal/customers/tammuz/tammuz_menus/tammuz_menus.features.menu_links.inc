@@ -89,7 +89,7 @@ Medical screening, medical treatment, egg retrieval, IVF, lab work, sperm donati
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 0,
+    'weight' => -46,
     'customized' => 1,
     'parent_identifier' => 'main-menu_add:<nolink>',
   );
@@ -110,7 +110,7 @@ Medical screening, medical treatment, egg retrieval, IVF, lab work, sperm donati
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -50,
+    'weight' => -49,
     'customized' => 1,
     'parent_identifier' => 'main-menu_add:<nolink>',
   );
@@ -131,7 +131,7 @@ Medical screening, medical treatment, egg retrieval, IVF, lab work, sperm donati
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 0,
+    'weight' => -45,
     'customized' => 1,
     'parent_identifier' => 'main-menu_add:<nolink>',
   );
@@ -152,7 +152,7 @@ Medical screening, medical treatment, egg retrieval, IVF, lab work, sperm donati
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -48,
+    'weight' => -47,
     'customized' => 1,
     'parent_identifier' => 'main-menu_add:<nolink>',
   );
@@ -190,7 +190,7 @@ Medical screening, medical treatment, egg retrieval, IVF, lab work, sperm donati
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -49,
+    'weight' => -48,
     'customized' => 1,
     'parent_identifier' => 'main-menu_add:<nolink>',
   );
@@ -231,7 +231,7 @@ Medical screening, medical treatment, egg retrieval, IVF, lab work, sperm donati
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 0,
+    'weight' => -44,
     'customized' => 1,
     'parent_identifier' => 'main-menu_add:<nolink>',
   );
