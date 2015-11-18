@@ -282,6 +282,11 @@ function intoto_crm_prepare_field_theme($theme, $entity_type, $entity, $field, $
 				'is_default' => $is_default,
 				'link' => $link,
 			];
+			
+
+			drupal_alter('field_format', $element);
+			
+			
 			$elements[$delta] = array(
 				'#markup' => theme($theme/*'label_formatter'*/, $element),
 			);

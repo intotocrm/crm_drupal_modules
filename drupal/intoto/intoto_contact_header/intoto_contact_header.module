@@ -88,7 +88,7 @@ function template_preprocess_contact_header(&$variables)
 	$name_view = "";
 	if(!empty($name)) {
 		$name_view = field_view_value('crm_core_contact', $contact, 'contact_name', $name[0], array(
-					'type' => 'Name',
+					'type' => 'intoto_caption_formatter',
 					'settings' => array(),
 				)
 			);

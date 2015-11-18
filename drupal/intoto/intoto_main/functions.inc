@@ -59,6 +59,29 @@ function intoto_entity_generic_function_dispatcher($entity, $type)
 }
 
 
+//implements hook_field_format_alter which is a hook we invented in intoto
+function intoto_field_format_alter_dispatcher(&$element)
+{
+	$function_parts = [];
+	if (isset($element['field']['type']))
+	{
+		$function_parts[] = $element['field']['type'];
+	}
+	if (isset($element['field']['field_name']))
+	{
+		$function_parts[] = $element['field']['field_name'];
+	}
+	if (isset($element['entity']->type))
+	{
+		$function_parts[] = $element['entity']->type; //this is bundle
+	}
+
+	
+	$arguments = [&$element];
+	intoto_generic_function_dispatcher($function_parts, $arguments, 2); //2 because this is a function being called by a function that is being the base for the implementatin
+}
+
+
 
 
 

@@ -12,7 +12,7 @@ $btn_class = $can_edit ? "btn btn-xs btn-primary" : "btn btn-xs btn-primary disa
 			<div class="panel-heading">
 				<a href="<?php print "/crm-core/contact/$contact_id";?>">
 					<!--<i class="fa fa-comments fa-5x"></i>-->
-					<h2><?php print $title; ?> </h2>
+					<?php print $title; ?>
 					<?php foreach ($photos as $photo){  ?>
 						<div class="frame">							
 							<div class="crop">

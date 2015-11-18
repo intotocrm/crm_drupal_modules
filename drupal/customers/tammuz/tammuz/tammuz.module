@@ -122,7 +122,45 @@ function tammuz_entity_presave_relation($entity)
 	}
 }
 
-//function tammuz_entity_presave_crm_core_contact_journey($entity, $type)
-//{
-//
-//}
+
+
+//implements hook_field_format_alter which is a hook we invented in intoto
+function tammuz_field_format_alter(&$element)
+{
+	intoto_field_format_alter_dispatcher($element);
+}
+
+/* 
+ * implements hook_field_format_alter which is a hook we invented in intoto
+ * structure of function name: 
+ * module (tammuz)
+ * hook name (field_format)
+ * alter
+ * function_part[0] = field_type (name)
+ * function_part[1] = field_name (contact_name)
+ * function_part[2] = bundle (journey)
+ */
+function tammuz_field_format_alter_name_contact_name_journey(&$element)
+{
+
+	// a journey name is only its ordinal in relation to the customer.
+	$customer_entity_container = intoto_get_related_contacts($element['entity']->contact_id, 'participate_in');
+	dpm($customer_entity_container);
+	$customer_name = "Unknown Customer";
+	foreach($customer_entity_container as $id=>$entity)
+	{
+		if ($entity->type == 'customer'){
+			$entity_wrapper = entity_metadata_wrapper('crm_core_contact', $entity);
+			$customer_name = $entity_wrapper->{"field_caption"}->value();
+		}
+	}
+	
+	$element['value']['given'] = t("@customer_name - Journey #@journey_id", 
+			[
+				"@customer_name" => $customer_name, 
+				"@journey_id" => $element['value']['given']
+			]
+		);
+	
+}
+
