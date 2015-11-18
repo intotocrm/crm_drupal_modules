@@ -97,16 +97,12 @@ function tammuz_entity_presave($entity, $type)
 
 function tammuz_entity_presave_relation($entity)
 {
-	dpm($entity, 'tammuz_entity_presave::entity');
-	dpm($entity->getPropertyInfo(), "wrapper ->getPropertyInfo()");
 	$participates_in_journey_relation_id = 'participate_in';
 	if(	$entity->relation_type->value() == $participates_in_journey_relation_id	)
 	{
 		$endpoints = [];
 		foreach($entity->endpoints as $endpoint)
 		{
-			dpm($endpoint->getPropertyInfo(), "\$endpoint ->getPropertyInfo()");
-			dpm($endpoint->type->value(), "endpoint->type->value()");
 			$endpoints[$endpoint->{"type"}->value()] = $endpoint;
 		}
 		if (isset($endpoints['journey']) && isset($endpoints['customer'])){
@@ -114,6 +110,7 @@ function tammuz_entity_presave_relation($entity)
 			//don't use $endpoints['customer']->relation_participate_in_crm_core_contact->count();
 			// because it counts both sides of the relation
 			$journey_count_per_customer = intoto_count_relations($endpoints['customer']->contact_id->value(), $participates_in_journey_relation_id);
+			$journey_count_per_customer ++; 
 			$endpoints['journey']->{'field_caption'}->set($journey_count_per_customer); //the caption of the journey is simply its ordinal per the customer
 		
 		//	$endpoints['journey']->{'contact_name'}->{"family"}->set("x"); 
@@ -145,7 +142,6 @@ function tammuz_field_format_alter_name_contact_name_journey(&$element)
 
 	// a journey name is only its ordinal in relation to the customer.
 	$customer_entity_container = intoto_get_related_contacts($element['entity']->contact_id, 'participate_in');
-	dpm($customer_entity_container);
 	$customer_name = "Unknown Customer";
 	foreach($customer_entity_container as $id=>$entity)
 	{

@@ -63,7 +63,7 @@ $handler->conf = array(
       'identifier' => 'relationship r_index',
       'keyword' => 'relationship-r_index',
       'name' => 'string',
-      'string' => '1',
+      'string' => '0',
       'id' => 2,
     ),
   ),
@@ -103,31 +103,6 @@ $display->uuid = '3b1e69d6-f23c-4d9f-a24d-c90891310363';
 $display->content = array();
 $display->panels = array();
   $pane = new stdClass();
-  $pane->pid = 'new-4a7570a7-597f-4a52-bb41-aba729f6f35a';
-  $pane->panel = 'top';
-  $pane->type = 'custom';
-  $pane->subtype = 'custom';
-  $pane->shown = TRUE;
-  $pane->access = array();
-  $pane->configuration = array(
-    'admin_title' => 'custom-non-journey',
-    'title' => 'custom-non-journey',
-    'body' => 'custom-non-journey',
-    'format' => 'filtered_html',
-    'substitute' => 1,
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array();
-  $pane->extras = array();
-  $pane->position = 0;
-  $pane->locks = array();
-  $pane->uuid = '4a7570a7-597f-4a52-bb41-aba729f6f35a';
-  $display->content['new-4a7570a7-597f-4a52-bb41-aba729f6f35a'] = $pane;
-  $display->panels['top'][0] = 'new-4a7570a7-597f-4a52-bb41-aba729f6f35a';
-  $pane = new stdClass();
   $pane->pid = 'new-febc3e2c-8518-4742-bc7f-9b334076e944';
   $pane->panel = 'top';
   $pane->type = 'views';
@@ -150,7 +125,7 @@ $display->panels = array();
     'context' => array(
       0 => 'argument_entity_id:crm_core_contact_1.contact-id',
     ),
-    'override_title' => 0,
+    'override_title' => 1,
     'override_title_text' => '',
     'override_title_heading' => 'h2',
   );
@@ -160,11 +135,11 @@ $display->panels = array();
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 1;
+  $pane->position = 0;
   $pane->locks = array();
   $pane->uuid = 'febc3e2c-8518-4742-bc7f-9b334076e944';
   $display->content['new-febc3e2c-8518-4742-bc7f-9b334076e944'] = $pane;
-  $display->panels['top'][1] = 'new-febc3e2c-8518-4742-bc7f-9b334076e944';
+  $display->panels['top'][0] = 'new-febc3e2c-8518-4742-bc7f-9b334076e944';
   $pane = new stdClass();
   $pane->pid = 'new-cca93250-657d-4169-b9cb-01a8505d770a';
   $pane->panel = 'top';
@@ -183,11 +158,11 @@ $display->panels = array();
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 2;
+  $pane->position = 1;
   $pane->locks = array();
   $pane->uuid = 'cca93250-657d-4169-b9cb-01a8505d770a';
   $display->content['new-cca93250-657d-4169-b9cb-01a8505d770a'] = $pane;
-  $display->panels['top'][2] = 'new-cca93250-657d-4169-b9cb-01a8505d770a';
+  $display->panels['top'][1] = 'new-cca93250-657d-4169-b9cb-01a8505d770a';
 $display->hide_title = PANELS_TITLE_FIXED;
 $display->title_pane = '0';
 $handler->conf['display'] = $display;
@@ -248,31 +223,6 @@ $display->uuid = 'd4fb1856-a60e-449d-9317-105cb8cfb6f8';
 $display->content = array();
 $display->panels = array();
   $pane = new stdClass();
-  $pane->pid = 'new-18c67239-fb20-4740-a039-fd512375f115';
-  $pane->panel = 'top';
-  $pane->type = 'custom';
-  $pane->subtype = 'custom';
-  $pane->shown = TRUE;
-  $pane->access = array();
-  $pane->configuration = array(
-    'admin_title' => 'custom-journey',
-    'title' => 'custom-journey',
-    'body' => 'custom-journey',
-    'format' => 'filtered_html',
-    'substitute' => 1,
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array();
-  $pane->extras = array();
-  $pane->position = 0;
-  $pane->locks = array();
-  $pane->uuid = '18c67239-fb20-4740-a039-fd512375f115';
-  $display->content['new-18c67239-fb20-4740-a039-fd512375f115'] = $pane;
-  $display->panels['top'][0] = 'new-18c67239-fb20-4740-a039-fd512375f115';
-  $pane = new stdClass();
   $pane->pid = 'new-f35c0e0e-9d51-4b5f-8ead-2a7537172fd0';
   $pane->panel = 'top';
   $pane->type = 'views';
@@ -295,7 +245,7 @@ $display->panels = array();
     'context' => array(
       0 => 'argument_entity_id:crm_core_contact_1.contact-id',
     ),
-    'override_title' => 0,
+    'override_title' => 1,
     'override_title_text' => '',
     'override_title_heading' => 'h2',
   );
@@ -305,11 +255,11 @@ $display->panels = array();
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 1;
+  $pane->position = 0;
   $pane->locks = array();
   $pane->uuid = 'f35c0e0e-9d51-4b5f-8ead-2a7537172fd0';
   $display->content['new-f35c0e0e-9d51-4b5f-8ead-2a7537172fd0'] = $pane;
-  $display->panels['top'][1] = 'new-f35c0e0e-9d51-4b5f-8ead-2a7537172fd0';
+  $display->panels['top'][0] = 'new-f35c0e0e-9d51-4b5f-8ead-2a7537172fd0';
   $pane = new stdClass();
   $pane->pid = 'new-cbc4b133-7edd-4afb-948a-eef50f37d2bd';
   $pane->panel = 'top';
@@ -328,11 +278,11 @@ $display->panels = array();
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 2;
+  $pane->position = 1;
   $pane->locks = array();
   $pane->uuid = 'cbc4b133-7edd-4afb-948a-eef50f37d2bd';
   $display->content['new-cbc4b133-7edd-4afb-948a-eef50f37d2bd'] = $pane;
-  $display->panels['top'][2] = 'new-cbc4b133-7edd-4afb-948a-eef50f37d2bd';
+  $display->panels['top'][1] = 'new-cbc4b133-7edd-4afb-948a-eef50f37d2bd';
 $display->hide_title = PANELS_TITLE_FIXED;
 $display->title_pane = '0';
 $handler->conf['display'] = $display;

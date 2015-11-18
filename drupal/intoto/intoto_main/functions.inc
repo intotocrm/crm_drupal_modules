@@ -10,7 +10,7 @@
 
 if (!module_exists('devel'))
 {
-        function dpm($a, $b){}
+        function dpm($a = NULL, $b = NULL){}
 }
 
 
