@@ -20,25 +20,13 @@ function intoto_display_formats_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'contact_name',
-        1 => 'field_image',
-        2 => 'field_customer_type',
-        3 => 'field_surrogacy_type',
-        4 => 'field_status',
-        5 => 'field_sales_category',
-        6 => 'field_patient_status',
-        7 => 'field_mhb',
+        0 => 'field_image',
+        1 => 'contact_name',
       ),
     ),
     'fields' => array(
-      'contact_name' => 'ds_content',
       'field_image' => 'ds_content',
-      'field_customer_type' => 'ds_content',
-      'field_surrogacy_type' => 'ds_content',
-      'field_status' => 'ds_content',
-      'field_sales_category' => 'ds_content',
-      'field_patient_status' => 'ds_content',
-      'field_mhb' => 'ds_content',
+      'contact_name' => 'ds_content',
     ),
     'classes' => array(),
     'wrappers' => array(
