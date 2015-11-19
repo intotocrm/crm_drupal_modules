@@ -1,0 +1,189 @@
+<?php
+$view = new view();
+$view->name = 'ips_per_household';
+$view->description = 'views to show all related IPs to Household!';
+$view->tag = 'default';
+$view->base_table = 'crm_core_contact';
+$view->human_name = 'IPs of Household';
+$view->core = 7;
+$view->api_version = '3.0';
+$view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+/* Display: Master */
+$handler = $view->new_display('default', 'Master', 'default');
+$handler->display->display_options['title'] = 'IPs related to Household';
+$handler->display->display_options['use_more_always'] = FALSE;
+$handler->display->display_options['access']['type'] = 'role';
+$handler->display->display_options['access']['role'] = array(
+  4 => '4',
+  5 => '5',
+);
+$handler->display->display_options['cache']['type'] = 'none';
+$handler->display->display_options['query']['type'] = 'views_query';
+$handler->display->display_options['exposed_form']['type'] = 'basic';
+$handler->display->display_options['pager']['type'] = 'some';
+$handler->display->display_options['pager']['options']['items_per_page'] = '9';
+$handler->display->display_options['style_plugin'] = 'grid';
+$handler->display->display_options['style_options']['columns'] = '2';
+$handler->display->display_options['row_plugin'] = 'fields';
+$handler->display->display_options['row_options']['inline'] = array(
+  'field_image' => 'field_image',
+  'contact_name' => 'contact_name',
+);
+/* Relationship: CRM Core Contact: Relation: member (crm_core_contact → relation) */
+$handler->display->display_options['relationships']['relation_base_left_member']['id'] = 'relation_base_left_member';
+$handler->display->display_options['relationships']['relation_base_left_member']['table'] = 'crm_core_contact';
+$handler->display->display_options['relationships']['relation_base_left_member']['field'] = 'relation_base_left_member';
+$handler->display->display_options['relationships']['relation_base_left_member']['required'] = TRUE;
+$handler->display->display_options['relationships']['relation_base_left_member']['r_index'] = 1;
+$handler->display->display_options['relationships']['relation_base_left_member']['entity_deduplication_left'] = 0;
+/* Relationship: Relation: Relation: member (relation → crm_core_contact) */
+$handler->display->display_options['relationships']['relation_base_member_crm_core_contact']['id'] = 'relation_base_member_crm_core_contact';
+$handler->display->display_options['relationships']['relation_base_member_crm_core_contact']['table'] = 'relation';
+$handler->display->display_options['relationships']['relation_base_member_crm_core_contact']['field'] = 'relation_base_member_crm_core_contact';
+$handler->display->display_options['relationships']['relation_base_member_crm_core_contact']['relationship'] = 'relation_base_left_member';
+$handler->display->display_options['relationships']['relation_base_member_crm_core_contact']['required'] = TRUE;
+$handler->display->display_options['relationships']['relation_base_member_crm_core_contact']['r_index'] = 0;
+$handler->display->display_options['relationships']['relation_base_member_crm_core_contact']['entity_deduplication_right'] = 0;
+/* Field: CRM Core Contact: Contact ID */
+$handler->display->display_options['fields']['contact_id']['id'] = 'contact_id';
+$handler->display->display_options['fields']['contact_id']['table'] = 'crm_core_contact';
+$handler->display->display_options['fields']['contact_id']['field'] = 'contact_id';
+$handler->display->display_options['fields']['contact_id']['exclude'] = TRUE;
+$handler->display->display_options['fields']['contact_id']['link_to_contact'] = 0;
+/* Field: CRM Core Contact: Name */
+$handler->display->display_options['fields']['contact_name']['id'] = 'contact_name';
+$handler->display->display_options['fields']['contact_name']['table'] = 'field_data_contact_name';
+$handler->display->display_options['fields']['contact_name']['field'] = 'contact_name';
+$handler->display->display_options['fields']['contact_name']['relationship'] = 'relation_base_member_crm_core_contact';
+$handler->display->display_options['fields']['contact_name']['label'] = 'Name:';
+$handler->display->display_options['fields']['contact_name']['click_sort_column'] = 'title';
+$handler->display->display_options['fields']['contact_name']['settings'] = array(
+  'format' => 'default',
+  'markup' => 0,
+  'output' => 'default',
+  'multiple' => 'default',
+  'multiple_delimiter' => ', ',
+  'multiple_and' => 'text',
+  'multiple_delimiter_precedes_last' => 'never',
+  'multiple_el_al_min' => '3',
+  'multiple_el_al_first' => '1',
+);
+/* Contextual filter: CRM Core Contact: Contact ID */
+$handler->display->display_options['arguments']['contact_id']['id'] = 'contact_id';
+$handler->display->display_options['arguments']['contact_id']['table'] = 'crm_core_contact';
+$handler->display->display_options['arguments']['contact_id']['field'] = 'contact_id';
+$handler->display->display_options['arguments']['contact_id']['default_action'] = 'empty';
+$handler->display->display_options['arguments']['contact_id']['default_argument_type'] = 'fixed';
+$handler->display->display_options['arguments']['contact_id']['summary']['number_of_records'] = '0';
+$handler->display->display_options['arguments']['contact_id']['summary']['format'] = 'default_summary';
+$handler->display->display_options['arguments']['contact_id']['summary_options']['items_per_page'] = '25';
+
+/* Display: Content pane */
+$handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+$handler->display->display_options['allow']['use_pager'] = 'use_pager';
+$handler->display->display_options['allow']['items_per_page'] = 'items_per_page';
+$handler->display->display_options['allow']['offset'] = 'offset';
+$handler->display->display_options['allow']['link_to_view'] = 'link_to_view';
+$handler->display->display_options['allow']['more_link'] = 'more_link';
+$handler->display->display_options['allow']['path_override'] = 'path_override';
+$handler->display->display_options['allow']['title_override'] = 'title_override';
+$handler->display->display_options['allow']['exposed_form'] = 'exposed_form';
+$handler->display->display_options['allow']['fields_override'] = 'fields_override';
+$handler->display->display_options['argument_input'] = array(
+  'contact_id' => array(
+    'type' => 'user',
+    'context' => 'entity:crm_core_activity.activity-id',
+    'context_optional' => 0,
+    'panel' => '0',
+    'fixed' => '',
+    'label' => 'CRM Core Contact: Contact ID',
+  ),
+);
+
+/* Display: Content pane table-fields */
+$handler = $view->new_display('panel_pane', 'Content pane table-fields', 'panel_pane_2');
+$handler->display->display_options['display_description'] = 'without rendered entities';
+$handler->display->display_options['defaults']['fields'] = FALSE;
+/* Field: CRM Core Contact: Contact ID */
+$handler->display->display_options['fields']['contact_id']['id'] = 'contact_id';
+$handler->display->display_options['fields']['contact_id']['table'] = 'crm_core_contact';
+$handler->display->display_options['fields']['contact_id']['field'] = 'contact_id';
+$handler->display->display_options['fields']['contact_id']['exclude'] = TRUE;
+$handler->display->display_options['fields']['contact_id']['link_to_contact'] = 0;
+/* Field: Relation: Rid */
+$handler->display->display_options['fields']['rid']['id'] = 'rid';
+$handler->display->display_options['fields']['rid']['table'] = 'relation';
+$handler->display->display_options['fields']['rid']['field'] = 'rid';
+$handler->display->display_options['fields']['rid']['relationship'] = 'relation_base_left_member';
+$handler->display->display_options['fields']['rid']['exclude'] = TRUE;
+$handler->display->display_options['fields']['rid']['separator'] = '';
+/* Field: CRM Core Contact: Contact ID */
+$handler->display->display_options['fields']['contact_id_1']['id'] = 'contact_id_1';
+$handler->display->display_options['fields']['contact_id_1']['table'] = 'crm_core_contact';
+$handler->display->display_options['fields']['contact_id_1']['field'] = 'contact_id';
+$handler->display->display_options['fields']['contact_id_1']['relationship'] = 'relation_base_member_crm_core_contact';
+$handler->display->display_options['fields']['contact_id_1']['exclude'] = TRUE;
+$handler->display->display_options['fields']['contact_id_1']['link_to_contact'] = 0;
+/* Field: Field: Profile Image */
+$handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+$handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+$handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+$handler->display->display_options['fields']['field_image']['relationship'] = 'relation_base_member_crm_core_contact';
+$handler->display->display_options['fields']['field_image']['label'] = '';
+$handler->display->display_options['fields']['field_image']['exclude'] = TRUE;
+$handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+$handler->display->display_options['fields']['field_image']['type'] = 'intoto_icon_formatter';
+$handler->display->display_options['fields']['field_image']['settings'] = array(
+  'image_style' => 'thumb_tiny',
+  'image_link' => '',
+);
+$handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
+/* Field: CRM Core Contact: Name */
+$handler->display->display_options['fields']['contact_name']['id'] = 'contact_name';
+$handler->display->display_options['fields']['contact_name']['table'] = 'field_data_contact_name';
+$handler->display->display_options['fields']['contact_name']['field'] = 'contact_name';
+$handler->display->display_options['fields']['contact_name']['relationship'] = 'relation_base_member_crm_core_contact';
+$handler->display->display_options['fields']['contact_name']['label'] = '';
+$handler->display->display_options['fields']['contact_name']['alter']['alter_text'] = TRUE;
+$handler->display->display_options['fields']['contact_name']['alter']['text'] = '[field_image][contact_name]';
+$handler->display->display_options['fields']['contact_name']['alter']['make_link'] = TRUE;
+$handler->display->display_options['fields']['contact_name']['alter']['path'] = 'crm-core/contact/[contact_id_1]';
+$handler->display->display_options['fields']['contact_name']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['contact_name']['click_sort_column'] = 'title';
+$handler->display->display_options['fields']['contact_name']['settings'] = array(
+  'format' => 'default',
+  'markup' => 0,
+  'output' => 'default',
+  'multiple' => 'default',
+  'multiple_delimiter' => ', ',
+  'multiple_and' => 'text',
+  'multiple_delimiter_precedes_last' => 'never',
+  'multiple_el_al_min' => '3',
+  'multiple_el_al_first' => '1',
+);
+/* Field: CRM Core Contact: Email */
+$handler->display->display_options['fields']['field_email']['id'] = 'field_email';
+$handler->display->display_options['fields']['field_email']['table'] = 'field_data_field_email';
+$handler->display->display_options['fields']['field_email']['field'] = 'field_email';
+$handler->display->display_options['fields']['field_email']['relationship'] = 'relation_base_member_crm_core_contact';
+$handler->display->display_options['fields']['field_email']['label'] = '';
+$handler->display->display_options['fields']['field_email']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_email']['type'] = 'intoto_label_formatter';
+/* Field: CRM Core Contact: Phone */
+$handler->display->display_options['fields']['field_phone']['id'] = 'field_phone';
+$handler->display->display_options['fields']['field_phone']['table'] = 'field_data_field_phone';
+$handler->display->display_options['fields']['field_phone']['field'] = 'field_phone';
+$handler->display->display_options['fields']['field_phone']['relationship'] = 'relation_base_member_crm_core_contact';
+$handler->display->display_options['fields']['field_phone']['label'] = '';
+$handler->display->display_options['fields']['field_phone']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_phone']['type'] = 'intoto_label_formatter';
+$handler->display->display_options['fields']['field_phone']['settings'] = array(
+  'edit' => 'Edit',
+  'delete' => 'Delete',
+  'add' => 'Add',
+  'description' => 1,
+  'view_mode' => 'full',
+);
+$handler->display->display_options['fields']['field_phone']['delta_offset'] = '0';
