@@ -202,6 +202,7 @@ $handler->display->display_options['fields']['field_image']['id'] = 'field_image
 $handler->display->display_options['fields']['field_image']['table'] = 'search_api_index_contacts_index';
 $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
 $handler->display->display_options['fields']['field_image']['label'] = '';
+$handler->display->display_options['fields']['field_image']['exclude'] = TRUE;
 $handler->display->display_options['fields']['field_image']['alter']['make_link'] = TRUE;
 $handler->display->display_options['fields']['field_image']['alter']['path'] = '[url]';
 $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
@@ -266,6 +267,7 @@ $handler->display->display_options['filter_groups']['operator'] = 'OR';
 $handler->display->display_options['filter_groups']['groups'] = array(
   1 => 'AND',
   2 => 'AND',
+  3 => 'AND',
 );
 /* Filter criterion: Search: Fulltext search */
 $handler->display->display_options['filters']['search_api_views_fulltext']['id'] = 'search_api_views_fulltext';
@@ -307,6 +309,19 @@ $handler->display->display_options['filters']['relation_member_crm_core_contact_
 $handler->display->display_options['filters']['relation_member_crm_core_contact_reverse']['field'] = 'relation_member_crm_core_contact_reverse';
 $handler->display->display_options['filters']['relation_member_crm_core_contact_reverse']['operator'] = 'empty';
 $handler->display->display_options['filters']['relation_member_crm_core_contact_reverse']['group'] = 2;
+/* Filter criterion: Indexed CRM Core Contact: Type */
+$handler->display->display_options['filters']['type_2']['id'] = 'type_2';
+$handler->display->display_options['filters']['type_2']['table'] = 'search_api_index_contacts_index';
+$handler->display->display_options['filters']['type_2']['field'] = 'type';
+$handler->display->display_options['filters']['type_2']['operator'] = '<>';
+$handler->display->display_options['filters']['type_2']['value'] = array(
+  'individual' => 'individual',
+  'organization' => 'organization',
+  'household' => 'household',
+  'customer' => 'customer',
+  'ip' => 'ip',
+);
+$handler->display->display_options['filters']['type_2']['group'] = 3;
 
 /* Display: Page */
 $handler = $view->new_display('page', 'Page', 'page');
