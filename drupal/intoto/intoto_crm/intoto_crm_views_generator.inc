@@ -1,18 +1,5 @@
 <?php
 
-function intoto_crm_views_hard_coded_views($module_name) {
-  $files = file_scan_directory(drupal_get_path('module', $module_name). '/views', '/.*view.*/');
-  $views = [];
-  foreach ($files as $absolute => $file) {
-    require $absolute;
-    if (isset($view)) {
-      $views[$file->name] = $view;
-    }   
-  }
-  return $views;
-}
-
-
 function create_related_contacts_view($view_data)
 {
 $view = new view();

@@ -1,27 +1,4 @@
 <?php
-//
-//function intoto_contact_header_preprocess(&$variables, $hook) {
-//  if (isset($variables['elements']['#entity_type'])) { // or maybe check for $hook name
-//	$function = __FUNCTION__ . '_' . $variables['elements']['#entity_type'];
-//	if (function_exists($function)) {
-//	  $function($variables, $hook);
-//	}
-//  }
-//}
-//
-//function intoto_contact_header_preprocess_crm_core_contact(&$variables, $hook) {
-////	print " in hooke_preprocess crm_core_contact ";
-////	drupal_add_region_content('contactheader', '^^^^^^^^');	
-//}
-//
-////function intoto_contact_header_entity_prepare_view($entities, $type, $langcode){
-////	print " in hook_entity_prepare_view ";
-////}
-//
-//function intoto_contact_header_entity_view($entity, $type, $view_mode, $langcode){
-//	//print " hook_entity_view ";
-//	
-//}
 /**
 * Implements hook_theme().
 */
@@ -77,9 +54,19 @@ function contact_header_can_edit()
 {
     return user_access('edit any crm_core_contact entity');
 }
-function template_preprocess_contact_header(&$variables)
+function intoto_contact_header_preprocess_entity(&$variables, $hook)
 {
-	$contact = $variables['contact'];
+	$function = __FUNCTION__ . '_' . $variables['entity_type'];
+	 if (function_exists ($function)) {
+			 $function($variables, $hook);
+	 }
+}
+
+function intoto_contact_header_preprocess_entity_crm_core_contact(&$variables, $hook)
+//function template_preprocess_contact_header(&$variables)
+{
+	$contact = $variables['crm_core_contact'];
+    //$variables['theme_hook_suggestions'][] = 'contact_header__block';
 
 	//contact's name
 	
@@ -141,6 +128,7 @@ function template_preprocess_contact_header(&$variables)
 		$renderable_view = $my_view->render('page');
 		$variables['contacts'] = render($renderable_view);
 	}
+	
 }
 
 function link_check_access($link)
@@ -193,7 +181,7 @@ function intoto_contact_header_block_info() {
 	
 	$blocks['contact_header'] = array(
 		// The name that will appear in the block list.
-		'info' => t('Contact Header'),
+		'info' => t('Contact Header Block'),
 		// Default setting.
 		'cache' => DRUPAL_CACHE_PER_ROLE,
 	);
@@ -220,10 +208,11 @@ function intoto_contact_header_block_view($delta = '')
 		$block['subject'] = t('');
 		if (user_access('access content'))
 		{
-			$render_array = array(
-							"#theme" => 'contact_header',
-							"#contact" => isset($contact_ids[0]) ? $contacts[$contact_ids[0]] : NULL,
-					);
+//			$render_array = array(
+//							"#theme" => 'ds_1col',
+//							"#contact" => isset($contact_ids[0]) ? $contacts[$contact_ids[0]] : NULL,
+//					);
+			$render_array = entity_view("crm_core_contact", $contacts, 'header');
 			$block['content'] = render ($render_array);
 		}
 		else {
@@ -232,9 +221,18 @@ function intoto_contact_header_block_view($delta = '')
 		return $block;
 	}
 }
+/**
+* Implementation of hook_ctools_plugin_api().
+*/
+function intoto_contact_header_ctools_plugin_api($module, $api) {
+  if ($module == 'page_manager' && $api == 'pages_default') {
+    return array('version' => 1); 
+  }
+}
+
 
 function intoto_contact_header_views_api() {
   return array(
-    'api' => 2.0,
+    'api' => 3,
   );  
 }

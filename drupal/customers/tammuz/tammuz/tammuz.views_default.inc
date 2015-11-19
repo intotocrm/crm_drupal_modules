@@ -4,8 +4,11 @@
  * copied from https://techcommons.stanford.edu/topics/drupal/adding-default-views-and-pages-custom-module
  */
 // Declare all the .view files in the views subdir that end in .view
+module_load_include('inc', "intoto_main" , 'functions');
+module_load_include('inc', "intoto_crm" , 'intoto_crm_views_generator');
+
 function tammuz_views_default_views() {
-	$views = intoto_crm_views_hard_coded_views("tammuz");
+	$views = intoto_get_hard_coded_views("tammuz");
 	$views[] = create_related_contacts_view(
 				[
 					'name' => 'journey_participants',

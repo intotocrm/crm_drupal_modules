@@ -53,7 +53,7 @@ function intoto_crm_field_formatters_field_formatter_info() {
 		),
 		'intoto_icon_formatter' => array( //Machine name of the formatter
 			'label' => t('Icon'),
-			'field types' => array('text', 'text_long', 'text_with_summary', 'datetime', 'date', 'number_decimal', 'email', 'list_text', 'list_boolean', "field_collection", 'phone_number', 'image'), //This will only be available to text fields
+			'field types' => array('text', 'text_long', 'text_with_summary', 'datetime', 'date', 'number_decimal', 'email', 'list_text', 'list_boolean', "field_collection", 'phone_number', 'image', 'name'), //This will only be available to text fields
 			'settings'	=> array( //Array of the settings we'll create
 //				'pic_size' => 'small', //give a default value for when the form is first loaded
 //				'tooltip' => 'Link to user Facebook page', //ditto

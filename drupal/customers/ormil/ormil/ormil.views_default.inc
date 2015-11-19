@@ -1,4 +1,5 @@
 <?php
+module_load_include('inc', "intoto_main" , 'functions');
 module_load_include('inc', "intoto_crm" , 'intoto_crm_views_generator');
 
 /**
@@ -8,7 +9,7 @@ module_load_include('inc', "intoto_crm" , 'intoto_crm_views_generator');
 // Declare all the .view files in the views subdir that end in .view
 
 function ormil_views_default_views() {
-	$views = intoto_crm_views_hard_coded_views("ormil");
+	$views = intoto_get_hard_coded_views("ormil");
 	$view_crm_member = create_related_contacts_view(
 				[
 					'name' => 'crm_member_contacts',

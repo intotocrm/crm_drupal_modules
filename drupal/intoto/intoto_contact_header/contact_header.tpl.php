@@ -7,7 +7,7 @@
  */
 
 $btn_class = $can_edit ? "btn btn-xs btn-primary" : "btn btn-xs btn-primary disabled";
-?>
+?>WWW
 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				<a href="<?php print "/crm-core/contact/$contact_id";?>">

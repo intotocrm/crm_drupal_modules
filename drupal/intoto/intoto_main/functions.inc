@@ -112,3 +112,18 @@ function intoto_get_related_contacts($base_contact, $relation_name)
 	}
 	return $ret;	
 }
+
+
+
+function intoto_get_hard_coded_views($module_name) {
+  $files = file_scan_directory(drupal_get_path('module', $module_name). '/views', '/.*view.*/');
+  $views = [];
+  foreach ($files as $absolute => $file) {
+    require $absolute;
+    if (isset($view)) {
+      $views[$file->name] = $view;
+	  //dpm($file->name);
+    }   
+  }
+  return $views;
+}
