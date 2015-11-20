@@ -61,6 +61,7 @@ function ormil_seach_api_definitions_default_search_api_index() {
         "relation_crm_member_crm_core_contact:field_phone:field_number:number" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
         "relation_crm_member_crm_core_contact:url" : { "type" : "list\\u003Curi\\u003E" },
         "relation_crm_member_crm_core_contact_reverse" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "crm_core_contact" },
+        "relation_crm_member_crm_core_contact_reverse:url" : { "type" : "list\\u003Curi\\u003E" },
         "search_api_language" : { "type" : "string" },
         "type" : { "type" : "string" },
         "url" : { "type" : "uri" }
@@ -454,6 +455,12 @@ function ormil_seach_api_definitions_default_search_api_server() {
           "relation_crm_member_crm_core_contact:field_phone:field_number:number" : {
             "table" : "search_api_db_contacts_index_text",
             "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_crm_member_crm_core_contact_reverse:url" : {
+            "table" : "search_api_db_contacts_index_relation_crm_member_crm_core_co_4",
+            "column" : "value",
+            "type" : "list\\u003Curi\\u003E",
             "boost" : "1.0"
           }
         }
