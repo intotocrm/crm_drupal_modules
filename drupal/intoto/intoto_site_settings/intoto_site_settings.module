@@ -260,9 +260,6 @@ function intoto_site_settings_form_intoto_site_settings_form_alter(&$form, &$for
 	}
 	drupal_set_title($title);
 	$path = current_path();
-	dpm($path, "path");
-	dpm($form, "form");
-	dpm($form_state, "form_state");
 	//$form_state['redirect'] = 
 	$form['actions']['submit']['#value'] = t("Save");
 }
