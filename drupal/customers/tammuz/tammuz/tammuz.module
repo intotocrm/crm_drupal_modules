@@ -160,3 +160,18 @@ function tammuz_field_format_alter_name_contact_name_journey(&$element)
 	
 }
 
+
+/* 
+ * implements hook_field_format_alter which is a hook we invented in intoto
+ * structure of function name: 
+ * module (tammuz)
+ * hook name (field_format)
+ * alter
+ * function_part[0] = field_type (text)
+ * function_part[1] = field_name (field_customer_number)
+ * function_part[2] = bundle (customer)
+ */
+function tammuz_field_format_alter_text_field_customer_number_customer(&$element)
+{
+	$element['value'] = "#" . $element['value'];  // customer number shold be shown as #2045 instead of just 2045
+}

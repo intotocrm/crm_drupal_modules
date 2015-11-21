@@ -294,6 +294,95 @@ function intoto_display_formats_ds_layout_settings_info() {
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
+  $ds_layout->id = 'field_collection_item|field_address|field_list';
+  $ds_layout->entity_type = 'field_collection_item';
+  $ds_layout->bundle = 'field_address';
+  $ds_layout->view_mode = 'field_list';
+  $ds_layout->layout = 'ds_1col';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'field_address_details',
+        1 => 'field_address_type',
+      ),
+    ),
+    'fields' => array(
+      'field_address_details' => 'ds_content',
+      'field_address_type' => 'ds_content',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
+  );
+  $export['field_collection_item|field_address|field_list'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'field_collection_item|field_instant_messaging_collecti|field_list';
+  $ds_layout->entity_type = 'field_collection_item';
+  $ds_layout->bundle = 'field_instant_messaging_collecti';
+  $ds_layout->view_mode = 'field_list';
+  $ds_layout->layout = 'ds_1col';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'field_instant_messaging_type',
+        1 => 'field_instant_messaging_id',
+      ),
+    ),
+    'fields' => array(
+      'field_instant_messaging_type' => 'ds_content',
+      'field_instant_messaging_id' => 'ds_content',
+    ),
+    'classes' => array(),
+    'wrappers' => array(),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => TRUE,
+    'layout_link_attribute' => FALSE,
+    'layout_link_custom' => '',
+    'layout_disable_css' => FALSE,
+  );
+  $export['field_collection_item|field_instant_messaging_collecti|field_list'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'field_collection_item|field_phone|field_list';
+  $ds_layout->entity_type = 'field_collection_item';
+  $ds_layout->bundle = 'field_phone';
+  $ds_layout->view_mode = 'field_list';
+  $ds_layout->layout = 'ds_1col';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'field_number',
+        1 => 'field_type',
+      ),
+    ),
+    'fields' => array(
+      'field_number' => 'ds_content',
+      'field_type' => 'ds_content',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
+  );
+  $export['field_collection_item|field_phone|field_list'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
   $ds_layout->id = 'field_collection_item|field_phone|fieldcollection_label';
   $ds_layout->entity_type = 'field_collection_item';
   $ds_layout->bundle = 'field_phone';
@@ -302,10 +391,12 @@ function intoto_display_formats_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'field_number',
+        0 => 'field_type',
+        1 => 'field_number',
       ),
     ),
     'fields' => array(
+      'field_type' => 'ds_content',
       'field_number' => 'ds_content',
     ),
     'classes' => array(),

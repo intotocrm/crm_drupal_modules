@@ -208,23 +208,32 @@ function intoto_crm_prepare_field_theme($theme, $entity_type, $entity, $field, $
 					$field_collections = entity_load('field_collection_item', array($item['value']));
 					$field_collection = $field_collections [array_keys($field_collections)[0]]; //take only the first loaded collection
 
-					
-					$contact_wrapper = entity_metadata_wrapper('crm_core_contact', $entity);
-					$number_fields = $contact_wrapper
-						->field_phone[$delta]
-						->field_number
-						->value();
-					
-					$number = make_phone_number($number_fields, true);
-					$number_link = make_phone_number($number_fields, false);
-					if ($number != "")
-					{
-						$link = [
-							'uri' => 'tel:'. $number_link,
-							'options' => ['html' => TRUE, 'attributes' => ['class'=>array('callto')]],
-						];
 
-						$value = $number;
+//					$contact_wrapper = entity_metadata_wrapper('crm_core_contact', $entity);
+					$fields = entity_view("field_collection_item", $field_collections, 'field_list');
+					$value = render($fields);
+					switch($field_collection->field_name)
+					{
+						case 'field_address':
+							break;
+//						case 'field_phone':
+//							$number_fields = $contact_wrapper
+//								->field_phone[$delta]
+//								->field_number
+//								->value();
+//
+//							$number = make_phone_number($number_fields, true);
+//							$number_link = make_phone_number($number_fields, false);
+//							if ($number != "")
+//							{
+//								$link = [
+//									'uri' => 'tel:'. $number_link,
+//									'options' => ['html' => TRUE, 'attributes' => ['class'=>array('callto')]],
+//								];
+//
+//								$value = $number;
+//							}
+//							break;
 					}
 					
 					
@@ -288,10 +297,9 @@ function intoto_crm_prepare_field_theme($theme, $entity_type, $entity, $field, $
 			
 			
 			$elements[$delta] = array(
-				'#markup' => theme($theme/*'label_formatter'*/, $element),
+				'#markup' => theme($theme, $element),
 			);
 		}
-		//print "<pre>delta:$delta markup:" . $elements[$delta]['#markup'] . "</pre><br>";
 	}
 
 	return $elements;
@@ -341,7 +349,7 @@ function theme_caption_formatter($element) {
 	return '->>placeholder for element rendering in icon_formatter theme<<-';// . $element['value'] . '<<-';//<a class="mobile-tel" href="tel:' . $element['element']['number']  . '">Call</a>';
 }
 
-
+/*
 function make_phone_number($element, $paren) {
   $phone = '';
 
@@ -379,3 +387,4 @@ function make_phone_number($element, $paren) {
 
   return $phone;
 }
+*/
