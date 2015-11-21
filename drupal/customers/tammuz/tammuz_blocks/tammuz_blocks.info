@@ -15,6 +15,7 @@ features[fe_block_settings][] = intoto_contact_header-contact_header
 features[fe_block_settings][] = menu-features
 features[fe_block_settings][] = search-form
 features[fe_block_settings][] = tb_megamenu-main-menu
+features[fe_block_settings][] = tb_megamenu-user-menu
 features[fe_block_settings][] = views-recent_contacts-block
 features[fe_block_settings][] = views-whats_new-block
 features[features_api][] = api:2
