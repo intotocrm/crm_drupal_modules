@@ -431,12 +431,30 @@ function intoto_display_formats_ds_view_modes_info() {
 
   $ds_view_mode = new stdClass();
   $ds_view_mode->api_version = 1;
+  $ds_view_mode->view_mode = 'field_list';
+  $ds_view_mode->label = 'Field List';
+  $ds_view_mode->entities = array(
+    'field_collection_item' => 'field_collection_item',
+  );
+  $export['field_list'] = $ds_view_mode;
+
+  $ds_view_mode = new stdClass();
+  $ds_view_mode->api_version = 1;
   $ds_view_mode->view_mode = 'fieldcollection_label';
   $ds_view_mode->label = 'FieldCollection Label';
   $ds_view_mode->entities = array(
     'field_collection_item' => 'field_collection_item',
   );
   $export['fieldcollection_label'] = $ds_view_mode;
+
+  $ds_view_mode = new stdClass();
+  $ds_view_mode->api_version = 1;
+  $ds_view_mode->view_mode = 'header';
+  $ds_view_mode->label = 'Header';
+  $ds_view_mode->entities = array(
+    'crm_core_contact' => 'crm_core_contact',
+  );
+  $export['header'] = $ds_view_mode;
 
   $ds_view_mode = new stdClass();
   $ds_view_mode->api_version = 1;
