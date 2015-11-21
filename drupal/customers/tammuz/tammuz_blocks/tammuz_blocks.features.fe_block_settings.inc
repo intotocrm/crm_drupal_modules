@@ -63,7 +63,7 @@ function tammuz_blocks_default_fe_block_settings() {
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'bootstrap_dashboard_tammuz',
-        'weight' => 0,
+        'weight' => -25,
       ),
       'seven' => array(
         'region' => '',
@@ -95,7 +95,7 @@ function tammuz_blocks_default_fe_block_settings() {
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'bootstrap_dashboard_tammuz',
-        'weight' => -1,
+        'weight' => -26,
       ),
       'seven' => array(
         'region' => 'dashboard_sidebar',
@@ -159,7 +159,7 @@ function tammuz_blocks_default_fe_block_settings() {
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'bootstrap_dashboard_tammuz',
-        'weight' => -18,
+        'weight' => -23,
       ),
       'seven' => array(
         'region' => '',

@@ -66,6 +66,39 @@ function tammuz_search_api_server_index_default_search_api_index() {
         "field_phone:field_number:number" : { "type" : "list\\u003Ctext\\u003E" },
         "field_profession" : { "type" : "text" },
         "field_surrogate_number" : { "type" : "text" },
+        "relation_member_crm_core_contact" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "crm_core_contact" },
+        "relation_member_crm_core_contact:contact_name:family" : { "type" : "list\\u003Ctext\\u003E" },
+        "relation_member_crm_core_contact:contact_name:given" : { "type" : "list\\u003Ctext\\u003E" },
+        "relation_member_crm_core_contact:field_address:field_address_details:administrative_area" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
+        "relation_member_crm_core_contact:field_address:field_address_details:country" : { "type" : "list\\u003Clist\\u003Cstring\\u003E\\u003E" },
+        "relation_member_crm_core_contact:field_address:field_address_details:dependent_locality" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
+        "relation_member_crm_core_contact:field_address:field_address_details:first_name" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
+        "relation_member_crm_core_contact:field_address:field_address_details:last_name" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
+        "relation_member_crm_core_contact:field_address:field_address_details:locality" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
+        "relation_member_crm_core_contact:field_address:field_address_details:name_line" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
+        "relation_member_crm_core_contact:field_address:field_address_details:organisation_name" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
+        "relation_member_crm_core_contact:field_address:field_address_details:postal_code" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
+        "relation_member_crm_core_contact:field_address:field_address_details:premise" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
+        "relation_member_crm_core_contact:field_address:field_address_details:sub_administrative_area" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
+        "relation_member_crm_core_contact:field_address:field_address_details:sub_premise" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
+        "relation_member_crm_core_contact:field_address:field_address_details:thoroughfare" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
+        "relation_member_crm_core_contact:field_caption" : { "type" : "list\\u003Ctext\\u003E" },
+        "relation_member_crm_core_contact:field_customer_origin" : { "type" : "list\\u003Cstring\\u003E", "entity_type" : "country" },
+        "relation_member_crm_core_contact:field_email" : { "type" : "list\\u003Ctext\\u003E" },
+        "relation_member_crm_core_contact:field_facebook_user_name" : { "type" : "list\\u003Ctext\\u003E" },
+        "relation_member_crm_core_contact:field_gender" : { "type" : "list\\u003Cstring\\u003E" },
+        "relation_member_crm_core_contact:field_id" : { "type" : "list\\u003Ctext\\u003E" },
+        "relation_member_crm_core_contact:field_marital_status" : { "type" : "list\\u003Cstring\\u003E" },
+        "relation_member_crm_core_contact:field_nationality" : {
+          "type" : "list\\u003Clist\\u003Cstring\\u003E\\u003E",
+          "entity_type" : "country"
+        },
+        "relation_member_crm_core_contact:field_passport_number" : { "type" : "list\\u003Ctext\\u003E" },
+        "relation_member_crm_core_contact:field_phone:field_number:number" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
+        "relation_member_crm_core_contact:field_profession" : { "type" : "list\\u003Ctext\\u003E" },
+        "relation_member_crm_core_contact:field_surrogate_number" : { "type" : "list\\u003Ctext\\u003E" },
+        "relation_member_crm_core_contact:url" : { "type" : "list\\u003Curi\\u003E" },
+        "relation_member_crm_core_contact_reverse" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "crm_core_contact" },
         "search_api_language" : { "type" : "string" },
         "type" : { "type" : "string" },
         "url" : { "type" : "uri" }
@@ -244,8 +277,7 @@ function tammuz_search_api_server_index_default_search_api_index() {
             "highlight" : "always"
           }
         }
-      },
-      "additional fields" : { "field_image" : "field_image" }
+      }
     },
     "enabled" : "1",
     "read_only" : "0",
@@ -450,6 +482,164 @@ function tammuz_search_api_server_index_default_search_api_server() {
             "table" : "search_api_db_contacts_index_text",
             "type" : "list\\u003Ctext\\u003E",
             "boost" : "0.2"
+          },
+          "relation_member_crm_core_contact_reverse" : {
+            "table" : "search_api_db_contacts_index_relation_member_crm_core_contact_",
+            "column" : "value",
+            "type" : "list\\u003Cinteger\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact" : {
+            "table" : "search_api_db_contacts_index_relation_member_crm_core_contact",
+            "column" : "value",
+            "type" : "list\\u003Cinteger\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:url" : {
+            "table" : "search_api_db_contacts_index_relation_member_crm_core_contac_1",
+            "column" : "value",
+            "type" : "list\\u003Curi\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_email" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Ctext\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_facebook_user_name" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Ctext\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_gender" : {
+            "table" : "search_api_db_contacts_index_relation_member_crm_core_contac_2",
+            "column" : "value",
+            "type" : "list\\u003Cstring\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_marital_status" : {
+            "table" : "search_api_db_contacts_index_relation_member_crm_core_contac_3",
+            "column" : "value",
+            "type" : "list\\u003Cstring\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_caption" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Ctext\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_customer_origin" : {
+            "table" : "search_api_db_contacts_index_relation_member_crm_core_contac_4",
+            "column" : "value",
+            "type" : "list\\u003Cstring\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_id" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Ctext\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_nationality" : {
+            "table" : "search_api_db_contacts_index_relation_member_crm_core_contac_5",
+            "column" : "value",
+            "type" : "list\\u003Clist\\u003Cstring\\u003E\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_passport_number" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Ctext\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_profession" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Ctext\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_surrogate_number" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Ctext\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:contact_name:given" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Ctext\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:contact_name:family" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Ctext\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_address:field_address_details:country" : {
+            "table" : "search_api_db_contacts_index_relation_member_crm_core_contac_6",
+            "column" : "value",
+            "type" : "list\\u003Clist\\u003Cstring\\u003E\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_address:field_address_details:name_line" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_address:field_address_details:first_name" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_address:field_address_details:last_name" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_address:field_address_details:organisation_name" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_address:field_address_details:administrative_area" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_address:field_address_details:sub_administrative_area" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_address:field_address_details:locality" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_address:field_address_details:dependent_locality" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_address:field_address_details:postal_code" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_address:field_address_details:thoroughfare" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_address:field_address_details:premise" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_address:field_address_details:sub_premise" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E",
+            "boost" : "1.0"
+          },
+          "relation_member_crm_core_contact:field_phone:field_number:number" : {
+            "table" : "search_api_db_contacts_index_text",
+            "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E",
+            "boost" : "1.0"
           }
         }
       }
