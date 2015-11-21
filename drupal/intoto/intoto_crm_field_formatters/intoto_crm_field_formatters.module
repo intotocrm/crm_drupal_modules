@@ -349,7 +349,7 @@ function theme_caption_formatter($element) {
 	return '->>placeholder for element rendering in icon_formatter theme<<-';// . $element['value'] . '<<-';//<a class="mobile-tel" href="tel:' . $element['element']['number']  . '">Call</a>';
 }
 
-/*
+
 function make_phone_number($element, $paren) {
   $phone = '';
 
@@ -387,4 +387,3 @@ function make_phone_number($element, $paren) {
 
   return $phone;
 }
-*/
