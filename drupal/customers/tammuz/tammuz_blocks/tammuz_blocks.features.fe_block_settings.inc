@@ -140,6 +140,38 @@ function tammuz_blocks_default_fe_block_settings() {
     'visibility' => 0,
   );
 
+  $export['views-recent_contacts-block'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'delta' => 'recent_contacts-block',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'bootstrap_dashboard_tammuz' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'bootstrap_dashboard_tammuz',
+        'weight' => -24,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
   $export['views-whats_new-block'] = array(
     'cache' => -1,
     'custom' => 0,

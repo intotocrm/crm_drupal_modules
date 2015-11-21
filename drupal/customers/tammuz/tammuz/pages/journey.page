@@ -8,7 +8,27 @@ $page->admin_title = 'Journeys';
 $page->admin_description = 'page that describes journeys';
 $page->path = 'crm-core/contact/%contact/journey';
 $page->access = array(
-  'plugins' => array(),
+  'plugins' => array(
+    0 => array(
+      'name' => 'entity_bundle:crm_core_contact',
+      'settings' => array(
+        'type' => array(
+          'child' => 'child',
+          'clinic' => 'clinic',
+          'customer' => 'customer',
+          'doctor' => 'doctor',
+          'egg' => 'egg',
+          'egg_donor' => 'egg_donor',
+          'embryo' => 'embryo',
+          'journey' => 'journey',
+          'sperm_specimen' => 'sperm_specimen',
+          'surrogate' => 'surrogate',
+        ),
+      ),
+      'context' => 'argument_entity_id:crm_core_contact_1',
+      'not' => FALSE,
+    ),
+  ),
   'logic' => 'and',
 );
 $page->menu = array(
@@ -103,7 +123,7 @@ $display->uuid = '3b1e69d6-f23c-4d9f-a24d-c90891310363';
 $display->content = array();
 $display->panels = array();
   $pane = new stdClass();
-  $pane->pid = 'new-febc3e2c-8518-4742-bc7f-9b334076e944';
+  $pane->pid = 'new-ac99a82c-14f4-4085-98b4-2eb4747aa01a';
   $pane->panel = 'top';
   $pane->type = 'views';
   $pane->subtype = 'contacts_journey';
@@ -137,9 +157,9 @@ $display->panels = array();
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();
-  $pane->uuid = 'febc3e2c-8518-4742-bc7f-9b334076e944';
-  $display->content['new-febc3e2c-8518-4742-bc7f-9b334076e944'] = $pane;
-  $display->panels['top'][0] = 'new-febc3e2c-8518-4742-bc7f-9b334076e944';
+  $pane->uuid = 'ac99a82c-14f4-4085-98b4-2eb4747aa01a';
+  $display->content['new-ac99a82c-14f4-4085-98b4-2eb4747aa01a'] = $pane;
+  $display->panels['top'][0] = 'new-ac99a82c-14f4-4085-98b4-2eb4747aa01a';
   $pane = new stdClass();
   $pane->pid = 'new-cca93250-657d-4169-b9cb-01a8505d770a';
   $pane->panel = 'top';
