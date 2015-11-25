@@ -9,6 +9,29 @@
  */
 function tammuz_entity_types_taxonomy_default_vocabularies() {
   return array(
+    'activity_status' => array(
+      'name' => 'Activity Status',
+      'machine_name' => 'activity_status',
+      'description' => '',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
     'customer_status' => array(
       'name' => 'Customer Status',
       'machine_name' => 'customer_status',
@@ -59,6 +82,29 @@ function tammuz_entity_types_taxonomy_default_vocabularies() {
       'name' => 'Journey Types',
       'machine_name' => 'journey_types',
       'description' => 'General Characteristics of the Journey',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
+    'serverity' => array(
+      'name' => 'Serverity',
+      'machine_name' => 'serverity',
+      'description' => 'Describes comments, tests, etc',
       'hierarchy' => 0,
       'module' => 'taxonomy',
       'weight' => 0,
