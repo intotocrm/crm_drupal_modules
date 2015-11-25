@@ -162,3 +162,4 @@ dependencies[] = charts_google
 
 dependencies[] = profile2
 dependencies[] = profile2_page
+dependencies[] = computed_field
