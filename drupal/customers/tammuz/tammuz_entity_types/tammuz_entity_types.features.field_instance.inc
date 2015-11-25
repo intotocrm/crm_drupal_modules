@@ -6218,9 +6218,10 @@ Leave empty if person\'s name is already in English.',
         'weight' => 4,
       ),
       'one_liner' => array(
-        'label' => 'above',
+        'label' => 'hidden',
+        'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'intoto_label_formatter',
         'weight' => 2,
       ),
       'small_block' => array(
@@ -6555,7 +6556,7 @@ Leave empty if person\'s name is already in English.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'small_block' => array(
         'label' => 'above',
@@ -6621,7 +6622,7 @@ Leave empty if person\'s name is already in English.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'small_block' => array(
         'label' => 'above',
@@ -6687,7 +6688,7 @@ Leave empty if person\'s name is already in English.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'small_block' => array(
         'label' => 'above',
@@ -6710,6 +6711,67 @@ Leave empty if person\'s name is already in English.',
       'settings' => array(),
       'type' => 'options_buttons',
       'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_contact-journey-field_latest_activity'
+  $field_instances['crm_core_contact-journey-field_latest_activity'] = array(
+    'bundle' => 'journey',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'contact_details' => array(
+        'label' => 'above',
+        'module' => 'intoto_crm_field_formatters',
+        'settings' => array(),
+        'type' => 'intoto_bootstrap_formatter',
+        'weight' => 5,
+      ),
+      'default' => array(
+        'label' => 'inline',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'header' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'one_liner' => array(
+        'label' => 'inline',
+        'module' => 'intoto_crm_field_formatters',
+        'settings' => array(),
+        'type' => 'intoto_label_formatter',
+        'weight' => 2,
+      ),
+      'small_block' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'crm_core_contact',
+    'field_name' => 'field_latest_activity',
+    'label' => 'Latest Activity',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'computed_field',
+      'settings' => array(),
+      'type' => 'computed',
+      'weight' => 5,
     ),
   );
 
@@ -6752,9 +6814,10 @@ Leave empty if person\'s name is already in English.',
         'weight' => 1,
       ),
       'one_liner' => array(
-        'label' => 'above',
+        'label' => 'inline',
+        'module' => 'intoto_crm_field_formatters',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'intoto_label_formatter',
         'weight' => 1,
       ),
       'small_block' => array(
@@ -9954,6 +10017,7 @@ Social Worker Review Summary');
   t('Instant Messaging');
   t('Issue Date');
   t('Journey');
+  t('Latest Activity');
   t('Marital Status');
   t('Name');
   t('Name in English');

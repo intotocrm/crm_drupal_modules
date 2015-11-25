@@ -8,10 +8,6 @@
  * and open the template in the editor.
  */
 
-if (!module_exists('devel'))
-{
-//        function dpm($a = NULL, $b = NULL){}
-}
 
 
 function intoto_generic_function_dispatcher($function_parts, $arguments, $depth = 1)
@@ -113,6 +109,17 @@ function intoto_get_related_contacts($base_contact, $relation_name)
 	return $ret;	
 }
 
+function intoto_get_latest_activity($base_contact, $activity_types)
+{
+	$query = new EntityFieldQuery();
+	$query->entityCondition('entity_type', 'crm_core_activity')
+	->entityCondition('bundle', $activity_types)
+	->fieldCondition('field_activity_participants', 'target_id', $base_contact, '=')
+//	->propertyOrderBy('weight')
+			;
+	$result = $query->execute();
+	return $result;
+}
 
 
 function intoto_get_hard_coded_views($module_name) {

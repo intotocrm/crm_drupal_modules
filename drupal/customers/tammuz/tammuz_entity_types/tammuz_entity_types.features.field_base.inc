@@ -782,6 +782,37 @@ Prof.',
     'type' => 'taxonomy_term_reference',
   );
 
+  // Exported field_base: 'field_latest_activity'
+  $field_bases['field_latest_activity'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_latest_activity',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'computed_field',
+    'settings' => array(
+      'code' => '$entity_field[0][\'value\'] = "";',
+      'database' => array(
+        'data_default' => '',
+        'data_index' => 0,
+        'data_length' => 32,
+        'data_not_NULL' => 0,
+        'data_precision' => 10,
+        'data_scale' => 2,
+        'data_size' => 'normal',
+        'data_type' => 'varchar',
+      ),
+      'display_format' => '$display_output = $entity_field_item[\'value\'];',
+      'profile2_private' => FALSE,
+      'recalculate' => 1,
+      'store' => 0,
+    ),
+    'translatable' => 0,
+    'type' => 'computed',
+  );
+
   // Exported field_base: 'field_marital_status'
   $field_bases['field_marital_status'] = array(
     'active' => 1,

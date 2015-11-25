@@ -35,7 +35,22 @@ function intoto_crm_field_formatters_field_formatter_info() {
 	return array(
 		'intoto_label_formatter' => array( //Machine name of the formatter
 			'label' => t('Small Label'),
-			'field types' => array('text', 'text_long', 'text_with_summary', 'datetime', 'date', 'number_decimal', 'email', 'list_text', 'list_boolean', 'field_collection', 'phone_number'), //This will only be available to text fields
+			'field types' => [
+				'text',
+				'text_long', 
+				'text_with_summary',
+				'datetime',
+				'date',
+				'number_decimal',
+				'email',
+				'list_text',
+				'list_boolean',
+				'field_collection',
+				'phone_number',
+				'computed',
+				'taxonomy_term_reference',
+				],
+				//This will only be available to text fields
 			'settings'	=> array( //Array of the settings we'll create
 //				'pic_size' => 'small', //give a default value for when the form is first loaded
 //				'tooltip' => 'Link to user Facebook page', //ditto
@@ -44,7 +59,23 @@ function intoto_crm_field_formatters_field_formatter_info() {
 
 		'intoto_bootstrap_formatter' => array( //Machine name of the formatter
 			'label' => t('Bootstrap'),
-			'field types' => array('text', 'text_long', 'text_with_summary', 'datetime', 'date', 'number_decimal', 'email', 'list_text', 'list_boolean', 'field_collection', 'phone_number', 'image'), //This will only be available to text fields
+			'field types' => [
+				'text',
+				'text_long',
+				'text_with_summary',
+				'datetime',
+				'date',
+				'number_decimal',
+				'email',
+				'list_text',
+				'list_boolean',
+				'field_collection',
+				'phone_number',
+				'image',
+				'computed',
+				'taxonomy_term_reference',
+				],
+			//This will only be available to text fields
 			'settings'	=> array( //Array of the settings we'll create
 //				'pic_size' => 'small', //give a default value for when the form is first loaded
 //				'tooltip' => 'Link to user Facebook page', //ditto
@@ -53,7 +84,24 @@ function intoto_crm_field_formatters_field_formatter_info() {
 		),
 		'intoto_icon_formatter' => array( //Machine name of the formatter
 			'label' => t('Icon'),
-			'field types' => array('text', 'text_long', 'text_with_summary', 'datetime', 'date', 'number_decimal', 'email', 'list_text', 'list_boolean', "field_collection", 'phone_number', 'image', 'name'), //This will only be available to text fields
+			'field types' => 
+			[
+				'text',
+				'text_long',
+				'text_with_summary',
+				'datetime',
+				'date',
+				'number_decimal',
+				'email',
+				'list_text',
+				'list_boolean',
+				"field_collection",
+				'phone_number',
+				'image',
+				'name',
+				'computed',
+				'taxonomy_term_reference',
+				], //This will only be available to text fields
 			'settings'	=> array( //Array of the settings we'll create
 //				'pic_size' => 'small', //give a default value for when the form is first loaded
 //				'tooltip' => 'Link to user Facebook page', //ditto
@@ -61,7 +109,12 @@ function intoto_crm_field_formatters_field_formatter_info() {
 		),
 		'intoto_caption_formatter' => array( //Machine name of the formatter
 			'label' => t('Caption'),
-			'field types' => array('name', 'text'), //This will only be available to text fields
+			'field types' => 
+			[
+				'name',
+				'text',
+				'computed',
+				], //This will only be available to text fields
 			'settings'	=> array( //Array of the settings we'll create
 			),
 		),
@@ -163,16 +216,29 @@ function intoto_crm_prepare_field_theme($theme, $entity_type, $entity, $field, $
 	$bundle = isset($entity->type) ? $entity->type : NULL;
 	
 	foreach ($items as $delta => $item) {
-		$label = NULL;
-		//print_r($display);
-		$value = NULL;
+		$element = [
+			'element' => $item,
+			'entity' => $entity,
+			'entity_type' => $entity_type,
+			'bundle' => $bundle, 
+			'field' => $field, 
+			'field_instance' => $instance, 
+			'display' => $display,
+		];
+
+		drupal_alter('field_preformat', $element);
+		
+		$field = $element['field']; // it might have been changed by field_preformat to completely different one
+		$item = $element['element']; //   kanal
+		
+		$label = isset($element['label']) ? $element['label'] : NULL;
+		$value = isset($element['value']) ? $element['value'] : NULL;;
 		$is_default = FALSE;
 		$comment = "";
 		$link = "";
 		if (isset($item)){
 			switch($field['type']){
 				case 'email':
-					//$value = l($item['email'], 'mailto:' . $item['email'], array('absolute' => TRUE));
 					$link = [
 							'uri' => 'mailto:' . $item['email'],
 							'options' => ['html'=>TRUE, 'absolute' => TRUE],
@@ -206,47 +272,8 @@ function intoto_crm_prepare_field_theme($theme, $entity_type, $entity, $field, $
 				case 'field_collection':
 					//load field collection by id
 					$field_collections = entity_load('field_collection_item', array($item['value']));
-					$field_collection = $field_collections [array_keys($field_collections)[0]]; //take only the first loaded collection
-
-
-//					$contact_wrapper = entity_metadata_wrapper('crm_core_contact', $entity);
 					$fields = entity_view("field_collection_item", $field_collections, 'field_list');
 					$value = render($fields);
-					switch($field_collection->field_name)
-					{
-						case 'field_address':
-							break;
-//						case 'field_phone':
-//							$number_fields = $contact_wrapper
-//								->field_phone[$delta]
-//								->field_number
-//								->value();
-//
-//							$number = make_phone_number($number_fields, true);
-//							$number_link = make_phone_number($number_fields, false);
-//							if ($number != "")
-//							{
-//								$link = [
-//									'uri' => 'tel:'. $number_link,
-//									'options' => ['html' => TRUE, 'attributes' => ['class'=>array('callto')]],
-//								];
-//
-//								$value = $number;
-//							}
-//							break;
-					}
-					
-					
-//					if (isset($field_collection->field_name) && $field_collection->field_name == 'field_phone')
-//					{
-//						//$number = theme_cck_phone_formatter_global_phone_number($field_collection->field_number['und'][0]);
-//						$number = $phone_wrapper->{"number"}->value();
-//						if ($number != "")
-//						{
-//							$value = l($number, 'tel:'. $field_collection->field_number['und'][0]['number'], array('attributes' => array('class'=>array('callto'))));
-//						}
-//						
-//					}
 					break;
 				case 'datetime':
 					$date = new DateTime($item['value']);
@@ -256,8 +283,21 @@ function intoto_crm_prepare_field_theme($theme, $entity_type, $entity, $field, $
 						$now = new DateTime('now');
 						$interval = date_diff($now, $date);
 						$comment .= $interval->format('%yyo');
-						
 					}
+					break;
+//				case 'computed':
+//					switch ($field['field_name']) {
+//						case 'field_latest_activity':
+//							$value = join ("--", $item['value']);
+//							break;
+//											
+//					}
+//					break;
+				case 'taxonomy_term_reference':
+					$terms = entity_load('taxonomy_term', array($item['tid']));
+					$fields = entity_view("taxonomy_term", $terms, 'field_list');
+					$value = render($fields);
+					
 					break;
 				case 'list_boolean':
 				default :
@@ -271,30 +311,20 @@ function intoto_crm_prepare_field_theme($theme, $entity_type, $entity, $field, $
 				$value = $field['settings']['allowed_values'][$value];
 			}
 			
-			if (isset($instance['label']) && !$label_set) {  //!isset($label) because I want the label to appear only once
+			if (!$label && isset($instance['label']) && !$label_set) {  //!isset($label) because I want the label to appear only once
 				$label = $instance['label'];
 				$label_set = true;
 			}
 		}
 		if ($value != NULL){
-			$element = [
-				'element' => $item,
-				'entity' => $entity,
-				'entity_type' => $entity_type,
-				'bundle' => $bundle, 
-				'value' => $value, 
-				'label' => $label, 
-				'comment' => $comment, 
-				'field' => $field, 
-				'field_instance' => $instance, 
-				'display' => $display,
-				'is_default' => $is_default,
-				'link' => $link,
-			];
 			
+			$element['value'] = $value;
+			$element['label'] = $label; 
+			$element['comment'] = $comment;
+			$element['is_default'] = $is_default;
+			$element['link'] = $link;
 
 			drupal_alter('field_format', $element);
-			
 			
 			$elements[$delta] = array(
 				'#markup' => theme($theme, $element),

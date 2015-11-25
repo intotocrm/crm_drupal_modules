@@ -257,6 +257,14 @@ function tammuz_activities_default_crm_core_activity_type() {
     "description" : "",
     "rdf_mapping" : []
   }');
+  $items['phone_call'] = entity_import('crm_core_activity_type', '{
+    "type" : "phone_call",
+    "label" : "Phone call",
+    "weight" : 0,
+    "activity_string" : "",
+    "description" : "A phone call between 2 or more contacts",
+    "rdf_mapping" : []
+  }');
   $items['pregnancy_positive'] = entity_import('crm_core_activity_type', '{
     "type" : "pregnancy_positive",
     "label" : "Pregnancy Positive",

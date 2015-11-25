@@ -150,11 +150,13 @@ function intoto_display_formats_ds_layout_settings_info() {
       'ds_content' => array(
         0 => 'contact_name',
         1 => 'field_image',
+        2 => 'field_phone',
       ),
     ),
     'fields' => array(
       'contact_name' => 'ds_content',
       'field_image' => 'ds_content',
+      'field_phone' => 'ds_content',
     ),
     'classes' => array(),
     'wrappers' => array(
@@ -237,19 +239,24 @@ function intoto_display_formats_ds_layout_settings_info() {
     'regions' => array(
       'ds_content' => array(
         0 => 'contact_name',
+        1 => 'field_surrogacy_plan_type',
+        2 => 'field_latest_activity',
       ),
     ),
     'fields' => array(
       'contact_name' => 'ds_content',
+      'field_surrogacy_plan_type' => 'ds_content',
+      'field_latest_activity' => 'ds_content',
     ),
     'classes' => array(),
-    'wrappers' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
-    'layout_attributes_merge' => TRUE,
-    'layout_link_attribute' => FALSE,
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
     'layout_link_custom' => '',
-    'layout_disable_css' => FALSE,
   );
   $export['crm_core_contact|journey|one_liner'] = $ds_layout;
 
@@ -436,6 +443,36 @@ function intoto_display_formats_ds_layout_settings_info() {
   );
   $export['field_collection_item|field_phone|fieldcollection_label'] = $ds_layout;
 
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'taxonomy_term|surrogacy_plan|field_list';
+  $ds_layout->entity_type = 'taxonomy_term';
+  $ds_layout->bundle = 'surrogacy_plan';
+  $ds_layout->view_mode = 'field_list';
+  $ds_layout->layout = 'ds_1col';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'description',
+        1 => 'title',
+      ),
+    ),
+    'fields' => array(
+      'description' => 'ds_content',
+      'title' => 'ds_content',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
+  );
+  $export['taxonomy_term|surrogacy_plan|field_list'] = $ds_layout;
+
   return $export;
 }
 
@@ -460,6 +497,7 @@ function intoto_display_formats_ds_view_modes_info() {
   $ds_view_mode->label = 'Field List';
   $ds_view_mode->entities = array(
     'field_collection_item' => 'field_collection_item',
+    'taxonomy_term' => 'taxonomy_term',
   );
   $export['field_list'] = $ds_view_mode;
 
