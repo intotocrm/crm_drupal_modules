@@ -162,3 +162,7 @@ dependencies[] = charts_google
 
 dependencies[] = profile2
 dependencies[] = profile2_page
+
+dependencies[] = flexiform
+dependencies[] = flexiform_element_group
+dependencies[] = flexiform_conditional_fields

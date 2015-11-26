@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ORMIL Forms feature.
+ */
+
+include_once 'ormil_forms.features.inc';

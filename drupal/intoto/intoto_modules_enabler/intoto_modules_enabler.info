@@ -22,3 +22,4 @@ dependencies[] = intoto_site_settings
 dependencies[] = intoto_mail
 dependencies[] = intoto_main
 dependencies[] = intoto_user_account_fields
+dependencies[] = intoto_contact_header
