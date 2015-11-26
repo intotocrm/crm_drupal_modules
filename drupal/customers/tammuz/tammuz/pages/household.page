@@ -2,11 +2,11 @@
 $page = new stdClass();
 $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
 $page->api_version = 1;
-$page->name = 'journeys';
+$page->name = 'household';
 $page->task = 'page';
-$page->admin_title = 'Journeys';
-$page->admin_description = 'page that describes journeys';
-$page->path = 'crm-core/contact/%contact/journey';
+$page->admin_title = 'household';
+$page->admin_description = 'page that describes household of individual (IP, child) or vice-versa';
+$page->path = 'crm-core/contact/%contact/household';
 $page->access = array(
   'plugins' => array(
     0 => array(
@@ -14,18 +14,19 @@ $page->access = array(
       'settings' => array(
         'type' => array(
           'child' => 'child',
-          'clinic' => 'clinic',
           'customer' => 'customer',
-          'doctor' => 'doctor',
-          'egg' => 'egg',
-          'egg_donor' => 'egg_donor',
-          'embryo' => 'embryo',
-          'journey' => 'journey',
-          'sperm_specimen' => 'sperm_specimen',
-          'surrogate' => 'surrogate',
+          'ip' => 'ip',
         ),
       ),
       'context' => 'argument_entity_id:crm_core_contact_1',
+      'not' => FALSE,
+    ),
+    1 => array(
+      'name' => 'perm',
+      'settings' => array(
+        'perm' => 'view any crm_core_contact entity',
+      ),
+      'context' => 'logged-in-user',
       'not' => FALSE,
     ),
   ),
@@ -33,7 +34,7 @@ $page->access = array(
 );
 $page->menu = array(
   'type' => 'tab',
-  'title' => 'Journey',
+  'title' => 'Household',
   'name' => 'navigation',
   'weight' => '1',
   'parent' => array(
@@ -58,13 +59,13 @@ $page->default_handlers = array();
 $handler = new stdClass();
 $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
 $handler->api_version = 1;
-$handler->name = 'page_journeys__panel_context_6c396a52-1486-4f3d-af47-360717fe49f8';
+$handler->name = 'page_try_contexts__panel_context_98363fbc-772f-4a5b-a483-53074ff5fef0';
 $handler->task = 'page';
-$handler->subtask = 'journeys';
+$handler->subtask = 'try_contexts';
 $handler->handler = 'panel_context';
 $handler->weight = 0;
 $handler->conf = array(
-  'title' => 'for non-journeys',
+  'title' => 'household for individuals',
   'no_blocks' => 0,
   'pipeline' => 'standard',
   'body_classes_to_remove' => '',
@@ -76,7 +77,7 @@ $handler->conf = array(
       'identifier' => 'Required Relationship',
       'keyword' => 'required-relationship',
       'name' => 'string',
-      'string' => 'participate_in',
+      'string' => 'member',
       'id' => 1,
     ),
     1 => array(
@@ -89,21 +90,21 @@ $handler->conf = array(
   ),
   'relationships' => array(),
   'access' => array(
-    'logic' => 'and',
+    'logic' => 'or',
     'plugins' => array(
       0 => array(
         'name' => 'entity_bundle:crm_core_contact',
         'settings' => array(
           'type' => array(
-            'journey' => 'journey',
+            'child' => 'child',
+            'ip' => 'ip',
           ),
         ),
         'context' => 'argument_entity_id:crm_core_contact_1',
-        'not' => TRUE,
+        'not' => FALSE,
       ),
     ),
   ),
-  'name' => '',
 );
 $display = new panels_display();
 $display->layout = 'twocol_stacked';
@@ -123,10 +124,10 @@ $display->uuid = '3b1e69d6-f23c-4d9f-a24d-c90891310363';
 $display->content = array();
 $display->panels = array();
   $pane = new stdClass();
-  $pane->pid = 'new-ac99a82c-14f4-4085-98b4-2eb4747aa01a';
-  $pane->panel = 'top';
+  $pane->pid = 'new-15c4a18e-b06a-44e1-b44d-e032b7a98f0f';
+  $pane->panel = 'left';
   $pane->type = 'views';
-  $pane->subtype = 'contacts_journey';
+  $pane->subtype = 'ip_memeber_households';
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
@@ -157,11 +158,183 @@ $display->panels = array();
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();
-  $pane->uuid = 'ac99a82c-14f4-4085-98b4-2eb4747aa01a';
-  $display->content['new-ac99a82c-14f4-4085-98b4-2eb4747aa01a'] = $pane;
-  $display->panels['top'][0] = 'new-ac99a82c-14f4-4085-98b4-2eb4747aa01a';
+  $pane->uuid = '15c4a18e-b06a-44e1-b44d-e032b7a98f0f';
+  $display->content['new-15c4a18e-b06a-44e1-b44d-e032b7a98f0f'] = $pane;
+  $display->panels['left'][0] = 'new-15c4a18e-b06a-44e1-b44d-e032b7a98f0f';
   $pane = new stdClass();
-  $pane->pid = 'new-cca93250-657d-4169-b9cb-01a8505d770a';
+  $pane->pid = 'new-58f38c2b-afe1-483f-96c4-eb027b05b292';
+  $pane->panel = 'left';
+  $pane->type = 'block';
+  $pane->subtype = 'intoto_crm-add_related_entity';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 1;
+  $pane->locks = array();
+  $pane->uuid = '58f38c2b-afe1-483f-96c4-eb027b05b292';
+  $display->content['new-58f38c2b-afe1-483f-96c4-eb027b05b292'] = $pane;
+  $display->panels['left'][1] = 'new-58f38c2b-afe1-483f-96c4-eb027b05b292';
+  $pane = new stdClass();
+  $pane->pid = 'new-cc0fbae0-900d-4e0c-8cd1-76c2dcb1ab4f';
+  $pane->panel = 'right';
+  $pane->type = 'views_panes';
+  $pane->subtype = 'siblings-panel_pane_1';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'link_to_view' => 0,
+    'more_link' => 0,
+    'use_pager' => 0,
+    'pager_id' => '0',
+    'items_per_page' => '9',
+    'offset' => '0',
+    'path' => '',
+    'arguments' => array(
+      'contact_id' => '%contact:contact-id',
+    ),
+    'fields_override' => array(
+      'field_image' => 1,
+      'contact_id' => 0,
+      'contact_name' => 1,
+    ),
+    'override_title' => 1,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => '',
+  );
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = 'cc0fbae0-900d-4e0c-8cd1-76c2dcb1ab4f';
+  $display->content['new-cc0fbae0-900d-4e0c-8cd1-76c2dcb1ab4f'] = $pane;
+  $display->panels['right'][0] = 'new-cc0fbae0-900d-4e0c-8cd1-76c2dcb1ab4f';
+$display->hide_title = PANELS_TITLE_FIXED;
+$display->title_pane = '0';
+$handler->conf['display'] = $display;
+$page->default_handlers[$handler->name] = $handler;
+$handler = new stdClass();
+$handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+$handler->api_version = 1;
+$handler->name = 'page_try_contexts__panel_context_1bd5975d-a072-4781-bc86-dde28a27a829';
+$handler->task = 'page';
+$handler->subtask = 'try_contexts';
+$handler->handler = 'panel_context';
+$handler->weight = 1;
+$handler->conf = array(
+  'title' => 'household page for household',
+  'no_blocks' => 0,
+  'pipeline' => 'standard',
+  'body_classes_to_remove' => '',
+  'body_classes_to_add' => '',
+  'css_id' => '',
+  'css' => '',
+  'contexts' => array(
+    0 => array(
+      'identifier' => 'Required Relationship',
+      'keyword' => 'required-relationship',
+      'name' => 'string',
+      'string' => 'member',
+      'id' => 1,
+    ),
+    1 => array(
+      'identifier' => 'relationship r_index',
+      'keyword' => 'relationship-r_index',
+      'name' => 'string',
+      'string' => '1',
+      'id' => 2,
+    ),
+  ),
+  'relationships' => array(),
+  'access' => array(
+    'logic' => 'or',
+    'plugins' => array(
+      0 => array(
+        'name' => 'entity_bundle:crm_core_contact',
+        'settings' => array(
+          'type' => array(
+            'customer' => 'customer',
+          ),
+        ),
+        'context' => 'argument_entity_id:crm_core_contact_1',
+        'not' => FALSE,
+      ),
+    ),
+  ),
+);
+$display = new panels_display();
+$display->layout = 'twocol_stacked';
+$display->layout_settings = array();
+$display->panel_settings = array(
+  'style_settings' => array(
+    'default' => NULL,
+    'top' => NULL,
+    'left' => NULL,
+    'right' => NULL,
+    'bottom' => NULL,
+  ),
+);
+$display->cache = array();
+$display->title = '';
+$display->uuid = '3b1e69d6-f23c-4d9f-a24d-c90891310363';
+$display->content = array();
+$display->panels = array();
+  $pane = new stdClass();
+  $pane->pid = 'new-7fe1aedf-9c61-4501-b2e4-3fa64f31550d';
+  $pane->panel = 'top';
+  $pane->type = 'views';
+  $pane->subtype = 'household_member_ips';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_pager_settings' => 0,
+    'use_pager' => 0,
+    'nodes_per_page' => '9',
+    'pager_id' => '0',
+    'offset' => '0',
+    'more_link' => 0,
+    'feed_icons' => 0,
+    'panel_args' => 0,
+    'link_to_view' => 0,
+    'args' => '',
+    'url' => '',
+    'display' => 'default',
+    'context' => array(
+      0 => 'argument_entity_id:crm_core_contact_1.contact-id',
+    ),
+    'override_title' => 1,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = '7fe1aedf-9c61-4501-b2e4-3fa64f31550d';
+  $display->content['new-7fe1aedf-9c61-4501-b2e4-3fa64f31550d'] = $pane;
+  $display->panels['top'][0] = 'new-7fe1aedf-9c61-4501-b2e4-3fa64f31550d';
+  $pane = new stdClass();
+  $pane->pid = 'new-10edb7fe-00f4-4eaf-9ea4-7ec6ba0647cc';
   $pane->panel = 'top';
   $pane->type = 'block';
   $pane->subtype = 'intoto_crm-add_related_entity';
@@ -180,129 +353,9 @@ $display->panels = array();
   $pane->extras = array();
   $pane->position = 1;
   $pane->locks = array();
-  $pane->uuid = 'cca93250-657d-4169-b9cb-01a8505d770a';
-  $display->content['new-cca93250-657d-4169-b9cb-01a8505d770a'] = $pane;
-  $display->panels['top'][1] = 'new-cca93250-657d-4169-b9cb-01a8505d770a';
-$display->hide_title = PANELS_TITLE_FIXED;
-$display->title_pane = '0';
-$handler->conf['display'] = $display;
-$page->default_handlers[$handler->name] = $handler;
-$handler = new stdClass();
-$handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
-$handler->api_version = 1;
-$handler->name = 'page_journeys__panel_context_d0adeecf-b3e4-4411-b900-75cec070d5b4';
-$handler->task = 'page';
-$handler->subtask = 'journeys';
-$handler->handler = 'panel_context';
-$handler->weight = 1;
-$handler->conf = array(
-  'title' => 'for journey',
-  'no_blocks' => 0,
-  'pipeline' => 'standard',
-  'body_classes_to_remove' => '',
-  'body_classes_to_add' => '',
-  'css_id' => '',
-  'css' => '',
-  'contexts' => array(
-    0 => array(
-      'identifier' => 'Required Relationship',
-      'keyword' => 'required-relationship',
-      'name' => 'string',
-      'string' => 'participate_in',
-      'id' => 1,
-    ),
-    1 => array(
-      'identifier' => 'relationship r_index',
-      'keyword' => 'relationship-r_index',
-      'name' => 'string',
-      'string' => '1',
-      'id' => 2,
-    ),
-  ),
-  'relationships' => array(),
-  'name' => '',
-  'access' => array(
-    'logic' => 'and',
-  ),
-);
-$display = new panels_display();
-$display->layout = 'twocol_stacked';
-$display->layout_settings = array();
-$display->panel_settings = array(
-  'style_settings' => array(
-    'default' => NULL,
-    'top' => NULL,
-    'left' => NULL,
-    'right' => NULL,
-    'bottom' => NULL,
-  ),
-);
-$display->cache = array();
-$display->title = '';
-$display->uuid = 'd4fb1856-a60e-449d-9317-105cb8cfb6f8';
-$display->content = array();
-$display->panels = array();
-  $pane = new stdClass();
-  $pane->pid = 'new-f35c0e0e-9d51-4b5f-8ead-2a7537172fd0';
-  $pane->panel = 'top';
-  $pane->type = 'views';
-  $pane->subtype = 'journey_participants';
-  $pane->shown = TRUE;
-  $pane->access = array();
-  $pane->configuration = array(
-    'override_pager_settings' => 0,
-    'use_pager' => 0,
-    'nodes_per_page' => '9',
-    'pager_id' => '0',
-    'offset' => '0',
-    'more_link' => 0,
-    'feed_icons' => 0,
-    'panel_args' => 0,
-    'link_to_view' => 0,
-    'args' => '',
-    'url' => '',
-    'display' => 'default',
-    'context' => array(
-      0 => 'argument_entity_id:crm_core_contact_1.contact-id',
-    ),
-    'override_title' => 1,
-    'override_title_text' => '',
-    'override_title_heading' => 'h2',
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array();
-  $pane->extras = array();
-  $pane->position = 0;
-  $pane->locks = array();
-  $pane->uuid = 'f35c0e0e-9d51-4b5f-8ead-2a7537172fd0';
-  $display->content['new-f35c0e0e-9d51-4b5f-8ead-2a7537172fd0'] = $pane;
-  $display->panels['top'][0] = 'new-f35c0e0e-9d51-4b5f-8ead-2a7537172fd0';
-  $pane = new stdClass();
-  $pane->pid = 'new-cbc4b133-7edd-4afb-948a-eef50f37d2bd';
-  $pane->panel = 'top';
-  $pane->type = 'block';
-  $pane->subtype = 'intoto_crm-add_related_entity';
-  $pane->shown = TRUE;
-  $pane->access = array();
-  $pane->configuration = array(
-    'override_title' => 1,
-    'override_title_text' => '',
-    'override_title_heading' => 'h2',
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array();
-  $pane->extras = array();
-  $pane->position = 1;
-  $pane->locks = array();
-  $pane->uuid = 'cbc4b133-7edd-4afb-948a-eef50f37d2bd';
-  $display->content['new-cbc4b133-7edd-4afb-948a-eef50f37d2bd'] = $pane;
-  $display->panels['top'][1] = 'new-cbc4b133-7edd-4afb-948a-eef50f37d2bd';
+  $pane->uuid = '10edb7fe-00f4-4eaf-9ea4-7ec6ba0647cc';
+  $display->content['new-10edb7fe-00f4-4eaf-9ea4-7ec6ba0647cc'] = $pane;
+  $display->panels['top'][1] = 'new-10edb7fe-00f4-4eaf-9ea4-7ec6ba0647cc';
 $display->hide_title = PANELS_TITLE_FIXED;
 $display->title_pane = '0';
 $handler->conf['display'] = $display;

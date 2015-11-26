@@ -215,26 +215,6 @@ Medical screening, medical treatment, egg retrieval, IVF, lab work, sperm donati
     'customized' => 1,
     'parent_identifier' => 'main-menu_add:<nolink>',
   );
-  // Exported menu link: main-menu_settings:<nolink>
-  $menu_links['main-menu_settings:<nolink>'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => '<nolink>',
-    'router_path' => '<nolink>',
-    'link_title' => 'Settings',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'main-menu_settings:<nolink>',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 1,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 1,
-  );
   // Exported menu link: main-menu_surrogate:crm-core/contact/add/surrogate
   $menu_links['main-menu_surrogate:crm-core/contact/add/surrogate'] = array(
     'menu_name' => 'main-menu',
@@ -256,6 +236,107 @@ Medical screening, medical treatment, egg retrieval, IVF, lab work, sperm donati
     'customized' => 1,
     'parent_identifier' => 'main-menu_add:<nolink>',
   );
+  // Exported menu link: user-menu_log-out:user/logout
+  $menu_links['user-menu_log-out:user/logout'] = array(
+    'menu_name' => 'user-menu',
+    'link_path' => 'user/logout',
+    'router_path' => 'user/logout',
+    'link_title' => 'Log out',
+    'options' => array(
+      'identifier' => 'user-menu_log-out:user/logout',
+    ),
+    'module' => 'system',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -47,
+    'customized' => 1,
+    'parent_identifier' => 'user-menu_user:<nolink>',
+  );
+  // Exported menu link: user-menu_my-preferences:my/preferences
+  $menu_links['user-menu_my-preferences:my/preferences'] = array(
+    'menu_name' => 'user-menu',
+    'link_path' => 'my/preferences',
+    'router_path' => 'my/%',
+    'link_title' => 'My Preferences',
+    'options' => array(
+      'attributes' => array(
+        'title' => 'Preferences for current user',
+      ),
+      'identifier' => 'user-menu_my-preferences:my/preferences',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -49,
+    'customized' => 1,
+    'parent_identifier' => 'user-menu_user:<nolink>',
+  );
+  // Exported menu link: user-menu_system-settings:intoto_site_settings/1/edit
+  $menu_links['user-menu_system-settings:intoto_site_settings/1/edit'] = array(
+    'menu_name' => 'user-menu',
+    'link_path' => 'intoto_site_settings/1/edit',
+    'router_path' => 'intoto_site_settings/%/edit',
+    'link_title' => 'System Settings',
+    'options' => array(
+      'attributes' => array(
+        'title' => 'General Settings for the whole system',
+      ),
+      'identifier' => 'user-menu_system-settings:intoto_site_settings/1/edit',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -48,
+    'customized' => 1,
+    'parent_identifier' => 'user-menu_user:<nolink>',
+  );
+  // Exported menu link: user-menu_user-account:account
+  $menu_links['user-menu_user-account:account'] = array(
+    'menu_name' => 'user-menu',
+    'link_path' => 'account',
+    'router_path' => 'account',
+    'link_title' => 'User Account',
+    'options' => array(
+      'attributes' => array(
+        'title' => 'Set personal user account settings',
+      ),
+      'identifier' => 'user-menu_user-account:account',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
+    'customized' => 1,
+    'parent_identifier' => 'user-menu_user:<nolink>',
+  );
+  // Exported menu link: user-menu_user:<nolink>
+  $menu_links['user-menu_user:<nolink>'] = array(
+    'menu_name' => 'user-menu',
+    'link_path' => '<nolink>',
+    'router_path' => '<nolink>',
+    'link_title' => 'User',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'user-menu_user:<nolink>',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 1,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+  );
 
   // Translatables
   // Included for use with string extractors like potx.
@@ -269,8 +350,12 @@ Medical screening, medical treatment, egg retrieval, IVF, lab work, sperm donati
   t('IP');
   t('Intended Parents');
   t('Journey');
-  t('Settings');
+  t('Log out');
+  t('My Preferences');
   t('Surrogate');
+  t('System Settings');
+  t('User');
+  t('User Account');
 
   return $menu_links;
 }

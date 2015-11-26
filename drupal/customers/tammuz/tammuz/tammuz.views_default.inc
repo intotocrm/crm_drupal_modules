@@ -30,6 +30,29 @@ function tammuz_views_default_views() {
 					'remove_text' => t("Disconnect from journey"),
 				]
 			);
+	
+	$views[] = create_related_contacts_view(
+				[
+					'name' => 'household_member_ips',
+					'description' => 'views to show all related IPs to Household',
+					'human_name' => "IPs related to Household",
+					'relation_id' => "member",
+					'r_index' => 1, //show from household to IP, not the other-way-around
+					'remove_text' => "Disconnect this IP from the household",
+				]
+			);
+	
+	$views[] = create_related_contacts_view(
+				[
+					'name' => 'ip_memeber_households',
+					'description' => 'views to show all related households to IP',
+					'human_name' => "Households related to an IP",
+					'relation_id' => "member",
+					'r_index' => 0, //show from IP to household, not the other-way-around
+					'remove_text' => "Disconnect this IP from the household",
+				]
+			);
+	
 	return $views;
 }
 	 

@@ -56,11 +56,13 @@ function intoto_display_formats_ds_layout_settings_info() {
       'ds_content' => array(
         0 => 'field_image',
         1 => 'contact_name',
+        2 => 'field_customer_number',
       ),
     ),
     'fields' => array(
       'field_image' => 'ds_content',
       'contact_name' => 'ds_content',
+      'field_customer_number' => 'ds_content',
     ),
     'classes' => array(),
     'wrappers' => array(
@@ -146,16 +148,14 @@ function intoto_display_formats_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'field_image',
-        1 => 'contact_name',
-        2 => 'field_email',
-        3 => 'field_phone',
+        0 => 'contact_name',
+        1 => 'field_image',
+        2 => 'field_phone',
       ),
     ),
     'fields' => array(
-      'field_image' => 'ds_content',
       'contact_name' => 'ds_content',
-      'field_email' => 'ds_content',
+      'field_image' => 'ds_content',
       'field_phone' => 'ds_content',
     ),
     'classes' => array(),
@@ -230,6 +230,38 @@ function intoto_display_formats_ds_layout_settings_info() {
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
+  $ds_layout->id = 'crm_core_contact|journey|one_liner';
+  $ds_layout->entity_type = 'crm_core_contact';
+  $ds_layout->bundle = 'journey';
+  $ds_layout->view_mode = 'one_liner';
+  $ds_layout->layout = 'ds_1col';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'contact_name',
+        1 => 'field_surrogacy_plan_type',
+        2 => 'field_latest_activity',
+      ),
+    ),
+    'fields' => array(
+      'contact_name' => 'ds_content',
+      'field_surrogacy_plan_type' => 'ds_content',
+      'field_latest_activity' => 'ds_content',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
+  );
+  $export['crm_core_contact|journey|one_liner'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
   $ds_layout->id = 'crm_core_contact|surrogate|header';
   $ds_layout->entity_type = 'crm_core_contact';
   $ds_layout->bundle = 'surrogate';
@@ -294,6 +326,95 @@ function intoto_display_formats_ds_layout_settings_info() {
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
+  $ds_layout->id = 'field_collection_item|field_address|field_list';
+  $ds_layout->entity_type = 'field_collection_item';
+  $ds_layout->bundle = 'field_address';
+  $ds_layout->view_mode = 'field_list';
+  $ds_layout->layout = 'ds_1col';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'field_address_details',
+        1 => 'field_address_type',
+      ),
+    ),
+    'fields' => array(
+      'field_address_details' => 'ds_content',
+      'field_address_type' => 'ds_content',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
+  );
+  $export['field_collection_item|field_address|field_list'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'field_collection_item|field_instant_messaging_collecti|field_list';
+  $ds_layout->entity_type = 'field_collection_item';
+  $ds_layout->bundle = 'field_instant_messaging_collecti';
+  $ds_layout->view_mode = 'field_list';
+  $ds_layout->layout = 'ds_1col';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'field_instant_messaging_type',
+        1 => 'field_instant_messaging_id',
+      ),
+    ),
+    'fields' => array(
+      'field_instant_messaging_type' => 'ds_content',
+      'field_instant_messaging_id' => 'ds_content',
+    ),
+    'classes' => array(),
+    'wrappers' => array(),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => TRUE,
+    'layout_link_attribute' => FALSE,
+    'layout_link_custom' => '',
+    'layout_disable_css' => FALSE,
+  );
+  $export['field_collection_item|field_instant_messaging_collecti|field_list'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'field_collection_item|field_phone|field_list';
+  $ds_layout->entity_type = 'field_collection_item';
+  $ds_layout->bundle = 'field_phone';
+  $ds_layout->view_mode = 'field_list';
+  $ds_layout->layout = 'ds_1col';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'field_number',
+        1 => 'field_type',
+      ),
+    ),
+    'fields' => array(
+      'field_number' => 'ds_content',
+      'field_type' => 'ds_content',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
+  );
+  $export['field_collection_item|field_phone|field_list'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
   $ds_layout->id = 'field_collection_item|field_phone|fieldcollection_label';
   $ds_layout->entity_type = 'field_collection_item';
   $ds_layout->bundle = 'field_phone';
@@ -302,10 +423,12 @@ function intoto_display_formats_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'field_number',
+        0 => 'field_type',
+        1 => 'field_number',
       ),
     ),
     'fields' => array(
+      'field_type' => 'ds_content',
       'field_number' => 'ds_content',
     ),
     'classes' => array(),
@@ -319,6 +442,36 @@ function intoto_display_formats_ds_layout_settings_info() {
     'layout_link_custom' => '',
   );
   $export['field_collection_item|field_phone|fieldcollection_label'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'taxonomy_term|surrogacy_plan|field_list';
+  $ds_layout->entity_type = 'taxonomy_term';
+  $ds_layout->bundle = 'surrogacy_plan';
+  $ds_layout->view_mode = 'field_list';
+  $ds_layout->layout = 'ds_1col';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'description',
+        1 => 'title',
+      ),
+    ),
+    'fields' => array(
+      'description' => 'ds_content',
+      'title' => 'ds_content',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
+  );
+  $export['taxonomy_term|surrogacy_plan|field_list'] = $ds_layout;
 
   return $export;
 }
@@ -340,12 +493,31 @@ function intoto_display_formats_ds_view_modes_info() {
 
   $ds_view_mode = new stdClass();
   $ds_view_mode->api_version = 1;
+  $ds_view_mode->view_mode = 'field_list';
+  $ds_view_mode->label = 'Field List';
+  $ds_view_mode->entities = array(
+    'field_collection_item' => 'field_collection_item',
+    'taxonomy_term' => 'taxonomy_term',
+  );
+  $export['field_list'] = $ds_view_mode;
+
+  $ds_view_mode = new stdClass();
+  $ds_view_mode->api_version = 1;
   $ds_view_mode->view_mode = 'fieldcollection_label';
   $ds_view_mode->label = 'FieldCollection Label';
   $ds_view_mode->entities = array(
     'field_collection_item' => 'field_collection_item',
   );
   $export['fieldcollection_label'] = $ds_view_mode;
+
+  $ds_view_mode = new stdClass();
+  $ds_view_mode->api_version = 1;
+  $ds_view_mode->view_mode = 'header';
+  $ds_view_mode->label = 'Header';
+  $ds_view_mode->entities = array(
+    'crm_core_contact' => 'crm_core_contact',
+  );
+  $export['header'] = $ds_view_mode;
 
   $ds_view_mode = new stdClass();
   $ds_view_mode->api_version = 1;

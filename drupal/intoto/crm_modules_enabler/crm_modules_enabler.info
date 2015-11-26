@@ -134,7 +134,7 @@ dependencies[] = views_bulk_operations
 dependencies[] = views_dynamic_fields
 dependencies[] = views_ui
 dependencies[] = views_field_view
-
+dependencies[] = views_field_view
 ; tb_megamenu
 dependencies[] = fontawesome
 dependencies[] = chosen 
@@ -166,3 +166,4 @@ dependencies[] = profile2_page
 dependencies[] = flexiform
 dependencies[] = flexiform_element_group
 dependencies[] = flexiform_conditional_fields
+dependencies[] = computed_field

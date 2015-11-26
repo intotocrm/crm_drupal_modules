@@ -160,6 +160,9 @@ function tammuz_entity_types_default_crm_core_contact_type() {
  * Implements hook_ctools_plugin_api().
  */
 function tammuz_entity_types_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "ds" && $api == "ds") {
+    return array("version" => "1");
+  }
   if ($module == "file_entity" && $api == "file_type") {
     return array("version" => "1");
   }
