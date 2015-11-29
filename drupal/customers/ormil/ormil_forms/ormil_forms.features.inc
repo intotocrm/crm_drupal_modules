@@ -20,7 +20,7 @@ function ormil_forms_default_flexiform() {
   $items = array();
   $items['quick_houshold'] = entity_import('flexiform', '{
     "form" : "quick_houshold",
-    "label" : "Quick Houshold",
+    "label" : "Quick Houshold Add",
     "elements" : {
       "base_entity:field:field_agency" : {
         "entity_namespace" : "base_entity",
@@ -303,19 +303,19 @@ function ormil_forms_default_flexiform() {
     "displays" : {
       "FlexiformDisplayCreatePage" : {
         "enabled" : 1,
-        "title" : "Add new household",
+        "title" : "Add a new household",
         "path" : "add\\/household",
         "type" : "6",
         "menu_name" : "main-menu",
         "weight" : "0",
-        "access" : { "permission" : "" }
+        "access" : { "permission" : "create crm_core_contact entities" }
       },
       "FlexiformDisplayEditPage" : {
         "enabled" : 0,
-        "title" : "",
-        "path" : "",
+        "title" : "Edit Household",
+        "path" : "crm-core\\/contact\\/%\\/quick_edit",
         "type" : "0",
-        "menu_name" : "crm-core-menu",
+        "menu_name" : "main-menu",
         "weight" : "0",
         "access" : { "permission" : "" }
       },

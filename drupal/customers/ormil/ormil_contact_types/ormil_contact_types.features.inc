@@ -14,7 +14,7 @@ function ormil_contact_types_default_crm_core_contact_type() {
     "label" : null,
     "weight" : 0,
     "primary_fields" : { "email" : "", "address" : "", "phone" : "" },
-    "name" : "Customer",
+    "name" : "Household",
     "description" : "Represents a household which is a customer of the clinic",
     "custom" : "0",
     "disabled" : "0",

@@ -18,6 +18,8 @@ function intoto_unauth_page_default_page_manager_pages() {
   $page->path = 'unauth_page';
   $page->access = array(
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array();
   $page->arguments = array();

@@ -10,7 +10,7 @@
 function ormil_activities_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'crm_core_activity-comment-field_activity_date'.
+  // Exported field_instance: 'crm_core_activity-comment-field_activity_date'
   $field_instances['crm_core_activity-comment-field_activity_date'] = array(
     'bundle' => 'comment',
     'deleted' => 0,
@@ -60,7 +60,7 @@ function ormil_activities_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'crm_core_activity-comment-field_activity_notes'.
+  // Exported field_instance: 'crm_core_activity-comment-field_activity_notes'
   $field_instances['crm_core_activity-comment-field_activity_notes'] = array(
     'bundle' => 'comment',
     'default_value' => NULL,
@@ -95,7 +95,7 @@ function ormil_activities_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'crm_core_activity-comment-field_activity_participants'.
+  // 'crm_core_activity-comment-field_activity_participants'
   $field_instances['crm_core_activity-comment-field_activity_participants'] = array(
     'bundle' => 'comment',
     'default_value' => NULL,
@@ -132,7 +132,44 @@ function ormil_activities_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'crm_core_activity-email-field_activity_date'.
+  // Exported field_instance: 'crm_core_activity-comment-field_severity'
+  $field_instances['crm_core_activity-comment-field_severity'] = array(
+    'bundle' => 'comment',
+    'default_value' => array(
+      0 => array(
+        'tid' => 1,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'This setting sets the way this comment is shown and where it\'s shown. You can later sort comments according to this',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'crm_core_activity',
+    'field_name' => 'field_severity',
+    'label' => 'Severity',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'crm_core_activity-email-field_activity_date'
   $field_instances['crm_core_activity-email-field_activity_date'] = array(
     'bundle' => 'email',
     'deleted' => 0,
@@ -181,7 +218,7 @@ function ormil_activities_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'crm_core_activity-email-field_activity_notes'.
+  // Exported field_instance: 'crm_core_activity-email-field_activity_notes'
   $field_instances['crm_core_activity-email-field_activity_notes'] = array(
     'bundle' => 'email',
     'default_value' => NULL,
@@ -216,7 +253,7 @@ function ormil_activities_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'crm_core_activity-email-field_activity_participants'.
+  // 'crm_core_activity-email-field_activity_participants'
   $field_instances['crm_core_activity-email-field_activity_participants'] = array(
     'bundle' => 'email',
     'default_value' => NULL,
@@ -253,7 +290,7 @@ function ormil_activities_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'crm_core_activity-email-field_log'.
+  // Exported field_instance: 'crm_core_activity-email-field_log'
   $field_instances['crm_core_activity-email-field_log'] = array(
     'bundle' => 'email',
     'default_value' => NULL,
@@ -287,7 +324,7 @@ function ormil_activities_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'crm_core_activity-email-field_mail_body'.
+  // Exported field_instance: 'crm_core_activity-email-field_mail_body'
   $field_instances['crm_core_activity-email-field_mail_body'] = array(
     'bundle' => 'email',
     'default_value' => NULL,
@@ -321,7 +358,7 @@ function ormil_activities_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'crm_core_activity-email-field_sent'.
+  // Exported field_instance: 'crm_core_activity-email-field_sent'
   $field_instances['crm_core_activity-email-field_sent'] = array(
     'bundle' => 'email',
     'default_value' => array(
@@ -358,7 +395,7 @@ function ormil_activities_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'crm_core_activity-meeting-field_activity_date'.
+  // Exported field_instance: 'crm_core_activity-meeting-field_activity_date'
   $field_instances['crm_core_activity-meeting-field_activity_date'] = array(
     'bundle' => 'meeting',
     'deleted' => 0,
@@ -408,7 +445,7 @@ function ormil_activities_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'crm_core_activity-meeting-field_activity_notes'.
+  // Exported field_instance: 'crm_core_activity-meeting-field_activity_notes'
   $field_instances['crm_core_activity-meeting-field_activity_notes'] = array(
     'bundle' => 'meeting',
     'default_value' => NULL,
@@ -443,7 +480,7 @@ function ormil_activities_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'crm_core_activity-meeting-field_activity_participants'.
+  // 'crm_core_activity-meeting-field_activity_participants'
   $field_instances['crm_core_activity-meeting-field_activity_participants'] = array(
     'bundle' => 'meeting',
     'default_value' => NULL,
@@ -480,8 +517,7 @@ function ormil_activities_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance:
-  // 'crm_core_activity-phone_call-field_activity_date'.
+  // Exported field_instance: 'crm_core_activity-phone_call-field_activity_date'
   $field_instances['crm_core_activity-phone_call-field_activity_date'] = array(
     'bundle' => 'phone_call',
     'deleted' => 0,
@@ -532,7 +568,7 @@ function ormil_activities_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'crm_core_activity-phone_call-field_activity_notes'.
+  // 'crm_core_activity-phone_call-field_activity_notes'
   $field_instances['crm_core_activity-phone_call-field_activity_notes'] = array(
     'bundle' => 'phone_call',
     'default_value' => NULL,
@@ -567,7 +603,7 @@ function ormil_activities_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'crm_core_activity-phone_call-field_activity_participants'.
+  // 'crm_core_activity-phone_call-field_activity_participants'
   $field_instances['crm_core_activity-phone_call-field_activity_participants'] = array(
     'bundle' => 'phone_call',
     'default_value' => NULL,
@@ -613,7 +649,9 @@ function ormil_activities_field_default_field_instances() {
   t('Notes');
   t('Participants');
   t('Sent');
+  t('Severity');
   t('Text to be sent as the body of the mail');
+  t('This setting sets the way this comment is shown and where it\'s shown. You can later sort comments according to this');
 
   return $field_instances;
 }

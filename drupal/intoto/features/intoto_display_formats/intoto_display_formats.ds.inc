@@ -12,40 +12,6 @@ function intoto_display_formats_ds_layout_settings_info() {
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
-  $ds_layout->id = 'crm_core_contact|customer|header';
-  $ds_layout->entity_type = 'crm_core_contact';
-  $ds_layout->bundle = 'customer';
-  $ds_layout->view_mode = 'header';
-  $ds_layout->layout = 'ds_1col';
-  $ds_layout->settings = array(
-    'regions' => array(
-      'ds_content' => array(
-        0 => 'contact_name',
-        1 => 'field_caption_in_native_language',
-        2 => 'field_customer_number',
-        3 => 'field_image',
-      ),
-    ),
-    'fields' => array(
-      'contact_name' => 'ds_content',
-      'field_caption_in_native_language' => 'ds_content',
-      'field_customer_number' => 'ds_content',
-      'field_image' => 'ds_content',
-    ),
-    'classes' => array(),
-    'wrappers' => array(
-      'ds_content' => 'div',
-    ),
-    'layout_wrapper' => 'div',
-    'layout_attributes' => '',
-    'layout_attributes_merge' => 1,
-    'layout_link_attribute' => '',
-    'layout_link_custom' => '',
-  );
-  $export['crm_core_contact|customer|header'] = $ds_layout;
-
-  $ds_layout = new stdClass();
-  $ds_layout->api_version = 1;
   $ds_layout->id = 'crm_core_contact|customer|one_liner';
   $ds_layout->entity_type = 'crm_core_contact';
   $ds_layout->bundle = 'customer';
@@ -54,15 +20,25 @@ function intoto_display_formats_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'field_image',
-        1 => 'contact_name',
-        2 => 'field_customer_number',
+        0 => 'contact_name',
+        1 => 'field_image',
+        2 => 'field_customer_type',
+        3 => 'field_surrogacy_type',
+        4 => 'field_status',
+        5 => 'field_sales_category',
+        6 => 'field_patient_status',
+        7 => 'field_mhb',
       ),
     ),
     'fields' => array(
-      'field_image' => 'ds_content',
       'contact_name' => 'ds_content',
-      'field_customer_number' => 'ds_content',
+      'field_image' => 'ds_content',
+      'field_customer_type' => 'ds_content',
+      'field_surrogacy_type' => 'ds_content',
+      'field_status' => 'ds_content',
+      'field_sales_category' => 'ds_content',
+      'field_patient_status' => 'ds_content',
+      'field_mhb' => 'ds_content',
     ),
     'classes' => array(),
     'wrappers' => array(
@@ -86,13 +62,39 @@ function intoto_display_formats_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'contact_name',
-        1 => 'field_customer_number',
+        0 => 'field_image',
+        1 => 'contact_name',
+        2 => 'field_agency',
+        3 => 'field_program',
+        4 => 'field_bedford',
+        5 => 'field_customer_type',
+        6 => 'field_surrogacy_type',
+        7 => 'field_managing_country',
+        8 => 'field_mhb',
+        9 => 'field_status',
+        10 => 'field_sales_category',
+        11 => 'field_patient_status',
+        12 => 'field_journey',
+        13 => 'field_campaign',
+        14 => 'field_referred_by',
       ),
     ),
     'fields' => array(
+      'field_image' => 'ds_content',
       'contact_name' => 'ds_content',
-      'field_customer_number' => 'ds_content',
+      'field_agency' => 'ds_content',
+      'field_program' => 'ds_content',
+      'field_bedford' => 'ds_content',
+      'field_customer_type' => 'ds_content',
+      'field_surrogacy_type' => 'ds_content',
+      'field_managing_country' => 'ds_content',
+      'field_mhb' => 'ds_content',
+      'field_status' => 'ds_content',
+      'field_sales_category' => 'ds_content',
+      'field_patient_status' => 'ds_content',
+      'field_journey' => 'ds_content',
+      'field_campaign' => 'ds_content',
+      'field_referred_by' => 'ds_content',
     ),
     'classes' => array(),
     'wrappers' => array(
@@ -108,38 +110,6 @@ function intoto_display_formats_ds_layout_settings_info() {
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
-  $ds_layout->id = 'crm_core_contact|ip|header';
-  $ds_layout->entity_type = 'crm_core_contact';
-  $ds_layout->bundle = 'ip';
-  $ds_layout->view_mode = 'header';
-  $ds_layout->layout = 'ds_1col';
-  $ds_layout->settings = array(
-    'regions' => array(
-      'ds_content' => array(
-        0 => 'field_image',
-        1 => 'contact_name',
-        2 => 'field_name_in_english',
-      ),
-    ),
-    'fields' => array(
-      'field_image' => 'ds_content',
-      'contact_name' => 'ds_content',
-      'field_name_in_english' => 'ds_content',
-    ),
-    'classes' => array(),
-    'wrappers' => array(
-      'ds_content' => 'div',
-    ),
-    'layout_wrapper' => 'div',
-    'layout_attributes' => '',
-    'layout_attributes_merge' => 1,
-    'layout_link_attribute' => '',
-    'layout_link_custom' => '',
-  );
-  $export['crm_core_contact|ip|header'] = $ds_layout;
-
-  $ds_layout = new stdClass();
-  $ds_layout->api_version = 1;
   $ds_layout->id = 'crm_core_contact|ip|one_liner';
   $ds_layout->entity_type = 'crm_core_contact';
   $ds_layout->bundle = 'ip';
@@ -148,14 +118,16 @@ function intoto_display_formats_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'contact_name',
-        1 => 'field_image',
-        2 => 'field_phone',
+        0 => 'field_image',
+        1 => 'contact_name',
+        2 => 'field_email',
+        3 => 'field_phone',
       ),
     ),
     'fields' => array(
-      'contact_name' => 'ds_content',
       'field_image' => 'ds_content',
+      'contact_name' => 'ds_content',
+      'field_email' => 'ds_content',
       'field_phone' => 'ds_content',
     ),
     'classes' => array(),
@@ -180,13 +152,13 @@ function intoto_display_formats_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'contact_name',
-        1 => 'field_image',
+        0 => 'field_image',
+        1 => 'contact_name',
       ),
     ),
     'fields' => array(
-      'contact_name' => 'ds_content',
       'field_image' => 'ds_content',
+      'contact_name' => 'ds_content',
     ),
     'classes' => array(),
     'wrappers' => array(
@@ -423,12 +395,10 @@ function intoto_display_formats_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'field_type',
-        1 => 'field_number',
+        0 => 'field_number',
       ),
     ),
     'fields' => array(
-      'field_type' => 'ds_content',
       'field_number' => 'ds_content',
     ),
     'classes' => array(),
@@ -509,15 +479,6 @@ function intoto_display_formats_ds_view_modes_info() {
     'field_collection_item' => 'field_collection_item',
   );
   $export['fieldcollection_label'] = $ds_view_mode;
-
-  $ds_view_mode = new stdClass();
-  $ds_view_mode->api_version = 1;
-  $ds_view_mode->view_mode = 'header';
-  $ds_view_mode->label = 'Header';
-  $ds_view_mode->entities = array(
-    'crm_core_contact' => 'crm_core_contact',
-  );
-  $export['header'] = $ds_view_mode;
 
   $ds_view_mode = new stdClass();
   $ds_view_mode->api_version = 1;
