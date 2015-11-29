@@ -304,3 +304,4 @@ function KEEP_intoto_crm_add_related_form_submit($form, &$form_state) {
 	$redirect_contact = $reverse ? $destination_contact : $source_contact;
 	$form_state['redirect'] = 'crm-core/contact/' . $redirect_contact->contact_id . '/relationships/';
 }
+
