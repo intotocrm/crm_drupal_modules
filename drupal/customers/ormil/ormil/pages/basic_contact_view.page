@@ -53,7 +53,7 @@ $handler->subtask = 'basic_contact_view';
 $handler->handler = 'panel_context';
 $handler->weight = 0;
 $handler->conf = array(
-  'title' => 'Panel',
+  'title' => 'For Households',
   'no_blocks' => 0,
   'pipeline' => 'standard',
   'body_classes_to_remove' => '',
@@ -64,6 +64,18 @@ $handler->conf = array(
   'relationships' => array(),
   'access' => array(
     'logic' => 'and',
+    'plugins' => array(
+      0 => array(
+        'name' => 'entity_bundle:crm_core_contact',
+        'settings' => array(
+          'type' => array(
+            'customer' => 'customer',
+          ),
+        ),
+        'context' => 'argument_entity_id:crm_core_contact_1',
+        'not' => FALSE,
+      ),
+    ),
   ),
 );
 $display = new panels_display();
@@ -167,6 +179,74 @@ $display->panels = array();
   $pane->uuid = '22766806-7c99-4276-a057-3f7b5e9382b5';
   $display->content['new-22766806-7c99-4276-a057-3f7b5e9382b5'] = $pane;
   $display->panels['right'][1] = 'new-22766806-7c99-4276-a057-3f7b5e9382b5';
+$display->hide_title = PANELS_TITLE_FIXED;
+$display->title_pane = 'new-208915e1-86e6-4d38-aa43-02db30d98ac1';
+$handler->conf['display'] = $display;
+$page->default_handlers[$handler->name] = $handler;
+$handler = new stdClass();
+$handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+$handler->api_version = 1;
+$handler->name = 'page_basic_contact_view__for-ips';
+$handler->task = 'page';
+$handler->subtask = 'basic_contact_view';
+$handler->handler = 'panel_context';
+$handler->weight = 1;
+$handler->conf = array(
+  'title' => 'for IPs',
+  'no_blocks' => 0,
+  'pipeline' => 'standard',
+  'body_classes_to_remove' => '',
+  'body_classes_to_add' => '',
+  'css_id' => '',
+  'css' => '',
+  'contexts' => array(),
+  'relationships' => array(),
+  'access' => array(
+    'logic' => 'and',
+  ),
+  'name' => 'for-ips',
+);
+$display = new panels_display();
+$display->layout = 'onecol';
+$display->layout_settings = array();
+$display->panel_settings = array(
+  'style_settings' => array(
+    'default' => NULL,
+    'left' => NULL,
+    'right' => NULL,
+    'middle' => NULL,
+  ),
+);
+$display->cache = array();
+$display->title = '';
+$display->uuid = '52263501-24d2-4f69-ac07-7faed5597105';
+$display->content = array();
+$display->panels = array();
+  $pane = new stdClass();
+  $pane->pid = 'new-208915e1-86e6-4d38-aa43-02db30d98ac1';
+  $pane->panel = 'middle';
+  $pane->type = 'entity_view';
+  $pane->subtype = 'crm_core_contact';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'view_mode' => 'contact_details',
+    'context' => 'argument_entity_id:crm_core_contact_1',
+    'override_title' => 1,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = '208915e1-86e6-4d38-aa43-02db30d98ac1';
+  $display->content['new-208915e1-86e6-4d38-aa43-02db30d98ac1'] = $pane;
+  $display->panels['middle'][0] = 'new-208915e1-86e6-4d38-aa43-02db30d98ac1';
 $display->hide_title = PANELS_TITLE_FIXED;
 $display->title_pane = 'new-208915e1-86e6-4d38-aa43-02db30d98ac1';
 $handler->conf['display'] = $display;
